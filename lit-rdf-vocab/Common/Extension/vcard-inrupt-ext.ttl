@@ -1,0 +1,78 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix schema:   <http://schema.org/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+
+#
+# Extensions deliberately add (i.e. extend) existing terms in existing
+# vocabularies, specifically to add extra features, such as multi-lingual
+# values for labels and comments.
+#
+# So we very deliberately re-use the underlying vocab's namespace, but use our
+# own prefix to try and differentiate. 
+#
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix vcard-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/vcard#> .
+
+vcard-inrupt-ext:
+    a owl:Ontology, lit_core:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:creator "Pat McBennett" ;
+    dcterms:date "2019/07/28" ;
+    dcterms:title "Inrupt extension adding multilingual meta-data for VCard terms" ;
+    dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
+    vann:preferredNamespacePrefix "vcard-inrupt-ext" ;
+    vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/vcard#" ;
+#    lit_core:extensionNamespaceUri "Or do we define a new predicate to explicitly state our extension namespace...?" ;
+    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+
+
+  vcard:hasAddress
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Address'@en, 'Dirección'@es .
+
+  vcard:hasEmail
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'EMail'@en, 'Correo electrónico'@es .
+
+  vcard:hasTelephone
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Telephone'@en, 'Teléfono'@es .
+
+  vcard:fn
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Name'@en, 'Nombre'@es .
+
+  vcard:role
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Role'@en, 'Rol'@es .
+
+  vcard:organization-name
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Company'@en, 'Compañía'@es .
+
+  vcard:street-address
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Street Address'@en, 'Dirección'@es .
+
+  vcard:locality
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Locality'@en, 'Localidad'@es .
+
+  vcard:postal-code
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Postal Code'@en, 'Código Postal'@es .
+
+  vcard:region
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Region'@en, 'Región'@es .
+
+  vcard:country-name
+    rdfs:isDefinedBy vcard-inrupt-ext: ;
+    rdfs:label 'Country'@en, 'Pais'@es .

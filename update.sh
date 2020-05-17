@@ -23,8 +23,8 @@ do
     case "$opt" in
       a ) versionLitArtifactGenerator="$OPTARG" ;;
       b ) versionLitVocabTermJava="$OPTARG" ;;
-      c ) versionArtifactJava="$OPTARG" ;;
-      d ) versionLitVocabTermJavaScript="$OPTARG" ;;
+      c ) versionLitVocabTermJavaScript="$OPTARG" ;;
+      d ) versionArtifactJava="$OPTARG" ;;
       e ) versionArtifactJavaScript="$OPTARG" ;;
       ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
     esac
@@ -40,37 +40,37 @@ fi
 if [ "${versionLitArtifactGenerator:-}" ]
 then
     # LIT Artifact Generator versions.
-    printf "Updating LIT Artifact Generator to version: [$versionLitArtifactGenerator].\n"
+    printf "\na) Updating LIT Artifact Generator to version: [$versionLitArtifactGenerator].\n"
 #    sed --in-place "s/artifactGeneratorVersion:\s*.*/artifactGeneratorVersion: $versionLitArtifactGenerator/" **/*.yml
-    find . -type f -name "*.yml" -print0 | xargs -0 sed --in-place "s/artifactGeneratorVersion:\s*.*/artifactGeneratorVersion: $versionLitArtifactGenerator/"
+    find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path "*/Generated/*" -print0 | xargs -0 sed --in-place "s/artifactGeneratorVersion:\s*.*/artifactGeneratorVersion: $versionLitArtifactGenerator/"
 fi
 
 if [ "${versionLitVocabTermJava:-}" ]
 then
     # Java LIT Vocab Term versions.
-    printf "\nUpdating Java LIT Vocab Term to version: [$versionLitVocabTermJava.\n"
-    find . -type f -name "*.yml" -print0 | xargs -0 sed --in-place "s/litVocabTermVersion:\s*[0-9].*/litVocabTermVersion: $versionLitVocabTermJava/"
-fi
-
-if [ "${versionArtifactJava:-}" ]
-then
-    # Java generated artifact versions.
-    printf "\nUpdating Java generated artifacts to version: [$versionArtifactJava].\n"
-    find . -type f -name "*.yml" -print0 | xargs -0 sed --in-place "s/artifactVersion:\s*[0-9].*/artifactVersion: $versionArtifactJava/"
+    printf "\nb) Updating Java LIT Vocab Term to version: [$versionLitVocabTermJava.\n"
+    find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path "*/Generated/*" -print0 | xargs -0 sed --in-place "s/litVocabTermVersion:\s*[0-9].*/litVocabTermVersion: $versionLitVocabTermJava/"
 fi
 
 if [ "${versionLitVocabTermJavaScript:-}" ]
 then
     # JavaScript LIT Vocab Term versions.
-    printf "\nUpdating JavaScript LIT Vocab Term to version: [$versionLitVocabTermJavaScript].\n"
-    find . -type f -name "*.yml" -print0 | xargs -0 sed --in-place "s/litVocabTermVersion:\s*\\\"\^.*/litVocabTermVersion: \\\"\^$versionLitVocabTermJavaScript\"/"
+    printf "\nc) Updating JavaScript LIT Vocab Term to version: [$versionLitVocabTermJavaScript].\n"
+    find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path "*/Generated/*" -print0 | xargs -0 sed --in-place "s/litVocabTermVersion:\s*\\\"\^.*/litVocabTermVersion: \\\"\^$versionLitVocabTermJavaScript\"/"
+fi
+
+if [ "${versionArtifactJava:-}" ]
+then
+    # Java generated artifact versions.
+    printf "\nd) Updating Java generated artifacts to version: [$versionArtifactJava].\n"
+    find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path "*/Generated/*" -print0 | xargs -0 sed --in-place "s/artifactVersion:\s*[0-9].*/artifactVersion: $versionArtifactJava/"
 fi
 
 if [ "${versionArtifactJavaScript:-}" ]
 then
     # JavaScript generated artifact versions.
-    printf "\nUpdating JavaScript generated artifacts to version: [$versionArtifactJavaScript].\n"
-    find . -type f -name "*.yml" -print0 | xargs -0 sed --in-place "s/artifactVersion:\s*\\\".*/artifactVersion: \\\"\^$versionArtifactJavaScript\"/"
+    printf "\ne) Updating JavaScript generated artifacts to version: [$versionArtifactJavaScript].\n"
+    find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path "*/Generated/*" -print0 | xargs -0 sed --in-place "s/artifactVersion:\s*\\\".*/artifactVersion: \\\"$versionArtifactJavaScript\"/"
 fi
 
 printf "\nUpdated YAML files:\n\n"

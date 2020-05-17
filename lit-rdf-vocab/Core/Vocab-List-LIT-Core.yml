@@ -1,0 +1,140 @@
+#
+# This file contains a simple list of vocabularies that we bundle together to
+# form the collective set of LIT 'Core' vocabularies.
+#
+# These are the vocabs that are core to the LIT itself, and for developers
+# using the core features of the LIT.
+#
+# Local vocabularies can be provided relative to the location of this resource
+# list file.
+#
+#
+artifactName: vocab-core
+artifactGeneratorVersion: 0.10.7
+
+versioning:
+  type: git
+  url: https://github.com/inrupt/lit-rdf-vocab.git
+  versioningTemplates: 
+    - templateInternal: ".gitignore.hbs"
+      fileName: ".gitignore"
+
+artifactToGenerate:
+  - programmingLanguage: Java
+    artifactVersion: 0.3.5-SNAPSHOT
+    litVocabTermVersion: 0.4.0
+    javaPackageName: com.inrupt.generated.vocab.lit.core
+    artifactDirectoryName: Java
+    templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
+    sourceFileExtension: java
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+    packaging:
+    - packagingTool: maven
+      groupId: com.inrupt
+      artifactPrefix: "inrupt-"
+      publish:
+      - key: "localMaven"
+        command: "mvn install"
+      - key: "remoteMaven"
+        command: "mvn deploy"
+      - key: "nexus"
+        command: "mvn -s /home/runner/work/lit-rdf-vocab/lit-rdf-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
+      packagingTemplates:
+      - templateInternal: litVocabTermDependent/java/rdf4j/pom.hbs
+        fileName: pom.xml
+      repository:
+      - type: repository
+        id: nexus-releases
+        url: https://nexus.inrupt.com/repository/maven-releases/
+      - type: snapshotRepository
+        id: nexus-snapshots
+        url: https://nexus.inrupt.com/repository/maven-snapshots/
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.3.7"
+    litVocabTermVersion: "^0.3.4"
+    artifactDirectoryName: TypeScript
+    typescriptVersion: "^3.8.3"
+    rdfjsDatamodelVersion: "^1.1.2"
+    rollupVersion: "^2.7.3"
+    rollupTypescriptPluginVersion: "^0.27.0"
+    rollupCommonjsPluginVersion: "^11.1.0"
+    rollupNodeResolveVersion: "^7.1.3"
+    templateInternal: litVocabTermDependent/typescript/vocab.hbs
+    sourceFileExtension: ts
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        artifactPrefix: lit-generated-
+        bundleName: "LitVocabCore"
+        publish:
+        - key: "localNpmWeb"
+          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
+        - key: "localNpmNode"
+          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+        - key: "githubNpm"
+          command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/"
+        packagingTemplates:
+          - templateInternal: litVocabTermDependent/typescript/package.hbs
+            fileName: package.json
+          - templateInternal: litVocabTermDependent/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: litVocabTermDependent/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+vocabList:
+  - description: The LIT Core vocabulary
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-core.ttl
+
+  - description: The LIT Consent vocabulary
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-consent.ttl
+
+  - description: LIT vocab that really just provides the Named Graph details for request body data
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-request-body.ttl
+
+  - description: LIT vocab for request data
+    inputResources:
+      - ./CopyOfVocab/lit-request.ttl
+
+  - description: LIT vocab for client metadata
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-meta-client.ttl
+
+  - description: LIT vocab for SHACL metadata
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-meta-shacl.ttl
+
+  - description: LIT vocab for server creation-time metadata
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-meta-server-creational.ttl
+
+  - description: LIT vocab for server runtime metadata
+    inputResources:
+      # Currently (Aug 2019), we just reference our LIT vocabs locally, and
+      # not as published vocabs online...
+      - ./CopyOfVocab/lit-meta-server-runtime.ttl
+
+
+  - description: The LIT Metrics Ontology contains vocab terms to represent metric statistics
+    inputResources:
+      - https://team.inrupt.net/public/lit/vocab/metric.ttl

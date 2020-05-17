@@ -1,0 +1,44 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix schema:   <http://schema.org/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix ws:       <http://www.w3.org/ns/pim/space#> .
+
+#
+# Extensions deliberately add (i.e. extend) existing terms in existing
+# vocabularies, specifically to add extra features, such as multi-lingual
+# values for labels and comments.
+#
+# So we very deliberately re-use the underlying vocab's namespace, but use our
+# own prefix to try and differentiate. 
+#
+@prefix ws-solid-ext: <https://w3id.org/lit/vocab/extension/ws#> .
+
+ws-solid-ext:
+    a owl:Ontology, lit_core:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:creator <https://solid.zwifi.eu/profile/card#me> ;
+    dcterms:date "2019/07/28" ;
+    dcterms:title "Inrupt extension to the Workspace Ontology" ;
+    dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology." ;
+    vann:preferredNamespacePrefix "ws-solid-ext" ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
+    dcterms:license "https://opensource.org/licenses/MIT" .
+
+
+ws:ConfigurationFile a rdfs:Class ;
+    rdfs:label "Configuration file"@en, "Fichier de configuration"@fr ;
+    rdfs:comment """A file describing a configuration. In this context, it is
+ expected to describe the workspace configuration."""@en .
+
+ws:MasterWorkspace a rdfs:Class .
+ws:PrivateWorkspace a rdfs:Class .
+ws:PublicWorkspace a rdfs:Class .
+ws:PreferencesWorkspace a rdfs:Class .
+ws:SharedWorkspace a rdfs:Class .
