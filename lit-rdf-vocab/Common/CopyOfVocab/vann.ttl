@@ -1,0 +1,48 @@
+#
+# PMcB: I needed to manually create this Turtle representation as
+# dereferencing the namespace just returns HTML, even when specifically
+# using a HTTP 'Accept' header value of 'text/turtle' (e.g. using POSTMAN).
+#
+# NOTE: I also took the liberty of adding triples for the ontology itself too.
+#
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix dcterms: <http://purl.org/dc/terms/>
+
+prefix vann: <http://purl.org/vocab/vann/>
+
+vann: a owl:Ontology ;
+	dcterms:title "The RDF Concepts Vocabulary (RDF)"@en ;
+	dcterms:description "A vocabulary for annotating vocabulary descriptions (VANN)."@en ;
+	vann:preferredNamespacePrefix "vann" ;
+	vann:preferredNamespaceUri "http://purl.org/vocab/vann/" .
+
+
+vann:changes a rdf:Property ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    rdfs:label "changes" ;
+    rdfs:comment "A reference to a resource that describes changes between this version of a vocabulary and the previous." .
+
+vann:example a rdf:Property ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    rdfs:label "Example" ;
+    rdfs:comment "A reference to a resource that provides an example of how this resource can be used." .
+
+vann:preferredNamespacePrefix a rdf:Property ;
+    rdfs:label "Preferred namespace prefix" ;
+    rdfs:comment "The preferred namespace prefix to ue when using terms from this vocabulary in an XML document." .
+
+vann:preferredNamespaceUri a rdf:Property ;
+    rdfs:label "Preferred namespace URI" ;
+    rdfs:comment "The preferred namespace URI to use when using terms from this vocabulary in an XML document." .
+
+vann:termGroup a rdf:Property ;
+    rdfs:label "Term group" ;
+    rdfs:comment "A group of related terms in a vocabulary." .
+
+vann:usageNote a rdf:Property ;
+    rdfs:subPropertyOf rdfs:seeAlso ;
+    rdfs:label "Usage note" ;
+    rdfs:comment "A reference to a resource that provides information on how this resource is to be used." .

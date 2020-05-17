@@ -1,0 +1,127 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix schema:   <http://schema.org/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+
+@prefix schema-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/schema#> .
+
+#
+# Extensions deliberately add (i.e. extend) existing terms in existing
+# vocabularies, specifically to add extra features, such as multi-lingual
+# values for labels and comments.
+#
+# So we very deliberately re-use the underlying vocab's namespace, but use our
+# own prefix to try and differentiate.
+#
+schema-inrupt-ext:
+    a owl:Ontology, lit_core:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:creator "Jarlath Holleran" ;
+    dcterms:date "2019/06/18" ;
+    dcterms:title "Inrupt extension adding multilingual meta-data for Schema.org terms" ;
+    dcterms:description "Extension to Schema.org terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
+    vann:preferredNamespacePrefix "schema-inrupt-ext" ;
+    vann:preferredNamespaceUri "http://schema.org/" ;
+    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+
+
+  schema:Person
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Person"@en ;
+    schema:alternateName "La personne"@fr ;
+    schema:alternateName "Person"@de ;
+    schema:alternateName "Persona"@es ;
+    schema:alternateName "Persona"@it ;
+    rdfs:comment "Une personne (vivante, morte, mort-vivant ou fictive)."@fr ;
+    rdfs:comment "Eine Person (lebendig, tot, untot oder fiktiv)."@de ;
+    rdfs:comment "Una persona (viva, muerta, no muerta o ficticia)."@es ;
+    rdfs:comment "Una persona (viva, morta, non morta o immaginaria)."@it .
+
+
+schema:givenName
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Given Name"@en ;
+    schema:alternateName "Prénom"@fr ;
+    schema:alternateName "Vorname"@de ;
+    schema:alternateName "Nombre de pila"@es ;
+    schema:alternateName "Nome di battesimo"@it ;
+    rdfs:comment "Prénom. Aux États-Unis, le prénom d’une personne. Ceci peut être utilisé avec familyName au lieu de la propriété name."@fr ;
+    rdfs:comment "Vorname. In den USA der Vorname einer Person. Dies kann zusammen mit familyName anstelle der Eigenschaft name verwendet werden."@de ;
+    rdfs:comment "Nombre de pila. En los EE. UU., El primer nombre de una persona. Esto se puede usar junto con familyName en lugar de la propiedad name."@es ;
+    rdfs:comment "Nome di battesimo. Negli Stati Uniti, il primo nome di una persona. Questo può essere usato insieme a familyName al posto della proprietà name."@it .
+
+schema:familyName a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Family Name"@en ;
+    schema:alternateName "Nom de famille"@fr ;
+    schema:alternateName "Nachname"@de ;
+    schema:alternateName "Apellido"@es ;
+    schema:alternateName "Cognome"@it ;
+    rdfs:comment "Nom de famille. Aux États-Unis, le nom de famille d’une personne. Ceci peut être utilisé avec GivenName au lieu de la propriété name."@fr ;
+    rdfs:comment "Nachname. In den USA der Nachname einer Person. Dies kann zusammen mit givenName anstelle der Eigenschaft name verwendet werden."@de ;
+    rdfs:comment "Apellido. En los EE.UU., el apellido de una persona. Esto se puede usar junto con givenName en lugar de la propiedad name."@es ;
+    rdfs:comment "Cognome. Negli Stati Uniti, il cognome di una persona. Questo può essere usato insieme a givenName al posto della proprietà name."@it .
+
+schema:additionalName a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:label "additionalName" ;
+    schema:alternateName "Additional Name"@en ;
+    schema:alternateName "Nom additionnel"@fr ;
+    schema:alternateName "Zusätzlicher Name"@de ;
+    schema:alternateName "Nombre adicional"@es ;
+    schema:alternateName "Nome aggiuntivo"@it ;
+    rdfs:comment "Un nom supplémentaire pour une personne peut être utilisé pour un deuxième prénom."@fr ;
+    rdfs:comment "Ein zusätzlicher Name für eine Person kann für einen zweiten Vornamen verwendet werden."@de ;
+    rdfs:comment "Un nombre adicional para una persona, se puede utilizar para un segundo nombre."@es ;
+    rdfs:comment "Un nome aggiuntivo per una persona può essere usato per un secondo nome."@it .
+
+schema:license a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "License"@en ;
+    schema:alternateName "License"@fr ;
+    schema:alternateName "Lizenz"@de ;
+    schema:alternateName "Licencia"@es ;
+    schema:alternateName "Licenza"@it ;
+    rdfs:comment "Un document de licence qui s'applique à ce contenu, généralement indiqué par une URL."@fr ;
+    rdfs:comment "Ein Lizenzdokument, das für diesen Inhalt gilt und in der Regel durch eine URL angegeben wird."@de ;
+    rdfs:comment "Un documento de licencia que se aplica a este contenido, normalmente indicado por URL."@es ;
+    rdfs:comment "Un documento di licenza che si applica a questo contenuto, generalmente indicato dall'URL."@it .
+
+schema:newTerm a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:label "newTerm" ;
+    rdfs:comment "Must have comment too!"@en .
+
+
+#
+# We need this term internally when generating source-code artifacts from vocabularies.
+#
+schema:alternateName
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Alternate Name"@en ;
+    schema:alternateName "Nom alternatif"@fr ;
+    schema:alternateName "Anderer Name"@de ;
+    schema:alternateName "Nombre alternativo"@es ;
+    schema:alternateName "Nome alternativo"@it ;
+    rdfs:comment "Un alias pour l'article."@fr ;
+    rdfs:comment "Ein Alias ​​für den Artikel."@de ;
+    rdfs:comment "Un alias para el elemento."@es ;
+    rdfs:comment "Un alias per l'elemento."@it .
+
+schema:name a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Name"@en ;
+    schema:alternateName "Nom"@fr ;
+    schema:alternateName "Name"@de ;
+    schema:alternateName "Nombre"@es ;
+    schema:alternateName "Nome"@it ;
+    rdfs:comment "Le nom de l'objet."@fr ;
+    rdfs:comment "Der Name des Artikels."@de ;
+    rdfs:comment "El nombre del artículo."@es ;
+    rdfs:comment "Il nome dell'articolo."@it .

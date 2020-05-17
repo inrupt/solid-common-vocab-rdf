@@ -1,0 +1,31 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix schema:   <http://schema.org/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+
+@prefix bibo:     <http://purl.org/ontology/bibo/> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix inrupt_notification: <https://inrupt.com/vocab/service/notification#> .
+
+
+inrupt_notification:
+	a owl:Ontology, lit_core:Ontology ;
+	owl:versionInfo "1" ;
+ 	dcterms:title "Inrupt notification vocabulary"@en ;
+	dcterms:description """The Inrupt notification vocabulary."""@en ;
+	dcterms:creator "PatMcB" ;
+	dcterms:date "2019/11/08" ;
+	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+	vann:preferredNamespacePrefix "inrupt_notification" ;
+	vann:preferredNamespaceUri "https://inrupt.com/vocab/service/notification#" .
+
+inrupt_notification:msgEventValidated a rdfs:Literal ;
+    skos:definition "Successfully validated event - from actor [{{0}}]"@en ;
+    skos:definition "Evento validado con éxito - del actor [{{0}}]"@es .

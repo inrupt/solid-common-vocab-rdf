@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <pluginGroups>
+  </pluginGroups>
+  <servers>
+    <server>
+      <id>{{SERVER_ID_RELEASE}}</id>
+      <username>{{SERVER_USERNAME}}</username>
+      <password>{{SERVER_PASSWORD}}</password>
+    </server>
+    <server>
+      <id>{{SERVER_ID_SNAPSHOT}}</id>
+      <username>{{SERVER_USERNAME}}</username>
+      <password>{{SERVER_PASSWORD}}</password>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+	      <repository>
+          <id>{{SERVER_ID_RELEASE}}</id>
+          <url>{{SERVER_URL_RELEASE}}</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>{{SERVER_ID_SNAPSHOT}}</id>
+          <url>{{SERVER_URL_SNAPSHOT}}</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+</settings>

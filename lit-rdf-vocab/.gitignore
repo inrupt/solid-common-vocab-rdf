@@ -1,0 +1,16 @@
+node_modules
+.nyc_output
+.idea
+*.iml
+
+Generated/
+
+.env
+
+#vscode
+/.vscode
+
+# Tests can generate output files, so ignore everything in there.
+test/resources/output
+coverage/
+
