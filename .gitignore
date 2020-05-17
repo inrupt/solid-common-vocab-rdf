@@ -1,0 +1,8 @@
+Generated/
+
+.idea
+*.iml
+
+#vscode
+/.vscode
+
