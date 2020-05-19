@@ -62,7 +62,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -97,7 +97,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
@@ -120,7 +120,7 @@ artifactToGenerate:
             fileName: index.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -150,7 +150,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
