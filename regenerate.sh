@@ -1,23 +1,22 @@
-git clone git@github.com:inrupt/lit-artifact-generator-js.git
+#!/bin/bash
+# set -e to exit on error.
+set -e
+# set -u to error on unbound variable (use ${var:-} to check if 'var' is set.
+set -u
+set -o pipefail
 
-#git -C lit-artifact-generator-js/ checkout -- package-lock.json
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+NORMAL=$(tput sgr0)
 
-git -C lit-artifact-generator-js/ pull origin master
-#git -C lit-rdf-vocab/ pull origin master
-#git -C solid-rdf-vocab/ pull origin master
-#git -C inrupt-rdf-vocab/ pull origin master
-#
-#git -C lit-java/ pull origin master
+helpFunction() {
+    echo ""
+    printf "Usage: $0\n"
+    printf "${BLUE}Executes the LIT Artifact Generator to re-generate artifacts from all YAML files found from here.${NORMAL}\n"
+}
 
+helpFunction
 
-cd lit-artifact-generator-js
-#rm package-lock.json
-npm install
-cd ..
-
-#cd lit-java
-#./gradlew clean :lit-vocab-term:assemble :lit-vocab-term:publishToMavenLocal
-#cd ..
-
-node lit-artifact-generator-js/index.js generate --vocabListFile **/*.yml --force --noprompt
-
+node lit-artifact-generator-js/index.js generate --vocabListFile **/*.yml --vocabListFileIgnore "lit-artifact-generator-js/**" --noprompt --publish [ "localMaven", "localNpmNode" ]
