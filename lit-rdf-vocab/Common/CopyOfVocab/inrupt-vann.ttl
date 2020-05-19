@@ -22,27 +22,27 @@ vann: a owl:Ontology ;
 
 vann:changes a rdf:Property ;
     rdfs:subPropertyOf rdfs:seeAlso ;
-    rdfs:label "changes" ;
-    rdfs:comment "A reference to a resource that describes changes between this version of a vocabulary and the previous." .
+    rdfs:label "changes"@en ;
+    rdfs:comment "A reference to a resource that describes changes between this version of a vocabulary and the previous."@en .
 
 vann:example a rdf:Property ;
     rdfs:subPropertyOf rdfs:seeAlso ;
-    rdfs:label "Example" ;
-    rdfs:comment "A reference to a resource that provides an example of how this resource can be used." .
+    rdfs:label "Example"@en ;
+    rdfs:comment "A reference to a resource that provides an example of how this resource can be used."@en .
 
 vann:preferredNamespacePrefix a rdf:Property ;
-    rdfs:label "Preferred namespace prefix" ;
-    rdfs:comment "The preferred namespace prefix to ue when using terms from this vocabulary in an XML document." .
+    rdfs:label "Preferred namespace prefix"@en ;
+    rdfs:comment "The preferred namespace prefix to ue when using terms from this vocabulary in an XML document."@en .
 
 vann:preferredNamespaceUri a rdf:Property ;
-    rdfs:label "Preferred namespace URI" ;
-    rdfs:comment "The preferred namespace URI to use when using terms from this vocabulary in an XML document." .
+    rdfs:label "Preferred namespace URI"@en ;
+    rdfs:comment "The preferred namespace URI to use when using terms from this vocabulary in an XML document."@en .
 
 vann:termGroup a rdf:Property ;
-    rdfs:label "Term group" ;
-    rdfs:comment "A group of related terms in a vocabulary." .
+    rdfs:label "Term group"@en ;
+    rdfs:comment "A group of related terms in a vocabulary."@en .
 
 vann:usageNote a rdf:Property ;
     rdfs:subPropertyOf rdfs:seeAlso ;
-    rdfs:label "Usage note" ;
-    rdfs:comment "A reference to a resource that provides information on how this resource is to be used." .
+    rdfs:label "Usage note"@en ;
+    rdfs:comment "A reference to a resource that provides information on how this resource is to be used."@en .

@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-ui-component
-artifactGeneratorVersion: 0.10.7
+artifactGeneratorVersion: 0.10.8
 
 versioning:
   type: git
@@ -16,39 +16,63 @@ versioning:
       fileName: ".gitignore"
 
 artifactToGenerate:
-  - programmingLanguage: TypeScript
-    artifactVersion: 0.3.5-SNAPSHOT
+#  - programmingLanguage: TypeScript
+#    artifactVersion: "0.3.7"
+#    litVocabTermVersion: "^0.3.4"
+#    artifactDirectoryName: TypeScript
+#    templateInternal: litVocabTermDependent/typescript/vocab.hbs
+#    sourceFileExtension: ts
+#    packaging:
+#      - packagingTool: npm
+#        npmModuleScope: "@inrupt/"
+#        artifactPrefix: "lit-generated-"
+#        typescriptVersion: "^3.8.3"
+#        rdfjsDatamodelVersion: "^1.1.2"
+#        rollupVersion: "^2.7.3"
+#        rollupTypescriptPluginVersion: "^0.27.0"
+#        rollupCommonjsPluginVersion: "^11.1.0"
+#        rollupNodeResolveVersion: "^7.1.3"
+#        bundleName: "InruptUiComponent"
+#        publish:
+#          - key: "localNpmWeb"
+#            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
+#          - key: "localNpmNode"
+#            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+#          - key: 'githubNpm'
+#            command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/inrupt"
+#        packagingTemplates:
+#          - templateInternal: litVocabTermDependent/typescript/package.hbs
+#            fileName: package.json
+#          - templateInternal: litVocabTermDependent/typescript/index.hbs
+#            fileName: index.ts
+#          - templateInternal: litVocabTermDependent/typescript/tsconfig.hbs
+#            fileName: tsconfig.json
+#          - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
+#            fileName: rollup.config.js
+
+  - programmingLanguage: JavaScript
+    artifactVersion: "0.3.7"
     litVocabTermVersion: "^0.3.4"
-    artifactDirectoryName: TypeScript
-    templateInternal: litVocabTermDependent/typescript/vocab.hbs
-    sourceFileExtension: ts
+    rdfjsDatamodelVersion: "^1.1.2"
+    artifactDirectoryName: JavaScript
+    templateInternal: litVocabTermDependent/javascript/vocab.hbs
+    sourceFileExtension: js
+    artifactPrefix: lit-generated-
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        artifactPrefix: "lit-generated-"
-        typescriptVersion: "^3.8.3"
-        rdfjsDatamodelVersion: "^1.1.2"
-        rollupVersion: "^2.7.3"
-        rollupTypescriptPluginVersion: "^0.27.0"
-        rollupCommonjsPluginVersion: "^11.1.0"
-        rollupNodeResolveVersion: "^7.1.3"
-        bundleName: "InruptUiComponent"
         publish:
           - key: "localNpmWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
           - key: "localNpmNode"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
           - key: 'githubNpm'
-            command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/inrupt"
+            command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
         packagingTemplates:
-          - templateInternal: litVocabTermDependent/typescript/package.hbs
+          - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
-          - templateInternal: litVocabTermDependent/typescript/index.hbs
-            fileName: index.ts
-          - templateInternal: litVocabTermDependent/typescript/tsconfig.hbs
-            fileName: tsconfig.json
-          - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
-            fileName: rollup.config.js
+          - templateInternal: litVocabTermDependent/javascript/index.hbs
+            fileName: index.js
 
 vocabList:
   - description: Inrupt Welcome Page Vocabulary

@@ -13,7 +13,10 @@ NORMAL=$(tput sgr0)
 
 helpFunction() {
     echo ""
-    printf "Usage: $0 [ -a -b -c -d -e ]\n"
+    printf "${BLUE}Usage: $0 [ -a -b -c -d -e ]\n"
+    printf "Displays version numbers being used across LIT Artifact Generator configuration files.${NORMAL}\n"
+    printf "${RED}NOTE: Also displays version numbers from commented-out entries, which will be prefixed with a hash '#'.${NORMAL}\n\n"
+    printf "${BLUE}Options:${NORMAL}\n"
     printf "\t-a ${BLUE}LIT Artifact Generator versions${NORMAL}\n"
     printf "\t-b ${BLUE}LIT Vocab Term Java versions${NORMAL}\n"
     printf "\t-c ${BLUE}LIT Vocab Term JavaScript versions${NORMAL}\n"
@@ -33,10 +36,16 @@ do
     esac
 done
 
+if [ "${1:-}" == "?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
+then
+    helpFunction
+    exit 1 # Exit script after printing help.
+fi
+
 # Print helpFunction in case parameters are empty, but display everything.
 if [ "${1:-}" == "" ]
 then
-    echo "No specific options - displaying all!";
+    echo "${RED}No specific options - displaying all!${NORMAL}";
     helpFunction
 
     litArtifactGenerator=true;
@@ -51,7 +60,7 @@ then
     # LIT Artifact Generator.
     # Alternative is to use 'find' first, but grep can handle what we need.
     #  command="find . -type f \( -name '*.yml' -o -name '*.yaml' \) -not -path \"*/Generated/*\" -exec grep \"artifactGeneratorVersion:\" {} +"
-    command="grep -r \"artifactGeneratorVersion:\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github}"
+    command="grep -r \"artifactGeneratorVersion:\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github,lit-artifact-generator*}"
     printf "${RED}a) LIT Artifact Generator versions:${NORMAL}\n"
     echo $command | bash | sed 's/\s*artifactGeneratorVersion: //' | column -s ':' -t
     echo ""
@@ -60,7 +69,7 @@ fi
 if [ "${litVocabTermJava:-}" ]
 then
     # Java LIT Vocab Term versions.
-    command="grep -r \"litVocabTermVersion:\s*[0-9]\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github}"
+    command="grep -r \"litVocabTermVersion:\s*[0-9]\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github,lit-artifact-generator*}"
     printf "${RED}b) Java LIT Vocab Term versions:${NORMAL}\n"
     echo $command | bash | sed 's/\s*litVocabTermVersion: //' | column -s ':' -t
     echo ""
@@ -69,7 +78,7 @@ fi
 if [ "${litVocabTermJavaScript:-}" ]
 then
     # JavaScript LIT Vocab Term versions.
-    command="grep -r \"litVocabTermVersion:\s*\\\"\^\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github}"
+    command="grep -r \"litVocabTermVersion:\s*\\\"\^\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github,lit-artifact-generator*}"
     printf "${RED}c) JavaScript LIT Vocab Term versions:${NORMAL}\n"
     echo $command | bash | sed 's/\s*litVocabTermVersion: //' | column -s ':' -t
     echo ""
@@ -78,7 +87,7 @@ fi
 if [ "${artifactJava:-}" ]
 then
     # Java generated artifact versions.
-    command="grep -r \"artifactVersion:\s*[0-9]\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github}"
+    command="grep -r \"artifactVersion:\s*[0-9]\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github,lit-artifact-generator*}"
     printf "${RED}d) Java generated artifact versions:${NORMAL}\n"
     echo $command | bash | sed 's/\s*artifactVersion: //' | column -s ':' -t
     echo ""
@@ -87,7 +96,7 @@ fi
 if [ "${artifactJavaScript:-}" ]
 then
     # JavaScript generated artifact versions.
-    command="grep -r \"artifactVersion:\s*\\\"\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github}"
+    command="grep -r \"artifactVersion:\s*\\\"\" --include=*.{yml,yaml} --exclude-dir={Generated,node_modules,.github,lit-artifact-generator*}"
     printf "${RED}e) JavaScript generated artifact versions:${NORMAL}\n"
     echo $command | bash | sed 's/\s*artifactVersion: //' | column -s ':' -t
     echo ""

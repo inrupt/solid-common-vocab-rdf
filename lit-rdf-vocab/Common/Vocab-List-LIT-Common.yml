@@ -18,7 +18,7 @@
 #
 #
 artifactName: vocab-common
-artifactGeneratorVersion: 0.10.7
+artifactGeneratorVersion: 0.10.8
 
 versioning:
   type: git
@@ -138,11 +138,14 @@ vocabList:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
     termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
 
-
   - description: rdfs
     nameAndPrefixOverride: rdfs
     inputResources:
       - http://www.w3.org/2000/01/rdf-schema#
+
+  - description: xsd
+    inputResources:
+      - ./CopyOfVocab/inrupt-xml-schema.ttl
 
   # OWL seems to have a bug in that the ontology itself is identified using a
   # subject IRI without the hash, yet the 'owl:' prefix correctly appends the
@@ -197,7 +200,7 @@ vocabList:
   #
   - description: vann
     inputResources:
-      - ./CopyOfVocab/vann.ttl
+      - ./CopyOfVocab/inrupt-vann.ttl
 
   - description: Dublin Core Terms
     nameAndPrefixOverride: dcterms
