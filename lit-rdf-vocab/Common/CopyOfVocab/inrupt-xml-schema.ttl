@@ -88,12 +88,12 @@ xsd:IDREF a rdf:Property ;
 
 xsd:ENTITY a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "ENTITY"@en ;
     rdfs:comment "."@en .
 
 xsd:NOTATION a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "NOTATION"@en ;
     rdfs:comment "."@en .
 
 xsd:normalizedString a rdf:Property ;
@@ -113,38 +113,38 @@ xsd:language a rdf:Property ;
 
 xsd:IDREFS a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "IDREFS"@en ;
     rdfs:comment "."@en .
 
 
 xsd:ENTITIES a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "ENTITIES"@en ;
     rdfs:comment "."@en .
 
 xsd:NMTOKEN a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "NMTOKEN"@en ;
     rdfs:comment "."@en .
 
 xsd:NMTOKENS a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "NMTOKENS"@en ;
     rdfs:comment "."@en .
 
 xsd:Name a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "Name"@en ;
     rdfs:comment "."@en .
 
 xsd:QName a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "QName"@en ;
     rdfs:comment "."@en .
 
 xsd:NCName a rdf:Property ;
     rdfs:isDefinedBy xsd: ;
-    rdfs:label ""@en ;
+    rdfs:label "NCName"@en ;
     rdfs:comment "."@en .
 
 xsd:integer a rdf:Property ;

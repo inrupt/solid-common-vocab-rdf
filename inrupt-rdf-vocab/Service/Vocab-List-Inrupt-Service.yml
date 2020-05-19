@@ -55,7 +55,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-service-js.git
     artifactDirectoryName: JavaScript

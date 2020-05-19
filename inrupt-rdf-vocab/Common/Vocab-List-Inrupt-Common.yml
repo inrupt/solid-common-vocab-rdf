@@ -58,7 +58,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript

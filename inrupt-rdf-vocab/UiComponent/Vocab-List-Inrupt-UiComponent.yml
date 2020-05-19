@@ -17,7 +17,7 @@ versioning:
 
 artifactToGenerate:
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.3.7"
+#    artifactVersion: "0.3.8"
 #    litVocabTermVersion: "^0.3.4"
 #    artifactDirectoryName: TypeScript
 #    templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -51,7 +51,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript

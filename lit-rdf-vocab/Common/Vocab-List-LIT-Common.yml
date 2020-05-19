@@ -62,7 +62,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.3.7"
+    artifactVersion: "0.3.8"
     litVocabTermVersion: "^0.3.4"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
