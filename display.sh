@@ -24,7 +24,7 @@ helpFunction() {
     printf "\t-e ${BLUE}Generated artifact JavaScript versions${NORMAL}\n\n"
 }
 
-while getopts "abcde" opt
+while getopts ":abcde" opt
 do
     case "$opt" in
       a ) litArtifactGenerator=true ;;
@@ -32,7 +32,7 @@ do
       c ) litVocabTermJavaScript=true ;;
       d ) artifactJava=true ;;
       e ) artifactJavaScript=true ;;
-      ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
+      ? ) helpFunction ;; # Print help in case parameter is non-existent
     esac
 done
 
@@ -42,7 +42,7 @@ then
     exit 1 # Exit script after printing help.
 fi
 
-# Print helpFunction in case parameters are empty, but display everything.
+# Print help in case parameters are empty, but display everything.
 if [ "${1:-}" == "" ]
 then
     echo "${RED}No specific options - displaying all!${NORMAL}";
