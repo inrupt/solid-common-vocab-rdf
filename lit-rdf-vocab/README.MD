@@ -49,4 +49,4 @@ Maven cache and to a local Verdaccio. You can turn either of these publications
 off by removing the `--publish` flags.
 
 For more information about the LIT artifact generator, feel free to visit 
-[the documentation](https://github.com/inrupt/lit-artifact-generator-js).
+[the documentation](https://github.com/inrupt/lit-artifact-generator).

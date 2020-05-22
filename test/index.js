@@ -6,7 +6,6 @@ console.log(`LIT Common: FOAF vocab term accountServiceHomepage comment: [${FOAF
 console.log();
 
 
-
 const { SOLID } = require("@inrupt/lit-generated-vocab-solid-common");
 const { SOLID:SOLID_TS } = require("@inrupt/lit-generated-vocab-solid-common-ts");
 const { SOLID:SOLID_RDFLIB } = require("@inrupt/lit-generated-vocab-solid-common-rdflib");
@@ -29,4 +28,3 @@ const { INRUPT_COMMON } = require("@inrupt/lit-generated-vocab-inrupt-common");
 
 console.log(`Inrupt Common vocab term errFailedToProcessIncomingRdf: [${INRUPT_COMMON.errFailedToProcessIncomingRdf.value}]`);
 console.log(`Inrupt Common vocab term errFailedToProcessIncomingRdf: [${INRUPT_COMMON.errFailedToProcessIncomingRdf.message.value}]`);
-

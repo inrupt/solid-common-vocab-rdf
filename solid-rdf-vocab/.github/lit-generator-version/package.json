@@ -1,7 +1,7 @@
 {
   "name": "lit-generator-version",
   "version": "0.1.0",
-  "description": "Retrieves the generator version from a YAML configuration file (see https://github.com/inrupt/lit-artifact-generator-js for details).",
+  "description": "Retrieves the generator version from a YAML configuration file (see https://github.com/inrupt/lit-artifact-generator for details).",
   "main": "index.js",
   "author": {
     "name": "Nicolas Seydoux"
