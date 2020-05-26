@@ -10,7 +10,7 @@
 #
 #
 artifactName: vocab-core
-artifactGeneratorVersion: 0.10.12
+artifactGeneratorVersion: 0.10.13
 
 versioning:
   type: git

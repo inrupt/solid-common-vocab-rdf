@@ -11,12 +11,12 @@ YELLOW=$(tput setaf 3)
 BLUE=$(tput setaf 4)
 NORMAL=$(tput sgr0)
 
-source ./run_command.sh
-
 # Get the directory this script itself is located in.
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-DEFAULT_TARGET_DIR="./src/ExternalVocab"
+DEFAULT_TARGET_DIR="src/ExternalVocab"
 TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
+
+source ${SCRIPT_DIR}/run_command.sh
 
 helpFunction() {
     printf "Usage: $0 [ -t <TargetDirectory to regenerate vocabulary source code> ]\n"
@@ -27,7 +27,7 @@ helpFunction() {
     printf "${RED}Script directory: [${SCRIPT_DIR}]${NORMAL}\n\n"
 }
 
-while getopts ":o:" opt
+while getopts ":t:" opt
 do
     case "$opt" in
       t ) TARGET_DIR=$OPTARG ;;
@@ -42,14 +42,14 @@ then
     exit 1 # Exit script after printing help.
 fi
 
-if [ "${1:-}" != "" ]
-then
-    printf "${RED}Unknown command-lne argument: [${1}]${NORMAL}\n\n"
-    helpFunction
-    exit 1 # Exit script after printing help.
-fi
+#if [ "${1:-}" != "" ]
+#then
+#    printf "${RED}Unknown command-lne argument: [${1}]${NORMAL}\n\n"
+#    helpFunction
+#    exit 1 # Exit script after printing help.
+#fi
 
-run_command "${SCRIPT_DIR}/fetchLag.sh"
+#run_command "${SCRIPT_DIR}/fetchLag.sh"
 
 # We don't yet have globbing support for the WATCH feature...
 #node lit-artifact-generator/index.js watch --vocabListFile **/*.yml --vocabListFileIgnore "lit-artifact-generator/**"
