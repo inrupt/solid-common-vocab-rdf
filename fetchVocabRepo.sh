@@ -14,7 +14,7 @@ NORMAL=$(tput sgr0)
 # Get the directory this script itself is located in.
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 STARTING_DIR="${PWD}"
-DEFAULT_TARGET_DIR="./src/ExternalVocab"
+DEFAULT_TARGET_DIR="src/ExternalVocab"
 TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
 GIT_REPOSITORY_URL=""
 GIT_BRANCH="master"
@@ -23,14 +23,14 @@ source ${SCRIPT_DIR}/run_command.sh
 
 helpFunction() {
     printf "${BLUE}Usage: $0 -r <RepositoryToClone> [ -t TargetDirectory ] [ -b GitBranch ]\n"
-    printf "Clones the specified repository (with an optional branch, default is [${GIT_BRANCH}]) into the specified target directory (default is [${DEFAULT_TARGET_DIR}]).${NORMAL}\n"
+    printf "Clones the specified repository (with an optional branch, default is [${YELLOW}${GIT_BRANCH}${BLUE}]) into the specified target directory (default is [${YELLOW}${DEFAULT_TARGET_DIR}${BLUE}]).${NORMAL}\n"
     printf "${BLUE}Options:${NORMAL}\n"
     printf "\t-r ${BLUE}Repository to clone (e.g. git@github.com:inrupt/lit-vocab.git)${NORMAL}\n\n"
-    printf "\t-t ${BLUE}Optional: target directory (default is: [${DEFAULT_TARGET_DIR}])${NORMAL}\n\n"
-    printf "\t-b ${BLUE}Optional: Git branch (default is: [${GIT_BRANCH}])${NORMAL}\n\n"
-    printf "${GREEN}Current working directory: [${PWD}]${NORMAL}\n"
-    printf "${GREEN}Target directory: [${TARGET_DIR}]${NORMAL}\n"
-    printf "${GREEN}Script directory: [${SCRIPT_DIR}]${NORMAL}\n"
+    printf "\t-t ${YELLOW}Optional: ${BLUE}target directory (default is: [${YELLOW}${DEFAULT_TARGET_DIR}${BLUE}])${NORMAL}\n\n"
+    printf "\t-b ${YELLOW}Optional: ${BLUE}Git branch (default is: [${YELLOW}${GIT_BRANCH}${BLUE}])${NORMAL}\n\n"
+    printf "${YELLOW}Current working directory: [${PWD}]${NORMAL}\n"
+    printf "${YELLOW}Target directory: [${TARGET_DIR}]${NORMAL}\n"
+    printf "${YELLOW}Script directory: [${SCRIPT_DIR}]${NORMAL}\n"
 }
 
 if [ "${1:-}" == "?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
@@ -58,11 +58,10 @@ fi
 
 REPO_DIR="$(echo ${GIT_REPOSITORY_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
 FULL_REPO_DIR="${TARGET_DIR}/${REPO_DIR}"
-printf "\n${GREEN}GIT_REPOSITORY_URL is [${GIT_REPOSITORY_URL}], REPO_DIR is [${REPO_DIR}], FULL_REPO_DIR is [${FULL_REPO_DIR}]${NORMAL}\n"
 
 if [ -d "${FULL_REPO_DIR}" ]
 then
-    printf "${GREEN}Found repository in [${FULL_REPO_DIR}] - ensuring branch [${GIT_BRANCH}] is up-to-date...${NORMAL}\n"
+    printf "${GREEN}Found repository locally in [${FULL_REPO_DIR}] - ensuring branch [${GIT_BRANCH}] is up-to-date...${NORMAL}\n"
     run_command "cd ${FULL_REPO_DIR}"
     run_command "git checkout ${GIT_BRANCH}"
     run_command "git fetch"
@@ -77,4 +76,4 @@ fi
 
 #run_command "cd ${STARTING_DIR}"
 
-printf "\n${GREEN}Successully cloned/updated repo [${REPO_DIR}] into directory: [${TARGET_DIR}].${NORMAL}\n"
+printf "\n${GREEN}Successully cloned/updated repo [${REPO_DIR}] into directory: [${TARGET_DIR}/${REPO_DIR}].${NORMAL}\n"
