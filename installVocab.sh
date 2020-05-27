@@ -32,8 +32,8 @@ helpFunction() {
     printf "\t-r ${BLUE}Repository to clone (e.g. git@github.com:inrupt/lit-vocab.git)${NORMAL}\n\n"
     printf "\t-m ${BLUE}Module to extract (may contain a bundle of vocabularies, e.g. @inrupt/lit-generated-vocab-common)${NORMAL}\n"
     printf "\t-i ${BLUE}Internal vocab location (e.g. inrupt-rdf-vocab/UIComponent)${NORMAL}\n"
-    printf "\t-t ${BLUE}Optional: target directory (default is: [${DEFAULT_TARGET_DIR}])${NORMAL}\n"
-    printf "\t-p ${BLUE}Optional: programming language (default is: [${PROGRAMMING_LANGUAGE}])${NORMAL}\n"
+    printf "\t-t ${YELLOW}Optional: ${BLUE}target directory (default is: [${YELLOW}${DEFAULT_TARGET_DIR}${BLUE}])${NORMAL}\n"
+    printf "\t-p ${YELLOW}Optional: ${BLUE}programming language (default is: [${YELLOW}${PROGRAMMING_LANGUAGE}${BLUE}])${NORMAL}\n"
     printf "\t-l ${BLUE}Depend on module locally (e.g. to watch for local changes and apply them immediately)${NORMAL}\n"
     printf "\t-n ${BLUE}Depend on non-local module${NORMAL}\n\n"
     printf "${RED}Current working directory: [${PWD}]${NORMAL}\n"
@@ -97,7 +97,11 @@ then
 
     REPO_DIR="$(echo ${GIT_REPOSITORY_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
     FULL_REPO_DIR="${TARGET_DIR}/${REPO_DIR}"
-    GENERATED_DIR="${FULL_REPO_DIR}/Generated"
+
+    # Generate inside each local vocab repo...
+#    GENERATED_DIR="${FULL_REPO_DIR}/Generated"
+    # Generate inside a shared directory...
+    GENERATED_DIR="${TARGET_DIR}/Generated/${REPO_DIR}"
 
     # Currently we use a glob pattern to generate from every YAML file found
     # recursively under the root directory of the GIT repository we cloned from.
@@ -119,7 +123,7 @@ then
       --vocabListFile "${FULL_REPO_DIR}/**/*.yml" \
       --vocabListFileIgnore "${FULL_REPO_DIR}/lit-artifact-generator/**" \
       --noprompt
-#      --force # Don't force generation of all for just one vocab install!
+#      --force # BUG - shouldn't be needed for fresh install, but seems to be!
 
 
     # Unfortunately, the VOCAB_MODULE (e.g. @inrupt/lit-generated-vocab-ui-component)
@@ -127,23 +131,23 @@ then
 #    VOCAB_MODULE_DIRECTORY="$(echo $VOCAB_MODULE | sed 's/@//g' | sed 's/\//-/g')"
 #    printf "\n\n\n${RED}VOCAB_MODULE_DIRECTORY is [${VOCAB_MODULE_DIRECTORY}]...${NORMAL}\n\n\n"
 
-
     FULL_LOCAL_VOCAB=${GENERATED_DIR}/${VOCAB_INTERNAL_LOCATION}/Generated/SourceCodeArtifacts/${PROGRAMMING_LANGUAGE}
     INSTALL=${VOCAB_MODULE}@file://${FULL_LOCAL_VOCAB}
     printf "\n${GREEN}Installing LOCAL dependency as [${INSTALL}]...${NORMAL}\n"
     run_command "npm install ${INSTALL}"
 
+    # Running 'npm install' also creates a 'node_modules' inside the generated
+    # directory, which causes the error:
+    # "Error: Cannot find module 'typescript'"
+    # Just removing this directory lets everything work fine!
+    printf "\n${GREEN}Removing unncessary 'node_modules' directory from: [${FULL_LOCAL_VOCAB}]...${NORMAL}\n"
+    run_command "rm -rf ${FULL_LOCAL_VOCAB}/node_modules"
+
     # We watch all YAMLs under a given root, and update the generated code
     # in our target directory accordingly.
-    printf "\n${GREEN}Watching vocabulary bundles within directory [${TARGET_DIR}]...${NORMAL}\n"
-#    run_command "${SCRIPT_DIR}/watchAll.sh -t ${FULL_LOCAL_VOCAB}"
-
-    node ${TARGET_DIR}/lit-artifact-generator/index.js \
-      watch \
-      --vocabListFile /home/pmcb55/Work/Projects/LIT/lit-vocab/inrupt-rdf-vocab/UiComponent/Vocab-List-Inrupt-UiComponent.yml \
-      --TARGET_DIR ${TARGET_DIR}/inrupt-lit-generated-vocab-ui-component
-
-
+    printf "\n${GREEN}Watching vocabulary bundles under directory [${TARGET_DIR}/${REPO_DIR}], generating to [${GENERATED_DIR}]...${NORMAL}\n"
+    run_command "${SCRIPT_DIR}/watchAll.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}"
+#    node ${TARGET_DIR}/lit-artifact-generator/index.js watch --vocabListFile ${TARGET_DIR}/${REPO_DIR}/**/*.yml --outputDirectory ${GENERATED_DIR}
 else
     INSTALL=${VOCAB_MODULE}
     printf "\n${GREEN}Installing REMOTE dependency as [${INSTALL}]...${NORMAL}\n"
