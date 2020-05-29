@@ -28,3 +28,11 @@ ui_tictactoe:createGameSuccess a rdfs:Literal ;
 ui_tictactoe:invitationTemplate a rdfs:Literal ;
 	skos:definition "<0><0><0>{{- name}}</0> has invited you to play a game of TicTacToe.</0><1>Would you like to play?</1></0>"@en ;
 	skos:definition "<0><0><0>{{- name}}</0> te ha invitado a un juego de Tres en Linea.</0><1>Quieres aceptar el juego?</1></0>"@es .
+
+ui_tictactoe:msgTicTacToeMove a rdfs:Literal ;
+	skos:definition "Tictactoe move"@en ;
+	skos:definition "Movimiento Tictactoe"@es .
+
+ui_tictactoe:msgMoveMade a rdfs:Literal ;
+	skos:definition "A move has been made in your Tic-Tac-Toe game."@en ;
+	skos:definition "Se ha realizado un movimiento en tu juego Tic-Tac-Toe."@es .

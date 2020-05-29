@@ -32,7 +32,7 @@ helpFunction() {
     printf "\t-r ${BLUE}Repository to clone (e.g. git@github.com:inrupt/lit-vocab.git)${NORMAL}\n\n"
     printf "\t-m ${BLUE}Module to extract (may contain a bundle of vocabularies, e.g. @inrupt/lit-generated-vocab-common)${NORMAL}\n"
     printf "\t-i ${BLUE}Internal vocab location (e.g. inrupt-rdf-vocab/UIComponent)${NORMAL}\n"
-    printf "\t-t ${YELLOW}Optional: ${BLUE}target directory (default is: [${YELLOW}${DEFAULT_TARGET_DIR}${BLUE}])${NORMAL}\n"
+    printf "\t-t ${YELLOW}Optional: ${BLUE}target directory (default is: [${YELLOW}${TARGET_DIR}${BLUE}])${NORMAL}\n"
     printf "\t-p ${YELLOW}Optional: ${BLUE}programming language (default is: [${YELLOW}${PROGRAMMING_LANGUAGE}${BLUE}])${NORMAL}\n"
     printf "\t-l ${BLUE}Depend on module locally (e.g. to watch for local changes and apply them immediately)${NORMAL}\n"
     printf "\t-n ${BLUE}Depend on non-local module${NORMAL}\n\n"
@@ -47,7 +47,7 @@ do
       r ) GIT_REPOSITORY_URL="$OPTARG" ;;
       m ) VOCAB_MODULE="$OPTARG" ;;
       i ) VOCAB_INTERNAL_LOCATION="$OPTARG" ;;
-      t ) TARGET_DIRECTORY="$OPTARG" ;;
+      t ) TARGET_DIR="$OPTARG" ;;
       p ) PROGRAMMING_LANGUAGE="$OPTARG" ;;
       l ) VOCAB_LOCAL=true ;;
       n ) VOCAB_REMOTE=true ;;
@@ -124,12 +124,6 @@ then
       --vocabListFileIgnore "${FULL_REPO_DIR}/lit-artifact-generator/**" \
       --noprompt
 #      --force # BUG - shouldn't be needed for fresh install, but seems to be!
-
-
-    # Unfortunately, the VOCAB_MODULE (e.g. @inrupt/lit-generated-vocab-ui-component)
-    # tells us nothing about the structure within the vocab repo itself...
-#    VOCAB_MODULE_DIRECTORY="$(echo $VOCAB_MODULE | sed 's/@//g' | sed 's/\//-/g')"
-#    printf "\n\n\n${RED}VOCAB_MODULE_DIRECTORY is [${VOCAB_MODULE_DIRECTORY}]...${NORMAL}\n\n\n"
 
     FULL_LOCAL_VOCAB=${GENERATED_DIR}/${VOCAB_INTERNAL_LOCATION}/Generated/SourceCodeArtifacts/${PROGRAMMING_LANGUAGE}
     INSTALL=${VOCAB_MODULE}@file://${FULL_LOCAL_VOCAB}

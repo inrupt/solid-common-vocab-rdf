@@ -21,7 +21,7 @@ artifactGeneratorVersion: 0.10.13
 
 versioning:
   type: git
-  url: https://github.com/inrupt/solid-rdf-vocab.git
+  url: https://github.com/inrupt/lit-vocab.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -62,7 +62,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.3.8"
+    artifactVersion: "0.3.9"
     litVocabTermVersion: "^0.3.5"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -86,6 +86,8 @@ artifactToGenerate:
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
         - key: 'githubNpm'
           command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/inrupt"
+        - key: "npm"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
@@ -97,7 +99,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.8"
+    artifactVersion: "0.3.9"
     litVocabTermVersion: "^0.3.5"
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
@@ -113,6 +115,8 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
           - key: 'githubNpm'
             command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
+          - key: "npm"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
@@ -120,7 +124,7 @@ artifactToGenerate:
             fileName: index.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.8"
+    artifactVersion: "0.3.9"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -136,6 +140,8 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
           - key: 'githubNpm'
             command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
+          - key: "npm"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdfext/package.hbs
             fileName: package.json
@@ -150,7 +156,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.8"
+    artifactVersion: "0.3.9"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
@@ -167,6 +173,8 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
           - key: 'githubNpm'
             command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
+          - key: "npm"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdflib/package.hbs
             fileName: package.json
