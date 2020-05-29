@@ -14,8 +14,8 @@ artifactGeneratorVersion: 0.10.13
 
 versioning:
   type: git
-  url: https://github.com/inrupt/lit-rdf-vocab.git
-  versioningTemplates: 
+  url: https://github.com/inrupt/lit-vocab.git
+  versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
 
@@ -54,7 +54,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.3.8"
+    artifactVersion: "0.3.9"
     litVocabTermVersion: "^0.3.5"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"
@@ -77,6 +77,8 @@ artifactToGenerate:
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
         - key: "githubNpm"
           command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/"
+        - key: "npm"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json

@@ -14,7 +14,7 @@ NORMAL=$(tput sgr0)
 # Get the directory this script itself is located in.
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 STARTING_DIR="${PWD}"
-DEFAULT_TARGET_DIR="./src/ExternalVocab"
+DEFAULT_TARGET_DIR="src/ExternalVocab"
 TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
 GIT_REPOSITORY_URL="git@github.com:inrupt/lit-artifact-generator.git"
 GIT_BRANCH="master"
