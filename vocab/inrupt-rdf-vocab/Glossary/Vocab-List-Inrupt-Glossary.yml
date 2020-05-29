@@ -10,14 +10,14 @@
 # Local vocabularies can be provided relative to the location of this resource
 # list file.
 #
-artifactName: vocab-inrupt-common
-artifactGeneratorVersion: 0.10.13
+artifactName: vocab-inrupt-glossary
+artifactGeneratorVersion: 0.10.14
 
 
 versioning:
   type: git
   url: https://github.com/inrupt/lit-vocab.git
-  versioningTemplates:
+  versioningTemplates: 
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
 
@@ -25,7 +25,7 @@ artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.3.5-SNAPSHOT
     litVocabTermVersion: 0.4.0
-    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.common
+    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.glossary
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -58,9 +58,9 @@ artifactToGenerate:
       
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.9"
+    artifactVersion: "0.3.11"
     litVocabTermVersion: "^0.3.5"
-    gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
+#    gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
@@ -75,7 +75,9 @@ artifactToGenerate:
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
         - key: 'githubNpm'
           command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-        packagingTemplates: 
+        - key: "npm"
+          command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
+        packagingTemplates:
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
           - templateInternal: litVocabTermDependent/javascript/index.hbs
@@ -89,10 +91,10 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
 vocabList:
-  - description: Common Vocabulary
+  - description: Inrupt ESS Vocabulary
     inputResources:
-      - CopyOfVocab/inrupt-common.ttl
+      - CopyOfVocab/inrupt-ess.ttl
 
-  - description: User Interface (UI) Common Vocabulary
+  - description: Inrupt Release Vocabulary
     inputResources:
-      - CopyOfVocab/inrupt-ui-common.ttl
+      - CopyOfVocab/inrupt-release.ttl

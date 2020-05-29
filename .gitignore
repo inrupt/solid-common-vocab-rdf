@@ -1,6 +1,6 @@
-lit-artifact-generator/
-Generated/
+bin/
 
+Generated/
 
 .idea
 *.iml

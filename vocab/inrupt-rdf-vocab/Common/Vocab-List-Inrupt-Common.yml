@@ -1,6 +1,6 @@
 #
 # This file contains a simple list of vocabularies that we bundle together to
-# form the collective set of Inrupt Notification service vocabularies.
+# form the collective set of Inrupt Common vocabularies.
 #
 # For example, for Java developers we can generate a single JAR, or for
 # JavaScript we can generate a single NPM module, that developers can depend
@@ -10,8 +10,9 @@
 # Local vocabularies can be provided relative to the location of this resource
 # list file.
 #
-artifactName: vocab-inrupt-service
-artifactGeneratorVersion: 0.10.13
+artifactName: vocab-inrupt-common
+artifactGeneratorVersion: 0.10.14
+
 
 versioning:
   type: git
@@ -24,7 +25,7 @@ artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.3.5-SNAPSHOT
     litVocabTermVersion: 0.4.0
-    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.service
+    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.common
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -35,11 +36,12 @@ artifactToGenerate:
       - default   # Defined in ACL
     packaging:
     - packagingTool: maven
-      groupId: com.inrupt.lit
+      groupId: com.inrupt
+      artifactPrefix: "inrupt-"
       publish:
-      - key: 'local'
+      - key: "localMaven"
         command: "mvn install"
-      - key: 'remote'
+      - key: "remoteMaven"
         command: "mvn deploy"
       - key: "nexus"
         command: "mvn -s /home/runner/work/inrupt-rdf-vocab/inrupt-rdf-vocab/settings.xml deploy"
@@ -53,17 +55,18 @@ artifactToGenerate:
       - type: snapshotRepository
         id: nexus-snapshots
         url: https://nexus.inrupt.com/repository/maven-snapshots/
+      
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.9"
+    artifactVersion: "0.3.11"
     litVocabTermVersion: "^0.3.5"
-    gitRepository: git@github.com:inrupt/lit-generated-vocab-service-js.git
+    gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
     packaging:
       - packagingTool: npm
-        artifactPrefix: "lit-generated-"
+        artifactPrefix: lit-generated-
         npmModuleScope: "@inrupt/"
         publish:
         - key: "localNpmWeb"
@@ -72,9 +75,7 @@ artifactToGenerate:
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
         - key: 'githubNpm'
           command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-        - key: "npm"
-          command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
-        packagingTemplates:
+        packagingTemplates: 
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
           - templateInternal: litVocabTermDependent/javascript/index.hbs
@@ -88,10 +89,10 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
 vocabList:
-  - description: Inrupt Notification Service Vocabulary
+  - description: Common Vocabulary
     inputResources:
-      - CopyOfVocab/inrupt-service-notification.ttl
+      - CopyOfVocab/inrupt-common.ttl
 
-  - description: Inrupt WebSub Vocabulary
+  - description: User Interface (UI) Common Vocabulary
     inputResources:
-      - CopyOfVocab/inrupt-service-websub.ttl
+      - CopyOfVocab/inrupt-ui-common.ttl
