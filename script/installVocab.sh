@@ -137,17 +137,15 @@ then
     printf "\n${GREEN}Removing unncessary 'node_modules' directory from: [${FULL_LOCAL_VOCAB}]...${NORMAL}\n"
     run_command "rm -rf ${FULL_LOCAL_VOCAB}/node_modules"
 
-    VOCAB_MODULE_AS_FILENAME="$(echo ${VOCAB_MODULE} | sed 's/^@//' | sed 's/\//-/g')"
-    WATCH_SCRIPT_FILE="./watch-${VOCAB_MODULE_AS_FILENAME}.sh"
-
     # Generate a simple script to allow the user easily re-run just the watcher
     # without having to rerun fetching the LAG or the vocab repo, or
     # re-generating, etc...
-    if [ ! -d "${WATCH_SCRIPT_FILE}" ]
+    WATCH_REPO_SCRIPT_FILE="./watch-${REPO_DIR}.sh"
+    if [ ! -d "${WATCH_REPO_SCRIPT_FILE}" ]
     then
-        printf "\n${GREEN}Creating simple script [${WATCH_SCRIPT_FILE}] to re-run watching this generated vocabulary.${NORMAL}\n"
-        echo "${SCRIPT_DIR}/watch.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}" > ${WATCH_SCRIPT_FILE}
-        run_command "chmod +x ${WATCH_SCRIPT_FILE}"
+        printf "\n${GREEN}Creating simple script [${WATCH_REPO_SCRIPT_FILE}] to re-run watching this local vocabulary repository.${NORMAL}\n"
+        echo "${SCRIPT_DIR}/watch.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}" > ${WATCH_REPO_SCRIPT_FILE}
+        run_command "chmod +x ${WATCH_REPO_SCRIPT_FILE}"
     fi
 
     # We watch all YAMLs under a given root, and update the generated code
