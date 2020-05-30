@@ -26,12 +26,12 @@ VOCAB_INTERNAL_LOCATION=""
 
 helpFunction() {
     echo ""
-    printf "${YELLOW}Usage: $0 -r <RepositoryToClone> -m <VocabModule> [ -t <TargetDirectory> ] [ -p <ProgrammingLanguage> ] [ -l | -r ]\n"
+    printf "${YELLOW}Usage: $0 -r <RepositoryToClone> -m <VocabModule> [ -i <InternalModuleDirectoryInRepo>] [ -t <TargetDirectory> ] [ -p <ProgrammingLanguage> ] [ -l | -r ]\n"
     printf "Installs the provided vocabulary module locally (i.e. clones the module inside this project), or remotely (publishing any local changes).${NORMAL}\n"
     printf "${BLUE}Options:${NORMAL}\n"
     printf "\t-r ${BLUE}Repository to clone (e.g. git@github.com:inrupt/lit-vocab.git)${NORMAL}\n\n"
     printf "\t-m ${BLUE}Module to extract (may contain a bundle of vocabularies, e.g. @inrupt/lit-generated-vocab-common)${NORMAL}\n"
-    printf "\t-i ${BLUE}Internal vocab location (e.g. inrupt-rdf-vocab/UIComponent)${NORMAL}\n"
+    printf "\t-i ${YELLOW}Optional: ${BLUE}Internal vocab location (e.g. inrupt-rdf-vocab/UIComponent) (default is: [${VOCAB_INTERNAL_LOCATION}]${NORMAL}\n"
     printf "\t-t ${YELLOW}Optional: ${BLUE}target directory (default is: [${YELLOW}${TARGET_DIR}${BLUE}])${NORMAL}\n"
     printf "\t-p ${YELLOW}Optional: ${BLUE}programming language (default is: [${YELLOW}${PROGRAMMING_LANGUAGE}${BLUE}])${NORMAL}\n"
     printf "\t-l ${BLUE}Depend on module locally (e.g. to watch for local changes and apply them immediately)${NORMAL}\n"
@@ -44,7 +44,7 @@ helpFunction() {
 while getopts ":r:m:i:t:p:ln" opt
 do
     case "$opt" in
-      r ) GIT_REPOSITORY_URL="$OPTARG" ;;
+      r ) GIT_REPO_URL="$OPTARG" ;;
       m ) VOCAB_MODULE="$OPTARG" ;;
       i ) VOCAB_INTERNAL_LOCATION="$OPTARG" ;;
       t ) TARGET_DIR="$OPTARG" ;;
@@ -56,16 +56,16 @@ do
 done
 
 
-if [ "${1:-}" == "?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
+if [ "${1:-}" == "?" ] || [ "${1:-}" == "-?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
 then
     helpFunction
     exit 1 # Exit script after printing help.
 fi
 
-# Print help in case parameters are empty, but display everything.
-if [ "${VOCAB_MODULE:-}" == "" ] || ( [ "${VOCAB_LOCAL}" == false ] && [ "${VOCAB_REMOTE}" == false ] )
+# Print help in case parameters are empty.
+if [ "${GIT_REPO_URL:-}" == "" ] || [ "${VOCAB_MODULE:-}" == "" ] || ( [ "${VOCAB_LOCAL}" == false ] && [ "${VOCAB_REMOTE}" == false ] )
 then
-    printf "${RED}You *MUST* provide a Vocab module, and state either local or remote.${NORMAL}\n"
+    printf "${RED}You *MUST* provide a Git repository to clone, a Vocab module to depend on, and state whether you want to depend on that module locally on your file system or remotely.${NORMAL}\n"
     helpFunction
     exit 1 # Exit script after printing help.
 fi
@@ -91,11 +91,11 @@ then
     printf "\n${GREEN}Fetching LIT Artifact Generator into directory [${TARGET_DIR}]...${NORMAL}\n"
     run_command "${SCRIPT_DIR}/fetchLag.sh -t ${TARGET_DIR}"
 
-    printf "\n${GREEN}Fetching vocabulary repository [${GIT_REPOSITORY_URL}] into directory [${TARGET_DIR}]...${NORMAL}\n"
-    run_command "${SCRIPT_DIR}/fetchVocabRepo.sh -r ${GIT_REPOSITORY_URL} -t ${TARGET_DIR}"
+    printf "\n${GREEN}Fetching vocabulary repository [${GIT_REPO_URL}] into directory [${TARGET_DIR}]...${NORMAL}\n"
+    run_command "${SCRIPT_DIR}/fetchVocabRepo.sh -r ${GIT_REPO_URL} -t ${TARGET_DIR}"
 
 
-    REPO_DIR="$(echo ${GIT_REPOSITORY_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
+    REPO_DIR="$(echo ${GIT_REPO_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
     FULL_REPO_DIR="${TARGET_DIR}/${REPO_DIR}"
 
     # Generate inside each local vocab repo...
@@ -137,10 +137,23 @@ then
     printf "\n${GREEN}Removing unncessary 'node_modules' directory from: [${FULL_LOCAL_VOCAB}]...${NORMAL}\n"
     run_command "rm -rf ${FULL_LOCAL_VOCAB}/node_modules"
 
+    VOCAB_MODULE_AS_FILENAME="$(echo ${VOCAB_MODULE} | sed 's/^@//' | sed 's/\//-/g')"
+    WATCH_SCRIPT_FILE="./watch-${VOCAB_MODULE_AS_FILENAME}.sh"
+
+    # Generate a simple script to allow the user easily re-run just the watcher
+    # without having to rerun fetching the LAG or the vocab repo, or
+    # re-generating, etc...
+    if [ ! -d "${WATCH_SCRIPT_FILE}" ]
+    then
+        printf "\n${GREEN}Creating simple script [${WATCH_SCRIPT_FILE}] to re-run watching this generated vocabulary.${NORMAL}\n"
+        echo "${SCRIPT_DIR}/watch.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}" > ${WATCH_SCRIPT_FILE}
+        run_command "chmod +x ${WATCH_SCRIPT_FILE}"
+    fi
+
     # We watch all YAMLs under a given root, and update the generated code
     # in our target directory accordingly.
     printf "\n${GREEN}Watching vocabulary bundles under directory [${TARGET_DIR}/${REPO_DIR}], generating to [${GENERATED_DIR}]...${NORMAL}\n"
-    run_command "${SCRIPT_DIR}/watchAll.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}"
+    run_command "${SCRIPT_DIR}/watch.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}"
 #    node ${TARGET_DIR}/lit-artifact-generator/index.js watch --vocabListFile ${TARGET_DIR}/${REPO_DIR}/**/*.yml --outputDirectory ${GENERATED_DIR}
 else
     INSTALL=${VOCAB_MODULE}
