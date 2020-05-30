@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-glossary
-artifactGeneratorVersion: 0.10.14
+artifactGeneratorVersion: 0.10.15
 
 
 versioning:
@@ -66,8 +66,8 @@ artifactToGenerate:
     sourceFileExtension: js
     packaging:
       - packagingTool: npm
-        artifactPrefix: lit-generated-
         npmModuleScope: "@inrupt/"
+        artifactPrefix: lit-generated-
         publish:
         - key: "localNpmWeb"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"

@@ -18,7 +18,7 @@
 #
 #
 artifactName: vocab-common
-artifactGeneratorVersion: 0.10.14
+artifactGeneratorVersion: 0.10.15
 
 versioning:
   type: git

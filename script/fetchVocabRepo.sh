@@ -16,7 +16,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 STARTING_DIR="${PWD}"
 DEFAULT_TARGET_DIR="src/ExternalVocab"
 TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
-GIT_REPOSITORY_URL=""
+GIT_REPO_URL=""
 GIT_BRANCH="master"
 
 source ${SCRIPT_DIR}/run_command.sh
@@ -42,21 +42,21 @@ fi
 while getopts ":r:t:b:" opt
 do
     case "$opt" in
-      r ) GIT_REPOSITORY_URL="$OPTARG" ;;
+      r ) GIT_REPO_URL="$OPTARG" ;;
       t ) TARGET_DIR="$OPTARG" ;;
       b ) GIT_BRANCH="$OPTARG" ;;
       ? ) helpFunction ;; # Print help in case parameter is non-existent
     esac
 done
 
-if [ "${GIT_REPOSITORY_URL:-}" == "" ]
+if [ "${GIT_REPO_URL:-}" == "" ]
 then
     printf "${RED}You *MUST* provide a Git repository to fetch from (use option '-r')...${NORMAL}\n\n"
     helpFunction
     exit 1 # Exit script after printing help.
 fi
 
-REPO_DIR="$(echo ${GIT_REPOSITORY_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
+REPO_DIR="$(echo ${GIT_REPO_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
 FULL_REPO_DIR="${TARGET_DIR}/${REPO_DIR}"
 
 if [ -d "${FULL_REPO_DIR}" ]
@@ -71,9 +71,8 @@ else
     run_command "mkdir -p ${TARGET_DIR}"
     run_command "cd ${TARGET_DIR}"
 
-    run_command "git clone -b ${GIT_BRANCH} ${GIT_REPOSITORY_URL}"
+    run_command "git clone -b ${GIT_BRANCH} ${GIT_REPO_URL}"
 fi
 
 #run_command "cd ${STARTING_DIR}"
-
 printf "\n${GREEN}Successully cloned/updated repo [${REPO_DIR}] into directory: [${TARGET_DIR}/${REPO_DIR}].${NORMAL}\n"

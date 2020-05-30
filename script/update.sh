@@ -42,6 +42,12 @@ do
     esac
 done
 
+if [ "${1:-}" == "?" ] || [ "${1:-}" == "-?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
+then
+    helpFunction
+    exit 1 # Exit script after printing help.
+fi
+
 # Print help in case parameters are empty.
 if [ "${1:-}" == "" ]
 then

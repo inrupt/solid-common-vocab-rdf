@@ -14,8 +14,11 @@ NORMAL=$(tput sgr0)
 # Get the directory this script itself is located in.
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 STARTING_DIR="${PWD}"
-DEFAULT_TARGET_DIR="src/ExternalVocab"
-TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
+
+# We default to installing the LAG in a sibling directory (that we explicitly
+# add to our repo's .gitignore file) of this script directory.
+TARGET_DIR="${SCRIPT_DIR}/../bin"
+
 GIT_REPOSITORY_URL="git@github.com:inrupt/lit-artifact-generator.git"
 GIT_BRANCH="master"
 GIT_VERSION_TAG=""
@@ -33,7 +36,7 @@ helpFunction() {
     printf "${RED}Script directory: [${SCRIPT_DIR}]${NORMAL}\n"
 }
 
-if [ "${1:-}" == "?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
+if [ "${1:-}" == "?" ] || [ "${1:-}" == "-?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
 then
     helpFunction
     exit 1 # Exit script after printing help.

@@ -42,7 +42,7 @@ do
     esac
 done
 
-if [ "${1:-}" == "?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
+if [ "${1:-}" == "?" ] || [ "${1:-}" == "-?" ] || [ "${1:-}" == "-h" ] || [ "${1:-}" == "--help" ]
 then
     helpFunction
     exit 1 # Exit script after printing help.

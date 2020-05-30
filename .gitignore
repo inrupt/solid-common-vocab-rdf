@@ -2,6 +2,10 @@ bin/
 
 Generated/
 
+# In case publishing script is run from within this repo, we ignore the default
+# target generation directory.
+src/ExternalVocab
+
 .idea
 *.iml
 
