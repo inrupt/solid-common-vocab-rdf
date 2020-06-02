@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-ui-component
-artifactGeneratorVersion: 0.10.16
+artifactGeneratorVersion: 0.10.17
 
 versioning:
   type: git
