@@ -110,7 +110,7 @@ schema:alternateName
     schema:alternateName "Nombre alternativo"@es ;
     schema:alternateName "Nome alternativo"@it ;
     rdfs:comment "Un alias pour l'article."@fr ;
-    rdfs:comment "Ein Alias ​​für den Artikel."@de ;
+    rdfs:comment "Ein Alias für den Artikel."@de ;
     rdfs:comment "Un alias para el elemento."@es ;
     rdfs:comment "Un alias per l'elemento."@it .
 
