@@ -41,7 +41,7 @@ schema-inrupt-ext:
     rdfs:comment "Une personne (vivante, morte, mort-vivant ou fictive)."@fr ;
     rdfs:comment "Eine Person (lebendig, tot, untot oder fiktiv)."@de ;
     rdfs:comment "Una persona (viva, muerta, no muerta o ficticia)."@es ;
-    rdfs:comment "Una persona (viva, morta, non morta o immaginaria)."@it .
+    rdfs:comment "Una XYZ persona (viva, morta, non morta o immaginaria)."@it .
 
 
 schema:givenName

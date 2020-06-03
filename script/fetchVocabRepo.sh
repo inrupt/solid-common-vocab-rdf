@@ -65,7 +65,10 @@ then
     run_command "cd ${FULL_REPO_DIR}"
     run_command "git checkout ${GIT_BRANCH}"
     run_command "git fetch"
-    run_command "git rebase origin/${GIT_BRANCH}"
+
+    # Allow failure here - e.g. if there are local changes not yet pushed back
+    # (prehaps to a different collection of vocabs within the same repository).
+    run_command -f "git rebase origin/${GIT_BRANCH}"
 else
     printf "${GREEN}Didn't find repository locally [${FULL_REPO_DIR}] - cloning it into directory [${TARGET_DIR}]...${NORMAL}\n"
     run_command "mkdir -p ${TARGET_DIR}"
