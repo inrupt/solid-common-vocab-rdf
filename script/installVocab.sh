@@ -75,9 +75,9 @@ fi
 if grep "\"${VOCAB_MODULE}\": " ${PWD}/package.json > /dev/null 2>&1;
 then
     printf "${GREEN}Found vocab module [$VOCAB_MODULE] in local 'package.json' file.${NORMAL}\n"
-    printf "${GREEN}Uninstalling [${VOCAB_MODULE}] from this project...${NORMAL}\n"
+    printf "${GREEN}Uninstalling [${VOCAB_MODULE}] from this project (failures will be ignored, as we subsequently re-install anyway)...${NORMAL}\n"
 
-    run_command "npm uninstall ${VOCAB_MODULE}"
+    run_command -f "npm uninstall ${VOCAB_MODULE}"
 else
     printf "${GREEN}Vocab module [$VOCAB_MODULE] not found in local 'package.json' file, so no need to uninstall it first.${NORMAL}\n"
 fi
@@ -98,9 +98,11 @@ then
     REPO_DIR="$(echo ${GIT_REPO_URL} | sed 's/^.*\///' | sed 's/\..*$//')"
     FULL_REPO_DIR="${TARGET_DIR}/${REPO_DIR}"
 
-    # Generate inside each local vocab repo...
+    # Generate inside each local vocab repo (as we expect vocab repos to
+    # .gitignore generated code)...
 #    GENERATED_DIR="${FULL_REPO_DIR}/Generated"
-    # Generate inside a shared directory...
+    # Generate inside a shared directory within the target, but not inside the
+    # vocab directory itself...
     GENERATED_DIR="${TARGET_DIR}/Generated/${REPO_DIR}"
 
     # Currently we use a glob pattern to generate from every YAML file found
@@ -113,8 +115,9 @@ then
     # If the LAG is globally installed, you can just use this:
 #    lit-artifact-generator/index.js \
 
-    # If the LAG is locally installed, you can just use this:
-#    node /home/pmcb55/Work/Projects/LIT/lit-artifact-generator/index.js \
+    # If the LAG is locally installed outside the current directory, you can
+    # just use this:
+#    node <PATH TO LAG>/index.js \
 
     # If the LAG was cloned locally, you can just use this:
     node ${TARGET_DIR}/lit-artifact-generator/index.js \
@@ -123,7 +126,6 @@ then
       --vocabListFile "${FULL_REPO_DIR}/**/*.yml" \
       --vocabListFileIgnore "${FULL_REPO_DIR}/lit-artifact-generator/**" \
       --noprompt
-#      --force # BUG - shouldn't be needed for fresh install, but seems to be!
 
     FULL_LOCAL_VOCAB=${GENERATED_DIR}/${VOCAB_INTERNAL_LOCATION}/Generated/SourceCodeArtifacts/${PROGRAMMING_LANGUAGE}
     INSTALL=${VOCAB_MODULE}@file://${FULL_LOCAL_VOCAB}
@@ -152,7 +154,8 @@ then
     # in our target directory accordingly.
     printf "\n${GREEN}Watching vocabulary bundles under directory [${TARGET_DIR}/${REPO_DIR}], generating to [${GENERATED_DIR}]...${NORMAL}\n"
     run_command "${SCRIPT_DIR}/watch.sh -t ${TARGET_DIR} -r ${REPO_DIR} -g ${GENERATED_DIR}"
-#    node ${TARGET_DIR}/lit-artifact-generator/index.js watch --vocabListFile ${TARGET_DIR}/${REPO_DIR}/**/*.yml --outputDirectory ${GENERATED_DIR}
+    # The watch script really just runs this:
+    #   node ${TARGET_DIR}/lit-artifact-generator/index.js watch --vocabListFile ${TARGET_DIR}/${REPO_DIR}/**/*.yml --outputDirectory ${GENERATED_DIR}
 else
     INSTALL=${VOCAB_MODULE}
     printf "\n${GREEN}Installing REMOTE dependency as [${INSTALL}]...${NORMAL}\n"

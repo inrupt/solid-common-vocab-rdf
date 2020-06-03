@@ -17,7 +17,7 @@
 # list file.
 #
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.10.17
+artifactGeneratorVersion: 0.10.19
 
 versioning:
   type: git
