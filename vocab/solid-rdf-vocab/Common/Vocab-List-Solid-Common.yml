@@ -101,6 +101,7 @@ artifactToGenerate:
   - programmingLanguage: JavaScript
     artifactVersion: "0.3.11"
     litVocabTermVersion: "^0.3.5"
+    rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js

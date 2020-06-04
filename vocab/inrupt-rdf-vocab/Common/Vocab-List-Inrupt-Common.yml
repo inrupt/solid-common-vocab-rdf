@@ -60,6 +60,7 @@ artifactToGenerate:
   - programmingLanguage: JavaScript
     artifactVersion: "0.3.11"
     litVocabTermVersion: "^0.3.5"
+    rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
@@ -89,10 +90,10 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
 vocabList:
-  - description: Common Vocabulary
+  - description: Inrupt Common Vocabulary, for terms common across all of Inrupt.
     inputResources:
       - CopyOfVocab/inrupt-common.ttl
 
-  - description: User Interface (UI) Common Vocabulary
+  - description: User Interface (UI) Common Vocabulary, for terms common across all Inrupt UI.
     inputResources:
       - CopyOfVocab/inrupt-ui-common.ttl
