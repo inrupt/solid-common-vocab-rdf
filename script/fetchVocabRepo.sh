@@ -19,7 +19,41 @@ TARGET_DIR="${PWD}/${DEFAULT_TARGET_DIR}"
 GIT_REPO_URL=""
 GIT_BRANCH="master"
 
-source ${SCRIPT_DIR}/run_command.sh
+# We copy this function here to allow us use this script in pure isolation from
+# anything else (i.e. so that we can drop this script into any application to
+# bootstrap that application using a vocabulary repo).
+#  source ${SCRIPT_DIR}/run_command.sh
+
+# Run a command.
+# If execution fails, exit all execution and print an error (unless overridden
+# with the '-f' (Force) command-line option).
+function run_command {
+    local COMMAND="$1"
+    local ALLOW_FAILURE=false
+
+    if [ "${1:-}" == '-f' ] ;
+    then
+      ALLOW_FAILURE=true
+      COMMAND="$2"
+      set +e
+    else
+      COMMAND="$1"
+    fi
+
+    printf "${GREEN}[EXEC] ${YELLOW}$COMMAND${NORMAL} [Allow failure: ${ALLOW_FAILURE}]\n"
+    $COMMAND
+    RESULT=$?
+    if [ ${RESULT} -ne 0 ] ;
+    then
+      if [ ${ALLOW_FAILURE} == false ] ;
+      then
+          printf "${RED}[ERROR] Failed to execute command: [$COMMAND], with exit code [${RESULT}]${NORMAL}\n"
+          exit $?
+      else
+          printf "${YELLOW}Failed to execute command: [$COMMAND], with exit code [${RESULT}], but continuing...${NORMAL}\n\n"
+      fi
+    fi
+}
 
 helpFunction() {
     printf "${BLUE}Usage: $0 -r <RepositoryToClone> [ -t TargetDirectory ] [ -b GitBranch ]\n"

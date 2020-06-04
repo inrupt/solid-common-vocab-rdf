@@ -57,6 +57,7 @@ artifactToGenerate:
   - programmingLanguage: JavaScript
     artifactVersion: "0.3.11"
     litVocabTermVersion: "^0.3.5"
+    rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-service-js.git
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
