@@ -85,3 +85,52 @@ ui-inrupt-ext:
   ui:TimeField a rdf:Property ;
     rdfs:isDefinedBy ui-inrupt-ext: ;
     rdfs:label 'Time field'@en, 'Campo de tiempo'@es .
+
+
+  ui:oldValue a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Old value'@en, 'Valor antiguo'@es .
+
+  ui:base a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Base'@en, 'Base'@es .
+
+  ui:parentProperty a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Parent property'@en, 'Propiedad principal'@es .
+
+  ui:reference a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Reference'@en, 'Referencia'@es .
+
+  ui:valid a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Valid'@en, 'Válida'@es .
+
+  ui:defaultError a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Default error'@en, 'Error predeterminado'@es .
+
+  ui:partsClone a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Parts clone'@en, 'Clon de piezas'@es .
+
+  ui:maxLength a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Max length'@en, 'Longitud máxima'@es .
+
+  ui:minLength a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Min length'@en, 'Longitud mínima'@es .
+
+  ui:validationError a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Validation error'@en, 'Error de validacion'@es .
+
+  ui:required a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Required'@en, 'Requerido'@es .
+
+  ui:requiredError a rdf:Property ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Required error'@en, 'Error requerido'@es .
