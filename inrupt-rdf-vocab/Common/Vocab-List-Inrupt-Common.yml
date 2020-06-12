@@ -24,7 +24,7 @@ versioning:
 artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.3.5-SNAPSHOT
-    litVocabTermVersion: 0.4.0
+    litVocabTermVersion: 0.4.1
     javaPackageName: com.inrupt.lit.generated.vocab.inrupt.common
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
@@ -59,7 +59,7 @@ artifactToGenerate:
 
   - programmingLanguage: JavaScript
     artifactVersion: "0.3.11"
-    litVocabTermVersion: "^0.3.5"
+    litVocabTermVersion: "^0.3.6"
     rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
