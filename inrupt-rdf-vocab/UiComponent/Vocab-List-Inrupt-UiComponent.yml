@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-ui-component
-artifactGeneratorVersion: 0.10.20
+artifactGeneratorVersion: 0.10.22
 
 versioning:
   type: git
@@ -17,7 +17,7 @@ versioning:
 
 artifactToGenerate:
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.3.11"
+#    artifactVersion: "0.3.12"
 #    litVocabTermVersion: "^0.3.6"
 #    artifactDirectoryName: TypeScript
 #    templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -51,7 +51,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.11"
+    artifactVersion: "0.3.12"
     litVocabTermVersion: "^0.3.6"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript

@@ -10,7 +10,7 @@
 #
 #
 artifactName: vocab-core
-artifactGeneratorVersion: 0.10.20
+artifactGeneratorVersion: 0.10.22
 
 versioning:
   type: git
@@ -54,7 +54,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.3.11"
+    artifactVersion: "0.3.12"
     litVocabTermVersion: "^0.3.6"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"
@@ -91,7 +91,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.11"
+    artifactVersion: "0.3.12"
     litVocabTermVersion: "^0.3.6"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript

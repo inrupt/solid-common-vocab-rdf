@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-service
-artifactGeneratorVersion: 0.10.20
+artifactGeneratorVersion: 0.10.22
 
 versioning:
   type: git
@@ -55,7 +55,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.11"
+    artifactVersion: "0.3.12"
     litVocabTermVersion: "^0.3.6"
     rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-service-js.git
