@@ -7,12 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@inrupt/lit-generated-vocab-common": "^0.3.1",
-    "@inrupt/lit-generated-vocab-inrupt-common": "^0.2.1",
-    "@inrupt/lit-generated-vocab-solid-common": "^0.3.2",
-    "@inrupt/lit-generated-vocab-solid-common-rdfext": "^0.3.2",
-    "@inrupt/lit-generated-vocab-solid-common-rdflib": "^0.3.2",
-    "@inrupt/lit-generated-vocab-solid-common-ts": "^0.3.2"
+    "@solid/lit-vocab-common": "^0.3.1",
+    "@inrupt/lit-vocab-inrupt": "^0.2.1",
+    "@solid/lit-vocab-solid-common": "^0.3.2",
+    "@inrupt/lit-vocab-solid-common-rdfext": "^0.3.2",
+    "@inrupt/lit-vocab-solid-common-rdflib": "^0.3.2",
+    "@inrupt/lit-vocab-solid-common-ts": "^0.3.2"
   },
   "author": "Pat McBennett",
   "license": "MIT"

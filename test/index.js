@@ -1,4 +1,4 @@
-const { FOAF } = require("@inrupt/lit-generated-vocab-common");
+const { FOAF } = require("@solid/lit-vocab-common");
 
 console.log(`LIT Common: FOAF vocab term accountServiceHomepage: [${FOAF.accountServiceHomepage.value}]`);
 console.log(`LIT Common: FOAF vocab term accountServiceHomepage label: [${FOAF.accountServiceHomepage.label.value}]`);
@@ -6,10 +6,11 @@ console.log(`LIT Common: FOAF vocab term accountServiceHomepage comment: [${FOAF
 console.log();
 
 
-const { SOLID } = require("@inrupt/lit-generated-vocab-solid-common");
-const { SOLID:SOLID_TS } = require("@inrupt/lit-generated-vocab-solid-common-ts");
-const { SOLID:SOLID_RDFLIB } = require("@inrupt/lit-generated-vocab-solid-common-rdflib");
-const { SOLID:SOLID_RDFEXT } = require("@inrupt/lit-generated-vocab-solid-common-rdfext");
+const { SOLID } = require("@solid/lit-vocab-solid-common");
+
+const { SOLID:SOLID_TS } = require("@isolid/lit-vocab-solid-common-ts");
+const { SOLID:SOLID_RDFLIB } = require("@solid/lit-vocab-solid-common-rdflib");
+const { SOLID:SOLID_RDFEXT } = require("@solid/lit-vocab-solid-common-rdfext");
 
 console.log(`Solid vocab term ListedDocument (LIT Vocab Term): [${SOLID.ListedDocument.value}]`);
 console.log(`Solid vocab term ListedDocument label: [${SOLID.ListedDocument.label.value}]`);
@@ -24,7 +25,7 @@ console.log(`Solid vocab term ListedDocument (RdfExt): [${SOLID_RDFEXT.ListedDoc
 console.log();
 
 
-const { INRUPT_COMMON } = require("@inrupt/lit-generated-vocab-inrupt-common");
+const { INRUPT_COMMON } = require("@inrupt/lit-vocab-inrupt");
 
 console.log(`Inrupt Common vocab term errFailedToProcessIncomingRdf: [${INRUPT_COMMON.errFailedToProcessIncomingRdf.value}]`);
 console.log(`Inrupt Common vocab term errFailedToProcessIncomingRdf: [${INRUPT_COMMON.errFailedToProcessIncomingRdf.message.value}]`);
