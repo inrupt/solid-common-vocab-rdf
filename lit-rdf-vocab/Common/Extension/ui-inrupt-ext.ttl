@@ -134,3 +134,7 @@ ui-inrupt-ext:
   ui:requiredError a rdf:Property ;
     rdfs:isDefinedBy ui-inrupt-ext: ;
     rdfs:label 'Required error'@en, 'Error requerido'@es .
+
+  ui:Comment a rdfs:Class ;
+    rdfs:isDefinedBy ui-inrupt-ext: ;
+    rdfs:label 'Comment'@en, 'Comentario'@es .

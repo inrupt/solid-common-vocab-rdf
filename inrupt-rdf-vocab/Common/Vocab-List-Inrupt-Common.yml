@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-common
-artifactGeneratorVersion: 0.10.22
+artifactGeneratorVersion: 0.10.26
 
 
 versioning:
@@ -23,7 +23,7 @@ versioning:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.3.5-SNAPSHOT
+    artifactVersion: 0.4.0
     litVocabTermVersion: 0.4.1
     javaPackageName: com.inrupt.lit.generated.vocab.inrupt.common
     artifactDirectoryName: Java
@@ -58,8 +58,8 @@ artifactToGenerate:
       
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.3.12"
-    litVocabTermVersion: "^0.3.6"
+    artifactVersion: "0.4.0"
+    litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
