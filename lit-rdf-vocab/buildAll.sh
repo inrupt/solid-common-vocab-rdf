@@ -15,11 +15,11 @@
 # correct instance.
 #
 cd Common
-npm_config_registry=https://verdaccio.inrupt.com/ npx @inrupt/lit-artifact-generator generate --vocabListFile Vocab-List-LIT-Common.yml --noprompt --publish localMaven, localNpmNode --force
+npm_config_registry=https://verdaccio.inrupt.com/ npx @solid/lit-artifact-generator generate --vocabListFile Vocab-List-LIT-Common.yml --noprompt --publish localMaven, localNpmNode --force
 cd ..
 
 cd Core
-npm_config_registry=https://verdaccio.inrupt.com/ npx @inrupt/lit-artifact-generator generate --vocabListFile Vocab-List-LIT-Core.yml --noprompt --publish localMaven, localNpmNode --force
+npm_config_registry=https://verdaccio.inrupt.com/ npx @solid/lit-artifact-generator generate --vocabListFile Vocab-List-LIT-Core.yml --noprompt --publish localMaven, localNpmNode --force
 cd ..
 
 #

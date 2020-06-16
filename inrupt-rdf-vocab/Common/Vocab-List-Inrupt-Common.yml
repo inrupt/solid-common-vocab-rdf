@@ -10,7 +10,7 @@
 # Local vocabularies can be provided relative to the location of this resource
 # list file.
 #
-artifactName: vocab-inrupt-common
+artifactName: vocab-inrupt
 artifactGeneratorVersion: 0.10.26
 
 
@@ -67,7 +67,7 @@ artifactToGenerate:
     sourceFileExtension: js
     packaging:
       - packagingTool: npm
-        artifactPrefix: lit-generated-
+        artifactPrefix: lit-
         npmModuleScope: "@inrupt/"
         publish:
         - key: "localNpmWeb"
