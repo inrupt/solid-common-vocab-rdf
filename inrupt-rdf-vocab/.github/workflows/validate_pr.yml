@@ -49,7 +49,7 @@ jobs:
       # Installs the artifact generator from its github package
       # The package is renamed in order to enable having different versions side-by-side
       - name: Install LIT Artifact Generator
-        run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+        run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@solid/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Inrupt-Common.yml --noprompt
@@ -101,7 +101,7 @@ jobs:
       # Installs the artifact generator from its github package
       # The package is renamed in order to enable having different versions side-by-side
       - name: Install LIT Artifact Generator
-        run: npm install artifact-generator${{steps.generator-version-service.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-service.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+        run: npm install artifact-generator${{steps.generator-version-service.outputs.vocab-generator-version}}@npm:@solid/lit-artifact-generator@${{steps.generator-version-service.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - run: node node_modules/artifact-generator${{steps.generator-version-service.outputs.vocab-generator-version}}/index.js generate -l Service/Vocab-List-Inrupt-Service.yml --noprompt

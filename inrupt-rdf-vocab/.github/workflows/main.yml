@@ -43,7 +43,7 @@ jobs:
       # Installs the artifact generator from its github package.
       # The package is renamed in order to enable having different versions side-by-side.
     - name: Generator installation
-      run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+      run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@solid/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     - name: Webpack installation
@@ -89,7 +89,7 @@ jobs:
       # Installs the artifact generator from its github package.
       # The package is renamed in order to enable having different versions side-by-side.
     - name: Generator installation
-      run: npm install artifact-generator${{steps.generator-version-core.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-core.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+      run: npm install artifact-generator${{steps.generator-version-core.outputs.vocab-generator-version}}@npm:@solid/lit-artifact-generator@${{steps.generator-version-core.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     - name: Webpack installation

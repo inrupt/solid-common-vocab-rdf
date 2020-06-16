@@ -69,8 +69,8 @@ artifactToGenerate:
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@inrupt/"
-        artifactPrefix: "lit-generated-"
+        npmModuleScope: "@solid/"
+        artifactPrefix: lit-
         artifactSuffix: "-ts"
         typescriptVersion: "^3.8.3"
         rdfjsDatamodelVersion: "^1.1.2"
@@ -105,10 +105,10 @@ artifactToGenerate:
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
-    artifactPrefix: lit-generated-
+    artifactPrefix: lit-
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@inrupt/"
+        npmModuleScope: "@solid/"
         publish:
           - key: "localNpmWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
@@ -129,11 +129,11 @@ artifactToGenerate:
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
-    artifactPrefix: lit-generated-
+    artifactPrefix: lit-
     artifactSuffix: -rdfext
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@inrupt/"
+        npmModuleScope: "@solid/"
         publish:
           - key: "localNpmWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
@@ -162,11 +162,11 @@ artifactToGenerate:
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
     sourceFileExtension: js
-    artifactPrefix: lit-generated-
+    artifactPrefix: lit-
     artifactSuffix: -rdflib
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@inrupt/"
+        npmModuleScope: "@solid/"
         publish:
           - key: "localNpmWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
