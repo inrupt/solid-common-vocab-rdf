@@ -58,7 +58,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.0"
+    artifactVersion: "0.4.1"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
@@ -67,7 +67,6 @@ artifactToGenerate:
     sourceFileExtension: js
     packaging:
       - packagingTool: npm
-        artifactPrefix: lit-
         npmModuleScope: "@inrupt/"
         publish:
         - key: "localNpmWeb"
