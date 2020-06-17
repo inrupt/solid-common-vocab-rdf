@@ -5,7 +5,7 @@
 # Local vocabularies can be provided relative to the location of this resource
 # list file.
 #
-artifactName: vocab-inrupt-ui-component
+artifactName: vocab-ui
 artifactGeneratorVersion: 0.10.26
 
 versioning:
@@ -17,7 +17,7 @@ versioning:
 
 artifactToGenerate:
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.4.0"
+#    artifactVersion: "0.4.1"
 #    litVocabTermVersion: "^0.4.1"
 #    artifactDirectoryName: TypeScript
 #    templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -51,13 +51,12 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.0"
+    artifactVersion: "0.4.1"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
-    artifactPrefix: lit-generated-
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
@@ -69,7 +68,7 @@ artifactToGenerate:
           - key: 'githubNpm'
             command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
           - key: "npm"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json

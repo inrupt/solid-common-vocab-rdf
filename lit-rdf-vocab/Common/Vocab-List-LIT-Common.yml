@@ -17,7 +17,7 @@
 # list file.
 #
 #
-artifactName: vocab-common
+artifactName: lit-vocab-common
 artifactGeneratorVersion: 0.10.26
 
 versioning:
@@ -71,7 +71,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.0"
+    artifactVersion: "0.4.1"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -79,7 +79,6 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@solid/"
-        artifactPrefix: lit-
         artifactSuffix: "-ts"
         typescriptVersion: "^3.8.3"
         rdfjsDatamodelVersion: "^1.1.2"
@@ -96,7 +95,7 @@ artifactToGenerate:
         - key: "githubNpm"
           command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/"
         - key: "npm"
-          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
@@ -108,13 +107,12 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.0"
+    artifactVersion: "0.4.1"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
-    artifactPrefix: lit-
     packaging:
       - packagingTool: npm
         npmModuleScope: "@solid/"
@@ -126,7 +124,7 @@ artifactToGenerate:
           - key: 'githubNpm'
             command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
           - key: "npm"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
