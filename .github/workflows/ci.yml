@@ -58,7 +58,7 @@ jobs:
         - name: Install LIT Artifact Generator
           run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
-            NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }}
         env:
-            NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
