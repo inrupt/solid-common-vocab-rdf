@@ -1,0 +1,69 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    publish_on_push:
+        runs-on: ubuntu-20.04
+        strategy:
+          matrix:
+            vocab: [
+              "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
+              "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
+              "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
+              "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
+              "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+            ]
+        name: CD for ${{ matrix.vocab }}
+        steps:
+        # Setup
+        - name: Checkout repo
+          uses: actions/checkout@v2
+        # Initializes node for the runner
+        - name: Node setup
+          uses: actions/setup-node@v1
+          with:
+            node-version: '12.12.0'
+            registry-url: https://registry.npmjs.org/
+            scope: '@solid'
+        # The following step sets up Maven.
+        - name: Set up JDK 1.8
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.8
+            # These values are used in the `settings.xml` Maven config file
+            server-id: nexus-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
+            server-username: ${{ secrets.NEXUS_USERNAME }}
+            server-password: ${{ secrets.NEXUS_TOKEN }}
+        - name: Generate proper Maven settings
+          uses: ./.github/fill-template
+          with:
+            template-path: ./.github/maven-settings.hbs
+            output-path: ./settings.xml
+          env:
+            SERVER_ID_RELEASE: nexus-releases
+            SERVER_URL_RELEASE: https://nexus.inrupt.com/repository/maven-releases/
+            SERVER_ID_SNAPSHOT: nexus-snapshots
+            SERVER_URL_SNAPSHOT: https://nexus.inrupt.com/repository/maven-snapshots/
+            SERVER_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+            SERVER_PASSWORD: ${{ secrets.NEXUS_TOKEN }}
+        # The following action is defined in the current repo
+        # It reads the expected generator version from the YAML file
+        - name: Get generator version
+          uses: ./.github/lit-generator-version/
+          id: generator-version-common
+          with:
+            vocab-config-path: ${{ matrix.vocab }}
+
+        # Installs the artifact generator from its github package
+        # The package is renamed in order to enable having different versions side-by-side
+        - name: Install LIT Artifact Generator
+          run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        # NOTE: This only pushes to Nexus (not NPM), because it does not increase
+        # version number, which is fine for Maven SNAPSHOT versions.
+        - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p nexus
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}

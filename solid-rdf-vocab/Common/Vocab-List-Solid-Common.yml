@@ -70,7 +70,6 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@solid/"
-        artifactSuffix: "-ts"
         typescriptVersion: "^3.8.3"
         rdfjsDatamodelVersion: "^1.1.2"
         rollupVersion: "^2.7.3"
@@ -83,10 +82,8 @@ artifactToGenerate:
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
         - key: "localNpmNode"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        - key: 'githubNpm'
-          command: "npm install --registry https://npm.pkg.github.com/inrupt && npm run build && npm publish --registry https://npm.pkg.github.com/inrupt"
         - key: "npm"
-          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --otp=515573"
+          command: "npm install && npm run build && npm publish"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
@@ -112,10 +109,6 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
           - key: "localNpmNode"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-          - key: 'githubNpm'
-            command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-          - key: "npm"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/javascript/package.hbs
             fileName: package.json
@@ -136,10 +129,6 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
           - key: "localNpmNode"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-          - key: 'githubNpm'
-            command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-          - key: "npm"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdfext/package.hbs
             fileName: package.json
@@ -168,10 +157,6 @@ artifactToGenerate:
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
           - key: "localNpmNode"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-          - key: 'githubNpm'
-            command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-          - key: "npm"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdflib/package.hbs
             fileName: package.json
