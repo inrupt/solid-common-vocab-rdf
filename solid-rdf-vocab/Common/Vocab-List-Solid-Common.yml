@@ -80,7 +80,7 @@ artifactToGenerate:
         - key: "localNpm"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
         - key: "npmjs"
-          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --access public --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
