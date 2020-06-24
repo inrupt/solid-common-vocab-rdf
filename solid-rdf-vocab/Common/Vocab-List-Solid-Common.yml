@@ -29,8 +29,8 @@ versioning:
 artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.4.0
-    javaPackageName: com.inrupt.generated.vocab.solid.common
-    litVocabTermVersion: 0.4.1
+    javaPackageName: org.solid.generated.vocab.solid.common
+    litVocabTermVersion: 0.5.1
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -41,8 +41,7 @@ artifactToGenerate:
       - default   # Defined in ACL
     packaging:
     - packagingTool: maven
-      groupId: com.inrupt
-      artifactPrefix: "inrupt-"
+      groupId: org.solid
       repository:
       - type: repository
         id: nexus-releases

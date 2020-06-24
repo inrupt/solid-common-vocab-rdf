@@ -22,8 +22,8 @@ versioning:
 artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.4.0
-    litVocabTermVersion: 0.4.1
-    javaPackageName: com.inrupt.generated.vocab.lit.core
+    litVocabTermVersion: 0.5.1
+    javaPackageName: org.solid.generated.vocab.lit.core
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -33,8 +33,7 @@ artifactToGenerate:
       - abstract  # Defined in DCTerms.
     packaging:
     - packagingTool: maven
-      groupId: com.inrupt
-      artifactPrefix: "inrupt-"
+      groupId: org.solid
       publish:
       - key: "localMaven"
         command: "mvn install"
