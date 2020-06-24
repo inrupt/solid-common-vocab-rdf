@@ -65,8 +65,8 @@ jobs:
         # NOTE: This only pushes to Nexus (not NPM), because it does not increase
         # version number, which is fine for Maven SNAPSHOT versions.
         - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p nexus
-        env:
-            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          env:
+              NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         - name: Upload log for debug
           # Only upload if the previous step failed
           if: failure()
