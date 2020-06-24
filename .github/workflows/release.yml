@@ -1,0 +1,48 @@
+on: 
+  release: 
+    types: [published]
+
+jobs:
+  npm_publish_on_release:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        vocab: [
+          "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
+          "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
+          "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
+          "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
+          "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+        ]
+    name: NPM release for ${{ matrix.vocab }}
+    steps:
+     # Makes the current repository available to the workflow.
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      # Initializes node for the runner.
+    - name: Node setup
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.12.0'
+        registry-url: https://registry.npmjs.org/
+        scope: '@solid'
+      # The following action is defined in the current repo.
+      # It reads the expected generator version from the YAML file.
+    - name: Get generator version (Common)
+      uses: ./.github/lit-generator-version/
+      id: generator-version-common
+      with: 
+        vocab-config-path: Common/Vocab-List-Inrupt-Common.yml
+      # Installs the artifact generator from its github package.
+      # The package is renamed in order to enable having different versions side-by-side.
+    - name: Generator installation
+      run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+      # Use the generator to generate and publish the NPM package.
+      # The Maven package is pubished by the CD script, and does not need to be
+      # published again on release.
+    - name: Generation and publication
+      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Inrupt-Common.yml -p npmjs --noprompt
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
