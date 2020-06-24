@@ -58,7 +58,7 @@ artifactToGenerate:
       - key: "remoteMaven"
         command: "mvn deploy"
       - key: "nexus"
-        command: "mvn -s /home/runner/work/lit-rdf-vocab/lit-rdf-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates:
       - templateInternal: litVocabTermDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
