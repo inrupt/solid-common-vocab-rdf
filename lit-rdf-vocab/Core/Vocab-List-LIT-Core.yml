@@ -70,13 +70,11 @@ artifactToGenerate:
         npmModuleScope: "@solid/"
         bundleName: "LitVocabCore"
         publish:
-        - key: "localNpmWeb"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-        - key: "localNpmNode"
+        - key: "localNpm"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
         # The following command should only run in CI
-        - key: "npm"
-          command: "npm install && npm run build && npm publish"
+        - key: "npmjs"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
