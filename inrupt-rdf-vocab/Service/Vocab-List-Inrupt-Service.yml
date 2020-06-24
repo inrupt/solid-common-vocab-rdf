@@ -92,7 +92,6 @@ artifactToGenerate:
     artifactVersion: "0.4.1"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
-    gitRepository: git@github.com:inrupt/lit-generated-vocab-common-js.git
     artifactDirectoryName: JavaScript
     templateInternal: litVocabTermDependent/javascript/vocab.hbs
     sourceFileExtension: js
