@@ -35,9 +35,9 @@ artifactToGenerate:
     - packagingTool: maven
       groupId: org.solid
       publish:
-      - key: "localMaven"
+      - key: "mavenLocal"
         command: "mvn install"
-      - key: "remoteMaven"
+      - key: "mavenRemote"
         command: "mvn deploy"
       - key: "nexus"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
@@ -83,31 +83,6 @@ artifactToGenerate:
             fileName: tsconfig.json
           - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
             fileName: rollup.config.js
-
-#  # This is shown here just for educational purposes (we intend to move this to
-#  # a purely educational artifact instead). There is no need to generate both
-#  # TS and JS artifacts (since the TS one is really just the JS one with extra
-#  # type files).
-#  - programmingLanguage: JavaScript
-#    artifactVersion: "0.4.3"
-#    litVocabTermVersion: "^0.4.1"
-#    rdfjsDatamodelVersion: "^1.1.2"
-#    artifactDirectoryName: JavaScript
-#    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-#    sourceFileExtension: js
-#    packaging:
-#      - packagingTool: npm
-#        npmModuleScope: "@solid/"
-#        # Just to prevent name clashes with the TypeScript artifacts.
-#        artifactSuffix: -js
-#        publish:
-#          - key: "npmLocal"
-#            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-#        packagingTemplates:
-#          - templateInternal: litVocabTermDependent/javascript/package.hbs
-#            fileName: package.json
-#          - templateInternal: litVocabTermDependent/javascript/index.hbs
-#            fileName: index.js
 
 vocabList:
   - description: The LIT Core vocabulary

@@ -52,9 +52,9 @@ artifactToGenerate:
     - packagingTool: maven
       groupId: org.solid
       publish: 
-      - key: "localMaven"
+      - key: "mavenLocal"
         command: "mvn install"
-      - key: "remoteMaven"
+      - key: "mavenRemote"
         command: "mvn deploy"
       - key: "nexus"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"

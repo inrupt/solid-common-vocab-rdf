@@ -53,6 +53,6 @@ jobs:
       # Note that only the NPM artifacts are released on the 'release' event,
       # because the Maven artifacts are released on push (because they support
       # -SNAPSHOT versions).
-      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Solid-Common.yml -p githubNpm --noprompt
+      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Solid-Common.yml -p npmGithub --noprompt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}

@@ -43,6 +43,10 @@ jobs:
       # The Maven package is pubished by the CD script, and does not need to be
       # published again on release.
     - name: Generation and publication
+<<<<<<< HEAD
       run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} -p npmjs --noprompt
+=======
+      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Inrupt-Common.yml -p npmPublic --noprompt
+>>>>>>> renamed publishing task key names, removed --otp, updated versions
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -39,9 +39,9 @@ artifactToGenerate:
       groupId: com.inrupt
       artifactPrefix: "inrupt-"
       publish:
-      - key: "localMaven"
+      - key: "mavenLocal"
         command: "mvn install"
-      - key: "remoteMaven"
+      - key: "mavenRemote"
         command: "mvn deploy"
       - key: "nexus"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
