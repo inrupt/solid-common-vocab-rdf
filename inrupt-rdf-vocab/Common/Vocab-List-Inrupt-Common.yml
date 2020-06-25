@@ -64,7 +64,8 @@ artifactToGenerate:
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
+        artifactPrefix: "lit-"
         typescriptVersion: "^3.8.3"
         rdfjsDatamodelVersion: "^1.1.2"
         rollupVersion: "^2.7.3"
@@ -97,7 +98,7 @@ artifactToGenerate:
     sourceFileExtension: js
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
         # Note that this package will conflict with the TS one if published in the same registry.
         # It should not be published to NPM
         publish:
