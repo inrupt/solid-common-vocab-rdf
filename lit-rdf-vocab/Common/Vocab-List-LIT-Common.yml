@@ -29,7 +29,7 @@ versioning:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.4.0
+    artifactVersion: 0.4.1-SNAPSHOT
     litVocabTermVersion: 0.5.1
     javaPackageName: org.solid.generated.vocab.lit.common
     artifactDirectoryName: Java
@@ -70,7 +70,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -102,7 +102,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript
