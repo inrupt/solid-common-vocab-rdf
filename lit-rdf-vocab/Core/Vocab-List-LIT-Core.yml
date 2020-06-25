@@ -53,7 +53,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"
@@ -69,10 +69,10 @@ artifactToGenerate:
         npmModuleScope: "@solid/"
         bundleName: "LitVocabCore"
         publish:
-        - key: "localNpm"
+        - key: "npmLocal"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        # The following command should only run in CI
-        - key: "npmjs"
+        # The following command should only run in CI.
+        - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
@@ -84,26 +84,30 @@ artifactToGenerate:
           - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
-  - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
-    litVocabTermVersion: "^0.4.1"
-    rdfjsDatamodelVersion: "^1.1.2"
-    artifactDirectoryName: JavaScript
-    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-    sourceFileExtension: js
-    packaging:
-      - packagingTool: npm
-        npmModuleScope: "@solid/"
-        publish:
-          - key: "localNpmWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-          - key: "localNpmNode"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-        packagingTemplates:
-          - templateInternal: litVocabTermDependent/javascript/package.hbs
-            fileName: package.json
-          - templateInternal: litVocabTermDependent/javascript/index.hbs
-            fileName: index.js
+#  # This is shown here just for educational purposes (we intend to move this to
+#  # a purely educational artifact instead). There is no need to generate both
+#  # TS and JS artifacts (since the TS one is really just the JS one with extra
+#  # type files).
+#  - programmingLanguage: JavaScript
+#    artifactVersion: "0.4.3"
+#    litVocabTermVersion: "^0.4.1"
+#    rdfjsDatamodelVersion: "^1.1.2"
+#    artifactDirectoryName: JavaScript
+#    templateInternal: litVocabTermDependent/javascript/vocab.hbs
+#    sourceFileExtension: js
+#    packaging:
+#      - packagingTool: npm
+#        npmModuleScope: "@solid/"
+#        # Just to prevent name clashes with the TypeScript artifacts.
+#        artifactSuffix: -js
+#        publish:
+#          - key: "npmLocal"
+#            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+#        packagingTemplates:
+#          - templateInternal: litVocabTermDependent/javascript/package.hbs
+#            fileName: package.json
+#          - templateInternal: litVocabTermDependent/javascript/index.hbs
+#            fileName: index.js
 
 vocabList:
   - description: The LIT Core vocabulary

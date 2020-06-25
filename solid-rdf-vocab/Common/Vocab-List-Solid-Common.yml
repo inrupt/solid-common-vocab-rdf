@@ -61,7 +61,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -75,11 +75,11 @@ artifactToGenerate:
         rollupTypescriptPluginVersion: "^0.27.0"
         rollupCommonjsPluginVersion: "^11.1.0"
         rollupNodeResolveVersion: "^7.1.3"
-        bundleName: "LitSolidCommon"
+        bundleName: "SolidVocabCommon"
         publish:
-        - key: "localNpm"
+        - key: "npmLocal"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        - key: "npmjs"
+        - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --access public --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
@@ -92,28 +92,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
-    litVocabTermVersion: "^0.4.1"
-    rdfjsDatamodelVersion: "^1.1.2"
-    artifactDirectoryName: JavaScript
-    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-    sourceFileExtension: js
-    packaging:
-      - packagingTool: npm
-        npmModuleScope: "@solid/"
-        publish:
-          - key: "localNpmWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-          - key: "localNpmNode"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-        packagingTemplates:
-          - templateInternal: litVocabTermDependent/javascript/package.hbs
-            fileName: package.json
-          - templateInternal: litVocabTermDependent/javascript/index.hbs
-            fileName: index.js
-
-  - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -122,10 +101,12 @@ artifactToGenerate:
       - packagingTool: npm
         npmModuleScope: "@solid/"
         publish:
-          - key: "localNpmWeb"
+          - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-          - key: "localNpmNode"
+          - key: "npmLocalNode"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --access public --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdfext/package.hbs
             fileName: package.json
@@ -140,7 +121,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
@@ -150,10 +131,12 @@ artifactToGenerate:
       - packagingTool: npm
         npmModuleScope: "@solid/"
         publish:
-          - key: "localNpmWeb"
+          - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-          - key: "localNpmNode"
+          - key: "npmLocalNode"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm publish --access public --registry https://registry.npmjs.org/"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdflib/package.hbs
             fileName: package.json
