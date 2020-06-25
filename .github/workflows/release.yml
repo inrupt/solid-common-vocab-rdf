@@ -32,7 +32,7 @@ jobs:
       uses: ./.github/lit-generator-version/
       id: generator-version-common
       with: 
-        vocab-config-path: Common/Vocab-List-Inrupt-Common.yml
+        vocab-config-path: ${{ matrix.vocab }}
       # Installs the artifact generator from its github package.
       # The package is renamed in order to enable having different versions side-by-side.
     - name: Generator installation
@@ -43,6 +43,6 @@ jobs:
       # The Maven package is pubished by the CD script, and does not need to be
       # published again on release.
     - name: Generation and publication
-      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l Common/Vocab-List-Inrupt-Common.yml -p npmjs --noprompt
+      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} -p npmjs --noprompt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
