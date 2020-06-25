@@ -28,7 +28,7 @@ versioning:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.4.0
+    artifactVersion: 0.4.1-SNAPSHOT
     javaPackageName: org.solid.generated.vocab.solid.common
     litVocabTermVersion: 0.5.1
     artifactDirectoryName: Java
@@ -61,7 +61,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -92,7 +92,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     litVocabTermVersion: "^0.4.1"
     rdfjsDatamodelVersion: "^1.1.2"
     artifactDirectoryName: JavaScript
@@ -113,7 +113,7 @@ artifactToGenerate:
             fileName: index.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -140,7 +140,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.1"
+    artifactVersion: "0.4.2"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
