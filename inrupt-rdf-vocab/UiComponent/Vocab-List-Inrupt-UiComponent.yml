@@ -15,6 +15,12 @@ versioning:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
 
+license:
+  path: "../../LICENSE"
+  fileName: "LICENSE"
+  header: "../../LICENSE_HEADER.js"
+  name: "MIT"
+
 artifactToGenerate:
 #  - programmingLanguage: TypeScript
 #    artifactVersion: "0.4.1"
