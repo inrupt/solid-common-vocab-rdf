@@ -29,9 +29,9 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.4.0
-    litVocabTermVersion: 0.4.1
-    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.glossary
+    artifactVersion: 0.4.1-SNAPSHOT
+    litVocabTermVersion: 0.5.1
+    javaPackageName: com.inrupt.lit.vocab.inrupt.glossary
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -45,12 +45,12 @@ artifactToGenerate:
       groupId: com.inrupt
       artifactPrefix: "inrupt-"
       publish:
-      - key: "localMaven"
+      - key: "mavenLocal"
         command: "mvn install"
-      - key: "remoteMaven"
+      - key: "mavenRemote"
         command: "mvn deploy"
       - key: "nexus"
-        command: "mvn -s /home/runner/work/inrupt-rdf-vocab/inrupt-rdf-vocab/settings.xml deploy"
+        command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates: 
       - templateInternal: litVocabTermDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
@@ -63,37 +63,39 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
       
 
-  - programmingLanguage: JavaScript
-    artifactVersion: "0.4.1"
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.4.3"
     litVocabTermVersion: "^0.4.1"
-    rdfjsDatamodelVersion: "^1.1.2"
-    artifactDirectoryName: JavaScript
-    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-    sourceFileExtension: js
+    artifactDirectoryName: TypeScript
+    templateInternal: litVocabTermDependent/typescript/vocab.hbs
+    sourceFileExtension: ts
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
+        artifactPrefix: "lit-"
+        typescriptVersion: "^3.8.3"
+        rdfjsDatamodelVersion: "^1.1.2"
+        rollupVersion: "^2.7.3"
+        rollupTypescriptPluginVersion: "^0.27.0"
+        rollupCommonjsPluginVersion: "^11.1.0"
+        rollupNodeResolveVersion: "^7.1.3"
+        bundleName: "InruptVocabGlossary"
         publish:
-        - key: "localNpmWeb"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-        - key: "localNpmNode"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-        - key: 'githubNpm'
-          command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run prod && npm publish --registry https://npm.pkg.github.com/"
-        - key: "npm"
-          command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --otp=515573"
+        - key: "npmLocal"
+          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+        - key: 'npmGithub'
+          command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run build && npm publish --registry https://npm.pkg.github.com/"
+        - key: "npmPrivate"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjsp.org/"
         packagingTemplates:
-          - templateInternal: litVocabTermDependent/javascript/package.hbs
+          - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
-          - templateInternal: litVocabTermDependent/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: webpack
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: webpack.dev.config.hbs
-            fileName: webpack.dev.config.js
-          - templateInternal: webpack.prod.config.hbs
-            fileName: webpack.prod.config.js
+          - templateInternal: litVocabTermDependent/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: litVocabTermDependent/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
+            fileName: rollup.config.js
 
 vocabList:
   - description: Inrupt ESS Vocabulary

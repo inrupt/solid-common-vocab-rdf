@@ -58,9 +58,9 @@ artifactToGenerate:
     - packagingTool: maven
       groupId: org.solid
       publish: 
-      - key: "localMaven"
+      - key: "mavenLocal"
         command: "mvn install"
-      - key: "remoteMaven"
+      - key: "mavenRemote"
         command: "mvn deploy"
       - key: "nexus"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -92,10 +92,10 @@ artifactToGenerate:
         rollupNodeResolveVersion: "^7.1.3"
         bundleName: "LitVocabCommon"
         publish:
-        - key: "localNpm"
+        - key: "npmLocal"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        # The following command should only run in CI
-        - key: "npmjs"
+        # The following command should only run in CI.
+        - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
@@ -106,29 +106,6 @@ artifactToGenerate:
             fileName: tsconfig.json
           - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
             fileName: rollup.config.js
-
-  - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
-    litVocabTermVersion: "^0.4.1"
-    rdfjsDatamodelVersion: "^1.1.2"
-    artifactDirectoryName: JavaScript
-    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-    sourceFileExtension: js
-    packaging:
-      - packagingTool: npm
-        npmModuleScope: "@solid/"
-        # Note that this package will conflict with the TS one if published in the same registry.
-        # It should not be published to NPM.
-        publish:
-          - key: "localNpmWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-          - key: "localNpmNode"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-        packagingTemplates:
-          - templateInternal: litVocabTermDependent/javascript/package.hbs
-            fileName: package.json
-          - templateInternal: litVocabTermDependent/javascript/index.hbs
-            fileName: index.js
 
 vocabList:
   # NOTE: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser

@@ -30,7 +30,7 @@ artifactToGenerate:
   - programmingLanguage: Java
     artifactVersion: 0.4.1-SNAPSHOT
     litVocabTermVersion: 0.5.1
-    javaPackageName: com.inrupt.lit.generated.vocab.inrupt.service
+    javaPackageName: com.inrupt.lit.vocab.inrupt.service
     artifactDirectoryName: Java
     templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -61,7 +61,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.2"
+    artifactVersion: "0.4.3"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -76,12 +76,12 @@ artifactToGenerate:
         rollupTypescriptPluginVersion: "^0.27.0"
         rollupCommonjsPluginVersion: "^11.1.0"
         rollupNodeResolveVersion: "^7.1.3"
-        bundleName: "LitVocabCommon"
+        bundleName: "InruptVocabService"
         publish:
-        - key: "localNpm"
+        - key: "npmLocal"
           command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        # The following command should only run in CI
-        - key: "npmjs"
+        # The following command should only run in CI.
+        - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
@@ -92,36 +92,6 @@ artifactToGenerate:
             fileName: tsconfig.json
           - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
             fileName: rollup.config.js  
-
-  - programmingLanguage: JavaScript
-    artifactVersion: "0.4.2"
-    litVocabTermVersion: "^0.4.1"
-    rdfjsDatamodelVersion: "^1.1.2"
-    artifactDirectoryName: JavaScript
-    templateInternal: litVocabTermDependent/javascript/vocab.hbs
-    sourceFileExtension: js
-    packaging:
-      - packagingTool: npm
-        npmModuleScope: "@inrupt/"
-        # Note that this package will conflict with the TS one if published in the same registry.
-        # It should not be published to NPM
-        publish:
-        - key: "localNpmWeb"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
-        - key: "localNpmNode"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
-        packagingTemplates: 
-          - templateInternal: litVocabTermDependent/javascript/package.hbs
-            fileName: package.json
-          - templateInternal: litVocabTermDependent/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: webpack
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: webpack.dev.config.hbs
-            fileName: webpack.dev.config.js
-          - templateInternal: webpack.prod.config.hbs
-            fileName: webpack.prod.config.js
 
 vocabList:
   - description: Inrupt Notification Service Vocabulary
