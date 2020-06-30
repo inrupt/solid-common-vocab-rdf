@@ -24,8 +24,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.12.0'
-        registry-url: https://registry.npmjs.org/
-        scope: '@solid'
+        # The following values are required to install the LIT artifact generator
+        # from the GH registry.
+        registry-url: https://npm.pkg.github.com/
+        scope: '@inrupt'
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
