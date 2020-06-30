@@ -28,7 +28,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.4.1-SNAPSHOT
+    artifactVersion: 0.4.1
     litVocabTermVersion: 0.5.1
     javaPackageName: com.inrupt.lit.vocab.inrupt.service
     artifactDirectoryName: Java
