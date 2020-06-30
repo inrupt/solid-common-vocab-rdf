@@ -1,6 +1,9 @@
 on: 
-  release: 
-    types: [published]
+  # release: 
+  #   types: [published]
+  push:
+    branches:
+      - fix/release-script
 
 jobs:
   npm_publish_to_solid_scope:

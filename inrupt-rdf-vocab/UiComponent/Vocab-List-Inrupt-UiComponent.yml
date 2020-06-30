@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.5"
+    artifactVersion: "0.4.6"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
