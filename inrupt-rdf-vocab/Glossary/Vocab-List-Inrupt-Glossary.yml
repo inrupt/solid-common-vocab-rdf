@@ -64,7 +64,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.6"
+    artifactVersion: "0.4.7"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
