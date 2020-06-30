@@ -3,15 +3,13 @@ on:
     types: [published]
 
 jobs:
-  npm_publish_on_release:
+  npm_publish_to_solid_scope:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         vocab: [
           "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
           "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
-          "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
-          "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
           "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
         ]
     name: NPM release for ${{ matrix.vocab }}
@@ -19,13 +17,13 @@ jobs:
      # Makes the current repository available to the workflow.
     - name: Checkout repo
       uses: actions/checkout@v2
-      # Initializes node for the runner.
+      # Initializes node and NPM to install the LIT artifact generator from GH packages
     - name: Node setup
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v1.4.2
       with:
         node-version: '12.12.0'
-        registry-url: https://registry.npmjs.org/
-        scope: '@solid'
+        registry-url: https://npm.pkg.github.com/
+        scope: '@inrupt'
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
@@ -39,6 +37,65 @@ jobs:
       run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+    - name: NPM cleanup
+      run: rm /home/runner/work/_temp/.npmrc
+    # Re-initializes NPM to publish to NPMJS
+    - name: Node setup
+      uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.12.0'
+        registry-url: https://registry.npmjs.com/
+        scope: '@solid'
+      # Use the generator to generate and publish the NPM package.
+      # The Maven package is pubished by the CD script, and does not need to be
+      # published again on release.
+    - name: Generation and publication
+      run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} -p npmPublic --noprompt
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  
+  npm_publish_to_inrupt_scope:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        vocab: [
+          "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
+          "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
+        ]
+    name: NPM release for ${{ matrix.vocab }}
+    steps:
+      # Makes the current repository available to the workflow.
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      # Initializes node and NPM to install the LIT artifact generator from GH packages
+    - name: Node setup
+      uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.12.0'
+        registry-url: https://npm.pkg.github.com/
+        scope: '@inrupt'
+      # The following action is defined in the current repo.
+      # It reads the expected generator version from the YAML file.
+    - name: Get generator version (Common)
+      uses: ./.github/lit-generator-version/
+      id: generator-version-common
+      with: 
+        vocab-config-path: ${{ matrix.vocab }}
+      # Installs the artifact generator from its github package.
+      # The package is renamed in order to enable having different versions side-by-side.
+    - name: Generator installation
+      run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+    - name: NPM cleanup
+      run: rm /home/runner/work/_temp/.npmrc
+    # Re-initializes NPM to publish to NPMJS
+    - name: Node setup
+      uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.12.0'
+        registry-url: https://registry.npmjs.com/
+        scope: '@inrupt'
       # Use the generator to generate and publish the NPM package.
       # The Maven package is pubished by the CD script, and does not need to be
       # published again on release.
