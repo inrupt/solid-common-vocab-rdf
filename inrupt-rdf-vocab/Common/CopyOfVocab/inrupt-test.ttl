@@ -1,0 +1,124 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix inrupt_test: <https://inrupt.com/vocab/test#> .
+
+
+inrupt_test:
+	a owl:Ontology, lit_core:Ontology ;
+	owl:versionInfo "0.0.1" ;
+ 	dcterms:title "Inrupt test vocabulary"@en ;
+	dcterms:description """The Inrupt test vocabulary - just commonly used terms
+ across all Inrupt tests."""@en ;
+	dcterms:creator "Pat McBennett" ;
+	dcterms:date "2020/07/05" ;
+	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+	vann:preferredNamespacePrefix "inrupt_test" ;
+	vann:preferredNamespaceUri "https://inrupt.com/vocab/test#" .
+
+
+# It seems (at least in 'LitDataset.ts') that "https://arbitrary.pod/resource"
+# and "https://some.pod/resource" con be conflated into just the one IRI..
+# This term replaces: "https://arbitrary.pod/resource"
+inrupt_test:arbitraryPodResource a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary Pod resource"@en ;
+	rdfs:comment "Identifies the IRI of an arbitrary Pod resource."@en .
+
+inrupt_test:somePodResource a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Some Pod resource"@en ;
+	rdfs:comment "Identifies the IRI of a generic Pod resource."@en .
+
+# "https://arbitrary.pod/resource.acl"
+inrupt_test:somePodResourceAcl a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "ACL for some Pod resource"@en ;
+	rdfs:comment "Identifies the IRI of the ACL for a generic Pod resource."@en .
+
+inrupt_test:someOtherPodResource a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Some other Pod resource"@en ;
+	rdfs:comment "Identifies the IRI of another generic Pod resource."@en .
+
+
+inrupt_test:arbitraryNamedGraph a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary named graph"@en ;
+	rdfs:comment "An arbitrary RDF named graph."@en .
+
+inrupt_test:arbitrarySubject a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary subject"@en ;
+	rdfs:comment "An arbitrary RDF subject."@en .
+
+inrupt_test:arbitraryPredicate a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary predicate"@en ;
+	rdfs:comment "An arbitrary RDF predicate."@en .
+
+inrupt_test:arbitraryObject a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary object"@en ;
+	rdfs:comment "An arbitrary RDF object."@en .
+
+inrupt_test:arbitraryObjectOldValue a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary object old value"@en ;
+	rdfs:comment "The old value for an arbitrary RDF object."@en .
+
+inrupt_test:arbitraryObjectNewValue a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary object new value"@en ;
+	rdfs:comment "The new value for an arbitrary RDF object."@en .
+
+
+inrupt_test:arbitrarySubjectDifferent a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Different arbitrary subject"@en ;
+	rdfs:comment """An arbitrary RDF subject that is specifically different from
+ our 'main' arbitrary subject."""@en .
+
+inrupt_test:arbitraryPredicateDifferent a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Different arbitrary predicate"@en ;
+    rdfs:comment """An arbitrary RDF predicate that is specifically different
+ from our 'main' arbitrary predicate."""@en .
+
+inrupt_test:arbitraryObjectDifferent a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Different arbitrary object"@en ;
+	rdfs:comment """An arbitrary RDF object that is specifically different from
+ our 'main' arbitrary object."""@en .
+
+
+inrupt_test:arbitraryWebId a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary WebID"@en ;
+	rdfs:comment "An arbitrary WebID."@en .
+
+# "https://some.pod/container/"
+# This term replaces both 'arbitrary' and 'some' Pod container!
+inrupt_test:arbitraryPodContainer a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary Pod container"@en ;
+	rdfs:comment "The IRI for an arbitrary Pod container."@en .
+
+# "https://arbitrary.pod/container/resource"
+#<https://inrupt.com/vocab/test/arbitraryPodContainer/resource> a rdf:Property ;
+inrupt_test:arbitraryPodContainedResource a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Arbitrary contained resource"@en ;
+	rdfs:comment "The IRI for an arbitrary resource contained within a Pod."@en .
+
+
+#inrupt_test: a rdf:Property ;
+#	rdfs:definedBy inrupt_test: ;
+#	rdfs:label ""@en ;
+#	rdfs:comment "."@en .
