@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-common
-artifactGeneratorVersion: 0.10.26
+artifactGeneratorVersion: 0.10.28
 
 
 versioning:
@@ -63,7 +63,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.8"
+    artifactVersion: "0.4.9"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -71,7 +71,6 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        artifactPrefix: "lit-"
         typescriptVersion: "^3.8.3"
         rdfjsDatamodelVersion: "^1.1.2"
         rollupVersion: "^2.7.3"
@@ -88,12 +87,46 @@ artifactToGenerate:
         packagingTemplates:
           - templateInternal: litVocabTermDependent/typescript/package.hbs
             fileName: package.json
-          - templateInternal: litVocabTermDependent/typescript/index.hbs
+          - templateInternal: generic/typescript/index.hbs
             fileName: index.ts
-          - templateInternal: litVocabTermDependent/typescript/tsconfig.hbs
+          - templateInternal: generic/typescript/tsconfig.hbs
             fileName: tsconfig.json
-          - templateInternal: litVocabTermDependent/typescript/rollup.config.hbs
+          - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js  
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.4.9"
+    artifactDirectoryName: TypeScript-rdfext
+    templateInternal: rdfLibraryDependent/typescript/rdfext/vocab.hbs
+    sourceFileExtension: ts
+    artifactSuffix: -rdfext
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        typescriptVersion: "^3.8.3"
+        rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
+        rollupVersion: "^2.7.3"
+        rollupTypescriptPluginVersion: "^0.27.0"
+        rollupCommonjsPluginVersion: "^11.1.0"
+        rollupNodeResolveVersion: "^7.1.3"
+        bundleName: "InruptVocabCommon"
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: rdfLibraryDependent/typescript/rdfext/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
 
 vocabList:
   - description: Inrupt Common Vocabulary, for terms common across all of Inrupt.
@@ -103,3 +136,7 @@ vocabList:
   - description: User Interface (UI) Common Vocabulary, for terms common across all Inrupt UI.
     inputResources:
       - CopyOfVocab/inrupt-ui-common.ttl
+
+  - description: Test vocabulary - defines classes and properties for testing.
+    inputResources:
+      - CopyOfVocab/inrupt-test.ttl
