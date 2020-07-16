@@ -116,9 +116,3 @@ inrupt_test:arbitraryPodContainedResource a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
 	rdfs:label "Arbitrary contained resource"@en ;
 	rdfs:comment "The IRI for an arbitrary resource contained within a Pod."@en .
-
-
-#inrupt_test: a rdf:Property ;
-#	rdfs:definedBy inrupt_test: ;
-#	rdfs:label ""@en ;
-#	rdfs:comment "."@en .
