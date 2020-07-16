@@ -18,7 +18,7 @@
 #
 #
 artifactName: lit-vocab-common
-artifactGeneratorVersion: 0.10.28
+artifactGeneratorVersion: 0.10.29
 
 versioning:
   type: git
@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.9"
+    artifactVersion: "0.4.11"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -108,11 +108,11 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.9"
-    artifactDirectoryName: TypeScript-rdfext
-    templateInternal: rdfLibraryDependent/typescript/rdfext/vocab.hbs
+    artifactVersion: "0.4.11"
+    artifactDirectoryName: TypeScript-rdfjs
+    templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
-    artifactSuffix: -rdfext
+    artifactSuffix: -rdfjs
     packaging:
       - packagingTool: npm
         npmModuleScope: "@solid/"
@@ -132,7 +132,7 @@ artifactToGenerate:
           - key: "npmPublic"
             command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: rdfLibraryDependent/typescript/rdfext/package.hbs
+          - templateInternal: generic/typescript/package.hbs
             fileName: package.json
           - templateInternal: generic/typescript/index.hbs
             fileName: index.ts
@@ -308,3 +308,7 @@ vocabList:
     namespaceOverride: http://www.w3.org/ns/auth/acl#
     inputResources:
       - http://www.w3.org/ns/auth/acl
+
+  - description: POSIX Vocabulary
+    inputResources:
+      - CopyOfVocab/inrupt-posix.ttl

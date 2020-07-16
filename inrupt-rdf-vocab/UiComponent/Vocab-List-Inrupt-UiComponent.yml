@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-ui
-artifactGeneratorVersion: 0.10.28
+artifactGeneratorVersion: 0.10.29
 
 versioning:
   type: git
@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.9"
+    artifactVersion: "0.4.11"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs

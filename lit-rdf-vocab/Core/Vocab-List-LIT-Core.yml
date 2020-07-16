@@ -10,7 +10,7 @@
 #
 #
 artifactName: lit-vocab-lit
-artifactGeneratorVersion: 0.10.28
+artifactGeneratorVersion: 0.10.29
 
 versioning:
   type: git
@@ -59,7 +59,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.9"
+    artifactVersion: "0.4.11"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"

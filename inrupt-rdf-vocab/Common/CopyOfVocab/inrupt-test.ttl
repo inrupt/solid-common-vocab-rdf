@@ -103,13 +103,6 @@ inrupt_test:arbitraryWebId a rdf:Property ;
 	rdfs:label "Arbitrary WebID"@en ;
 	rdfs:comment "An arbitrary WebID."@en .
 
-# "https://some.pod/container/"
-# This term replaces both 'arbitrary' and 'some' Pod container!
-inrupt_test:arbitraryPodContainer a rdf:Property ;
-	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary Pod container"@en ;
-	rdfs:comment "The IRI for an arbitrary Pod container."@en .
-
 # "https://arbitrary.pod/container/resource"
 #<https://inrupt.com/vocab/test/arbitraryPodContainer/resource> a rdf:Property ;
 inrupt_test:arbitraryPodContainedResource a rdf:Property ;
