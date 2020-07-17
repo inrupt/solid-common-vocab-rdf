@@ -140,4 +140,6 @@ vocabList:
 
   - description: The LIT Metrics Ontology contains vocab terms to represent metric statistics
     inputResources:
-      - https://team.inrupt.net/public/lit/vocab/metric.ttl
+      # Inrupt team Pod no longer running, so just use local copy instead...
+      #- https://team.inrupt.net/public/lit/vocab/metric.ttl
+      - ./CopyOfVocab/lit-metrics.ttl
