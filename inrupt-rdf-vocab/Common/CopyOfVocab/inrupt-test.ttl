@@ -116,3 +116,17 @@ inrupt_test:arbitraryPodContainedResource a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
 	rdfs:label "Arbitrary contained resource"@en ;
 	rdfs:comment "The IRI for an arbitrary resource contained within a Pod."@en .
+
+
+
+inrupt_test:hashSomeSubject a rdfs:Literal ;
+	rdfs:isDefinedBy lit_core: ;
+	skos:definition "some-subject" ;
+ 	rdfs:label "Hash fragment for subject"@en ;
+	rdfs:comment "Some hash fragment used in an IRI to represent a specific subject."@en .
+
+inrupt_test:hashSomeObject a rdfs:Literal ;
+	rdfs:isDefinedBy lit_core: ;
+	skos:definition "some-object" ;
+	rdfs:label "Hash fragment for object"@en ;
+	rdfs:comment "Some hash fragment used in an IRI to represent a specific object."@en .

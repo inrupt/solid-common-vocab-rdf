@@ -1,0 +1,47 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix ldp:      <http://www.w3.org/ns/ldp#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+
+@prefix ldp-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/schema#> .
+
+#
+# Extensions deliberately add (i.e. extend) existing terms in existing
+# vocabularies, specifically to add extra features, such as multi-lingual
+# values for labels and comments.
+#
+# So we very deliberately re-use the underlying vocab's namespace, but use our
+# own prefix to try and differentiate.
+#
+ldp-inrupt-ext:
+    a owl:Ontology, lit_core:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:creator "Pat McBennett" ;
+    dcterms:date "2020/07/16" ;
+    dcterms:title "Inrupt extension adding multilingual meta-data for LDP terms" ;
+    dcterms:description "Extension to LDP terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
+    vann:preferredNamespacePrefix "ldp-inrupt-ext" ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/ldp#" ;
+    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+
+
+ldp:BasicContainer
+    # We provide an English label here, as the no-language value in the official
+    # LDP vocabulary doesn't have a space!
+    rdfs:label "Basic container"@en ;
+    rdfs:label "Conteneur de base"@fr ;
+    rdfs:comment "Un LDPC qui utilise un prédicat prédéfini pour simplement se lier à ses ressources contenues."@fr .
+
+ldp:Container
+    rdfs:label "Conteneur"@fr ;
+    rdfs:comment """Une source RDF de plateforme de données liées (LDP-RS) qui
+ se conforme également à des modèles et des conventions supplémentaires pour la
+ gestion de l'adhésion Les lecteurs doivent se référer à la spécification
+ définissant cette ontologie pour la liste des comportements qui lui sont
+ associés."""@fr .
+
