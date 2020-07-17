@@ -35,7 +35,7 @@ ldp:BasicContainer
     # LDP vocabulary doesn't have a space!
     rdfs:label "Basic container"@en ;
     rdfs:label "Conteneur de base"@fr ;
-    rdfs:comment "Un LDPC qui utilise un prédicat prédéfini pour simplement se lier à ses ressources contenues."@fr .
+    rdfs:comment "Un LDPC qui utilise un prédicat prédéfini pour simplement se lier aux ressources qu'il contient."@fr .
 
 ldp:Container
     rdfs:label "Conteneur"@fr ;
@@ -44,4 +44,3 @@ ldp:Container
  gestion de l'adhésion Les lecteurs doivent se référer à la spécification
  définissant cette ontologie pour la liste des comportements qui lui sont
  associés."""@fr .
-
