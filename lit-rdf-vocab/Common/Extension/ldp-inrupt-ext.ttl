@@ -24,7 +24,7 @@ ldp-inrupt-ext:
     dcterms:creator "Pat McBennett" ;
     dcterms:date "2020/07/16" ;
     dcterms:title "Inrupt extension adding multilingual meta-data for LDP terms" ;
-    dcterms:description "Extension to LDP terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
+    dcterms:description "Extension to LDP terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)"@en ;
     vann:preferredNamespacePrefix "ldp-inrupt-ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/ldp#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
