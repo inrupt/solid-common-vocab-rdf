@@ -41,6 +41,6 @@ ldp:Container
     rdfs:label "Conteneur"@fr ;
     rdfs:comment """Une source RDF de plateforme de données liées (LDP-RS) qui
  se conforme également à des modèles et des conventions supplémentaires pour la
- gestion de l'adhésion Les lecteurs doivent se référer à la spécification
+ gestion de l'adhésion. Les lecteurs doivent se référer à la spécification
  définissant cette ontologie pour la liste des comportements qui lui sont
  associés."""@fr .
