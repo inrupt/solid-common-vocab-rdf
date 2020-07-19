@@ -20,7 +20,7 @@ lit_core:
  	dcterms:title "LIT Core Ontology"@en ;
 	dcterms:description """The LIT Core Ontology. The LIT is intended to be a collection of utility libraries to ease the
  adoption of RDF for developers."""@en ;
-	dcterms:creator "PatMcB" ;
+	dcterms:creator "Pat McBennett" ;
 	dcterms:date "2019/01/01" ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "lit_core" ;
@@ -36,7 +36,20 @@ lit_core:
     rdfs:comment """Class of LIT-specific ontologies. Useful for enforcing LIT constraints when generating source
 code from LIT ontologies, such as enforcing all terms to have rdfs:label and rdfs:comment predicates."""@en .
 
-  lit_core:subjectRoot a rdf:Property ;
+lit_core:ConstantString a rdfs:Class ;
+    rdfs:isDefinedBy lit_core: ;
+    rdfs:label "Constant string"@en ;
+    rdfs:comment """Used to provide a constant String value within a vocabulary - e.g. the value of
+ the constant could be a default timeout value to use as a system configuration value."""@en .
+
+lit_core:ConstantIri a rdfs:Class ;
+    rdfs:isDefinedBy lit_core: ;
+    rdfs:label "Constant IRI"@en ;
+    rdfs:comment """Used to provide a constant IRI value within a vocabulary - e.g. the value of
+ the constant could be default WebID to be used for testing (in other words it doesn't need to have
+ reference to the IRI of the vocabulary itself)."""@en .
+
+lit_core:subjectRoot a rdf:Property ;
     rdfs:isDefinedBy lit_core: ;
     rdfs:label "Subject root"@en ;
     rdfs:comment """The root subject for metadata.

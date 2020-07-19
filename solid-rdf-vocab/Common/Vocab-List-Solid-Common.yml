@@ -17,7 +17,7 @@
 # list file.
 #
 artifactName: lit-vocab-solid
-artifactGeneratorVersion: 0.10.29
+artifactGeneratorVersion: 0.10.30
 
 versioning:
   type: git
@@ -67,7 +67,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -76,7 +76,12 @@ artifactToGenerate:
       - packagingTool: npm
         npmModuleScope: "@solid/"
         typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.7.3"
         rollupTypescriptPluginVersion: "^0.27.0"
         rollupCommonjsPluginVersion: "^11.1.0"
@@ -98,7 +103,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -127,7 +132,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs

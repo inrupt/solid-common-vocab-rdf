@@ -23,110 +23,172 @@ inrupt_test:
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/test#" .
 
 
-# It seems (at least in 'LitDataset.ts') that "https://arbitrary.pod/resource"
-# and "https://some.pod/resource" con be conflated into just the one IRI..
-# This term replaces: "https://arbitrary.pod/resource"
-inrupt_test:arbitraryPodResource a rdf:Property ;
+inrupt_test:somePodRoot a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary Pod resource"@en ;
-	rdfs:comment "Identifies the IRI of an arbitrary Pod resource."@en .
+	rdfs:label "Root of some test Pod"@en ;
+	rdfs:comment "Identifies the root of a some test Pod."@en ;
+	skos:definition "https://some.pod/" .
 
-inrupt_test:somePodResource a rdf:Property ;
+inrupt_test:somePodContainer a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some Pod resource"@en ;
-	rdfs:comment "Identifies the IRI of a generic Pod resource."@en .
+	rdfs:label "Test container in some Pod"@en ;
+	rdfs:comment "Test container in some Pod."@en ;
+	skos:definition "https://some.pod/rootContainer/container/" .
 
-# "https://arbitrary.pod/resource.acl"
-inrupt_test:somePodResourceAcl a rdf:Property ;
+inrupt_test:someOtherPodContainer a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "ACL for some Pod resource"@en ;
-	rdfs:comment "Identifies the IRI of the ACL for a generic Pod resource."@en .
+	rdfs:label "Test container in some *other* Pod"@en ;
+	rdfs:comment "Test container in some *other* Pod."@en ;
+	skos:definition "https://some.other.pod.com/canBeAnywhere/rootContainer/otherContainer" .
 
-inrupt_test:someOtherPodResource a rdf:Property ;
+
+inrupt_test:somePodResource a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some other Pod resource"@en ;
-	rdfs:comment "Identifies the IRI of another generic Pod resource."@en .
+	rdfs:label "Some test resource in a Pod"@en ;
+	rdfs:comment "Some test resource in a Pod."@en ;
+	skos:definition "https://some.pod/rootContainer/container/Resource1" .
 
-
-inrupt_test:arbitraryNamedGraph a rdf:Property ;
+inrupt_test:somePodResourceAcl a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary named graph"@en ;
-	rdfs:comment "An arbitrary RDF named graph."@en .
+	rdfs:label "ACL for some test resource"@en ;
+	rdfs:comment "ACL for some test resource."@en ;
+	skos:definition "https://some.pod/rootContainer/container/Resource1.acl" .
 
-inrupt_test:arbitrarySubject a rdf:Property ;
+inrupt_test:someOtherPodResource a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary subject"@en ;
-	rdfs:comment "An arbitrary RDF subject."@en .
+	rdfs:label "Some *other* test resource in another Pod"@en ;
+	rdfs:comment "Some *other* test resource in another Pod."@en ;
+	skos:definition "https://some.other.pod.com/OtherResource" .
 
-inrupt_test:arbitraryPredicate a rdf:Property ;
+
+inrupt_test:somePodResourceHashSomeSubject a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary predicate"@en ;
-	rdfs:comment "An arbitrary RDF predicate."@en .
+	rdfs:label "Some test Pod resource with a hash fragment identifying a Subject"@en ;
+	rdfs:comment "Some test Pod resource with a hash fragment identifying a Subject."@en ;
+	skos:definition "https://some.pod/rootContainer/container/Resource1#some-subject" .
 
-inrupt_test:arbitraryObject a rdf:Property ;
+inrupt_test:somePodResourceHashSomeObject a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary object"@en ;
-	rdfs:comment "An arbitrary RDF object."@en .
+	rdfs:label "Some test Pod resource with a hash fragment identifying an Object"@en ;
+	rdfs:comment "Some test Pod resource with a hash fragment identifying an Object."@en ;
+	skos:definition "https://some.pod/rootContainer/container/Resource1#some-object" .
 
-inrupt_test:arbitraryObjectOldValue a rdf:Property ;
+
+inrupt_test:somePodRootAcl a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary object old value"@en ;
-	rdfs:comment "The old value for an arbitrary RDF object."@en .
+	rdfs:label "Some test Pod root ACL"@en ;
+	rdfs:comment "Some test Pod root ACL."@en ;
+	skos:definition "https://some.pod/.acl" .
 
-inrupt_test:arbitraryObjectNewValue a rdf:Property ;
+inrupt_test:somePodContainerAcl a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary object new value"@en ;
-	rdfs:comment "The new value for an arbitrary RDF object."@en .
+	rdfs:label "Some test Pod container ACL"@en ;
+	rdfs:comment "Some test Pod container ACL."@en ;
+	skos:definition "https://some.pod/rootContainer/container/.acl" .
 
 
-inrupt_test:arbitrarySubjectDifferent a rdf:Property ;
+inrupt_test:somePodGroupId a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Different arbitrary subject"@en ;
-	rdfs:comment """An arbitrary RDF subject that is specifically different from
- our 'main' arbitrary subject."""@en .
+	rdfs:label "Some test Pod Group ID"@en ;
+	rdfs:comment "Some test Pod Group ID."@en ;
+	skos:definition "https://some.pod/group#id" .
 
-inrupt_test:arbitraryPredicateDifferent a rdf:Property ;
+inrupt_test:somePodOtherGroupId a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Different arbitrary predicate"@en ;
-    rdfs:comment """An arbitrary RDF predicate that is specifically different
- from our 'main' arbitrary predicate."""@en .
+	rdfs:label "Some *other* test Pod Group ID"@en ;
+	rdfs:comment "Some *other* test Pod Group ID."@en ;
+	skos:definition "https://some.other.pod/otherGroup#other-id" .
 
-inrupt_test:arbitraryObjectDifferent a rdf:Property ;
+
+inrupt_test:somePodWebId a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Different arbitrary object"@en ;
-	rdfs:comment """An arbitrary RDF object that is specifically different from
- our 'main' arbitrary object."""@en .
+	rdfs:label "Some test Pod WebID"@en ;
+	rdfs:comment "Some test Pod WebID."@en ;
+	skos:definition "https://some.pod/somePodWebId/profile/card#me" .
 
-
-inrupt_test:arbitraryWebId a rdf:Property ;
+inrupt_test:someOtherPodWebId a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary WebID"@en ;
-	rdfs:comment "An arbitrary WebID."@en .
+	rdfs:label "Some *other* test Pod WebID"@en ;
+	rdfs:comment "Some *other* test Pod WebID."@en ;
+	skos:definition "https://some.other.pod.com#i" .
 
-# "https://some.pod/container/"
-# This term replaces both 'arbitrary' and 'some' Pod container!
-inrupt_test:arbitraryPodContainer a rdf:Property ;
+
+inrupt_test:someNamedGraph a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary Pod container"@en ;
-	rdfs:comment "The IRI for an arbitrary Pod container."@en .
+	rdfs:label "Some Named Graph"@en ;
+	rdfs:comment "Some Named Graph."@en ;
+	skos:definition "https://some.pod/someNamedGraph" .
 
-# "https://arbitrary.pod/container/resource"
-#<https://inrupt.com/vocab/test/arbitraryPodContainer/resource> a rdf:Property ;
-inrupt_test:arbitraryPodContainedResource a rdf:Property ;
+inrupt_test:someOtherNamedGraph a lit_core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Arbitrary contained resource"@en ;
-	rdfs:comment "The IRI for an arbitrary resource contained within a Pod."@en .
+	rdfs:label "Some *other* test Pod WebID"@en ;
+	rdfs:comment "Some *other* test Pod WebID."@en ;
+	skos:definition "https://some.other.pod.com/someOtherNamedGraph" .
+
+
+inrupt_test:someNonRdfResource a lit_core:ConstantIri ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Some non-RDF resource"@en ;
+	rdfs:comment "Some non-RDF resource."@en ;
+	skos:definition "https://some.pod/someNonRdfResource" .
 
 
 
-inrupt_test:hashSomeSubject a rdfs:Literal ;
-	rdfs:isDefinedBy lit_core: ;
-	skos:definition "some-subject" ;
- 	rdfs:label "Hash fragment for subject"@en ;
-	rdfs:comment "Some hash fragment used in an IRI to represent a specific subject."@en .
+inrupt_test:someSubject a lit_core:ConstantIri ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en ;
+	skos:definition "https://some.pod/resource#subject" .
 
-inrupt_test:hashSomeObject a rdfs:Literal ;
-	rdfs:isDefinedBy lit_core: ;
-	skos:definition "some-object" ;
-	rdfs:label "Hash fragment for object"@en ;
-	rdfs:comment "Some hash fragment used in an IRI to represent a specific object."@en .
+inrupt_test:somePredicate a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en .
+
+inrupt_test:someObject a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en .
+
+
+inrupt_test:someOtherSubject a lit_core:ConstantIri ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en ;
+	skos:definition "https://some.other.pod/resource#other-subject" .
+
+inrupt_test:someOtherPredicate a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en .
+
+inrupt_test:someOtherObject a rdf:Property ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label ""@en ;
+	rdfs:comment "."@en .
+
+
+
+inrupt_test:hashSomeSubject a lit_core:ConstantString ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Hash fragment used to identify a test Subject"@en ;
+	rdfs:comment "Hash fragment used to identify a test Subject."@en ;
+	skos:definition "some-subject" .
+
+inrupt_test:hashSomeObject a lit_core:ConstantString ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Hash fragment used to identify a test Object"@en ;
+	rdfs:comment "Hash fragment used to identify a test Object."@en ;
+	skos:definition "some-object" .
+
+inrupt_test:somePodContainerAclRelativePath a lit_core:ConstantString ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Relative path to some test Pod container ACL"@en ;
+	rdfs:comment "Relative path to some test Pod container ACL."@en ;
+	skos:definition ".acl" .
+
+inrupt_test:somePodResourceAclRelativePath a lit_core:ConstantString ;
+	rdfs:definedBy inrupt_test: ;
+	rdfs:label "Relative path to some test Pod resource ACL"@en ;
+	rdfs:comment "Relative path to some test Pod resource ACL."@en ;
+	skos:definition "Resource1.acl" .
