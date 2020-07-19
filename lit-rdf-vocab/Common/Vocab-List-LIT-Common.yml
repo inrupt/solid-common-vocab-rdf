@@ -18,7 +18,7 @@
 #
 #
 artifactName: lit-vocab-common
-artifactGeneratorVersion: 0.10.30
+artifactGeneratorVersion: 0.10.31
 
 versioning:
   type: git
@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.13"
+    artifactVersion: "0.4.14"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -113,7 +113,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.13"
+    artifactVersion: "0.4.14"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
