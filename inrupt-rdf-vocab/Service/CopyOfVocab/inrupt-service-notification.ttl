@@ -20,7 +20,7 @@ inrupt_notification:
 	owl:versionInfo "1" ;
  	dcterms:title "Inrupt notification vocabulary"@en ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
-	dcterms:creator "PatMcB" ;
+	dcterms:creator "Pat McBennett" ;
 	dcterms:date "2019/11/08" ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;

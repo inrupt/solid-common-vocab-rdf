@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-ui
-artifactGeneratorVersion: 0.10.29
+artifactGeneratorVersion: 0.10.30
 
 versioning:
   type: git
@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -33,7 +33,12 @@ artifactToGenerate:
         npmModuleScope: "@inrupt/"
         artifactPrefix: "lit-"
         typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.7.3"
         rollupTypescriptPluginVersion: "^0.27.0"
         rollupCommonjsPluginVersion: "^11.1.0"

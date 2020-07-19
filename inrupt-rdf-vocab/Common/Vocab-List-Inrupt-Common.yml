@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-common
-artifactGeneratorVersion: 0.10.29
+artifactGeneratorVersion: 0.10.30
 
 
 versioning:
@@ -63,7 +63,7 @@ artifactToGenerate:
         url: https://nexus.inrupt.com/repository/maven-snapshots/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     litVocabTermVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: litVocabTermDependent/typescript/vocab.hbs
@@ -72,7 +72,12 @@ artifactToGenerate:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.7.3"
         rollupTypescriptPluginVersion: "^0.27.0"
         rollupCommonjsPluginVersion: "^11.1.0"
@@ -95,7 +100,7 @@ artifactToGenerate:
             fileName: rollup.config.js  
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.12"
+    artifactVersion: "0.4.13"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
@@ -104,7 +109,10 @@ artifactToGenerate:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
         rdfjsNamespaceVersion: "^1.1.0"
         rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.7.3"
