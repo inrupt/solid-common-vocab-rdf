@@ -30,7 +30,7 @@ jobs:
           with:
             java-version: 1.8
             # These values are used in the `settings.xml` Maven config file
-            server-id: cloudsmith-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
+            server-id: cloudsmith-snapshot # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
             server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
         - name: Generate proper Maven settings
@@ -41,7 +41,7 @@ jobs:
           env:
             SERVER_ID_RELEASE: cloudsmith-staging
             SERVER_URL_RELEASE: https://maven.cloudsmith.io/inrupt/sdk-staging/
-            SERVER_ID_SNAPSHOT: cloudsmith-snapshots
+            SERVER_ID_SNAPSHOT: cloudsmith-snapshot
             SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/sdk-development/
             SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
             SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}

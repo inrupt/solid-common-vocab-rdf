@@ -55,7 +55,7 @@ artifactToGenerate:
         id: cloudsmith-staging
         url: https://maven.cloudsmith.io/inrupt/sdk-staging/
       - type: snapshotRepository
-        id: cloudsmith-snapshots
+        id: cloudsmith-snapshot
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
