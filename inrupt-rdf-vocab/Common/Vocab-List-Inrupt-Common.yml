@@ -56,7 +56,7 @@ artifactToGenerate:
         fileName: pom.xml
       repository:
       - type: repository
-        id: cloudsmith-releases
+        id: cloudsmith-staging
         url: https://maven.cloudsmith.io/inrupt/sdk-staging/
       - type: snapshotRepository
         id: cloudsmith-snapshots
