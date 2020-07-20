@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - chore/setup-cloudsmith
 
 jobs:
     publish_on_push:
