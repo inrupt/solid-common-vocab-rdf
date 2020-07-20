@@ -31,8 +31,8 @@ jobs:
             java-version: 1.8
             # These values are used in the `settings.xml` Maven config file
             server-id: nexus-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
-            server-username: ${{ secrets.NEXUS_USERNAME }}
-            server-password: ${{ secrets.NEXUS_TOKEN }}
+            server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
+            server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
         - name: Generate proper Maven settings
           uses: ./.github/fill-template
           with:
@@ -43,8 +43,8 @@ jobs:
             SERVER_URL_RELEASE: https://nexus.inrupt.com/repository/maven-releases/
             SERVER_ID_SNAPSHOT: nexus-snapshots
             SERVER_URL_SNAPSHOT: https://nexus.inrupt.com/repository/maven-snapshots/
-            SERVER_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-            SERVER_PASSWORD: ${{ secrets.NEXUS_TOKEN }}
+            SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
+            SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}
         # The following action is defined in the current repo
         # It reads the expected generator version from the YAML file
         - name: Get generator version
