@@ -45,18 +45,18 @@ artifactToGenerate:
         command: "mvn install"
       - key: "mavenRemote"
         command: "mvn deploy"
-      - key: "nexus"
+      - key: "cloudsmith"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates:
       - templateInternal: litVocabTermDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
       repository:
       - type: repository
-        id: nexus-releases
-        url: https://nexus.inrupt.com/repository/maven-releases/
+        id: cloudsmith-staging
+        url: https://maven.cloudsmith.io/inrupt/sdk-staging/
       - type: snapshotRepository
-        id: nexus-snapshots
-        url: https://nexus.inrupt.com/repository/maven-snapshots/
+        id: cloudsmith-snapshots
+        url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
     artifactVersion: "0.4.14"

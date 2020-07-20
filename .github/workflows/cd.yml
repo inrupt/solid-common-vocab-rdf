@@ -33,7 +33,7 @@ jobs:
           with:
             java-version: 1.8
             # These values are used in the `settings.xml` Maven config file
-            server-id: nexus-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
+            server-id: cloudsmith-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
             server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
         - name: Generate proper Maven settings
@@ -62,9 +62,9 @@ jobs:
           run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-        # NOTE: This only pushes to Nexus (not NPM), because it does not increase
+        # NOTE: This only pushes to Cloudsmith (not NPM), because it does not increase
         # version number, which is fine for Maven SNAPSHOT versions.
-        - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p nexus
+        - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith
           env:
               NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         - name: Upload log for debug
