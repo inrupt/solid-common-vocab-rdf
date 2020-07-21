@@ -51,10 +51,10 @@ artifactToGenerate:
       repository:
       - type: repository
         id: cloudsmith-staging
-        url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+        url: https://maven.cloudsmith.io/inrupt/common-staging/
       - type: snapshotRepository
         id: cloudsmith-snapshot
-        url: https://maven.cloudsmith.io/inrupt/sdk-development/
+        url: https://maven.cloudsmith.io/inrupt/common-development/
       publish:
       - key: 'local'
         command: "mvn install"
