@@ -6,11 +6,11 @@
 # list file.
 #
 artifactName: vocab-ui
-artifactGeneratorVersion: 0.10.31
+artifactGeneratorVersion: 0.11.0
 
 versioning:
   type: git
-  url: https://github.com/inrupt/lit-vocab.git
+  url: https://github.com/inrupt/vocab.git
   versioningTemplates: 
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -24,9 +24,9 @@ license:
 artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "0.4.14"
-    litVocabTermVersion: "^0.4.1"
+    solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
-    templateInternal: litVocabTermDependent/typescript/vocab.hbs
+    templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
@@ -52,7 +52,7 @@ artifactToGenerate:
           - key: "npmPrivate"
             command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/"
         packagingTemplates:
-          - templateInternal: litVocabTermDependent/typescript/package.hbs
+          - templateInternal: solidCommonVocabDependent/typescript/package.hbs
             fileName: package.json
           - templateInternal: generic/typescript/index.hbs
             fileName: index.ts

@@ -1,6 +1,6 @@
 #
 # This file contains a simple list of vocabularies that we bundle together to
-# form the collective set of LIT 'Common' vocabularies.
+# form the collective set of what we consider 'Common' RDF vocabularies.
 #
 # These are the vocabs that we feel will be the most commonly used across
 # general RDF development efforts, and so we list them here to allow our
@@ -18,11 +18,11 @@
 #
 #
 artifactName: lit-vocab-common
-artifactGeneratorVersion: 0.10.31
+artifactGeneratorVersion: 0.11.0
 
 versioning:
   type: git
-  url: https://github.com/inrupt/lit-vocab.git
+  url: https://github.com/inrupt/vocab.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -35,11 +35,11 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.4.3-SNAPSHOT
-    litVocabTermVersion: 0.5.1
+    artifactVersion: 0.5.0-SNAPSHOT
+    solidCommonVocabVersion: 0.0.1-SNAPSHOT
     javaPackageName: org.solid.generated.vocab.lit.common
     artifactDirectoryName: Java
-    templateInternal: litVocabTermDependent/java/rdf4j/vocab.hbs
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
@@ -65,7 +65,7 @@ artifactToGenerate:
       - key: "cloudsmith"
         command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates:
-      - templateInternal: litVocabTermDependent/java/rdf4j/pom.hbs
+      - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
       repository:
       - type: repository
@@ -77,9 +77,9 @@ artifactToGenerate:
 
   - programmingLanguage: TypeScript
     artifactVersion: "0.4.14"
-    litVocabTermVersion: "^0.4.1"
+    solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
-    templateInternal: litVocabTermDependent/typescript/vocab.hbs
+    templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
@@ -103,7 +103,7 @@ artifactToGenerate:
         - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: litVocabTermDependent/typescript/package.hbs
+          - templateInternal: solidCommonVocabDependent/typescript/package.hbs
             fileName: package.json
           - templateInternal: generic/typescript/index.hbs
             fileName: index.ts
