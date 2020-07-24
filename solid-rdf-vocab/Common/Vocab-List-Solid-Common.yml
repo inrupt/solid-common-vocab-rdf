@@ -34,9 +34,9 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.0-SNAPSHOT
+    artifactVersion: 0.5.0
     javaPackageName: org.solid.generated.vocab.solid.common
-    solidCommonVocabVersion: 0.0.1-SNAPSHOT
+    solidCommonVocabVersion: 0.0.1
     artifactDirectoryName: Java
     templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
