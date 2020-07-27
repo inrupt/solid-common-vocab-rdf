@@ -27,7 +27,7 @@ jobs:
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
-      uses: ./.github/lit-generator-version/
+      uses: ./.github/artifact-generator-version/
       id: generator-version-common
       with: 
         vocab-config-path: ${{ matrix.vocab }}
@@ -77,7 +77,7 @@ jobs:
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
-      uses: ./.github/lit-generator-version/
+      uses: ./.github/artifact-generator-version/
       id: generator-version-common
       with: 
         vocab-config-path: ${{ matrix.vocab }}

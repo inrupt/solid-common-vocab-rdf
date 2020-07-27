@@ -9,8 +9,8 @@ jobs:
         strategy:
           matrix:
             vocab: [
-              "common-rdf/Common/Vocab-List-Common.yml",
-              "common-rdf/Core/Vocab-List-LIT-Core.yml",
+              "common-rdf/Common/Vocab-List-Rdf-Common.yml",
+              "lit-rdf/Common/Vocab-List-Lit-Common.yml",
               "inrupt-rdf/Common/Vocab-List-Inrupt-Common.yml",
               "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
               "solid-rdf/Common/Vocab-List-Solid-Common.yml"
@@ -51,7 +51,7 @@ jobs:
         # The following action is defined in the current repo.
         # It reads the expected generator version from the YAML file.
         - name: Get generator version
-          uses: ./.github/lit-generator-version/
+          uses: ./.github/artifact-generator-version/
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
