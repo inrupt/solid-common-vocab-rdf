@@ -6,11 +6,11 @@ jobs:
         strategy:
           matrix:
             vocab: [
-              "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
-              "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
-              "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
-              "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
-              "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+              "common-rdf/Common/Vocab-List-Common.yml",
+              "common-rdf/Core/Vocab-List-LIT-Core.yml",
+              "inrupt-rdf/Common/Vocab-List-Inrupt-Common.yml",
+              "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
+              "solid-rdf/Common/Vocab-List-Solid-Common.yml"
             ]
         name: CI for ${{ matrix.vocab }}
         steps:
@@ -30,7 +30,7 @@ jobs:
           with:
             java-version: 1.8
             # These values are used in the `settings.xml` Maven config file
-            server-id: cloudsmith-snapshot # Value of the distributionManagement/repository/id field of the pom.xml
+            server-id: cloudsmith-development # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
             server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
         - name: Generate proper Maven settings
@@ -41,7 +41,7 @@ jobs:
           env:
             SERVER_ID_RELEASE: cloudsmith-staging
             SERVER_URL_RELEASE: https://maven.cloudsmith.io/inrupt/common-staging/
-            SERVER_ID_SNAPSHOT: cloudsmith-snapshot
+            SERVER_ID_SNAPSHOT: cloudsmith-development
             SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/common-development/
             SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
             SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}

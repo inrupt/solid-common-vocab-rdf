@@ -8,9 +8,9 @@ jobs:
     strategy:
       matrix:
         vocab: [
-          "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
-          "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
-          "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+          "common-rdf/Common/Vocab-List-Common.yml",
+          "common-rdf/Core/Vocab-List-LIT-Core.yml",
+          "solid-rdf/Common/Vocab-List-Solid-Common.yml"
         ]
     name: NPM release for ${{ matrix.vocab }}
     steps:
