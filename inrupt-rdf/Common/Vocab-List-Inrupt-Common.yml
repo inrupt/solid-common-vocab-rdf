@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-common
-artifactGeneratorVersion: 0.11.0
+artifactGeneratorVersion: 0.11.1
 
 
 versioning:

@@ -10,7 +10,7 @@
 #
 #
 artifactName: vocab-lit-common
-artifactGeneratorVersion: 0.11.0
+artifactGeneratorVersion: 0.11.1
 
 versioning:
   type: git
