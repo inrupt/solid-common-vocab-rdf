@@ -8,9 +8,9 @@ jobs:
     strategy:
       matrix:
         vocab: [
-          "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
-          "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
-          "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+          "common-rdf/Common/Vocab-List-Common.yml",
+          "common-rdf/Core/Vocab-List-LIT-Core.yml",
+          "solid-rdf/Common/Vocab-List-Solid-Common.yml"
         ]
     name: NPM release for ${{ matrix.vocab }}
     steps:
@@ -27,7 +27,7 @@ jobs:
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
-      uses: ./.github/lit-generator-version/
+      uses: ./.github/artifact-generator-version/
       id: generator-version-common
       with: 
         vocab-config-path: ${{ matrix.vocab }}
@@ -77,7 +77,7 @@ jobs:
       # The following action is defined in the current repo.
       # It reads the expected generator version from the YAML file.
     - name: Get generator version (Common)
-      uses: ./.github/lit-generator-version/
+      uses: ./.github/artifact-generator-version/
       id: generator-version-common
       with: 
         vocab-config-path: ${{ matrix.vocab }}

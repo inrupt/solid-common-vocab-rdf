@@ -1,0 +1,110 @@
+#
+# This file contains a simple list of vocabularies that we bundle together to
+# form the collective set of Inrupt Common vocabularies.
+#
+# For example, for Java developers we can generate a single JAR, or for
+# JavaScript we can generate a single NPM module, that developers can depend
+# on directly and easily get immediate access to source-code constants for all
+# the terms in all of these vocabularies.
+#
+# Local vocabularies can be provided relative to the location of this resource
+# list file.
+#
+artifactName: vocab-inrupt-glossary
+artifactGeneratorVersion: 0.11.1
+
+
+versioning:
+  type: git
+  url: https://github.com/inrupt/solid-common-rdf.git
+  versioningTemplates: 
+    - templateInternal: ".gitignore.hbs"
+      fileName: ".gitignore"
+
+license:
+  path: "../../LICENSE"
+  fileName: "LICENSE"
+  header: "../../LICENSE_HEADER.js"
+  name: "MIT"
+
+artifactToGenerate:
+  - programmingLanguage: Java
+    artifactVersion: 0.5.1-SNAPSHOT
+    solidCommonVocabVersion: 0.0.1
+    javaPackageName: com.inrupt.vocab.inrupt.glossary
+    artifactDirectoryName: Java
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+    sourceFileExtension: java
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    packaging:
+    - packagingTool: maven
+      groupId: com.inrupt
+      publish:
+      - key: "mavenLocal"
+        command: "mvn install"
+      - key: "mavenRemote"
+        command: "mvn deploy"
+      - key: "cloudsmith"
+        command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
+      packagingTemplates: 
+      - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+        fileName: pom.xml
+      repository:
+      - type: repository
+        id: cloudsmith-staging
+        url: https://maven.cloudsmith.io/inrupt/common-staging/
+      - type: snapshotRepository
+        id: cloudsmith-development
+        url: https://maven.cloudsmith.io/inrupt/common-development/
+      
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.4.14"
+    solidCommonVocabVersion: "^0.4.1"
+    artifactDirectoryName: TypeScript
+    templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
+    sourceFileExtension: ts
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
+        rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
+        rollupVersion: "^2.7.3"
+        rollupTypescriptPluginVersion: "^0.27.0"
+        rollupCommonjsPluginVersion: "^11.1.0"
+        rollupNodeResolveVersion: "^7.1.3"
+        bundleName: "InruptVocabGlossary"
+        publish:
+        - key: "npmLocal"
+          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+        - key: 'npmGithub'
+          command: "npm install --registry https://npm.pkg.github.com/pmcb55 && npm run build && npm publish --registry https://npm.pkg.github.com/"
+        - key: "npmPrivate"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjsp.org/"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/typescript/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+vocabList:
+  - description: Inrupt ESS Vocabulary
+    inputResources:
+      - CopyOfVocab/inrupt-ess.ttl
+
+  - description: Inrupt Release Vocabulary
+    inputResources:
+      - CopyOfVocab/inrupt-release.ttl

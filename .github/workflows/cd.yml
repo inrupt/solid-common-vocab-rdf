@@ -9,18 +9,18 @@ jobs:
         strategy:
           matrix:
             vocab: [
-              "lit-rdf-vocab/Common/Vocab-List-LIT-Common.yml",
-              "lit-rdf-vocab/Core/Vocab-List-LIT-Core.yml",
-              "inrupt-rdf-vocab/Common/Vocab-List-Inrupt-Common.yml",
-              "inrupt-rdf-vocab/Service/Vocab-List-Inrupt-Service.yml",
-              "solid-rdf-vocab/Common/Vocab-List-Solid-Common.yml"
+              "common-rdf/Common/Vocab-List-Common-Rdf.yml",
+              "lit-rdf/Common/Vocab-List-Lit-Common.yml",
+              "inrupt-rdf/Common/Vocab-List-Inrupt-Common.yml",
+              "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
+              "solid-rdf/Common/Vocab-List-Solid-Common.yml"
             ]
         name: CD for ${{ matrix.vocab }}
         steps:
-        # Setup
+        # Setup.
         - name: Checkout repo
           uses: actions/checkout@v2
-        # Initializes node for the runner
+        # Initializes node for the runner.
         - name: Node setup
           uses: actions/setup-node@v1
           with:
@@ -32,8 +32,8 @@ jobs:
           uses: actions/setup-java@v1
           with:
             java-version: 1.8
-            # These values are used in the `settings.xml` Maven config file
-            server-id: cloudsmith-snapshot # Value of the distributionManagement/repository/id field of the pom.xml
+            # These values are used in the `settings.xml` Maven config file.
+            server-id: cloudsmith-development # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
             server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
         - name: Generate proper Maven settings
@@ -44,31 +44,33 @@ jobs:
           env:
             SERVER_ID_RELEASE: cloudsmith-staging
             SERVER_URL_RELEASE: https://maven.cloudsmith.io/inrupt/common-staging/
-            SERVER_ID_SNAPSHOT: cloudsmith-snapshot
+            SERVER_ID_SNAPSHOT: cloudsmith-development
             SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/common-development/
             SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
             SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}
-        # The following action is defined in the current repo
-        # It reads the expected generator version from the YAML file
+        # The following action is defined in the current repo.
+        # It reads the expected generator version from the YAML file.
         - name: Get generator version
-          uses: ./.github/lit-generator-version/
+          uses: ./.github/artifact-generator-version/
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
 
-        # Installs the artifact generator from its github package
-        # The package is renamed in order to enable having different versions side-by-side
-        - name: Install LIT Artifact Generator
+        # Installs the Artifact Generator from its GitHub package.
+        # The package is renamed in order to enable having different versions
+        # side-by-side.
+        - name: Install Artifact Generator
           run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-        # NOTE: This only pushes to Cloudsmith (not NPM), because it does not increase
-        # version number, which is fine for Maven SNAPSHOT versions.
+        # NOTE: This only pushes to Cloudsmith (not NPM), because it does not
+        # increment the version number, which is fine for Maven SNAPSHOT
+        # versions.
         - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith
           env:
               NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         - name: Upload log for debug
-          # Only upload if the previous step failed
+          # Only upload if the previous step failed.
           if: failure()
           uses: actions/upload-artifact@v1.0.0
           with:

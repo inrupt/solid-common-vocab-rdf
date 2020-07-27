@@ -1,0 +1,323 @@
+#
+# This file contains a simple list of vocabularies that we bundle together to
+# form the collective set of what we consider 'Common' RDF vocabularies.
+#
+# These are the vocabs that we feel will be the most commonly used across
+# general RDF development efforts, and so we list them here to allow our
+# artifact generators to create programming-language-specific bundles
+# providing convenient constants representing the terms from these
+# vocabularies.
+#
+# For example, for Java developers we can generate a single JAR, or for
+# JavaScript we can generate a single NPM module, that developers can depend
+# on directly and easily get immediate access to source-code constants for all
+# the terms in all of these vocabularies.
+#
+# Local vocabularies can be provided relative to the location of this resource
+# list file.
+#
+#
+artifactName: vocab-common-rdf
+artifactGeneratorVersion: 0.11.1
+
+versioning:
+  type: git
+  url: https://github.com/inrupt/solid-common-rdf.git
+  versioningTemplates:
+    - templateInternal: ".gitignore.hbs"
+      fileName: ".gitignore"
+
+license:
+  path: "../../LICENSE"
+  fileName: "LICENSE"
+  header: "../../LICENSE_HEADER.js"
+  name: "MIT"
+
+artifactToGenerate:
+  - programmingLanguage: Java
+    artifactVersion: 0.5.1-SNAPSHOT
+    solidCommonVocabVersion: 0.0.1
+    javaPackageName: com.inrupt.vocab.common.rdf
+    artifactDirectoryName: Java
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+    sourceFileExtension: java
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - for       # Defined in ?.
+      - default   # Defined in ACL.
+      - boolean   # Defined in XML Schema Datatypes.
+      - float     # Defined in XML Schema Datatypes.
+      - double    # Defined in XML Schema Datatypes.
+      - byte      # Defined in XML Schema Datatypes.
+      - int       # Defined in XML Schema Datatypes.
+      - long      # Defined in XML Schema Datatypes.
+      - short     # Defined in XML Schema Datatypes.
+    packaging:
+    - packagingTool: maven
+      groupId: com.inrupt
+      publish: 
+      - key: "mavenLocal"
+        command: "mvn install"
+      - key: "mavenRemote"
+        command: "mvn deploy"
+      - key: "cloudsmith"
+        command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
+      packagingTemplates:
+      - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+        fileName: pom.xml
+      repository:
+      - type: repository
+        id: cloudsmith-staging
+        url: https://maven.cloudsmith.io/inrupt/common-staging/
+      - type: snapshotRepository
+        id: cloudsmith-development
+        url: https://maven.cloudsmith.io/inrupt/common-development/
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.4.14"
+    solidCommonVocabVersion: "^0.4.1"
+    artifactDirectoryName: TypeScript
+    templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
+    sourceFileExtension: ts
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
+        rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
+        rollupVersion: "^2.7.3"
+        rollupTypescriptPluginVersion: "^0.27.0"
+        rollupCommonjsPluginVersion: "^11.1.0"
+        rollupNodeResolveVersion: "^7.1.3"
+        bundleName: "VocabCommon"
+        publish:
+        - key: "npmLocal"
+          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+        # The following command should only run in CI.
+        - key: "npmPublic"
+          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/typescript/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.4.14"
+    artifactDirectoryName: TypeScript-rdfjs
+    templateInternal: generic/typescript/vocab.hbs
+    sourceFileExtension: ts
+    artifactSuffix: -rdfjs
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        typescriptVersion: "^3.8.3"
+        rdfjsTypesVersion: "^3.0.3"
+        rdfjsDatamodelVersion: "^1.1.2"
+        rdfjsDatasetVersion: "^1.0.1"
+        rdfjsDatasetTypesVersion: "^1.0.3"
+        rdfjsNamespaceVersion: "^1.1.0"
+        rdfjsNamespaceTypesVersion: "^1.1.1"
+        rollupVersion: "^2.7.3"
+        rollupTypescriptPluginVersion: "^0.27.0"
+        rollupCommonjsPluginVersion: "^11.1.0"
+        rollupNodeResolveVersion: "^7.1.3"
+        bundleName: "VocabCommon"
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: generic/typescript/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+vocabList:
+  # NOTE: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
+  # (used in our Java artifact generator) will not follow the 301 redirect from
+  # 'http://', and so our RDF4J model will be empty and therefore so will our
+  # generated source.
+  #
+  # NOTE: With almost 2,000 terms, Schema.org as a whole is very big, and the
+  # generated code can amount to over 700Kb. So instead we recommend using an
+  # extension vocabulary that selectively includes relevant terms (see below).
+#  - description: Schema.org (the full vocabulary)
+#    inputResources:
+#      - https://schema.org/version/latest/schema.ttl
+
+  - description: Schema.org with selective terms having translations
+    nameAndPrefixOverride: schema-inrupt-ext
+    inputResources:
+      - https://schema.org/version/latest/schema.ttl
+    termSelectionResource: ./Extension/schema-inrupt-ext.ttl
+
+
+  - description: VCARD (the full vocabulary)
+    nameAndPrefixOverride: vcard
+    inputResources:
+      - http://www.w3.org/2006/vcard/ns#
+
+  - description: VCARD with selective terms having translations
+    nameAndPrefixOverride: vcard-inrupt-ext
+    inputResources:
+      - http://www.w3.org/2006/vcard/ns#
+    termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
+
+
+  - description: RDF (the full vocabulary)
+    nameAndPrefixOverride: rdf
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+  - description: RDF with selective terms having translations
+    nameAndPrefixOverride: rdf-inrupt-ext
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
+
+  - description: rdfs
+    nameAndPrefixOverride: rdfs
+    inputResources:
+      - http://www.w3.org/2000/01/rdf-schema#
+
+  - description: xsd
+    inputResources:
+      - ./CopyOfVocab/inrupt-xml-schema.ttl
+
+  # OWL seems to have a bug in that the ontology itself is identified using a
+  # subject IRI without the hash, yet the 'owl:' prefix correctly appends the
+  # hash.
+  - description: OWL
+    nameAndPrefixOverride: owl
+    inputResources:
+      - http://www.w3.org/2002/07/owl#
+
+  - description: LDP
+    inputResources:
+      - https://www.w3.org/ns/ldp#
+      - ./Extension/ldp-inrupt-ext.ttl
+
+  - description: Terms from the HTTP protocol
+    nameAndPrefixOverride: http
+    inputResources:
+      - http://www.w3.org/2011/http#
+
+  - description: Vocab describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019) so extended.
+    nameAndPrefixOverride: httph
+    inputResources:
+      - http://www.w3.org/2007/ont/httph#
+      - ./Extension/http-header-inrupt-ext.ttl
+
+  - description: The Ordered List Ontology
+    nameAndPrefixOverride: olo
+    inputResources:
+      - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
+
+  - description: Simple Knowledge Organisation System (SKOS)
+    nameAndPrefixOverride: skos
+    inputResources:
+      - http://www.w3.org/2004/02/skos/core#
+
+  #
+  # Tim Berners-Lee's UI vocabulary.
+  #
+  # NOTE: Resolving the actual namespace for this vocabulary returns N3 by
+  # default. If you'd like to see the Turtle serialization of this vocbaulary,
+  # use this URL: https://www.w3.org/ns/ui.ttl
+  #
+  - description: UI Ontology
+    nameAndPrefixOverride: ui
+    inputResources:
+      - http://www.w3.org/ns/ui#
+      - ./Extension/ui-inrupt-ext.ttl
+  #
+  # Could not find an RDF representation for VANN initially, so I created my
+  # own. But Jarlath found an RDF/XML version somewhere, so that should be the
+  # authorative one (and once I add RDF/XML parsing to the generator I can
+  # remove this local version...!)
+  #
+  - description: vann
+    inputResources:
+      - ./CopyOfVocab/inrupt-vann.ttl
+
+  - description: Dublin Core Terms
+    nameAndPrefixOverride: dcterms
+    inputResources:
+      - http://dublincore.org/2012/06/14/dcterms.ttl
+
+  #
+  # Activity Streams 2.0 seems a little bit strange - i.e. it's namespace IRI
+  # does not resolve to RDF (see below), and the best RDF definition (that we
+  # can find!) of its terms refers to those terms using the 'http:' scheme
+  # instead of the official 'https:' scheme (so we need to override that).
+  #
+  - description: Activity Streams 2.0
+    nameAndPrefixOverride: as
+    inputResources:
+      # For Activity Streams 2.0, dereferencing the namespace IRI
+      # (https://www.w3.org/ns/activitystreams#) does not return definitions in
+      # RDF (it returns a JSON-LD context that maps the terms, but it provides
+      # no meta-data for the terms themselves). The reasons for this appear to
+      # be social as opposed to technical!
+      # This is why we reference the IRI we do below.
+#      - https://www.w3.org/ns/activitystreams#
+       - https://www.w3.org/ns/activitystreams-owl
+    # The input resource we use defines the vocabulary terms via 'http:'
+    # instead of the correct 'https:' scheme, so we need to override that.
+    namespaceOverride: https://www.w3.org/ns/activitystreams#
+
+  - description: RDF Logging Ontology
+    nameAndPrefixOverride: rlog
+    inputResources:
+      # Currently (April 2020) getting server 500 errors when trying to
+      # dereference this vocabulary. So for now we use a local copy of this
+      # vocabulary.
+#       - https://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog/rlog.owl
+      - CopyOfVocab/inrupt-rlog.ttl
+
+  - description: Friend of a friend, v0.99
+    nameAndPrefixOverride: foaf
+    inputResources:
+       - http://xmlns.com/foaf/0.1/
+
+  - description: The RDF Data Cube Vocabulary
+    nameAndPrefixOverride: qb
+    inputResources:
+       - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/cube.ttl
+
+  - description: SDMX Dimension Vocabulary
+    nameAndPrefixOverride: sdmx-dimension
+    inputResources:
+       - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
+
+  - description: Shape Expressions (ShEx)
+    nameAndPrefixOverride: shex
+    inputResources:
+      - https://www.w3.org/ns/shex#
+
+  - description: Web Access Control Vocabulary
+    nameAndPrefixOverride: acl
+    namespaceOverride: http://www.w3.org/ns/auth/acl#
+    inputResources:
+      - http://www.w3.org/ns/auth/acl
+
+  - description: POSIX Vocabulary
+    inputResources:
+      - CopyOfVocab/inrupt-posix.ttl
