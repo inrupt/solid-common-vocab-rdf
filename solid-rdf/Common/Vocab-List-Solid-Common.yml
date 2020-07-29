@@ -34,9 +34,9 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.2
+    artifactVersion: 0.5.3
     javaPackageName: com.inrupt.vocab.solid.common
-    solidCommonVocabVersion: 0.0.2
+    solidCommonVocabVersion: 0.0.3
     artifactDirectoryName: Java
     templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -51,10 +51,10 @@ artifactToGenerate:
       repository:
       - type: repository
         id: cloudsmith-staging
-        url: https://maven.cloudsmith.io/inrupt/common-staging/
+        url: https://maven.cloudsmith.io/inrupt/sdk-staging/
       - type: snapshotRepository
         id: cloudsmith-development
-        url: https://maven.cloudsmith.io/inrupt/common-development/
+        url: https://maven.cloudsmith.io/inrupt/sdk-development/
       publish:
       - key: 'local'
         command: "mvn install"
