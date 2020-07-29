@@ -40,9 +40,9 @@ jobs:
             output-path: ./settings.xml
           env:
             SERVER_ID_RELEASE: cloudsmith-staging
-            SERVER_URL_RELEASE: https://maven.cloudsmith.io/inrupt/common-staging/
+            SERVER_URL_RELEASE: https://maven.cloudsmith.io/inrupt/sdk-staging/
             SERVER_ID_SNAPSHOT: cloudsmith-development
-            SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/common-development/
+            SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/sdk-development/
             SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
             SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}
         # The following action is defined in the current repo
