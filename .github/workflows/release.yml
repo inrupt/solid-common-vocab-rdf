@@ -1,6 +1,9 @@
 on: 
-  release: 
-    types: [published]
+  # release: 
+  #   types: [published]
+  push:
+    branches:
+      - fix/npmjs-release
 
 jobs:
   npm_publish_to_solid_scope:
@@ -9,7 +12,7 @@ jobs:
       matrix:
         vocab: [
           "common-rdf/Common/Vocab-List-Common-Rdf.yml",
-          "common-rdf/Core/Vocab-List-LIT-Core.yml",
+          "lit-rdf/Common/Vocab-List-Lit-Common.yml",
           "solid-rdf/Common/Vocab-List-Solid-Common.yml"
         ]
     name: NPM release for ${{ matrix.vocab }}
