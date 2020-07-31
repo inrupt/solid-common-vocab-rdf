@@ -34,7 +34,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.3
+    artifactVersion: 0.5.4-SNAPSHOT
     javaPackageName: com.inrupt.vocab.solid.common
     solidCommonVocabVersion: 0.0.3
     artifactDirectoryName: Java
