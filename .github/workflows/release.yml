@@ -1,9 +1,6 @@
 on: 
-  # release: 
-  #   types: [published]
-  push:
-    branches:
-      - fix/npmjs-release
+  release: 
+    types: [published]
 
 jobs:
   npm_publish:
