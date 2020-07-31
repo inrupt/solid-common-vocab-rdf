@@ -77,7 +77,7 @@ artifactToGenerate:
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
         bundleName: "LitVocabCore"
         publish:
         - key: "npmLocal"
