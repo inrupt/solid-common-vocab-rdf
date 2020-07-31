@@ -74,7 +74,7 @@ artifactToGenerate:
     sourceFileExtension: ts
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
         typescriptVersion: "^3.8.3"
         rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
