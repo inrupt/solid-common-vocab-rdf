@@ -67,7 +67,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.15"
+    artifactVersion: "0.4.16"
     solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -103,14 +103,14 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.15"
+    artifactVersion: "0.4.16"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
     artifactSuffix: -rdfext
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
         publish:
           - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
@@ -132,7 +132,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.15"
+    artifactVersion: "0.4.16"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
@@ -140,7 +140,7 @@ artifactToGenerate:
     artifactSuffix: -rdflib
     packaging:
       - packagingTool: npm
-        npmModuleScope: "@solid/"
+        npmModuleScope: "@inrupt/"
         publish:
           - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
