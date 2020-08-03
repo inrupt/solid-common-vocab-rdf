@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-ui
-artifactGeneratorVersion: 0.11.1
+artifactGeneratorVersion: 0.11.2
 
 versioning:
   type: git
@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.14"
+    artifactVersion: "0.4.15"
     solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
