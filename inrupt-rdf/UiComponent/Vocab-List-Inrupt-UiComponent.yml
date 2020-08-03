@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.15"
+    artifactVersion: "0.4.16"
     solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
