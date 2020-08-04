@@ -69,7 +69,6 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        artifactPrefix: "lit-"
         typescriptVersion: "^3.8.3"
         rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"
