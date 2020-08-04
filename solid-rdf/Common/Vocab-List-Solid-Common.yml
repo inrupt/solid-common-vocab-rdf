@@ -17,7 +17,7 @@
 # list file.
 #
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.11.2
+artifactGeneratorVersion: 0.12.1
 
 versioning:
   type: git
@@ -67,7 +67,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.16"
+    artifactVersion: "0.4.17"
     solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -103,7 +103,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.16"
+    artifactVersion: "0.4.17"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -132,7 +132,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.4.16"
+    artifactVersion: "0.4.17"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs

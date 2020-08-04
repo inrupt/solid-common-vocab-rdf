@@ -18,7 +18,7 @@
 #
 #
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 0.11.2
+artifactGeneratorVersion: 0.12.1
 
 versioning:
   type: git
@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.16"
+    artifactVersion: "0.4.17"
     solidCommonVocabVersion: "^0.4.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -113,7 +113,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.16"
+    artifactVersion: "0.4.17"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
