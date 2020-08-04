@@ -10,7 +10,7 @@
 #
 #
 artifactName: vocab-lit-common
-artifactGeneratorVersion: 0.11.2
+artifactGeneratorVersion: 0.12.0
 
 versioning:
   type: git
@@ -59,8 +59,8 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.4.16"
-    solidCommonVocabVersion: "^0.4.1"
+    artifactVersion: "0.5.0"
+    solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"
     rdfjsTypesVersion: "^3.0.3"
