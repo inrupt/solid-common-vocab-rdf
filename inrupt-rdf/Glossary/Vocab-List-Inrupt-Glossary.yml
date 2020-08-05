@@ -63,7 +63,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.2"
+    artifactVersion: "0.5.3"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs

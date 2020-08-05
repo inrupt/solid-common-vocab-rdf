@@ -23,7 +23,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.2"
+    artifactVersion: "0.5.3"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -31,7 +31,6 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        artifactPrefix: "lit-"
         typescriptVersion: "^3.8.3"
         rdfjsTypesVersion: "^3.0.3"
         rdfjsDatamodelVersion: "^1.1.2"

@@ -15,15 +15,15 @@
 # correct instance.
 #
 cd Common
-npm_config_registry=https://verdaccio.inrupt.com/ npx @solid/lit-artifact-generator generate --vocabListFile Vocab-List-Solid-Common.yml --noprompt --publish localMaven, localNpmNode --force
+npm_config_registry=https://verdaccio.inrupt.com/ npx @inrupt/solid-common-artifact-generator generate --vocabListFile Vocab-List-Solid-Common.yml --noprompt --publish localMaven, localNpmNode --force
 cd ..
 
 cd Component
-npm_config_registry=https://verdaccio.inrupt.com/ npx @solid/lit-artifact-generator generate --inputResources SolidComponent.ttl  --noprompt --runNpmInstall --force
+npm_config_registry=https://verdaccio.inrupt.com/ npx @inrupt/solid-common-artifact-generator generate --inputResources SolidComponent.ttl  --noprompt --runNpmInstall --force
 cd ..
 
 cd GeneratorUi
-npm_config_registry=https://verdaccio.inrupt.com/ npx @solid/lit-artifact-generator generate --inputResources SolidGeneratorUi.ttl  --noprompt --runNpmInstall --force
+npm_config_registry=https://verdaccio.inrupt.com/ npx @inrupt/solid-common-artifact-generator generate --inputResources SolidGeneratorUi.ttl  --noprompt --runNpmInstall --force
 cd ..
 
 #
