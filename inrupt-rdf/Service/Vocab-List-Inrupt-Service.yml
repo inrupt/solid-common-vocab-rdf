@@ -48,7 +48,7 @@ artifactToGenerate:
       - key: 'remote'
         command: "mvn deploy"
       - key: "cloudsmith"
-        command: "mvn -s /home/runner/work/lit-vocab/lit-vocab/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates: 
       - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
