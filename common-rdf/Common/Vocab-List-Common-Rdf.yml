@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.3"
+    artifactVersion: "0.5.4"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -113,7 +113,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.3"
+    artifactVersion: "0.5.4"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
