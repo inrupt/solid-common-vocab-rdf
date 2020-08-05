@@ -59,7 +59,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.2"
+    artifactVersion: "0.5.3"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     typescriptVersion: "^3.8.3"
