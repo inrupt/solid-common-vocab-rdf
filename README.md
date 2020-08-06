@@ -1,9 +1,13 @@
-# solid-common-vocab-rdf
 
-This repository acts as a mono-repo for all the RDF vocabularies defined and controlled 
-by Inrupt.
+# Solid JavaScript Vocabularies - solid-common-vocab-rdf
 
-It also stores Artifact Generator configuration files that allow us generate
+This repository acts as a mono-repo for all the RDF vocabularies defined and controlled by Inrupt. 
+It allows developers to build interoperable apps by reusing well-known vocabularies. 
+These libraries provide vocabularies available as constants that you just have to import.
+
+@inrupt/solid-common-vocab-rdf is part of a family open source JavaScript libraries designed to support developers building Solid applications.
+
+This repo also stores configuration files that allow us generate
 programming-language-specific artifacts (e.g. Java JARs, NPM modules, etc.) that provide
 convenient constants representing the individual terms from RDF vocabularies (including
 from RDF vocabularies that are not under our control, such as common vocabularies like
@@ -29,6 +33,49 @@ YAML files in each of the respective directories (since different bundles can be
 different programming languages, and published to multiple places - i.e. the generation process
 is very flexible!).
 
-## Put the vocabularies to action
+# Inrupt Solid JavaScript Client Libraries
 
-If you want to use these vocabularies in an app to read/write data in your Solid Pod, have a look at our [Solid Client library](https://github.com/inrupt/solid-client-js).
+## Data access and permissions management - solid-Client
+
+[@inrupt/solid-client](https://github.com/inrupt/solid-client-js) allows developers to access data and manage permissions on data stored in Solid Pods.
+
+## Authentication - solid-client-authn
+
+[@inrupt/solid-client-authn](https://github.com/inrupt/solid-client-authn) allows developers to authenticate against a Solid server. This is necessary when the resources on your Pod are not public.
+
+## Vocabularies and interoperability - solid-common-vocab-rdf
+
+[@inrupt/solid-common-vocab-rdf](https://github.com/inrupt/solid-common-vocab-rdf) allows developers to build interoperable apps by reusing well-known vocabularies. These libraries provide vocabularies available as constants that you just have to import.
+
+# Installation
+
+For the latest stable version of solid-common-vocab-rdf:
+
+```bash
+npm install @inrupt/solid-common-vocab-rdf
+```
+
+For the latest stable version of all Inrupt Solid JS libraries:
+
+```bash
+npm install @inrupt/solid-client @inrupt/solid-client-authn-browser @inrupt/vocab-common-rdf
+```
+
+# Issues & Help
+
+## Solid Community Forum
+
+If you have questions about working with Solid or just want to share what you’re working on, visit the [Solid forum](https://forum.solidproject.org/). The Solid forum is a good place to meet the rest of the community.
+
+## Bugs and Feature Requests
+
+- For public feedback, bug reports, and feature requests please file an issue via [Github](https://github.com/inrupt/solid-vocab-common-rdf/issues/).
+- For non-public feedback or support inquiries please use the [Inrupt Service Desk](https://inrupt.atlassian.net/servicedesk).
+
+## Documentation
+- [Inrupt documentation homepage](https://docs.inrupt.com/)
+
+
+# License
+
+MIT © [Inrupt](https://inrupt.com)
