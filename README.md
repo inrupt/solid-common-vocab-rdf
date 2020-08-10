@@ -5,8 +5,6 @@ This repository acts as a mono-repo for all the RDF vocabularies defined and con
 It allows developers to build interoperable apps by reusing well-known vocabularies. 
 These libraries provide vocabularies available as constants that you just have to import.
 
-@inrupt/solid-common-vocab-rdf is part of a family open source JavaScript libraries designed to support developers building Solid applications.
-
 This repo also stores configuration files that allow us generate
 programming-language-specific artifacts (e.g. Java JARs, NPM modules, etc.) that provide
 convenient constants representing the individual terms from RDF vocabularies (including
@@ -33,11 +31,13 @@ YAML files in each of the respective directories (since different bundles can be
 different programming languages, and published to multiple places - i.e. the generation process
 is very flexible!).
 
+@inrupt/solid-common-vocab-rdf is part of a family open source JavaScript libraries designed to support developers building Solid applications.
+
 # Inrupt Solid JavaScript Client Libraries
 
-## Data access and permissions management - solid-Client
+## Data access and permissions management - solid-client
 
-[@inrupt/solid-client](https://github.com/inrupt/solid-client-js) allows developers to access data and manage permissions on data stored in Solid Pods.
+[@inrupt/solid-client](https://docs.inrupt.com/client-libraries/solid-client-js/) allows developers to access data and manage permissions on data stored in Solid Pods.
 
 ## Authentication - solid-client-authn
 
@@ -55,7 +55,7 @@ For the latest stable version of solid-common-vocab-rdf:
 npm install @inrupt/solid-common-vocab-rdf
 ```
 
-For the latest stable version of all Inrupt Solid JS libraries:
+For the latest stable version of all Inrupt Solid JavaScript libraries:
 
 ```bash
 npm install @inrupt/solid-client @inrupt/solid-client-authn-browser @inrupt/vocab-common-rdf
@@ -69,12 +69,11 @@ If you have questions about working with Solid or just want to share what you’
 
 ## Bugs and Feature Requests
 
-- For public feedback, bug reports, and feature requests please file an issue via [Github](https://github.com/inrupt/solid-vocab-common-rdf/issues/).
+- For public feedback, bug reports, and feature requests please file an issue via [GitHub](https://github.com/inrupt/solid-vocab-common-rdf/issues/).
 - For non-public feedback or support inquiries please use the [Inrupt Service Desk](https://inrupt.atlassian.net/servicedesk).
 
 ## Documentation
 - [Inrupt documentation homepage](https://docs.inrupt.com/)
-
 
 # License
 
