@@ -16,7 +16,7 @@ prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
 
 solid_generator_ui:
 	a owl:Ontology, lit_core:Ontology ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
     owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/solid-generator-ui#" ;
@@ -25,9 +25,9 @@ solid_generator_ui:
 	dcterms:description """The Solid Generator UI Vocabulary. The Solid Generator bootstraps Solid applications, and this
  vocabulary provides terms (e.g. classes and properties) and messages (e.g. informative labels, error messages, etc.))
  for use in that bootstrapped code."""@en ;
-	dcterms:creator "Pat McBennett" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:contributor "Developer SDK team"@en ;
-	dcterms:created "2019/07/21" ;
+	dcterms:issued "2019/07/21"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" .
 
 # solid_generator_ui:Page rdfs:definedBy solid_generator_ui: .

@@ -7,8 +7,6 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-
-prefix bibo:     <http://purl.org/ontology/bibo/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
 prefix lit_core: <https://w3id.org/lit/vocab/core#>
@@ -18,12 +16,12 @@ prefix solid-service-common: <https://inrupt.com/vocab/solid-service-common#>
 
 solid-service-common:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.0" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.
  informative labels or error messages) commonly used across Solid services."""@en ;
-	dcterms:creator "Pat McBennett"@en ;
-	dcterms:created "2019/08/19" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid-service-common" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid-service-common#" ;
 	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .

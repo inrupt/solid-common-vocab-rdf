@@ -22,11 +22,11 @@
 
 ws-solid-ext:
     a owl:Ontology, lit_core:Ontology ;
-    owl:versionInfo "1.0.0" ;
-    dcterms:creator <https://solid.zwifi.eu/profile/card#me> ;
-    dcterms:date "2019/07/28" ;
-    dcterms:title "Inrupt extension to the Workspace Ontology" ;
-    dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology." ;
+    owl:versionInfo "0.1" ;
+    dcterms:creator <https://inrupt.com/profile/card/#us> ;
+    dcterms:issued "2019/07/28"^^xsd:date ;
+    dcterms:title "Inrupt extension to the Workspace Ontology"@en ;
+    dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;
     vann:preferredNamespacePrefix "ws-solid-ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
     dcterms:license "https://opensource.org/licenses/MIT" .

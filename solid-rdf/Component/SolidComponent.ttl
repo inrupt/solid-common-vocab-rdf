@@ -7,8 +7,6 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-
-prefix bibo:     <http://purl.org/ontology/bibo/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
 prefix lit_core: <https://w3id.org/lit/vocab/core#>
@@ -34,14 +32,14 @@ solid_component:
 #  rdfs:isDefinedBy <> ;
 #  vann:example | skos:example "" ;
 
-	owl:versionInfo "1" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Component Vocabulary"@en ;
 	dcterms:description """The Solid Component Vocabulary provides terms (e.g. classes, properties and text strings (e.g.
  informative labels or error messages) for use by Solid Components, which is a toolkit of commonly used Solid UI
  components."""@en ;
-	dcterms:creator "Pat McBennett"@en ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:contributor "Developer SDK team"@en ;
-	dcterms:created "2019/07/11" ;
+	dcterms:issued "2019/07/11"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_component" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid-component#" ;
 	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .

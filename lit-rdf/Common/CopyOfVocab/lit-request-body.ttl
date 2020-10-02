@@ -7,8 +7,6 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-
-prefix bibo:     <http://purl.org/ontology/bibo/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
 prefix lit_core: <https://w3id.org/lit/vocab/core#>
@@ -18,13 +16,13 @@ prefix lit-request-body: <https://w3id.org/lit/vocab/request-body#>
 
 lit-request-body:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.0" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Request body Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms for a request body (in this case, we're really just
  providing the Named Graph details (e.g. the IRI for the named graph itself), since the contents of a request body are
  completely arbitrary."""@en ;
-	dcterms:creator "Pat McBennett"@en ;
-	dcterms:created "2019/08/19" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "lit-request-body" ;
 	vann:preferredNamespaceUri "https://w3id.org/lit/vocab/request-body#" ;
 	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .

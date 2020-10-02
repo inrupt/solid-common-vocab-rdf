@@ -15,7 +15,7 @@ prefix vann: <http://purl.org/vocab/vann/>
 prefix posix: <http://www.w3.org/ns/posix/stat#>
 
 posix: a owl:Ontology ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "0.1" ;
     dcterms:title "The POSIX Vocabulary (RDF)"@en ;
 	dcterms:description "A vocabulary for the basic POSIX terms."@en ;
 	vann:preferredNamespacePrefix "posix" ;
