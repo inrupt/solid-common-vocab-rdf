@@ -14,7 +14,7 @@ prefix dcterms: <http://purl.org/dc/terms/>
 prefix vann: <http://purl.org/vocab/vann/>
 
 vann: a owl:Ontology ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "0.1" ;
 	dcterms:title "The RDF Concepts Vocabulary (RDF)"@en ;
 	dcterms:description "A vocabulary for annotating vocabulary descriptions (VANN)."@en ;
 	vann:preferredNamespacePrefix "vann" ;

@@ -22,9 +22,9 @@
 
 vcard-inrupt-ext:
     a owl:Ontology, lit_core:Ontology ;
-    owl:versionInfo "1.0.0" ;
-    dcterms:creator "Pat McBennett" ;
-    dcterms:date "2019/07/28" ;
+    owl:versionInfo "0.1" ;
+    dcterms:creator <https://inrupt.com/profile/card/#us> ;
+    dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension adding multilingual meta-data for VCard terms" ;
     dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
     vann:preferredNamespacePrefix "vcard-inrupt-ext" ;

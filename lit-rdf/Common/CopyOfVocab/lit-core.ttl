@@ -16,12 +16,12 @@
 
 lit_core:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.0" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Core Ontology"@en ;
 	dcterms:description """The LIT Core Ontology. The LIT is intended to be a collection of utility libraries to ease the
  adoption of RDF for developers."""@en ;
-	dcterms:creator "Pat McBennett" ;
-	dcterms:date "2019/01/01" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2019/01/01"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "lit_core" ;
 	vann:preferredNamespaceUri "https://w3id.org/lit/vocab/core#" .

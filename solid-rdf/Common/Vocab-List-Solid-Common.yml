@@ -67,7 +67,7 @@ artifactToGenerate:
         fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.5"
+    artifactVersion: "0.6.0"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -103,7 +103,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.5.5"
+    artifactVersion: "0.6.0"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -132,7 +132,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.5.5"
+    artifactVersion: "0.6.0"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
@@ -188,13 +188,16 @@ vocabList:
     inputResources:
        - http://www.w3.org/ns/auth/acl
 
+  - description: Solid Access Control Policy (ACP)
+    inputResources:
+      - ./CopyOfVocab/solid-acp.ttl
+
   - description: Solid Terms
     nameAndPrefixOverride: solid
     # NOTE: Although we use the HTTPS form of this namespace, the BASE namespace
     # of the vocabulary itself uses HTTP!
     inputResources:
        - https://www.w3.org/ns/solid/terms
-
 
   - description: Workspace Ontology
     nameAndPrefixOverride: ws

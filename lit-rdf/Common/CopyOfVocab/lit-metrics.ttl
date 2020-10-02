@@ -7,8 +7,6 @@
 @prefix ldp:      <http://www.w3.org/ns/ldp#> .
 @prefix schema:   <http://schema.org/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
-
-@prefix bibo:     <http://purl.org/ontology/bibo/> .
 @prefix prov:     <http://www.w3.org/ns/prov#> .
 
 @prefix lit_core: <https://w3id.org/lit/vocab/core#> .
@@ -17,11 +15,11 @@
 
 met:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.1" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Metrics Ontology"@en ;
 	dcterms:description """The LIT Metrics Ontology contains vocab terms to represent metric statistics"""@en ;
-	dcterms:creator "Jarlath Holleran" ;
-	dcterms:date "2019/08/10" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2019/08/10"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "met" ;
 	vann:preferredNamespaceUri "https://w3id.org/lit/vocab/metric#" .
