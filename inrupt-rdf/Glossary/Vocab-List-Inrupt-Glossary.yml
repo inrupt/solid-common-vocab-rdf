@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-glossary
-artifactGeneratorVersion: 0.12.1
+artifactGeneratorVersion: 0.12.2
 
 
 versioning:
@@ -29,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.4-SNAPSHOT
+    artifactVersion: 0.5.4
     solidCommonVocabVersion: 0.0.3
     javaPackageName: com.inrupt.vocab.inrupt.glossary
     artifactDirectoryName: Java
@@ -63,7 +63,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.0"
+    artifactVersion: "0.6.1"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs

@@ -14,8 +14,7 @@ prefix lit_core: <https://w3id.org/lit/vocab/core#>
 prefix solid-service-common: <https://inrupt.com/vocab/solid-service-common#>
 
 
-solid-service-common:
-	a owl:Ontology, lit_core:Ontology ;
+solid-service-common: a owl:Ontology, lit_core:Ontology ;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.
