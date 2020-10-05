@@ -7,8 +7,6 @@
 @prefix ldp:      <http://www.w3.org/ns/ldp#> .
 @prefix schema:   <http://schema.org/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
-
-@prefix bibo:     <http://purl.org/ontology/bibo/> .
 @prefix prov:     <http://www.w3.org/ns/prov#> .
 
 @prefix lit_core: <https://w3id.org/lit/vocab/core#> .
@@ -17,11 +15,11 @@
 
 inrupt_notification:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.0" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt notification vocabulary"@en ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
-	dcterms:creator "Pat McBennett" ;
-	dcterms:date "2019/11/08" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2019/11/08"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/service/notification#" .

@@ -12,11 +12,11 @@
 
 ui_tictactoe:
 	a owl:Ontology, lit_core:Ontology ;
-	owl:versionInfo "1.0.0" ;
+	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt Tic-Tac-Toe game vocabulary"@en ;
 	dcterms:description """The Inrupt Tic-Tac-Toe game vocabulary."""@en ;
-	dcterms:creator "Pat McBennett" ;
-	dcterms:date "2020/05/06" ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2020/05/06"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
 	vann:preferredNamespacePrefix "ui_tictactoe" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/ui/component/tictactoe#" .

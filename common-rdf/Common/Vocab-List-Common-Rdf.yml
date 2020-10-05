@@ -18,7 +18,7 @@
 #
 #
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 0.12.1
+artifactGeneratorVersion: 0.12.2
 
 versioning:
   type: git
@@ -35,7 +35,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.4-SNAPSHOT
+    artifactVersion: 0.5.4
     solidCommonVocabVersion: 0.0.3
     javaPackageName: com.inrupt.vocab.common.rdf
     artifactDirectoryName: Java
@@ -76,7 +76,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.5"
+    artifactVersion: "0.6.1"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -113,7 +113,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.5.5"
+    artifactVersion: "0.6.1"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
