@@ -29,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.4
+    artifactVersion: 0.5.5
     solidCommonVocabVersion: 0.0.3
     javaPackageName: com.inrupt.vocab.inrupt.glossary
     artifactDirectoryName: Java
@@ -63,7 +63,7 @@ artifactToGenerate:
       
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.1"
+    artifactVersion: "0.6.2"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
