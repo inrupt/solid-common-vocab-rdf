@@ -14,8 +14,7 @@ prefix lit_core: <https://w3id.org/lit/vocab/core#>
 prefix solid-meta-client: <https://inrupt.com/vocab/solid-meta-client#>
 
 
-solid-meta-client:
-	a owl:Ontology, lit_core:Ontology ;
+solid-meta-client: a owl:Ontology, lit_core:Ontology ;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Metadata Server runtime Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.
