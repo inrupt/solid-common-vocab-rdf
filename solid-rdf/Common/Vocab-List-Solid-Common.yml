@@ -35,7 +35,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.6
+    artifactVersion: 0.5.7-SNAPSHOT
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
     javaPackageName: com.inrupt.vocab.solid.common
@@ -69,7 +69,7 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.6
+    artifactVersion: 0.5.7-SNAPSHOT
     commonsRdfVersion: 0.5.0
     javaPackageName: com.inrupt.vocab.solid.common
     # This config doesn't use our own vocab library - it uses a specific
