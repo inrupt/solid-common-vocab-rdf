@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 0.12.2
+artifactGeneratorVersion: 0.12.3
 
 versioning:
   type: git
@@ -35,8 +35,9 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.5
+    artifactVersion: 0.5.6
     solidCommonVocabVersion: 0.0.3
+    rdf4jVersion: 3.4.2
     javaPackageName: com.inrupt.vocab.common.rdf
     artifactDirectoryName: Java
     templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
@@ -55,25 +56,25 @@ artifactToGenerate:
       - long      # Defined in XML Schema Datatypes.
       - short     # Defined in XML Schema Datatypes.
     packaging:
-    - packagingTool: maven
-      groupId: com.inrupt
-      publish: 
-        - key: "mavenLocal"
-          command: "mvn install"
-        - key: "mavenRemote"
-          command: "mvn deploy"
-        - key: "cloudsmith"
-          command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
-      packagingTemplates:
-      - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
-        fileName: pom.xml
-      repository:
-      - type: repository
-        id: cloudsmith-staging
-        url: https://maven.cloudsmith.io/inrupt/sdk-staging/
-      - type: snapshotRepository
-        id: cloudsmith-development
-        url: https://maven.cloudsmith.io/inrupt/sdk-development/
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
     artifactVersion: "0.6.2"
@@ -97,11 +98,11 @@ artifactToGenerate:
         rollupNodeResolveVersion: "^7.1.3"
         bundleName: "VocabCommon"
         publish:
-        - key: "npmLocal"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        # The following command should only run in CI.
-        - key: "npmPublic"
-          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: solidCommonVocabDependent/typescript/package.hbs
             fileName: package.json
