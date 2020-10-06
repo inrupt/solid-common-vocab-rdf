@@ -73,7 +73,7 @@ artifactToGenerate:
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
     # solidCommonVocabVersion: 0.0.3
-    artifactDirectoryName: Java
+    artifactDirectoryName: Java-commonsrdf
     templateInternal: rdfLibraryDependent/java/commonsRdf/vocab.hbs
     sourceFileExtension: java
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
