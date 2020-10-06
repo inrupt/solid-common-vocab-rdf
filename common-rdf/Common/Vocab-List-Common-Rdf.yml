@@ -35,7 +35,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.6
+    artifactVersion: 0.5.7-SNAPSHOT
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
     javaPackageName: com.inrupt.vocab.common.rdf
