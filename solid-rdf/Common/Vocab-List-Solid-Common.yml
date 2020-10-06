@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.12.2
+artifactGeneratorVersion: 0.12.3
 
 versioning:
   type: git
@@ -35,9 +35,10 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.5
-    javaPackageName: com.inrupt.vocab.solid.common
+    artifactVersion: 0.5.6
     solidCommonVocabVersion: 0.0.3
+    rdf4jVersion: 3.4.2
+    javaPackageName: com.inrupt.vocab.solid.common
     artifactDirectoryName: Java
     templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
     sourceFileExtension: java
@@ -68,12 +69,13 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.5
+    artifactVersion: 0.5.6
+    commonsRdfVersion: 0.5.0
     javaPackageName: com.inrupt.vocab.solid.common
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
     # solidCommonVocabVersion: 0.0.3
-    artifactDirectoryName: Java
+    artifactDirectoryName: Java-commonsrdf
     templateInternal: rdfLibraryDependent/java/commonsRdf/vocab.hbs
     sourceFileExtension: java
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
