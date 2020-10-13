@@ -7,7 +7,7 @@
 @prefix ldp:      <http://www.w3.org/ns/ldp#> .
 @prefix schema:   <http://schema.org/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
-@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
@@ -21,7 +21,7 @@
 @prefix vcard-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/vcard#> .
 
 vcard-inrupt-ext:
-    a owl:Ontology, lit_core:Ontology ;
+    a owl:Ontology, lit-core:Ontology ;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
@@ -29,7 +29,7 @@ vcard-inrupt-ext:
     dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
     vann:preferredNamespacePrefix "vcard-inrupt-ext" ;
     vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/vcard#" ;
-#    lit_core:extensionNamespaceUri "Or do we define a new predicate to explicitly state our extension namespace...?" ;
+#    lit-core:extensionNamespaceUri "Or do we define a new predicate to explicitly state our extension namespace...?" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 

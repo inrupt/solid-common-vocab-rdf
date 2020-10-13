@@ -8,12 +8,12 @@ prefix schema:   <http://schema.org/>
 prefix vann: <http://purl.org/vocab/vann/>
 prefix vcard: <http://www.w3.org/2006/vcard/ns#>
 
-prefix lit_core: <https://w3id.org/lit/vocab/core#>
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
 
 prefix acp: <http://www.w3.org/ns/solid/acp#>
 
 
-acp: a owl:Ontology, lit_core:Ontology  ;
+acp: a owl:Ontology, lit-core:Ontology  ;
     owl:versionInfo "0.1" ;
     dcterms:title "Solid Access Control Policy Vocabulary"@en ;
     dcterms:description "A vocabulary to structure policy-based access controls for the Solid ecosystem."@en ;

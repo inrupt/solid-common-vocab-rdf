@@ -9,13 +9,13 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit_core: <https://w3id.org/lit/vocab/core#>
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
 
 prefix solid_component: <https://inrupt.com/vocab/solid-component#>
 
 
 solid_component:
-	a owl:Ontology, lit_core:Ontology ;
+	a owl:Ontology, lit-core:Ontology ;
 
 #  prov:wasRevisionOf
   dcterms:title """The Solid Component Vocabulary provides terms (e.g. classes, properties and text strings (e.g.
