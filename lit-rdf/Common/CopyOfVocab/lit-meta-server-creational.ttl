@@ -9,13 +9,13 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit_core: <https://w3id.org/lit/vocab/core#>
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
 
 prefix lit-meta-server-creational: <https://w3id.org/lit/vocab/lit-meta-server-creational#>
 
 
 lit-meta-server-creational:
-	a owl:Ontology, lit_core:Ontology ;
+	a owl:Ontology, lit-core:Ontology ;
 	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The LIT vocabulary providing terms (e.g. classes, properties and text strings (e.g.

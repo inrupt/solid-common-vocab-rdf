@@ -9,13 +9,13 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit_core: <https://w3id.org/lit/vocab/core#>
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
 
 prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
 
 
 solid_generator_ui:
-	a owl:Ontology, lit_core:Ontology ;
+	a owl:Ontology, lit-core:Ontology ;
     owl:versionInfo "0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
     owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;
@@ -31,7 +31,7 @@ solid_generator_ui:
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" .
 
 # solid_generator_ui:Page rdfs:definedBy solid_generator_ui: .
-# lit_core:Ontology rdfs:label "LIT cOntology"@en .
+# lit-core:Ontology rdfs:label "LIT cOntology"@en .
 # <https://w3id.org/lit/vocab/core#Ontology>  rdfs:label "LIT Ontology" .
 # <https://w3id.org/lit/vocab/core#Ontology>  rdfs:comment "LIT Ontology" .
 # <https://w3id.org/lit/vocab/core#Ontology>  skos:altLabel "LIT Ontology" .

@@ -7,7 +7,7 @@
 @prefix ldp:      <http://www.w3.org/ns/ldp#> .
 @prefix schema:   <http://schema.org/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
-@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 
 @prefix schema-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/schema#> .
 
@@ -20,7 +20,7 @@
 # own prefix to try and differentiate.
 #
 schema-inrupt-ext:
-    a owl:Ontology, lit_core:Ontology ;
+    a owl:Ontology, lit-core:Ontology ;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/06/18"^^xsd:date ;

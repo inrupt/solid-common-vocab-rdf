@@ -6,12 +6,12 @@
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 
-@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 @prefix inrupt_common: <https://inrupt.com/vocab/common#> .
 
 
 inrupt_common:
-	a owl:Ontology, lit_core:Ontology ;
+	a owl:Ontology, lit-core:Ontology ;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt common vocabulary"@en ;
 	dcterms:description """The Inrupt common vocabulary - just commonly used

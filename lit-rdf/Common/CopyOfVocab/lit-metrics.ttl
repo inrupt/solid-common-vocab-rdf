@@ -9,12 +9,12 @@
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix prov:     <http://www.w3.org/ns/prov#> .
 
-@prefix lit_core: <https://w3id.org/lit/vocab/core#> .
+@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 @prefix met: <https://w3id.org/lit/vocab/metric#> .
 
 
 met:
-	a owl:Ontology, lit_core:Ontology ;
+	a owl:Ontology, lit-core:Ontology ;
 	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Metrics Ontology"@en ;
 	dcterms:description """The LIT Metrics Ontology contains vocab terms to represent metric statistics"""@en ;
