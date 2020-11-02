@@ -35,7 +35,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.7-SNAPSHOT
+    artifactVersion: 0.5.7
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
     javaPackageName: com.inrupt.vocab.solid.common
@@ -69,7 +69,7 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.7-SNAPSHOT
+    artifactVersion: 0.5.7
     commonsRdfVersion: 0.5.0
     javaPackageName: com.inrupt.vocab.solid.common
     # This config doesn't use our own vocab library - it uses a specific
@@ -106,7 +106,7 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.2"
+    artifactVersion: "0.6.3"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -142,7 +142,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.6.2"
+    artifactVersion: "0.6.3"
     artifactDirectoryName: JavaScript-rdfext
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
     sourceFileExtension: js
@@ -171,7 +171,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.6.2"
+    artifactVersion: "0.6.3"
     rdflibVersion: "^1.2.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs

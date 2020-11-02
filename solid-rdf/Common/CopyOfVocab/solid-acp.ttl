@@ -53,7 +53,7 @@ acp:PublicAgent a owl:NamedIndividual ;
 
 acp:AccessControl a rdfs:Class ;
     rdfs:label "Access Control"@en ;
-    rdfs:comment "Access Control statements associate an AccessControlResource with specific AccessPolicy definitions."@en ;
+    rdfs:comment "Access Control statements associate an AccessControlResource with specific Policy definitions."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:AccessControlResource a rdfs:Class ;
@@ -61,14 +61,14 @@ acp:AccessControlResource a rdfs:Class ;
     rdfs:comment "An RDF resource that includes AccessControl statements."@en ;
     rdfs:isDefinedBy acp: .
 
-acp:AccessPolicy a rdfs:Class ;
+acp:Policy a rdfs:Class ;
     rdfs:label "Access Policy"@en ;
-    rdfs:comment "An AccessPolicy defines a collection of access modes along with the conditions under which the policy is applied."@en ;
+    rdfs:comment "A Policy defines a collection of access modes along with the conditions under which the policy is applied."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:AccessPolicyResource a rdfs:Class ;
     rdfs:label "Access Policy Resource"@en ;
-    rdfs:comment "An RDF resource that includes AccessPolicy statements."@en ;
+    rdfs:comment "An RDF resource that includes Policy statements."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:Rule a rdfs:Class ;
@@ -113,14 +113,14 @@ acp:accessControl a rdf:Property ;
 acp:access a rdf:Property ;
     rdfs:label "access"@en ;
     rdfs:comment "The access property identifies the access policies that apply to the Policy or Rule."@en ;
-    schema:rangeIncludes acp:AccessPolicy ;
+    schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:apply a rdf:Property ;
     rdfs:label "apply"@en ;
     rdfs:comment "The apply property indentifies the access policies to apply to a resource."@en ;
     schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:AccessPolicy ;
+    schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:applyConstant a rdf:Property ;
@@ -128,14 +128,14 @@ acp:applyConstant a rdf:Property ;
     rdfs:comment """The applyConstant property identifies the access policies to apply to a resource.
  These policies may not be removed except by an agent with a higher level of access."""@en ;
     schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:AccessPolicy ;
+    schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:applyMembers a rdf:Property ;
     rdfs:label "apply members"@en ;
     rdfs:comment "The applyMembers property indentifies the access policies to apply to a resource's members recursively."@en ;
     schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:AccessPolicy ;
+    schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:applyMembersConstant a rdf:Property ;
@@ -143,41 +143,41 @@ acp:applyMembersConstant a rdf:Property ;
     rdfs:comment """The applyMembersConstant property identifies the access policies to apply to a resource's members recursively.
  These policies may not be removed except by an agent with a higher level of access."""@en ;
     schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:AccessPolicy ;
+    schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:allOf a rdf:Property ;
     rdfs:label "all of"@en ;
     rdfs:comment "The allOf property identifies a collection of Rules, each of which must match in order for the Policy to take effect."@en ;
-    schema:domainIncludes acp:AccessPolicy ;
+    schema:domainIncludes acp:Policy ;
     schema:rangeIncludes acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:anyOf a rdf:Property ;
     rdfs:label "any of"@en ;
     rdfs:comment "The anyOf property identifies a collection of Rules, one of which must match in order for the Policy to take effect."@en ;
-    schema:domainIncludes acp:AccessPolicy ;
+    schema:domainIncludes acp:Policy ;
     schema:rangeIncludes acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:noneOf a rdf:Property ;
     rdfs:label "none of"@en ;
     rdfs:comment "The noneOf property identifies a collection of Rules, none of which must match in order for the Policy to take effect."@en ;
-    schema:domainIncludes acp:AccessPolicy ;
+    schema:domainIncludes acp:Policy ;
     schema:rangeIncludes acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:allow a rdf:Property ;
     rdfs:label "allow"@en ;
     rdfs:comment "The allow property identifies the access modes a Policy allows."@en ;
-    schema:domainIncludes acp:AccessPolicy ;
+    schema:domainIncludes acp:Policy ;
     schema:rangeIncludes acp:AccessMode ;
     rdfs:isDefinedBy acp: .
 
 acp:deny a rdf:Property ;
     rdfs:label "deny"@en ;
     rdfs:comment "The deny property identifies the access modes a Policy denies."@en ;
-    schema:domainIncludes acp:AccessPolicy ;
+    schema:domainIncludes acp:Policy ;
     schema:rangeIncludes acp:AccessMode ;
     rdfs:isDefinedBy acp: .
 

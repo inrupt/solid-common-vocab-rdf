@@ -35,7 +35,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.7-SNAPSHOT
+    artifactVersion: 0.5.7
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
     javaPackageName: com.inrupt.vocab.common.rdf
@@ -77,7 +77,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.2"
+    artifactVersion: "0.6.3"
     solidCommonVocabVersion: "^0.5.1"
     artifactDirectoryName: TypeScript
     templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
@@ -114,7 +114,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.2"
+    artifactVersion: "0.6.3"
     artifactDirectoryName: TypeScript-rdfjs
     templateInternal: generic/typescript/vocab.hbs
     sourceFileExtension: ts
