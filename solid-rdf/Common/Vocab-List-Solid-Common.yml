@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.12.3
+artifactGeneratorVersion: 0.12.4
 
 versioning:
   type: git
@@ -75,15 +75,15 @@ artifactToGenerate:
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
     # solidCommonVocabVersion: 0.0.3
-    artifactDirectoryName: Java-commonsrdf
-    templateInternal: rdfLibraryDependent/java/commonsRdf/vocab.hbs
+    artifactDirectoryName: Java-commonsrdf-serviceloader
+    templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/vocab.hbs
     sourceFileExtension: java
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
       - class     # Defined in VCard.
       - abstract  # Defined in DCTerms.
       - default   # Defined in ACL
-    artifactSuffix: -commonsRdf
+    artifactSuffix: -commonsRdfServiceLoader
     packaging:
       - packagingTool: maven
         groupId: com.inrupt
@@ -102,7 +102,44 @@ artifactToGenerate:
           - key: "cloudsmith"
             command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
         packagingTemplates:
-          - templateInternal: rdfLibraryDependent/java/commonsRdf/pom.hbs
+          - templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/pom.hbs
+            fileName: pom.xml
+
+  - programmingLanguage: Java
+    artifactVersion: 0.5.7
+    commonsRdfVersion: 0.5.0
+    javaPackageName: com.inrupt.vocab.solid.common
+    # This config doesn't use our own vocab library - it uses a specific
+    # underlying RDF library instead.
+    # solidCommonVocabVersion: 0.0.3
+    artifactDirectoryName: Java-commonsrdf-simplerdf
+    templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/vocab.hbs
+    sourceFileExtension: java
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    artifactSuffix: -commonsRdfSimpleRdf
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+        publish:
+          - key: "mavenLocal"
+            command: "mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/pom.hbs
             fileName: pom.xml
 
   - programmingLanguage: TypeScript

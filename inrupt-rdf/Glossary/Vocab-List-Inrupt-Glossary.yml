@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-glossary
-artifactGeneratorVersion: 0.12.3
+artifactGeneratorVersion: 0.12.4
 
 
 versioning:
