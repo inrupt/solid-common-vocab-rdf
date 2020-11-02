@@ -1,17 +1,17 @@
-# LIT shared vocabularies
+# Solid JavaScript Shared Vocabularies
 
-## Vocabularies referenced in the repository
+## Vocabularies referenced in this repository
 
-Currently this repository holds the LIT vocabularies:
-  * LIT Common - made up of the most common Linked Data vocabularies, but also
+Currently this repository holds the RDF vocabularies:
+  * RDF Common - made up of the most common RDF vocabularies, but also
    some Inrupt extensions to a select few of those vocabularies to include
    multi-lingual translations of some of their labels and comments, and 
    smaller subsets of large vocabularies (e.g. Schema.org has thousands of 
    terms, so we define a select subset of those terms in an inrupt-specific
    version of Schema.org).
 
-  * LIT Core - vocabularies specific to the LIT itself (for use by developers
-  using LIT features natively).
+  * RDF Core - vocabularies specific to the RDF itself (for use by developers
+  using RDF features natively).
   
 General structure within each folder here:
   * In the root we may provide a YAML file to bundle multiple vocabularies
@@ -47,6 +47,3 @@ bash buildAll.sh
 This generates both Java and JS artifacts, respectively published to a local 
 Maven cache and to a local Verdaccio. You can turn either of these publications
 off by removing the `--publish` flags.
-
-For more information about the LIT artifact generator, feel free to visit 
-[the documentation](https://github.com/inrupt/lit-artifact-generator).
