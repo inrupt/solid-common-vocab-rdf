@@ -28,10 +28,10 @@ jobs:
             registry-url: https://npm.pkg.github.com/
             scope: '@inrupt'
         # The following step sets up Maven.
-        - name: Set up JDK 1.8
-          uses: actions/setup-java@v1
+        - name: Set up JDK 11
+          uses: actions/setup-java@v1.4.3
           with:
-            java-version: 1.8
+            java-version: 11
             # These values are used in the `settings.xml` Maven config file.
             server-id: cloudsmith-development # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
