@@ -9,12 +9,10 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit-core: <https://w3id.org/lit/vocab/core#>
-
 prefix solid-service-common: <https://inrupt.com/vocab/solid-service-common#>
 
 
-solid-service-common: a owl:Ontology, lit-core:Ontology ;
+solid-service-common: a owl:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.

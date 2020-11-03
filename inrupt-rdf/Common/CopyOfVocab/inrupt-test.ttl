@@ -1,17 +1,19 @@
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix vann:     <http://purl.org/vocab/vann/>
 
-@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
-@prefix inrupt_test: <https://inrupt.com/vocab/test#> .
+# This namespace and prefix will change, but is needed for now to demonstrate
+# the Artifact Generator's support for constant values being expressed in RDF.
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
+
+prefix inrupt_test: <https://inrupt.com/vocab/test#>
 
 
-inrupt_test:
-	a owl:Ontology, lit-core:Ontology ;
+inrupt_test: a owl:Ontology, lit-core:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt test vocabulary"@en ;
 	dcterms:description """The Inrupt test vocabulary - just commonly used terms

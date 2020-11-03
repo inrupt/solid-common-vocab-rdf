@@ -6,12 +6,11 @@
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 
-@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 @prefix ui_tictactoe: <https://inrupt.com/vocab/ui/component/tictactoe#> .
 
 
 ui_tictactoe:
-	a owl:Ontology, lit-core:Ontology ;
+	a owl:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt Tic-Tac-Toe game vocabulary"@en ;
 	dcterms:description """The Inrupt Tic-Tac-Toe game vocabulary."""@en ;

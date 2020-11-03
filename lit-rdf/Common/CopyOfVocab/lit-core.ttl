@@ -10,12 +10,12 @@
 
 @prefix prov:     <http://www.w3.org/ns/prov#> .
 
-@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
+prefix lit-core: <https://w3id.org/lit/vocab/core#>
 @prefix lit-gen:  <https://w3id.org/lit/vocab/code-generation#> .
 
 
 lit-core:
-	a owl:Ontology, lit-core:Ontology ;
+	a owl:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Core Ontology"@en ;
 	dcterms:description """The LIT Core Ontology. The LIT is intended to be a collection of utility libraries to ease the
