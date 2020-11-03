@@ -11,7 +11,7 @@ prefix inrupt-client-app: <https://inrupt.com/vocab/sample/client-app#>
 
 
 inrupt-client-app:
-    a owl:Ontology, lit-core:Ontology ;
+    a owl:Ontology;
     owl:versionInfo "0.1" ;
     dcterms:title "Sample Inrupt client application vocabulary"@en ;
     dcterms:description """Just a sample of what a cliet application vocabulary

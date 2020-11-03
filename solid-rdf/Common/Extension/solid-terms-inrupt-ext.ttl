@@ -7,8 +7,6 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-prefix lit-core: <https://w3id.org/lit/vocab/core#>
-
 prefix solid-terms: <http://www.w3.org/ns/solid/terms#>
 prefix solid-terms-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/solid-terms#>
 
@@ -21,7 +19,7 @@ prefix solid-terms-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/solid-te
 # own prefix to try and differentiate.
 #
 solid-terms-inrupt-ext:
-    a owl:Ontology, lit-core:Ontology ;
+    a owl:Ontology;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2020/10/02"^^xsd:date ;

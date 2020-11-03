@@ -6,12 +6,10 @@
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 
-@prefix lit-core: <https://w3id.org/lit/vocab/core#> .
 @prefix ui-welcome: <https://inrupt.com/vocab/ui/component/welcome#> .
 
 
-ui-welcome:
-	a owl:Ontology, lit-core:Ontology ;
+ui-welcome: a owl:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "Inrupt Welcome Page vocabulary"@en ;
 	dcterms:description """The Inrupt Welcome Page vocabulary."""@en ;

@@ -26,7 +26,7 @@ prefix webid: <https://www.w3.org/ns/webid#>
 
 
 lit-consent:
-	a owl:Ontology, lit-core:Ontology ;
+	a owl:Ontology;
 	owl:versionInfo "0.1" ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;

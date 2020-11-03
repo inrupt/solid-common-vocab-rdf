@@ -9,13 +9,11 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit-core: <https://w3id.org/lit/vocab/core#>
-
 prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
 
 
 solid_generator_ui:
-	a owl:Ontology, lit-core:Ontology ;
+	a owl:Ontology;
     owl:versionInfo "0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
     owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;

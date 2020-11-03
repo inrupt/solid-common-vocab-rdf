@@ -9,13 +9,11 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix lit-core: <https://w3id.org/lit/vocab/core#>
-
 prefix lit-meta-shacl: <https://w3id.org/lit/vocab/lit-meta-shacl#>
 
 
 lit-meta-shacl:
-	a owl:Ontology, lit-core:Ontology ;
+	a owl:Ontology;
 	owl:versionInfo "0.1" ;
  	dcterms:title "LIT Metadata Client Vocabulary"@en ;
 	dcterms:description """The LIT vocabulary providing terms (e.g. classes, properties and text strings (e.g.
