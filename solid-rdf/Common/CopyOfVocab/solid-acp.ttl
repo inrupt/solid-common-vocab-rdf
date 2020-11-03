@@ -123,25 +123,9 @@ acp:apply a rdf:Property ;
     schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
 
-acp:applyConstant a rdf:Property ;
-    rdfs:label "apply constant"@en ;
-    rdfs:comment """The applyConstant property identifies the access policies to apply to a resource.
- These policies may not be removed except by an agent with a higher level of access."""@en ;
-    schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:Policy ;
-    rdfs:isDefinedBy acp: .
-
 acp:applyMembers a rdf:Property ;
     rdfs:label "apply members"@en ;
     rdfs:comment "The applyMembers property indentifies the access policies to apply to a resource's members recursively."@en ;
-    schema:domainIncludes acp:AccessControl ;
-    schema:rangeIncludes acp:Policy ;
-    rdfs:isDefinedBy acp: .
-
-acp:applyMembersConstant a rdf:Property ;
-    rdfs:label "apply members constant"@en ;
-    rdfs:comment """The applyMembersConstant property identifies the access policies to apply to a resource's members recursively.
- These policies may not be removed except by an agent with a higher level of access."""@en ;
     schema:domainIncludes acp:AccessControl ;
     schema:rangeIncludes acp:Policy ;
     rdfs:isDefinedBy acp: .
