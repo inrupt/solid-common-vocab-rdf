@@ -16,15 +16,16 @@ Schema.org, or FOAF, or Dublin Core, etc.).
 Currently this repository bundles the following sets of vocabularies (each configured in
 its own directory from the root of this repository) :
 
- - Common RDF, including dozens of well-known RDF vocabularies: [FOAF](http://xmlns.com/foaf/spec/), 
- [LDP](http://www.w3.org/ns/ldp#), [OWL](http://www.w3.org/2002/07/owl#), [RDFS](http://www.w3.org/2000/01/rdf-schema#),
- etc. To learn more about common vocabularies, have a look at the [Solid project website](https://solidproject.org/for-developers/apps/vocabularies) 
-    - [@inrupt/vocab-common-rdf](https://www.npmjs.com/package/@inrupt/vocab-common-rdf) on NPM
- - Solid RDF, including vocabularies related to Solid like [Solid Terms](https://www.w3.org/ns/solid/terms), 
+ - [@inrupt/vocab-common-rdf](https://www.npmjs.com/package/@inrupt/vocab-common-rdf),
+ including dozens of well-known RDF vocabularies: [FOAF](http://xmlns.com/foaf/spec/), 
+ [LDP](http://www.w3.org/ns/ldp#), [OWL](http://www.w3.org/2002/07/owl#),
+ [RDFS](http://www.w3.org/2000/01/rdf-schema#), etc.
+ - [@inrupt/vocab-solid-common](https://www.npmjs.com/package/@inrupt/vocab-solid-common), 
+ including vocabularies related to Solid like [Solid Terms](https://www.w3.org/ns/solid/terms), 
  [WebACL](http://www.w3.org/ns/auth/acl#), the [Workspace Ontology](http://www.w3.org/ns/pim/space), etc.
-    - [@inrupt/vocab-solid-common](https://www.npmjs.com/package/@inrupt/vocab-solid-common) on NPM
- - Inrupt RDF (Inrupt-specific vocabularies, such as product-specific vocabs, or our UI components)
-    - [@inrupt/vocab-inrupt-common](https://www.npmjs.com/package/@inrupt/vocab-inrupt-common) on NPM
+ - [@inrupt/vocab-inrupt-common](https://www.npmjs.com/package/@inrupt/vocab-inrupt-common), 
+ including Inrupt-specific vocabularies, such as product-specific vocabs, or our UI components)
+
 
 To see how and where these bundles are packaged and published, you'll need to look at the
 YAML files in each of the respective directories (since different bundles can be generated for
@@ -73,6 +74,7 @@ If you have questions about working with Solid or just want to share what you’
 - For non-public feedback or support inquiries please use the [Inrupt Service Desk](https://inrupt.atlassian.net/servicedesk).
 
 ## Documentation
+- To learn more about vocabularies, have a look at the [Inrupt Vocabularies documentation](https://solidproject.org/for-developers/apps/vocabularies) 
 - [Inrupt documentation homepage](https://docs.inrupt.com/)
 
 # License
