@@ -209,7 +209,7 @@ artifactToGenerate:
 
   - programmingLanguage: JavaScript
     artifactVersion: "0.6.3"
-    rdflibVersion: "^1.2.1"
+    rdflibVersion: "^2.1.1"
     artifactDirectoryName: JavaScript-rdflib
     templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
     sourceFileExtension: js

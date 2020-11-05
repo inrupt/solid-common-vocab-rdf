@@ -4,12 +4,12 @@
   "description": "Retrieves the generator version from a YAML configuration file (see https://github.com/inrupt/solid-common-artifact-generator for details).",
   "main": "index.js",
   "author": {
-    "name": "Nicolas Seydoux"
+    "name": "Inrupt, Inc."
   },
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^2.0.0",
+    "@actions/github": "^4.0.0",
     "js-yaml": "^3.13.1"
   }
 }

@@ -1,4 +1,4 @@
-# Solid Common Vocabularies in RDF
+# Test generated artifact
 
 This repository acts like a mono-repo for all the RDF vocabularies defined,
 controlled and used by Inrupt. It provides a basis to allow developers build

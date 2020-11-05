@@ -1,13 +1,13 @@
 {
   "name": "fill-template",
   "version": "0.1.0",
-  "description": "This Github action fills a Handlebar template with environment variables.",
+  "description": "This GitHub action fills a Handlebars template with environment variables.",
   "main": "index.js",
-  "author": "Nicolas Seydoux",
+  "author": "Inrupt, Inc.",
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^4.7.2",
+    "handlebars": "^4.7.6",
     "@actions/core": "^1.2.6",
-    "@actions/github": "^2.0.0"
+    "@actions/github": "^4.0.0"
   }
 }
