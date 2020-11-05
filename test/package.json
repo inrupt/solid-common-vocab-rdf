@@ -1,20 +1,23 @@
 {
-  "name": "test-builds",
+  "name": "test-generated-artifacts",
   "version": "0.0.1",
-  "description": "Simple project to our test built artifacts.",
+  "description": "Tests generated vocabulary artifacts.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@inrupt/vocab-common-rdf": "^0.5.2",
-    "@inrupt/vocab-common-rdf-rdfjs": "^0.5.2",
-    "@inrupt/vocab-inrupt-common": "^0.5.2",
-    "@inrupt/vocab-inrupt-common-rdfjs": "^0.5.2",
-    "@inrupt/vocab-solid-common": "^0.5.2",
-    "@inrupt/vocab-solid-common-rdfext": "^0.5.2",
-    "@inrupt/vocab-solid-common-rdflib": "^0.5.2"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:inrupt/solid-common-vocab-rdf.git"
   },
-  "author": "Pat McBennett",
+  "dependencies": {
+    "@inrupt/vocab-common-rdf": "^0.6.3",
+    "@inrupt/vocab-common-rdf-rdfjs": "^0.6.3",
+    "@inrupt/vocab-inrupt-common": "^0.6.3",
+    "@inrupt/vocab-inrupt-common-rdfjs": "^0.6.3",
+    "@inrupt/vocab-solid-common": "^0.6.3",
+    "@inrupt/vocab-solid-common-rdfext": "^0.6.3"
+  },
+  "author": "Inrupt, Inc.",
   "license": "MIT"
 }

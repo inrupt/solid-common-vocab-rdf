@@ -8,7 +8,6 @@
 @prefix schema:   <http://schema.org/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 
-
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multi-lingual
