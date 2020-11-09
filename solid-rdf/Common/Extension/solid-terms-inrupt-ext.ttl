@@ -32,12 +32,12 @@ solid-terms-inrupt-ext:
 
 solid-terms:WebId a rdfs:Class ;
     rdfs:label "Class of WebID"@en ;
-    rdfs:comment "The class of WebIDs - where a WebID is an HTTP URI which refers to an Agent (Person, Organization, Group, Device, etc.)."@en ;
+    rdfs:comment "The class of WebIDs - where a WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en ;
     rdfs:isDefinedBy solid-terms-inrupt-ext: .
 
 solid-terms:webId a rdf:Property ;
     rdfs:label "WebID"@en ;
-    rdfs:comment "A WebID is an HTTP URI which refers to an Agent (Person, Organization, Group, Device, etc.)."@en ;
+    rdfs:comment "A WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en ;
     rdfs:isDefinedBy solid-terms-inrupt-ext: .
 
 solid-terms:podOwner a rdf:Property ;
