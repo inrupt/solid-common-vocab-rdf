@@ -6,10 +6,12 @@ interoperable applications by reusing the individual terms (i.e. Classes and
 Properties) from well-known or public vocabularies. 
 
 Libraries can be generated that provide programming language classes (one class
-per vocabulary) where each class is made up of constants that represent the
+per vocabulary) where each class is made up of constants representing the
 individual terms defined by that vocabulary. As a developer, you just need to
-import the individual vocabulary classes that you need to have full access to
-constants representing all that vocabularies term terms.
+import the individual vocabulary class that you need to have full access to
+the constants representing all the terms defined in that vocabulary (see
+the example below showing how easy it is to access the terms from the common
+Friend-of-a-Friend (FOAF) RDF vocabulary).
 
 ## Published vocabulary bundles
 
@@ -36,6 +38,49 @@ of the respective directories (since different bundles can be generated for
 different programming languages, and published to multiple places - i.e. the
 generation process is highly flexible!).
 
+## Example usage - JavaScript
+
+To use the terms defined in the common Friend-of-a-Friend (FOAF) vocabulary,
+which is just one of the vocabularies bundled in the `@inrupt/vocab-common-rdf`
+artifact, simply add that dependency to your project:
+
+```shell
+npm install @inrupt/vocab-common-rdf
+```
+
+...then import the FOAF class from that dependency:
+```
+const { FOAF } = require("@inrupt/vocab-common-rdf");
+```
+
+...and now you can easily use any of the FOAF terms in your code:
+```javascript
+console.log(`The Agent term from the FOAF vocabulary has the IRI: [${FOAF.Agent}]`);
+```
+
+This should produce the output:
+```shell
+The Agent term from the FOAF vocabulary has the IRI: [http://xmlns.com/foaf/0.1/Agent]
+```
+
+### Advanced usage
+
+By default, our artifact generation process generates constants that also provide
+very easy access to any meta-data that is commonly provided by vocabularies (e.g.
+`rdfs:label` and `rdfs:comment` values). For example, to access the comment
+associated with the FOAF term 'Agent', do the following:
+
+```javascript
+console.log(`The comment associated with Agent: [${FOAF.Agent.comment}]`);
+```
+
+## Try it out yourself - on CodeSandbox
+
+Feel free to play around with this yourself using this very simple CodeSandbox
+example (e.g. see if you can edit this code to display the label and comment for
+the crytically named `fn` term from the vCard vocabulary (which is also bundled
+in the same `@inrupt/vocab-common-rdf` artifact, exported as the `VCARD` class):
+https://codesandbox.io/s/inrupt-rdf-vocab-demo-206e7?file=/src/index.js
 
 # Issues & Help
 
