@@ -5,6 +5,7 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix vann:     <http://purl.org/vocab/vann/>
+prefix status:   <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 
 # This namespace and prefix will change, but is needed for now to demonstrate
 # the Artifact Generator's support for constant values being expressed in RDF.
@@ -27,109 +28,126 @@ inrupt_test: a owl:Ontology, lit-core:Ontology;
 
 inrupt_test:somePodRoot a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Root of some test Pod"@en ;
-	rdfs:comment "Identifies the root of a some test Pod."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Root of some Pod"@en ;
+	rdfs:comment "Root of some Pod."@en ;
 	skos:definition "https://some.pod/" .
 
 inrupt_test:somePodContainer a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Test container in some Pod"@en ;
-	rdfs:comment "Test container in some Pod."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Container in some Pod"@en ;
+	rdfs:comment "Container in some Pod."@en ;
 	skos:definition "https://some.pod/rootContainer/container/" .
 
 inrupt_test:someOtherPodContainer a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Test container in some *other* Pod"@en ;
-	rdfs:comment "Test container in some *other* Pod."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Container in some *other* Pod"@en ;
+	rdfs:comment "Container in some *other* Pod."@en ;
 	skos:definition "https://some.other.pod.com/canBeAnywhere/rootContainer/otherContainer" .
 
 
 inrupt_test:somePodResource a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test resource in a Pod"@en ;
-	rdfs:comment "Some test resource in a Pod."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some resource in a Pod"@en ;
+	rdfs:comment "Some resource in a Pod."@en ;
 	skos:definition "https://some.pod/rootContainer/container/Resource1" .
 
 inrupt_test:somePodResourceAcl a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "ACL for some test resource"@en ;
-	rdfs:comment "ACL for some test resource."@en ;
+    status:term_status "testing" ;
+	rdfs:label "ACL for some resource"@en ;
+	rdfs:comment "ACL for some resource."@en ;
 	skos:definition "https://some.pod/rootContainer/container/Resource1.acl" .
 
 inrupt_test:someOtherPodResource a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some *other* test resource in another Pod"@en ;
-	rdfs:comment "Some *other* test resource in another Pod."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some *other* resource in another Pod"@en ;
+	rdfs:comment "Some *other* resource in another Pod."@en ;
 	skos:definition "https://some.other.pod.com/OtherResource" .
 
 
 inrupt_test:somePodResourceHashSomeSubject a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod resource with a hash fragment identifying a Subject"@en ;
-	rdfs:comment "Some test Pod resource with a hash fragment identifying a Subject."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some Pod resource with a hash fragment identifying a Subject"@en ;
+	rdfs:comment "Some Pod resource with a hash fragment identifying a Subject."@en ;
 	skos:definition "https://some.pod/rootContainer/container/Resource1#some-subject" .
 
 inrupt_test:somePodResourceHashSomeObject a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod resource with a hash fragment identifying an Object"@en ;
-	rdfs:comment "Some test Pod resource with a hash fragment identifying an Object."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some Pod resource with a hash fragment identifying an Object"@en ;
+	rdfs:comment "Some Pod resource with a hash fragment identifying an Object."@en ;
 	skos:definition "https://some.pod/rootContainer/container/Resource1#some-object" .
 
 
 inrupt_test:somePodRootAcl a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod root ACL"@en ;
-	rdfs:comment "Some test Pod root ACL."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some Pod root ACL"@en ;
+	rdfs:comment "Some Pod root ACL."@en ;
 	skos:definition "https://some.pod/.acl" .
 
 inrupt_test:somePodContainerAcl a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod container ACL"@en ;
-	rdfs:comment "Some test Pod container ACL."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some Pod container ACL"@en ;
+	rdfs:comment "Some Pod container ACL."@en ;
 	skos:definition "https://some.pod/rootContainer/container/.acl" .
 
 
 inrupt_test:somePodGroupId a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod Group ID"@en ;
-	rdfs:comment "Some test Pod Group ID."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Some Pod Group ID"@en ;
+	rdfs:comment "Some Pod Group ID."@en ;
 	skos:definition "https://some.pod/group#id" .
 
 inrupt_test:somePodOtherGroupId a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some *other* test Pod Group ID"@en ;
-	rdfs:comment "Some *other* test Pod Group ID."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some *other* Pod Group ID"@en ;
+	rdfs:comment "Some *other* Pod Group ID."@en ;
 	skos:definition "https://some.other.pod/otherGroup#other-id" .
 
 
 inrupt_test:somePodWebId a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some test Pod WebID"@en ;
-	rdfs:comment "Some test Pod WebID."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some Pod WebID"@en ;
+	rdfs:comment "Some Pod WebID."@en ;
 	skos:definition "https://some.pod/somePodWebId/profile/card#me" .
 
 inrupt_test:someOtherPodWebId a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some *other* test Pod WebID"@en ;
-	rdfs:comment "Some *other* test Pod WebID."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some *other* Pod WebID"@en ;
+	rdfs:comment "Some *other* Pod WebID."@en ;
 	skos:definition "https://some.other.pod.com#i" .
 
 
 inrupt_test:someNamedGraph a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
+	status:term_status "testing" ;
 	rdfs:label "Some Named Graph"@en ;
 	rdfs:comment "Some Named Graph."@en ;
 	skos:definition "https://some.pod/someNamedGraph" .
 
 inrupt_test:someOtherNamedGraph a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Some *other* test Pod WebID"@en ;
-	rdfs:comment "Some *other* test Pod WebID."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some *other* Named Graph"@en ;
+	rdfs:comment "Some *other* Named Graph."@en ;
 	skos:definition "https://some.other.pod.com/someOtherNamedGraph" .
 
 
 inrupt_test:someNonRdfResource a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
+	status:term_status "testing" ;
 	rdfs:label "Some non-RDF resource"@en ;
 	rdfs:comment "Some non-RDF resource."@en ;
 	skos:definition "https://some.pod/someNonRdfResource" .
@@ -138,59 +156,68 @@ inrupt_test:someNonRdfResource a lit-core:ConstantIri ;
 
 inrupt_test:someSubject a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some subject"@en ;
+	rdfs:comment "Some subject."@en ;
 	skos:definition "https://some.pod/resource#subject" .
 
 inrupt_test:somePredicate a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en .
+	status:term_status "testing" ;
+	rdfs:label "Some predicate"@en ;
+	rdfs:comment "Some predicate."@en .
 
 inrupt_test:someObject a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en .
-
+	status:term_status "testing" ;
+	rdfs:label "Some object as an IRI"@en ;
+	rdfs:comment "Some object as an IRI."@en .
 
 inrupt_test:someOtherSubject a lit-core:ConstantIri ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Some *other* subject"@en ;
+	rdfs:comment "Some *other* subject."@en ;
 	skos:definition "https://some.other.pod/resource#other-subject" .
 
 inrupt_test:someOtherPredicate a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en .
+    status:term_status "testing" ;
+	rdfs:label "Some *other* predicate"@en ;
+	rdfs:comment "Some *other* predicate."@en .
 
 inrupt_test:someOtherObject a rdf:Property ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label ""@en ;
-	rdfs:comment "."@en .
+	status:term_status "testing" ;
+	rdfs:label "Some *other* object value as an IRI"@en ;
+	rdfs:comment "Some *other* object value as an IRI."@en .
 
 
 
 inrupt_test:hashSomeSubject a lit-core:ConstantString ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Hash fragment used to identify a test Subject"@en ;
-	rdfs:comment "Hash fragment used to identify a test Subject."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Hash fragment used to identify a some Subject"@en ;
+	rdfs:comment "Hash fragment used to identify a some Subject."@en ;
 	skos:definition "some-subject" .
 
 inrupt_test:hashSomeObject a lit-core:ConstantString ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Hash fragment used to identify a test Object"@en ;
-	rdfs:comment "Hash fragment used to identify a test Object."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Hash fragment used to identify a some Object"@en ;
+	rdfs:comment "Hash fragment used to identify a some Object."@en ;
 	skos:definition "some-object" .
 
 inrupt_test:somePodContainerAclRelativePath a lit-core:ConstantString ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Relative path to some test Pod container ACL"@en ;
-	rdfs:comment "Relative path to some test Pod container ACL."@en ;
+	status:term_status "testing" ;
+	rdfs:label "Relative path to some Pod container ACL"@en ;
+	rdfs:comment "Relative path to some Pod container ACL."@en ;
 	skos:definition ".acl" .
 
 inrupt_test:somePodResourceAclRelativePath a lit-core:ConstantString ;
 	rdfs:definedBy inrupt_test: ;
-	rdfs:label "Relative path to some test Pod resource ACL"@en ;
-	rdfs:comment "Relative path to some test Pod resource ACL."@en ;
+    status:term_status "testing" ;
+	rdfs:label "Relative path to some Pod resource ACL"@en ;
+	rdfs:comment "Relative path to some Pod resource ACL."@en ;
 	skos:definition "Resource1.acl" .
