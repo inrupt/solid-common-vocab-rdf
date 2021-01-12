@@ -30,7 +30,7 @@ dcterms:creator <https://inrupt.com/profile/card/#us> ;
     # lit-core:extensionNamespaceUri "Or do we define a new predicate to explicitly state our extension namespace...?" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" ;
 
-    # NOTE: We deliberately use the underlying namespace here, as we are adding
+    # Note: We deliberately use the underlying namespace here, as we are adding
     # missing terms to that underlying vocabulary.
     vann:preferredNamespacePrefix "ui" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/ui#" .

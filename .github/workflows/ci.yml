@@ -14,10 +14,10 @@ jobs:
             ]
         name: CI for ${{ matrix.vocab }}
         steps:
-        # Setup
+        # Setup.
         - name: Checkout repo
           uses: actions/checkout@v2
-        # Initializes node for the runner
+        # Initializes node for the runner.
         - name: Node setup
           uses: actions/setup-node@v1
           with:
@@ -29,7 +29,7 @@ jobs:
           uses: actions/setup-java@v1.4.3
           with:
             java-version: 11
-            # These values are used in the `settings.xml` Maven config file
+            # These values are used in the `settings.xml` Maven config file.
             server-id: cloudsmith-development # Value of the distributionManagement/repository/id field of the pom.xml
             server-username: ${{ secrets.CLOUDSMITH_USERNAME }}
             server-password: ${{ secrets.CLOUDSMITH_PASSWORD }}
@@ -45,17 +45,18 @@ jobs:
             SERVER_URL_SNAPSHOT: https://maven.cloudsmith.io/inrupt/sdk-development/
             SERVER_USERNAME: ${{ secrets.CLOUDSMITH_USERNAME }}
             SERVER_PASSWORD: ${{ secrets.CLOUDSMITH_PASSWORD }}
-        # The following action is defined in the current repo
-        # It reads the expected generator version from the YAML file
+        # The following action is defined in the current repository.
+        # It reads the expected generator version from the YAML file.
         - name: Get generator version
           uses: ./.github/artifact-generator-version/
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
 
-        # Installs the artifact generator from its github package
-        # The package is renamed in order to enable having different versions side-by-side
-        - name: Install LIT Artifact Generator
+        # Installs the Artifact Generator from its GitHub package.
+        # The package is renamed in order to enable having different versions
+        # side-by-side.
+        - name: Install Artifact Generator
           run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}

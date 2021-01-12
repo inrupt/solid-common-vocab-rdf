@@ -63,7 +63,7 @@ jobs:
           run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-        # NOTE: This only pushes to Cloudsmith (not NPM), because it does not
+        # Note: This only pushes to Cloudsmith (not npm), because it does not
         # increment the version number, which is fine for Maven SNAPSHOT
         # versions.
         - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith

@@ -24,7 +24,7 @@ inrupt-ess:Ess a rdfs:Class ;
 inrupt-ess:IdentityService a rdfs:Class ;
     rdfs:label "Identity Service"@en ;
     rdfs:comment """The Identity Service is a very lightweight Identity Provider that stores user credentials (e.g. username and password), and allows those users to login to any Solid Pod following the OIDC protocol.
- NOTE: This service is only intended for Proof-of-Concept projects, or internal development purposes."""@en .
+ Note: This service is only intended for Proof-of-Concept projects, or internal development purposes."""@en .
 
 inrupt-ess:LdpService a rdfs:Class ;
     rdfs:label "LDP Service"@en ;

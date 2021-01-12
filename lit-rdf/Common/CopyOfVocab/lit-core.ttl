@@ -148,7 +148,7 @@ lit-core:subjectRoot a rdf:Property ;
     rdfs:comment """Class to represent session info that we wish to remove - typically cookies (i.e. if set as a
  property on a ResponseData object returned from a server-side operation, then our Express handler will attempt to
  remove cookies for each property contained within the referenced entity).
-NOTE: We may only wish to remove 'some' cookies, and not all - for instance if an Admin user is logged into a
+Note: We may only wish to remove 'some' cookies, and not all - for instance if an Admin user is logged into a
  registration app, and uses their app to log in a beneficiary, then logging out that beneficiary would require removing
  just that beneficies cookie data, but not the Admin user's cookie data, since they may continue using the app to login
  the next beneficary. Therefore this class can contain just the session info we wish to remove."""@en .
@@ -350,7 +350,7 @@ NOTE: We may only wish to remove 'some' cookies, and not all - for instance if a
 
   #
   # LIT Core error messages...
-  # (NOTE: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
+  # (Note: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
   #
   lit-core:errRequireNotNull a rdfs:Literal ;
     rdfs:isDefinedBy lit-core: ;

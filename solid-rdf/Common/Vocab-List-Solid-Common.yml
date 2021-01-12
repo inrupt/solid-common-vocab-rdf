@@ -9,7 +9,7 @@
 # vocabularies.
 #
 # For example, for Java developers we can generate a single JAR, or for
-# JavaScript we can generate a single NPM module, that developers can depend
+# JavaScript we can generate a single npm module, that developers can depend
 # on directly and easily get immediate access to source-code constants for all
 # the terms in all of these vocabularies.
 #
@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.12.4
+artifactGeneratorVersion: 0.13.1
 
 versioning:
   type: git
@@ -34,14 +34,21 @@ license:
   name: "MIT"
 
 artifactToGenerate:
+  # This is the configuration of the DEFAULT Java artifact - i.e. where the name
+  # of the generated JAR does not contain details of it's dependencies (e.g.
+  # whether it provides VocabTerm constants or just string constants, or whether
+  # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
     artifactVersion: 0.5.8-SNAPSHOT
+
+    artifactDirectoryName: Java
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.solid.common
+
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
-    javaPackageName: com.inrupt.vocab.solid.common
-    artifactDirectoryName: Java
     templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
-    sourceFileExtension: java
+
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
       - class     # Defined in VCard.
@@ -59,7 +66,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
         publish:
           - key: "mavenLocal"
-            command: "mvn install"
+            command: "mvn --version && mvn install"
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
@@ -70,20 +77,22 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.5.8-SNAPSHOT
-    commonsRdfVersion: 0.5.0
+
+    artifactDirectoryName: Java-CommonsRdf-ServiceLoader
+    sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.solid.common
+    artifactSuffix: -CommonsRdf-ServiceLoader
+
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
-    # solidCommonVocabVersion: 0.0.3
-    artifactDirectoryName: Java-commonsrdf-serviceloader
+    commonsRdfVersion: 0.5.0
     templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/vocab.hbs
-    sourceFileExtension: java
+
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
       - class     # Defined in VCard.
       - abstract  # Defined in DCTerms.
       - default   # Defined in ACL
-    artifactSuffix: -commonsRdfServiceLoader
     packaging:
       - packagingTool: maven
         groupId: com.inrupt
@@ -96,7 +105,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
         publish:
           - key: "mavenLocal"
-            command: "mvn install"
+            command: "mvn --version && mvn install"
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
@@ -107,20 +116,22 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.5.8-SNAPSHOT
-    commonsRdfVersion: 0.5.0
+
+    artifactDirectoryName: Java-CommonsRdf-SimpleRdf
+    sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.solid.common
+    artifactSuffix: -CommonsRdf-SimpleRdf
+
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
-    # solidCommonVocabVersion: 0.0.3
-    artifactDirectoryName: Java-commonsrdf-simplerdf
+    commonsRdfVersion: 0.5.0
     templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/vocab.hbs
-    sourceFileExtension: java
+
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
       - class     # Defined in VCard.
       - abstract  # Defined in DCTerms.
       - default   # Defined in ACL
-    artifactSuffix: -commonsRdfSimpleRdf
     packaging:
       - packagingTool: maven
         groupId: com.inrupt
@@ -133,7 +144,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
         publish:
           - key: "mavenLocal"
-            command: "mvn install"
+            command: "mvn --version && mvn install"
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
@@ -142,26 +153,30 @@ artifactToGenerate:
           - templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/pom.hbs
             fileName: pom.xml
 
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
+  # the name of the generated npm module does not contain details of it's
+  # dependencies (e.g. whether it provides VocabTerm constants or just string
+  # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.6.3"
-    solidCommonVocabVersion: "^0.5.1"
+    artifactVersion: "0.7.0"
+
     artifactDirectoryName: TypeScript
-    templateInternal: solidCommonVocabDependent/typescript/vocab.hbs
     sourceFileExtension: ts
+
+    solidCommonVocabVersion: "^0.5.3"
+    templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+
+#    artifactSuffix: -rdfjs-RdfDataFactory
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        typescriptVersion: "^3.8.3"
-        rdfjsTypesVersion: "^3.0.3"
-        rdfjsDatamodelVersion: "^1.1.2"
-        rdfjsDatasetVersion: "^1.0.1"
-        rdfjsDatasetTypesVersion: "^1.0.3"
-        rdfjsNamespaceVersion: "^1.1.0"
-        rdfjsNamespaceTypesVersion: "^1.1.1"
-        rollupVersion: "^2.7.3"
-        rollupTypescriptPluginVersion: "^0.27.0"
-        rollupCommonjsPluginVersion: "^11.1.0"
-        rollupNodeResolveVersion: "^7.1.3"
+        typescriptVersion: "^4.1.3"
+        rdfjsTypesVersion: "^4.0.0"
+        rdfjsImplVersion: "^1.0.4"
+        rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
         bundleName: "SolidVocabCommon"
         publish:
         - key: "npmLocal"
@@ -169,7 +184,43 @@ artifactToGenerate:
         - key: "npmPublic"
           command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: solidCommonVocabDependent/typescript/package.hbs
+          - templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.7.0"
+
+    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    sourceFileExtension: ts
+    artifactSuffix: -rdfjs-RdfDataFactory
+
+    solidCommonVocabVersion: "^0.5.3"
+    templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        typescriptVersion: "^4.1.3"
+        rdfjsTypesVersion: "^4.0.0"
+        rdfjsImplVersion: "^1.0.4"
+        rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
+        bundleName: "SolidVocabCommon"
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/package.hbs
             fileName: package.json
           - templateInternal: generic/typescript/index.hbs
             fileName: index.ts
@@ -179,11 +230,45 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.6.3"
-    artifactDirectoryName: JavaScript-rdfext
-    templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
+    artifactVersion: "0.7.0"
+
+    artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
-    artifactSuffix: -rdfext
+    artifactSuffix: -StringLiteral
+
+    templateInternal: stringLiteral/javascript/vocab.hbs
+
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        rollupVersion: "^2.36.1"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
+        bundleName: "VocabCommon"
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: stringLiteral/javascript/package.hbs
+            fileName: package.json
+          - templateInternal: generic/javascript/index.hbs
+            fileName: index.js
+          - templateInternal: generic/javascript/rollup.config.hbs
+            fileName: rollup.config.js
+
+  - programmingLanguage: JavaScript
+    artifactVersion: "0.7.0"
+
+    artifactDirectoryName: JavaScript-rdfjsBase
+    sourceFileExtension: js
+    artifactSuffix: -rdfjsBase
+
+    rdfjsNamespaceVersion: "^1.1.0"
+    templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
+
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
@@ -208,12 +293,15 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.6.3"
-    rdflibVersion: "^2.1.1"
+    artifactVersion: "0.7.0"
+
     artifactDirectoryName: JavaScript-rdflib
-    templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
     sourceFileExtension: js
     artifactSuffix: -rdflib
+
+    rdflibVersion: "^2.1.1"
+    templateInternal: rdfLibraryDependent/javascript/rdflib/vocab.hbs
+
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
@@ -270,7 +358,7 @@ vocabList:
 
   - description: Solid Terms
     nameAndPrefixOverride: solid
-    # NOTE: Although we use the HTTPS form of this namespace, the BASE namespace
+    # Note: Although we use the HTTPS form of this namespace, the BASE namespace
     # of the vocabulary itself uses HTTP!
     inputResources:
        - https://www.w3.org/ns/solid/terms

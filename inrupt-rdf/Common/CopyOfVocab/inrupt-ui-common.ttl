@@ -25,7 +25,7 @@ ui_common:
 
   #
   # Solid Component messages...
-  # (NOTE: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
+  # (Note: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
   #
 
   #
