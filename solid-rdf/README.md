@@ -1,7 +1,7 @@
 # solid-rdf-vocab
 
 This repository contains a configuration file for the LIT Artifact Generator that creates
-source-code artifacts (e.g. Java JAR, NPM Module, etc.) for the terms (e.g. the Classes
+source-code artifacts (e.g. Java JAR, npm Module, etc.) for the terms (e.g. the Classes
 and Properties) defined in existing Solid-specific RDF vocabularies (for example the [Solid
 vocabulary](http://www.w3.org/ns/solid/terms) and the [WebACL vocabulary](http://www.w3.org/ns/auth/acl)).
 

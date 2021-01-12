@@ -1,14 +1,14 @@
 # Test generated artifact
 
 This is a simple developer project, currently only useful for manually testing
-specific versions of specifically published NPM vocabulary artifacts. It just
+specific versions of specifically published npm vocabulary artifacts. It just
 imports a select few of those packages, and then attempts to write to the
 console certain values from certain terms we expect to see in the vocabularies
 represented in those packages.
 
 ## Roadmap
 
-- see if we can automatically populate the list of generated NPM artifacts in
+- see if we can automatically populate the list of generated npm artifacts in
 our `package.json` (perhaps use a Handlebars template to create the
 `package.json` from the LAG itself?).  
 

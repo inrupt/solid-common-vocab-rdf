@@ -14,7 +14,7 @@ jobs:
           "inrupt-rdf/Common/Vocab-List-Inrupt-Common.yml",
           "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
         ]
-    name: NPM release for ${{ matrix.vocab }}
+    name: npm release for ${{ matrix.vocab }}
     steps:
      # Makes the current repository available to the workflow.
     - name: Checkout repo
@@ -41,7 +41,7 @@ jobs:
       run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-    - name: NPM cleanup
+    - name: npm cleanup
       run: rm /home/runner/work/_temp/.npmrc
     # Re-initializes npm to publish to NPMJS.
     - name: Node setup
