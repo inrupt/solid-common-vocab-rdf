@@ -34,7 +34,7 @@ jobs:
       id: generator-version-common
       with: 
         vocab-config-path: ${{ matrix.vocab }}
-    # Installs the artifact generator from its github package.
+    # Installs the artifact generator from its GitHub package.
     # The package is renamed in order to enable having different versions
     # side-by-side.
     - name: Generator installation
