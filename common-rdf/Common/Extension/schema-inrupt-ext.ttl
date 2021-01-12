@@ -132,3 +132,15 @@ schema:name a rdf:Property ;
     rdfs:comment "Der Name des Artikels."@de ;
     rdfs:comment "El nombre del artículo."@es ;
     rdfs:comment "Il nome dell'articolo."@it .
+
+schema:text a rdf:Property ;
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Text"@en ;
+    schema:alternateName "Texte"@fr ;
+    schema:alternateName "Text"@de ;
+    schema:alternateName "Texto"@es ;
+    schema:alternateName "Testo"@it ;
+    rdfs:comment "Le contenu textuel de ce CreativeWork."@fr ;
+    rdfs:comment "Der Textinhalt dieses CreativeWork."@de ;
+    rdfs:comment "El contenido textual de este CreativeWork."@es ;
+    rdfs:comment "Il contenuto testuale di questo CreativeWork."@it .

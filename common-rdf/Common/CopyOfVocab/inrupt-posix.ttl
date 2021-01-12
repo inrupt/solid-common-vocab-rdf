@@ -3,7 +3,7 @@
 # dereferencing the namespace just returns RDF/XML with just rdfs:comment
 # triples and no typing (i.e. whether the terms are Classes or Properties.
 #
-# NOTE: I also took the liberty of adding triples for the ontology itself too.
+# Note: I also took the liberty of adding triples for the ontology itself too.
 #
 
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

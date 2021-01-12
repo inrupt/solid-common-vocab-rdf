@@ -3,7 +3,7 @@
 # dereferencing the namespace just returns HTML, even when specifically
 # using a HTTP 'Accept' header value of 'text/turtle' (e.g. using POSTMAN).
 #
-# NOTE: I also took the liberty of adding triples for the ontology itself too.
+# Note: I also took the liberty of adding triples for the ontology itself too.
 #
 
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

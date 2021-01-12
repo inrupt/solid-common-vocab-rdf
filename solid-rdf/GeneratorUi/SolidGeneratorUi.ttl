@@ -36,7 +36,7 @@ solid_generator_ui:
 
   #
   # Generator UI messages...
-  # (NOTE: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
+  # (Note: literals don't *require* labels or comments - it's assumed the definition is sufficiently informative.
   #
   solid_generator_ui:msgWelcome a rdfs:Literal ;
     skos:definition """Welcome"""@en ;
