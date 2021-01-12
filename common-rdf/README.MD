@@ -4,7 +4,7 @@
 
 General structure within each folder here:
   * In the root we may provide a YAML file to bundle multiple vocabularies
-   into single artifacts (e.g. a single NPM module, or a single Java JAR).
+   into single artifacts (e.g. a single npm module, or a single Java JAR).
    
   * A 'CopyOfVocab' directory that stores local vocabularies, such as copies of
    online vocabularies (e.g. if we can't easily access online versions in
@@ -17,7 +17,7 @@ General structure within each folder here:
 ## Artifact generation
 
 The RDF vocabularies referenced in configuration file are used to generate
-source code artifacts (e.g. Java JARs, or NPM packages) that can then be
+source code artifacts (e.g. Java JARs, or npm packages) that can then be
 published locally or remotely to one or more repositories (e.g. Maven Central,
 or [npmjs.org](npmjs.org), or Cloudsmith, or a shared Verdaccio server, or a
 local Verdaccio, or a local `.m2` Maven repository, etc.), and from there used
