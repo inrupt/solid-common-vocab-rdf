@@ -29,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -66,11 +66,11 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-RdfDataFactory
+    artifactSuffix: -rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^0.5.3"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs

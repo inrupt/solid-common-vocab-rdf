@@ -40,7 +40,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -85,12 +85,12 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java-StringLiteral
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf
-    artifactSuffix: -StringLiteral
+    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/java/vocab.hbs
 
@@ -129,12 +129,12 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java-SolidCommonVocab-Rdf4J
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf
-    artifactSuffix: -SolidCommonVocab-Rdf4J
+    artifactSuffix: -solidcommonvocab-rdf4j
 
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
@@ -165,12 +165,12 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf
-    artifactSuffix: -CommonsRdf-ServiceLoader
+    artifactSuffix: -commonsrdf-serviceloader
 
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
@@ -206,7 +206,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -247,11 +247,11 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.1"
+#    artifactVersion: "0.7.2"
 #    artifactDirectoryName: TypeScript-rdfjs-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
-#    artifactSuffix: -rdfjs-Base
+#    artifactSuffix: -rdfjs-base
 #    packaging:
 #      - packagingTool: npm
 #        npmModuleScope: "@inrupt/"
@@ -282,10 +282,10 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.1"
+#    artifactVersion: "0.7.2"
 #
 #    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
-#    artifactSuffix: -rdfjs-RdfDataFactory
+#    artifactSuffix: -rdfjs-rdfdatafactory
 #    sourceFileExtension: ts
 #
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -318,11 +318,11 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
-    artifactSuffix: -StringLiteral
+    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/javascript/vocab.hbs
 

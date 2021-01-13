@@ -40,7 +40,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -77,12 +77,12 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.solid.common
-    artifactSuffix: -CommonsRdf-ServiceLoader
+    artifactSuffix: -commonsrdf-serviceloader
 
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
@@ -116,12 +116,12 @@ artifactToGenerate:
             fileName: pom.xml
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java-CommonsRdf-SimpleRdf
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.solid.common
-    artifactSuffix: -CommonsRdf-SimpleRdf
+    artifactSuffix: -commonsrdf-simplerdf
 
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
@@ -159,7 +159,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -167,7 +167,7 @@ artifactToGenerate:
     solidCommonVocabVersion: "^0.5.3"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
-#    artifactSuffix: -rdfjs-RdfDataFactory
+#    artifactSuffix: -rdfjs-rdfdatafactory
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
@@ -195,11 +195,11 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-RdfDataFactory
+    artifactSuffix: -rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^0.5.3"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -231,11 +231,11 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
-    artifactSuffix: -StringLiteral
+    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/javascript/vocab.hbs
 
@@ -261,11 +261,11 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: JavaScript-rdfjsBase
     sourceFileExtension: js
-    artifactSuffix: -rdfjsBase
+    artifactSuffix: -rdfjs-base
 
     rdfjsNamespaceVersion: "^1.1.0"
     templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
@@ -294,7 +294,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: JavaScript-rdflib
     sourceFileExtension: js

@@ -24,11 +24,11 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-RdfDataFactory
+    artifactSuffix: -rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^0.5.3"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
