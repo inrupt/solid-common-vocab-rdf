@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-common
-artifactGeneratorVersion: 0.13.1
+artifactGeneratorVersion: 0.13.3
 
 versioning:
   type: git
@@ -29,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -66,7 +66,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
