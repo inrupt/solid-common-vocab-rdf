@@ -11,11 +11,12 @@
 # list file.
 #
 artifactName: vocab-inrupt-service
-artifactGeneratorVersion: 0.13.1
+artifactGeneratorVersion: 0.13.3
 
 versioning:
   type: git
-  url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  # Remove URL until we open-source this repository...
+  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -28,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -65,7 +66,7 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts

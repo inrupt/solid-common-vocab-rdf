@@ -18,11 +18,12 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 0.13.1
+artifactGeneratorVersion: 0.13.3
 
 versioning:
   type: git
-  url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  # Remove URL until we open-source this repository...
+  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -39,7 +40,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -84,7 +85,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java-StringLiteral
     sourceFileExtension: java
@@ -128,7 +129,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java-SolidCommonVocab-Rdf4J
     sourceFileExtension: java
@@ -164,7 +165,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
@@ -205,7 +206,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -246,7 +247,7 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.0"
+#    artifactVersion: "0.7.1"
 #    artifactDirectoryName: TypeScript-rdfjs-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -281,7 +282,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.0"
+#    artifactVersion: "0.7.1"
 #
 #    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
 #    artifactSuffix: -rdfjs-RdfDataFactory
@@ -317,7 +318,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -366,63 +367,63 @@ vocabList:
     termSelectionResource: ./Extension/schema-inrupt-ext.ttl
 
 
-  - description: VCARD (the full vocabulary)
+  - description: vCard - for describing People and Organizations
     nameAndPrefixOverride: vcard
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
 
-  - description: VCARD with selective terms having translations
+  - description: vCard with selective terms having translations - for describing People and Organizations
     nameAndPrefixOverride: vcard-inrupt-ext
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
     termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
 
 
-#  - description: RDF (the full vocabulary)
-#    nameAndPrefixOverride: rdf
-#    inputResources:
-#      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
-#
-#  - description: RDF with selective terms having translations
-#    nameAndPrefixOverride: rdf-inrupt-ext
-#    inputResources:
-#      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
-#    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
+  - description: RDF (Resource Description Framework) - a framework for representing information in the Web
+    nameAndPrefixOverride: rdf
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-  - description: rdfs
+  - description: RDF (Resource Description Framework) with selective terms having translations - a framework for representing information in the Web
+    nameAndPrefixOverride: rdf-inrupt-ext
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
+
+  - description: RDFS (RDF Schema) - a data-modelling vocabulary for RDF data
     nameAndPrefixOverride: rdfs
     inputResources:
       - http://www.w3.org/2000/01/rdf-schema#
 
-  - description: xsd
+  - description: XSD (XML Schema Definition) - provides datatypes for string, integer, float, date, etc.
     inputResources:
       - ./CopyOfVocab/inrupt-xml-schema.ttl
 
   # OWL seems to have a bug in that the ontology itself is identified using a
   # subject IRI without the hash, yet the 'owl:' prefix correctly appends the
   # hash.
-  - description: OWL
+  - description: OWL (Web Ontology Language) - a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things
     nameAndPrefixOverride: owl
     inputResources:
       - http://www.w3.org/2002/07/owl#
 
-  - description: LDP
+  - description: LDP (Linked Data Platform) - defines a set of rules for HTTP operations on web resources, some based on RDF, to provide an architecture for read-write Linked Data on the web
     inputResources:
       - https://www.w3.org/ns/ldp#
       - ./Extension/ldp-inrupt-ext.ttl
 
-  - description: Terms from the HTTP protocol
+  - description: HTTP Ontology - terms from the HTTP protocol
     nameAndPrefixOverride: http
     inputResources:
       - http://www.w3.org/2011/http#
 
-  - description: Vocab describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019) so extended.
+  - description: HTTPH Ontology - for describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019), so extended
     nameAndPrefixOverride: httph
     inputResources:
       - http://www.w3.org/2007/ont/httph#
       - ./Extension/http-header-inrupt-ext.ttl
 
-  - description: The Ordered List Ontology
+  - description: OLO (Ordered List Ontology) - for describing ordered lists
     nameAndPrefixOverride: olo
     inputResources:
       - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
@@ -450,11 +451,11 @@ vocabList:
   # authorative one (and once I add RDF/XML parsing to the generator I can
   # remove this local version...!)
   #
-  - description: vann
+  - description: VANN - a vocabulary for annotating vocabulary descriptions
     inputResources:
       - ./CopyOfVocab/inrupt-vann.ttl
 
-  - description: Dublin Core Terms
+  - description: Dublin Core Terms - for describing resources
     nameAndPrefixOverride: dcterms
     inputResources:
       - http://dublincore.org/2012/06/14/dcterms.ttl
@@ -465,7 +466,7 @@ vocabList:
   # can find!) of its terms refers to those terms using the 'http:' scheme
   # instead of the official 'https:' scheme (so we need to override that).
   #
-  - description: Activity Streams 2.0
+  - description: Activity Streams 2.0 - for representing potential and completed activities
     nameAndPrefixOverride: as
     inputResources:
       # For Activity Streams 2.0, dereferencing the namespace IRI
@@ -480,7 +481,7 @@ vocabList:
     # instead of the correct 'https:' scheme, so we need to override that.
     namespaceOverride: https://www.w3.org/ns/activitystreams#
 
-  - description: RDF Logging Ontology
+  - description: RLOG - RDF Logging Ontology
     nameAndPrefixOverride: rlog
     inputResources:
       # Currently (April 2020) getting server 500 errors when trying to
@@ -504,7 +505,7 @@ vocabList:
     inputResources:
        - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
 
-  - description: Shape Expressions (ShEx)
+  - description: Shape Expressions (ShEx) - for validating RDF
     nameAndPrefixOverride: shex
     inputResources:
       - https://www.w3.org/ns/shex#
@@ -519,7 +520,7 @@ vocabList:
     inputResources:
       - CopyOfVocab/inrupt-posix.ttl
 
-  - description: iCal
+  - description: iCal - a vocabulary for description of events and calendars
     nameAndPrefixOverride: ical
     inputResources:
       - https://www.w3.org/2002/12/cal/ical

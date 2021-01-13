@@ -11,11 +11,12 @@
 # list file.
 #
 artifactName: vocab-inrupt-common
-artifactGeneratorVersion: 0.13.1
+artifactGeneratorVersion: 0.13.3
 
 versioning:
   type: git
-  url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  # Remove URL until we open-source this repository...
+  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -32,7 +33,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.5.8-SNAPSHOT
+    artifactVersion: 0.5.8
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -73,7 +74,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -111,7 +112,7 @@ artifactToGenerate:
             fileName: rollup.config.js  
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
@@ -156,7 +157,7 @@ artifactToGenerate:
   # RDF/JS interface DataFactory type).
   #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.0"
+#    artifactVersion: "0.7.1"
 #    artifactDirectoryName: TypeScript-rdfjs
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -191,7 +192,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.0"
+    artifactVersion: "0.7.1"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
