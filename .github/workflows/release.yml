@@ -22,7 +22,7 @@ jobs:
     # Initializes Node and npm to install the Artifact Generator from GitHub
     # packages.
     - name: Node setup
-      uses: actions/setup-node@v1.4.2
+      uses: actions/setup-node@v1
       with:
         node-version: '12.12.0'
         registry-url: https://npm.pkg.github.com/
@@ -45,7 +45,7 @@ jobs:
       run: rm /home/runner/work/_temp/.npmrc
     # Re-initializes npm to publish to NPMJS.
     - name: Node setup
-      uses: actions/setup-node@v1.4.2
+      uses: actions/setup-node@v1
       with:
         node-version: '12.12.0'
         registry-url: https://registry.npmjs.com/
