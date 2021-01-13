@@ -33,7 +33,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.5.8
+    artifactVersion: 0.6.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -74,7 +74,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -112,11 +112,11 @@ artifactToGenerate:
             fileName: rollup.config.js  
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-RdfDataFactory
+    artifactSuffix: -rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^0.5.3"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -157,11 +157,11 @@ artifactToGenerate:
   # RDF/JS interface DataFactory type).
   #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.1"
-#    artifactDirectoryName: TypeScript-rdfjs
+#    artifactVersion: "0.7.2"
+#    artifactDirectoryName: TypeScript-rdfjs-base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
-#    artifactSuffix: -rdfjs
+#    artifactSuffix: -rdfjs-base
 #    packaging:
 #      - packagingTool: npm
 #        npmModuleScope: "@inrupt/"
@@ -192,11 +192,11 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.1"
+    artifactVersion: "0.7.2"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
-    artifactSuffix: -StringLiteral
+    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/javascript/vocab.hbs
 
