@@ -1,7 +1,7 @@
 # Solid Common Vocabularies in RDF
 
 This repository acts like a mono-repo for all the RDF vocabularies defined,
-controlled and used by Inrupt. It provides a basis to allow developers build
+controlled or used by Inrupt. It provides a basis to allow developers build
 interoperable applications by reusing the individual terms (i.e. Classes and
 Properties) from well-known or public vocabularies. 
 
@@ -33,10 +33,10 @@ repository):
  UI components).
 
 To see how and where these bundles are generated, packaged and published, you'll
-need to look at the configuration files themselves (i.e. the YAML files) in each
+need to look at the configuration files themselves (i.e., the YAML files) in each
 of the respective directories (since different bundles can be generated for
-different programming languages, and published to multiple places - i.e. the
-generation process is highly flexible!).
+different programming languages, and published to multiple places - in other words,
+the generation process is highly flexible!).
 
 ## Example usage - JavaScript
 
@@ -77,10 +77,10 @@ console.log(`The comment associated with Agent: [${FOAF.Agent.comment}]`);
 ## Try it out yourself - on CodeSandbox
 
 Feel free to play around with this yourself using this very simple CodeSandbox
-example (e.g. see if you can edit this code to display the label and comment for
-the crytically named `fn` term from the vCard vocabulary (which is also bundled
-in the same `@inrupt/vocab-common-rdf` artifact, exported as the `VCARD` class):
-https://codesandbox.io/s/inrupt-rdf-vocab-demo-206e7?file=/src/index.js
+example (e.g., see if you can edit this code to display the label and comment for
+the rather cryptically named `fn` term from the vCard vocabulary (which is also
+bundled in the same `@inrupt/vocab-common-rdf` artifact, exported as the `VCARD`
+class): https://codesandbox.io/s/inrupt-rdf-vocab-demo-206e7?file=/src/index.js
 
 # Issues & Help
 
