@@ -20,6 +20,11 @@ to static constants representing each of the terms defined in that
 vocabulary (see the example below showing how easy it is to access the
 terms from the popular Friend-of-a-Friend (FOAF) RDF vocabulary).
 
+Because developers typically use terms from multiple, often related
+vocabularies, it can be very convenient for them if we bundle together the
+generated classes from related vocabularies together into a single
+library/module for them to import easily.
+
 ## Published vocabulary bundles
 
 Currently, this repository contains configuration for the following bundles of
