@@ -22,8 +22,8 @@ terms from the popular Friend-of-a-Friend (FOAF) RDF vocabulary).
 
 Because developers typically use terms from multiple, often related
 vocabularies, it can be very convenient for them if we bundle together the
-generated classes from related vocabularies together into a single
-library/module for them to import easily.
+generated classes from related vocabularies together into 
+libraries/modules for them to import more easily.
 
 ## Published vocabulary bundles
 
