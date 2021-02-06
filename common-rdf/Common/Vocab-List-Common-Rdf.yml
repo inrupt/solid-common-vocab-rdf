@@ -206,7 +206,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -247,7 +247,7 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.2"
+#    artifactVersion: "0.7.3"
 #    artifactDirectoryName: TypeScript-rdfjs-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -282,7 +282,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.2"
+#    artifactVersion: "0.7.3"
 #
 #    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
 #    artifactSuffix: -rdfjs-rdfdatafactory
@@ -318,7 +318,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -437,7 +437,7 @@ vocabList:
   # Tim Berners-Lee's UI vocabulary.
   #
   # Note: Resolving the actual namespace for this vocabulary returns N3 by
-  # default. If you'd like to see the Turtle serialization of this vocbaulary,
+  # default. If you'd like to see the Turtle serialization of this vocabulary,
   # use this URL: https://www.w3.org/ns/ui.ttl
   #
   - description: UI Ontology
@@ -445,6 +445,7 @@ vocabList:
     inputResources:
       - http://www.w3.org/ns/ui#
       - ./Extension/ui-inrupt-ext.ttl
+
   #
   # Could not find an RDF representation for VANN initially, so I created my
   # own. But Jarlath found an RDF/XML version somewhere, so that should be the
@@ -536,3 +537,30 @@ vocabList:
     # will think there's a mismatch between the vocab URL and the namespace of
     # the terms the vocab contains).
     namespaceOverride: http://www.w3.org/ns/prov#
+
+  - description: W3C Content Negotiation by Profile
+    nameAndPrefixOverride: altr
+    # Perhaps because this is not a standard yet, nothing is returned from
+    # from the current namespace IRI, so use this instead (as referenced in the
+    # '6. Abstract Model' section of the working draft here:
+    #   https://w3c.github.io/dx-connegp/connegp/#altr-owl).
+    inputResources:
+      - https://w3c.github.io/dx-connegp/connegp/altr.ttl
+    namespaceOverride: http://www.w3.org/ns/dx/conneg/altr#
+    # This vocab defines terms that are not actually defined in the vocabulary
+    # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
+    # Core terms, to provide extra contextual information for the vocabulary
+    # itself. Normally we'd throw an error on encountering such terms, as it can
+    # indicate a simple typo - but this can be overridden using this option if
+    # needed.
+    ignoreNonVocabTerms: true
+
+  - description: Hydra is a lightweight vocabulary to create hypermedia-driven Web APIs
+    inputResources:
+      - http://www.w3.org/ns/hydra/core#
+
+  - description: DCAT
+    inputResources:
+      - http://www.w3.org/ns/dcat#
+    nameAndPrefixOverride: dcat
+    ignoreNonVocabTerms: true

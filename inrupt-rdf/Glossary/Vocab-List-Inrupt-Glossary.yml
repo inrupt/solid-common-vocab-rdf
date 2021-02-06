@@ -75,7 +75,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts

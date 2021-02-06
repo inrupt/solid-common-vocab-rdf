@@ -159,7 +159,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -195,7 +195,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
@@ -231,7 +231,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -261,7 +261,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: JavaScript-rdfjsBase
     sourceFileExtension: js
@@ -294,7 +294,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.2"
+    artifactVersion: "0.7.3"
 
     artifactDirectoryName: JavaScript-rdflib
     sourceFileExtension: js
