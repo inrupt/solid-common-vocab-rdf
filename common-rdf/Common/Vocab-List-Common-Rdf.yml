@@ -559,8 +559,13 @@ vocabList:
     inputResources:
       - http://www.w3.org/ns/hydra/core#
 
-  - description: DCAT
+  - description: Data Catalog Vocabulary (DCAT) - Version 2
+    nameAndPrefixOverride: dcat
     inputResources:
       - http://www.w3.org/ns/dcat#
-    nameAndPrefixOverride: dcat
     ignoreNonVocabTerms: true
+
+  - description: W3C Bookmark vocabulary
+    nameAndPrefixOverride: bookmark
+    inputResources:
+      - http://www.w3.org/2002/01/bookmark#
