@@ -6,7 +6,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-ui
-artifactGeneratorVersion: 0.13.3
+artifactGeneratorVersion: 0.13.4
 
 versioning:
   type: git
@@ -24,7 +24,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts

@@ -1,7 +1,7 @@
 #
 # PMcB: I needed to manually create this Turtle representation as
 # dereferencing the namespace just returns RDF/XML with just rdfs:comment
-# triples and no typing (i.e. whether the terms are Classes or Properties.
+# triples and no typing (i.e., whether the terms are Classes or Properties).
 #
 # Note: I also took the liberty of adding triples for the ontology itself too.
 #

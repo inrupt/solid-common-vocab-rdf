@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid-common
-artifactGeneratorVersion: 0.13.3
+artifactGeneratorVersion: 0.13.4
 
 versioning:
   type: git
@@ -159,7 +159,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -194,8 +194,9 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
+
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
@@ -230,8 +231,9 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
+
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -260,8 +262,9 @@ artifactToGenerate:
           - templateInternal: generic/javascript/rollup.config.hbs
             fileName: rollup.config.js
 
+
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: JavaScript-rdfjsBase
     sourceFileExtension: js
@@ -294,7 +297,7 @@ artifactToGenerate:
             fileName: webpack.prod.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.3"
+    artifactVersion: "0.7.4"
 
     artifactDirectoryName: JavaScript-rdflib
     sourceFileExtension: js
