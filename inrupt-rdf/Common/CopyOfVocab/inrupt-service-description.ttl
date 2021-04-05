@@ -1,0 +1,278 @@
+base <https://pod.inrupt.com/>
+# BaseIRI determines if this document is Server-wide description,
+# or only applies to a specific Pod.
+#base <https://pod.inrupt.com/{username}/>
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix skos-xl: <http://www.w3.org/2008/05/skos-xl#>
+prefix ldp: <http://www.w3.org/ns/ldp#>
+prefix as: <https://www.w3.org/ns/activitystreams#>
+prefix sparql-sd: <http://www.w3.org/ns/sparql-service-description#>
+prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix schema: <http://schema.org/>
+prefix solid: <http://www.w3.org/ns/solid/terms#>
+
+#
+# We could also put all these terms directly into the existing
+# Solid Terms vocabulary, but perhaps good to keep separate
+# during discussions…
+#
+prefix solid-sd: <http://www.w3.org/ns/solid/service-description#>
+
+solid-sd:
+   a owl:Ontology;
+   owl:versionInfo "0.1" ;
+   dcterms:title "Solid Service Description vocabulary"@en ;
+   dcterms:description """The Solid Service Description vocabulary
+describes the services provided by a Solid Server."""@en ;
+   dcterms:creator <https://inrupt.com/profile/card/#us> ;
+   dcterms:issued "2019/11/08"^^xsd:date ;
+   dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+   vann:preferredNamespacePrefix "solid-sd" ;
+   vann:preferredNamespaceUri "http://www.w3.org/ns/solid/service-description#" .
+
+solid-sd:Service a rdfs:Class ;
+   rdfs:label "Solid Service"@en ;
+   rdfs:comment """A Solid Service is some function provided by a Solid Server,
+e.g., to search a Pod, send a notification to an Inbox, logout of a Pod,
+etc."""@en .
+
+solid-sd:Feature a rdfs:Class ;
+    rdfs:label "Feature" ;
+    rdfs:comment """An instance of solid-sd:Feature represents a feature of a
+ Solid service. Specific types of features might include protocols (or
+ sub-protocols)"""@en .
+
+solid-sd:Protocol a rdfs:Class ;
+    rdfs:subClassOf solid-sd:Feature ;
+    rdfs:label "Protocol" ;
+    rdfs:comment """An instance of solid-sd:Protocol represents one specific
+ protocol (or sub-protocol)."""@en .
+
+
+solid-sd:endpoint a rdf:Property ;
+   rdfs:label "Solid Endpoint"@en ;
+   rdfs:comment """A Solid Endpoint is the URL through which an agent requests
+that a Solid Service performs its function, e.g., the SPARQL endpoint for a
+"Search my Pod Solid Service."""@en .
+
+
+solid-sd:feature a rdf:Property ;
+           rdfs:domain solid-sd:Service ;
+           rdfs:range solid-sd:Feature ;
+           rdfs:label "feature" ;
+           rdfs:comment """Relates an instance of solid-sd:Service with a
+ resource representing a supported feature."""@en .
+
+solid-sd:supportedProtocol a rdf:Property ;
+    rdfs:subPropertyOf solid-sd:feature ;
+    rdfs:label "supported language"@en ;
+    rdfs:comment """Relates an instance of solid-sd:Service to a protocol (or
+ sub-protocol) that it implements (e.g., a WebSocket service might implement
+ multiple, or just one, sub-protocols."""@en ;
+    schema:domainIncludes solid-sd:Service ;
+    schema:rangeIncludes solid-sd:Protocol .
+
+
+#
+# Pre-defined Solid Services...
+#
+# These services also act as pre-defined extension Link relation IRIs...
+#
+# For convenience and/or to promote reuse (i.e., to support interoperability,
+# whereby multiple parties agree on the semantics of relationships between
+# resources), Link relations are expected to be registered with IANA:
+#   https://www.iana.org/assignments/link-relations/link-relations.xhtml
+#
+# Note: The question of "link relations for RDF" goes back to at least 2013:
+#   https://github.com/mnot/I-D/issues/39
+#
+# There are two kinds of link relation types: registered and extension.
+# Registered types are short descriptive strings (e.g., 'about', 'first',
+# 'previous'), whereas extension types are URIs. Due to the web native nature of
+# Solid, we use extension types.
+#
+# Section 2.1.2 (https://httpwg.org/specs/rfc8288.html#rfc.section.2.1.2) of the
+# RFC states that: "Because of this, all-lowercase URIs SHOULD be used for
+# extension relations", however by way of example, the W3C Time ontology
+# explicitly uses mixed case link relations: https://www.w3.org/TR/owl-time/#iana-links
+# and our currently favored guidance on RDF terms is to use mixed-case too.
+#
+# We use the Activity Streams vocabulary for describing our extension Link
+# relations, specifically 'as:rel'.
+#
+# A machine-readable Solid service description document can be advertised on a
+# per-resource basis using the existing IANA registered 'service-desc'.
+# Should this describe the services provided by the Solid server as a whole, or
+# to the services available/visible only in the context of the request resource?
+# I.e., only available for the currently logged-in user (e.g., if I were an
+# anonymous user requesting a public document in Alice's Pod, would I expect to
+# have visibility into Alice's PodSwitch service (although I could probably
+# still discover it via a template URI in the Server-wide description
+# document)?
+#
+# GET http://pod.com/alice/private/photo/family
+#   Link: <http://pod.com/.well-known/solid> rel="service-desc"
+#   Link: <http://pod.com/alice/service-qpf> rel="http://www.w3.org/ns/solid/service-description#serviceQpf"
+#   Link: <http://pod.com/powerswitch/alice> rel="http://www.w3.org/ns/solid/service-description#servicePowerSwitch"
+
+
+solid-sd:serviceSparql a rdf:Property, as:rel ;
+   rdfs:label "Solid Service Sparql"@en ;
+   rdfs:comment """A Solid Service providing SPARQL query capability - could be
+ across data within a single Pod, or across all Pods hosted by a Solid Server
+ provider."""@en .
+
+solid-sd:serviceGraphql a rdf:Property, as:rel ;
+   rdfs:label "Solid Service GraphQL"@en ;
+   rdfs:comment """A Solid Service providing GraphQL query capability. This
+ service initially provides authenticated and authorized access to sensitive
+ access control data associated with resources in Pods."""@en .
+
+solid-sd:servicePowerSwitch a rdf:Property, as:rel ;
+   rdfs:label "Solid Service Power Switch"@en ;
+   rdfs:comment """A Solid Service providing the ability to 'power off' a Pod.
+ This is useful in cases where a Pod owner wishes to completely disable all
+ access to their entire Pod (e.g., in the case that they suspect access has been
+ compromised)."""@en .
+
+solid-sd:servicePodRegistration a rdf:Property, as:rel ;
+    rdfs:label "Solid Service Pod Registration"@en ;
+    rdfs:comment """A Solid Service providing the ability to register a new
+ a Pod. Generally we’d expect this service to be provided by a Solid
+ Identity Provider, although some server implementations may wish to offer this service directly themselves too."""@en .
+
+solid-sd:serviceWebSocket a rdf:Property, as:rel ;
+    rdfs:label "Solid Service WebSocket"@en ;
+    rdfs:comment """A Solid Service providing the ability to subscribe to
+ resource change events via a WebSocket connection."""@en .
+
+#
+# WebSocket sub-protocols.
+# Note: these values cannot be IRIs (see the associated rdfs:seeAlso links),
+# so we use skos-xl Labels to provide the literal forms to actually use as the
+# value of HTTP request 'Sec-WebSocket-Protocol' headers.
+#
+solid-sd:WebSocketSubProtocol0.1 a solid-sd:Protocol ;
+    skos-xl:prefLabel solid-sd:WebSocketSubProtocol0.2Label ;
+    rdfs:seeAlso <https://github.com/solid/solid-spec/blob/master/api-websockets.md> ,
+                 <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols> ,
+                 <https://tools.ietf.org/html/rfc6455#section-4.1> ,
+                 <https://bugs.chromium.org/p/chromium/issues/detail?id=398407> ,
+                 solid-sd:WebSocketSubProtocol0.1Label ;
+    rdfs:label "WebSocket sub-protocol 0.1 (legacy)"@en ;
+    rdfs:comment """A solid-sd:Protocol representing the original Solid
+ WebSocket protocol.
+ Note: the value of this protocol cannot be an IRI (see the rdfs:seeAlso links),
+ which is why we must use a label instead."""@en .
+
+solid-sd:WebSocketSubProtocol0.1Label a skos-xl:Label ;
+    rdfs:seeAlso solid-sd:WebSocketSubProtocol0.1 ;
+    skos-xl:literalForm "solid-0.1" .
+
+solid-sd:WebSocketSubProtocol0.2 a solid-sd:Protocol ;
+    skos-xl:prefLabel solid-sd:WebSocketSubProtocol0.2Label ;
+    rdfs:seeAlso <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols> ,
+                 <https://tools.ietf.org/html/rfc6455#section-4.1> ,
+                 <https://bugs.chromium.org/p/chromium/issues/detail?id=398407> ,
+                 solid-sd:WebSocketSubProtocol0.2Label ;
+    rdfs:label "WebSocket sub-protocol v0.2"@en ;
+    rdfs:comment """A solid-sd:Protocol representing version 0.2 of the Solid
+ WebSocket sub-protocol. This version supports event payloads using RDF (e.g.,
+ serialized as JSON-LD) to support rich, interoperable and extensible event
+ meta-data.
+ Note: the value of this protocol cannot be an IRI (see the rdfs:seeAlso links),
+ which is why we must use a label instead."""@en .
+
+solid-sd:WebSocketSubProtocol0.2Label a skos-xl:Label ;
+    rdfs:seeAlso solid-sd:WebSocketSubProtocol0.2 ;
+    skos-xl:literalForm "solid-0.2" .
+
+#################################################################
+#
+# Instance data for an actual Solid Server Description document.
+#
+#################################################################
+
+</.well-known/solid>
+   solid-sd:serviceSparql <service-sparql> ;
+   solid-sd:serviceGraphql <service-graphql> ;
+   solid-sd:serviceQpf <service-qpf> ;
+   solid-sd:servicePowerSwitch <service-power-switch> ;
+   solid-sd:servicePodRegistration <service-pod-registration> .
+
+   #
+   # THESE GUYS ARE NOT MODELLED YET…
+   #
+#   solid-sd:notificationGatewayEndpoint <{NOTIFICATION_GATEWAY_URL}> ;
+#   solid:loginEndpoint <{LOGIN_URL}> ;
+#   solid:logoutEndpoint <{LOGOUT_URL}> .
+
+   # These predicates might only apply to Pod-specific Service Descriptions.
+   # solid:podOwner <{WEBID}> ;
+   # ldp:inbox <{INBOX_URL}> ;
+
+<service-sparql> a sparql-sd:Service ;
+   rdfs:comment """Just for illustration, here we use the existing SPARQL
+ Service Description vocabulary to describe a hypothetical SPARQL endpoint."""@en ;
+   sparql-sd:endpoint <sparql> ;
+   sparql-sd:supportedLanguage sparql-sd:SPARQL11Query, sparql-sd:SPARQL11Update ;
+   sparql-sd:extensionFunction solid-sd:AcpResourceByAgent .
+
+<service-graphql> a solid-sd:Service ;
+   solid-sd:endpoint <query-graphql> ;
+   dcterms:created "2021-02-01"^^xsd:date .
+
+<service-qpf> a solid-sd:Service ;
+   solid-sd:endpoint <query-qpf> ;
+   hydra:template "{?endpoint}{?s,p,o,g}" ;
+   hydra:search [
+       hydra:mapping [
+           hydra:property rdf:subject ;
+           hydra:variable "s"
+       ], [
+           hydra:property rdf:predicate ;
+           hydra:variable "p"
+       ], [
+           hydra:property rdf:object ;
+           hydra:variable "o"
+       ], [
+           hydra:property sparql-sd:graph ;
+           hydra:variable "g"
+       ]
+   ] .
+
+<service-power-switch> a solid-sd:Service ;
+   solid-sd:endpoint <power-switch> ;
+   dcterms:created "2021-02-01"^^xsd:date ;
+   hydra:template "{?pod}/powerSwitch" ;
+   hydra:search [
+       hydra:mapping [
+           hydra:property solid:podRoot ;
+           hydra:variable "pod"
+       ]
+   ] .
+
+<service-pod-registration> a solid-sd:Service ;
+   solid-sd:endpoint <pod-registration> ;
+   dcterms:created "2021-02-01"^^xsd:date ;
+   hydra:template "{?endpoint}{?username,password}" ;
+   hydra:search [
+       hydra:mapping [
+           hydra:property solid:username ;
+           hydra:variable "username"
+       ] ,
+       hydra:mapping [
+           hydra:property solid:password ;
+           hydra:variable "password"
+       ]
+   ] .
+
+<service-web-socket> a solid-sd:Service ;
+   solid-sd:endpoint <pod-registration> ;
+   dcterms:created "2021-02-01"^^xsd:date .

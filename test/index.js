@@ -5,7 +5,9 @@ console.log(`Common RDF: FOAF vocab term accountServiceHomepage - comment:  [${F
 console.log(`Common RDF: RDF type: [${RDF.type}]`);
 console.log(`Common RDF: RDF type - label: [${RDF.type.label}]`);
 console.log(`Common RDF: RDF type - label in Spanish: [${RDF_INRUPT_EXT.type.asLanguage('es').label}]`);
+console.log(`Common RDF: FOAF Undefined term (useful workaround for terms not yet published): [${FOAF.NS('undefinedTerm')}]`);
 console.log();
+
 
 
 const { SOLID } = require("@inrupt/vocab-solid-common");

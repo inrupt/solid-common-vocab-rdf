@@ -1,0 +1,149 @@
+#
+# PMcB: I needed to manually create this Turtle representation as
+# the existing namespace currently only provides a JSON-LD context.
+#
+# Note: I also took the liberty of adding triples for the ontology itself too.
+#
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix jsonld: <http://www.w3.org/ns/json-ld#>
+prefix schema: <http://schema.org/>
+
+prefix sec: <https://w3id.org/security#>
+prefix cred: <https://www.w3.org/2018/credentials#>
+
+cred: a owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    dcterms:title "The Verifiable Credentials Data Model Vocabulary"@en ;
+	dcterms:description "A vocabulary for the Data Model for W3C Verifiable Credentials."@en ;
+	vann:preferredNamespacePrefix "cred" ;
+	vann:preferredNamespaceUri "https://www.w3.org/2018/credentials#" ;
+    jsonld:version "1.1"^^xsd:decimal .
+
+###########################################################
+#
+# Verifiable Credential.
+#
+###########################################################
+
+cred:VerifiableCredential a rdfs:Class ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "The class of Verifiable Credentials"@en ;
+    rdfs:comment "."@en .
+
+cred:verifiableCredential a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Verifiable credential"@en ;
+    rdfs:comment "."@en .
+
+#
+# Credential schema.
+#
+cred:credentialSchema a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Credential schema"@en ;
+    rdfs:comment "."@en .
+
+cred:JsonSchemaValidator2018 a rdfs:Class ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Json Schema Validator 2018"@en ;
+    rdfs:comment "."@en .
+
+#
+# Properties of a Verifiable Credential.
+#
+
+cred:credentialStatus a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Credential status"@en ;
+    rdfs:comment "."@en .
+
+cred:credentialSubject a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Credential subject"@en ;
+    rdfs:comment "."@en .
+
+cred:evidence a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Evidence"@en ;
+    rdfs:comment "."@en .
+
+# Note: expected to be deprecated, use 'cred:validUntil'.
+cred:expirationDate a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    schema:rangeIncudes xsd:dateTime ;
+    rdfs:label "Expiration date"@en ;
+    rdfs:comment "."@en .
+
+cred:holder a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Holder"@en ;
+    rdfs:comment "."@en .
+
+cred:issued a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    schema:rangeIncudes xsd:dateTime ;
+    rdfs:label "Issued"@en ;
+    rdfs:comment "."@en .
+
+cred:issuer a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Issuer"@en ;
+    rdfs:comment "."@en .
+
+# Note: expected to be deprecated, use 'cred:validFrom'.
+cred:issuanceDate a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    schema:rangeIncudes xsd:dateTime ;
+    rdfs:label "Issuance date"@en ;
+    rdfs:comment "."@en .
+
+#
+# Refresh service.
+#
+cred:refreshService a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Refresh service"@en ;
+    rdfs:comment "."@en .
+
+cred:ManualRefreshService2018 a rdfs:Class ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Manual refresh service (2018)"@en ;
+    rdfs:comment "."@en .
+
+cred:termsOfUse a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Terms of use"@en ;
+    rdfs:comment "."@en .
+
+#
+# Reserved terms (expected to be in the next version of the specification).
+#
+cred:validFrom a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    schema:rangeIncudes xsd:dateTime ;
+    rdfs:label "Valid from"@en ;
+    rdfs:comment "."@en .
+
+cred:validUntil a rdf:Property ;
+    rdfs:isDefinedBy cred: ;
+    schema:rangeIncudes xsd:dateTime ;
+    rdfs:label "Valid until"@en ;
+    rdfs:comment "."@en .
+
+
+###########################################################
+#
+# Verifiable Presentation
+#
+###########################################################
+
+cred:VerifiablePresentation a rdfs:Class ;
+    rdfs:isDefinedBy cred: ;
+    rdfs:label "Verifiable Presentation"@en ;
+    rdfs:comment "."@en .
