@@ -1,11 +1,12 @@
-const { FOAF, RDF, RDF_INRUPT_EXT } = require("@inrupt/vocab-common-rdf");
+const { FOAF, RDF, RDF_INRUPT } = require("@inrupt/vocab-common-rdf");
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage: [${FOAF.accountServiceHomepage}]`);
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage - label: [${FOAF.accountServiceHomepage.label}]`);
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage - comment:  [${FOAF.accountServiceHomepage.comment}]`);
 console.log(`Common RDF: RDF type: [${RDF.type}]`);
 console.log(`Common RDF: RDF type - label: [${RDF.type.label}]`);
-console.log(`Common RDF: RDF type - label in Spanish: [${RDF_INRUPT_EXT.type.asLanguage('es').label}]`);
 console.log(`Common RDF: FOAF Undefined term (useful workaround for terms not yet published): [${FOAF.NS('undefinedTerm')}]`);
+// Test Inrupt extension that offers translations for term labels and comments.
+console.log(`Common RDF: RDF type - label in Spanish: [${RDF_INRUPT.type.asLanguage('es').label}]`);
 console.log();
 
 
