@@ -3,7 +3,7 @@
 This repository acts like a mono-repo for all the RDF vocabularies defined,
 controlled or used by Inrupt.
 
-Vocabularies (also known, slightly more formally, as Ontologies) provides the
+Vocabularies (also known, slightly more formally, as Ontologies) provide the
 basis to allow developers build interoperable applications by reusing the
 individual terms (i.e. Classes and Properties) from well-known and public
 vocabularies (such as Schema.org, or Friend-of-a-Friend (FOAF) or the Dublin
@@ -16,7 +16,7 @@ these vocabularies to provide programming language classes (one class per
 vocabulary) where each class is made up of constants representing the
 individual terms defined by a single vocabulary. As a developer, you just
 need to import the individual vocabulary class that you need to have access
-to static constants representing each of the terms defined in that
+to the static constants representing each of the terms defined in that
 vocabulary (see the example below showing how easy it is to access the
 terms from the popular Friend-of-a-Friend (FOAF) RDF vocabulary).
 
@@ -81,10 +81,11 @@ The Agent term from the FOAF vocabulary has the IRI: [http://xmlns.com/foaf/0.1/
 
 ### Advanced usage
 
-By default, our artifact generation process generates static constants that
-also provide very easy access to any meta-data that is commonly provided by
-vocabularies (e.g. `rdfs:label` and `rdfs:comment` values). For example, to
-access the comment associated with the FOAF term 'Agent', do the following:
+Our artifact generation process can optionally generate static constants that
+also provide very easy access to certain meta-data that is commonly provided by
+vocabularies (e.g., `rdfs:label` and `rdfs:comment` values, `rdfs:seeAlso`
+links, `rdfs:isDefinedBy` links, etc.). For example, to access the comment
+associated with the FOAF term 'Agent', do the following:
 
 ```javascript
 console.log(`The comment associated with Agent: [${FOAF.Agent.comment}]`);
