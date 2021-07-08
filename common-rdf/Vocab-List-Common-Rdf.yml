@@ -29,9 +29,9 @@ versioning:
       fileName: ".gitignore"
 
 license:
-  path: "../../LICENSE"
+  path: "../LICENSE"
   fileName: "LICENSE"
-  header: "../../LICENSE_HEADER.js"
+  header: "../LICENSE_HEADER.js"
   name: "MIT"
 
 artifactToGenerate:
