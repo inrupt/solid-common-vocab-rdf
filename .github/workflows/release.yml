@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         vocab: [
-          "common-rdf/Common/Vocab-List-Common-Rdf.yml",
+          "common-rdf/Vocab-List-Common-Rdf.yml",
           "lit-rdf/Common/Vocab-List-Lit-Common.yml",
           "solid-rdf/Common/Vocab-List-Solid-Common.yml",
           "inrupt-rdf/Common/Vocab-List-Inrupt-Common.yml",
