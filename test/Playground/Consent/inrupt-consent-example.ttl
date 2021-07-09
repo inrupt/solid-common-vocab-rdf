@@ -1,0 +1,58 @@
+prefix : <https://ex.com/>
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix solid: <http://www.w3.org/ns/solid/terms#>
+prefix schema: <http://schema.org/>
+prefix odrl: <http://www.w3.org/ns/odrl/2/>
+prefix dpv: <http://www.w3.org/ns/dpv#>
+prefix gconsent: <https://w3id.org/GConsent#>
+
+prefix xxxx: <https://which-vocab.com/>
+
+:app-company a schema:Organization, dpv:DataController ;
+    schema:name "Example company wanting to process my data"@en .
+
+:app-WebID a solid:ClientApp ;
+    dpv:hasDataController :app-company ;
+    # Not really necessary, but let's make all entities explicitly aware of their own WebIDs:
+    solid:hasWebID :app-WebID .
+
+:my-WebID a schema:Person, dpv:DataSubject ;
+    # Not really necessary, but let's make all entities explicitly aware of their own WebIDs:
+    solid:hasWebID :me-WebID ;
+    gconsent:hasConsent :my-consent .
+
+:my-consent a dpv:Consent ;
+    gconsent:isConsentForDataSubject :my-WebID ;
+    xxxx:hasConsentPolicy [
+          a xxxx:ConsentPolicy ;
+          solid:hasClientApp :app-WebID ] .
+
+
+# Instance of user [:my-WebID] using client application [:app-WebID] (as a 'consented party') to
+# grant consent to ACL:read and ACL:write the resource [:resource-IRI] for the purpose of
+# [dpv:AcademicResearch].
+:consent-permission a odrl:Policy ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:assigner :my-WebID ;
+        odrl:target :resource-IRI ;
+        odrl:action acl:Read, acl:Write ;
+        odrl:duty [
+            odrl:consentingParty :my-WebID ;
+            odrl:consentedParty :app-WebID ;
+            odrl:action [
+                rdf:value odrl:obtainConsent ;
+                odrl:refinement [
+                    odrl:leftOperand dpv:Consent ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand :my-consent
+                ]
+            ]
+        ] ;
+        odrl:constraint [
+            odrl:leftOperand dpv:Purpose ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand dpv:AcademicResearch
+        ]
+    ] .

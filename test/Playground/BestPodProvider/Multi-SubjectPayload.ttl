@@ -1,0 +1,176 @@
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:   <http://schema.org/>
+PREFIX ldp:      <http://www.w3.org/ns/ldp#>
+PREFIX httph: <http://www.w3.org/2007/ont/httph#>
+
+PREFIX solid:    <http://www.w3.org/ns/solid/terms#>
+
+PREFIX ex:       <https://example.com#>
+PREFIX my-pod:   <https://pat.best-pod-provider.com/pod/>
+
+#
+# Notes:
+#  - Semantically, we treat 'schema:hasPart' and 'ldp:contains' as synonymous.
+#
+
+#
+# Does the concept of a 'Resource' **require** a root node?
+#
+# If not, then what does the <URL+Slug> (for POST) or <URL> (for PUT/GET) refer to exactly?
+# i.e., does it just represent 'the Resource' as a separate non-informational resource, or does it
+# refer to an informational or non-informational resource contained within that 'Resource' as an
+# explicit Subject node in the payload?
+#
+# If it must have a root node (or 'focus node'), then *MUST* it in fact be a tree?
+# (Probably a bit restrictive, i.e., it's probably fine to have loops, but we could restrict it
+# to zero orphaned nodes (i.e., no subjects (apart from the root) that are not also objects).
+#
+# Could we further restrict that to only allow predicates for contained subjects to be
+# 'ldp:contains' or 'schema:hasPart' (i.e., to kinda enforce the 'tree-ness' or the
+# 'container-ness' of the 'Resource')?
+#
+
+#
+# What is the relationship between the POST/PUT [URL + Slug] and an RDF payload?
+#  - the payload *MUST* have a subject matching <URL>/<Slug>.
+#  - the payload can have any number of Subjects (zero, one or more), none of which need to match
+#    anything.
+#
+# If the URL begins with '<my-pod>/resource/' then treat specially, i.e., as meaning a
+# 'collection of 'things'' or 'I want this bundle of data to be preserved as a single unit'.
+#
+# What if the URL is '<my-pod>/my-tags/things-i-like/pet/fish'?
+#
+# What does it mean to subsequently perform a GET on that [URL + Slug]?
+#  -
+
+# To work at all, we need the 'FIRST-PATH-COMPONENT' of any URL '<my-pod>/<FIRST-PATH-COMPONENT>'
+# to be a 'handler' or a 'router' or simply a 'Solid service'.
+# The spec can pre-define a number of these:
+#  - 'inbox' - effectively the input for the Notification Service.
+#  - 'outbox' - effectively the output for the Notification Service.
+#  - 'view' - the Solid View service, providing access to hierarchical views, tagged-based views,
+#             custom views (e.g., based on 'sensitivity' (e.g., secret, confidential, public, etc.)
+#             of data, or date/time-based.
+#  ** OR ** are all views INHERENTLY hierarchical?
+#  ** What about a 'graph' view? Wouldn't that just be SPARQL? And then isn't that just 'query'?
+#  ** Or another way of saying 'hierarchical' is just 'tree', and that's just a degenerative form
+#     of 'graph'
+#  ** OR ** is this really a 'query' service (i.e., to VIEW my data is to GET my data is to QUERY
+#     my data?
+#
+#  - 'file' - a pre-defined symlink to '/view/hierarchy-file'.
+#  - 'public' - a pre-defined symlink to '/view/hierarchy-file/public'.
+#  - 'private' - a pre-defined symlink to '/view/hierarchy-file/private'.
+
+
+
+
+
+# Idea is that POSTing a 'Resource' just adds the payload as normal, but adds a 'record' to the
+# hierarchical 'View' associated with the URL of the POST.
+# Doesn't that mean that no other hierarchical view gets updated though!!
+# E.g., I add a 'Secret' resource to the Sensitivity 'View', but it won't appear in the 'Files'
+# 'View', will it...? No.
+# But that's fine. If I add my 'Current-Location', then I might POST that to 'Folder-Private',
+# but if I also want it in my 'Folder-Secret', then I have to make a second POST to that URL, but
+# it's the same 'Current-Location' instance/node.
+
+# Seems to imply all Views must be hierarchical - and also implies that 'Resources' really are only
+# 'Links' (like sym-links) to normal 'nodes' in the Pod graph.
+# So, we should allow simply creating a new Resource instance (in a hierarchical view) that just
+# points at (or refers to) an existing node in the Pod (or anywhere else!):
+#  POST <my-pod>/view/View-Hierarchy-Files/Folder-Private (Slug: 'currentLocation')
+#    [] solid-ext:resourceRefersToNode my-pod:My-Current-Location
+#
+#  If we weren't given a Subject (just a BNode), then we'd have to mint one!
+#
+# ...and we create a Resource instance referring to an existing Pod 'node':
+#    my-pod:resource-4532 a solid-ext:Resource ;
+#      solid-ext:ingest my-pod:event-ingest-999 ;   # Details of creation (e.g., HTTP) request.
+#      solid-ext:resourceRefersToNode my-pod:My-Current-Location ;
+#
+# ...or we create a Resource instance referring to an existing Pod 'Resource':
+#  POST <my-pod>/view/View-Hierarchy-Sensitivity/secret (Slug: 'currentLocation')
+#    my-pod:resource-4532 a solid-ext:Resource ;
+#      solid-ext:ingest my-pod:event-ingest-999 ;   # Details of creation (e.g., HTTP) request.
+#      solid-ext:resourceRefersToResource <my-pod>/view/View-Hierarchy-Files/Folder-Private/currentLocation ;
+
+
+
+#
+# If any payload is POST/PUT to a URL of '<my-pod>/resource/<path>':, the server will automatically
+# create
+my-pod:resource-path-and-slug a solid:Resource ;
+    schema:hasPart my-pod:Subject-1 ;
+    schema:hasPart my-pod:Subject-2 .
+
+#
+# Where does the HTTP meta-data go (e.g., HTTP headers, the URL itself, the HTTP Method, etc.)?
+#
+<my-pod/resource/path?meta=http> a solid:MetaData, solid:HttpMetaData ;
+  httph:method "POST" ;
+  httph:content-type "application/trig" .
+
+#
+# URL: <my-pod>/public/blog/entry-1>
+#
+my-pod:Subject-1 a schema:BlogPosting ;
+    schema:title "How to Cook for Forty Humans"@en ;
+    schema:articleBody "Lisa Simpson - 'Truly there were monsters on that ship, and truly we were them.'"@en ;
+    schema:messageAttachment <https://simpsonswiki.com/wiki/How_to_Cook_for_Forty_Humans> ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure .
+
+my-pod:Blog-Entry-1-Structure
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Header ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Footer .
+
+my-pod:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
+
+my-pod:Blog-Entry-1-Structure-Footer
+    rdfs:comment "My footer actually has a bike as part of it..."@en ;
+    schema:hasPart my-pod:Bike-Cannondale-EVO ;
+
+# Loops are totally fine, SPARQL property paths will not infinitely recurse!
+    schema:hasPart my-pod:Blog-Entry-1 ;
+    ldp:contains my-pod:Blog-Entry-1 .
+
+
+
+
+my-pod:resource-path-and-slug a solid:Resource ;
+[] a solid:Resource ;
+    schema:hasPart my-pod:Subject-1 ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Footer
+    schema:hasPart my-pod:Bike-Cannondale-EVO ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Header .
+
+my-pod:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
+
+
+
+#
+# URL: <my-pod>/resource/view/hierarchy/files
+#
+my-pod:view-hierarchy-files ldp:contains my-pod:Subject-1 .
+
+
+my-pod:Subject-1 a schema:BlogPosting ;
+    schema:title "How to Cook for Forty Humans"@en ;
+    schema:articleBody "Lisa Simpson - 'Truly there were monsters on that ship, and truly we were them.'"@en ;
+    schema:messageAttachment <https://simpsonswiki.com/wiki/How_to_Cook_for_Forty_Humans> ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure .
+
+my-pod:Blog-Entry-1-Structure
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Header ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Footer .
+
+my-pod:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
+
+my-pod:Blog-Entry-1-Structure-Footer
+    rdfs:comment "My footer actually has a bike as part of it..."@en ;
+    schema:hasPart my-pod:Bike-Cannondale-EVO ;
+
+# Loops are totally fine, SPARQL property paths will not infinitely recurse!
+    schema:hasPart my-pod:Blog-Entry-1 ;
+    ldp:contains my-pod:Blog-Entry-1 .

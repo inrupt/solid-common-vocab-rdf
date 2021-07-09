@@ -1,3 +1,4 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/> .
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -36,6 +37,7 @@ schema-inrupt-ext:
     vann:preferredNamespacePrefix "schema-inrupt-ext" ;
     vann:preferredNamespaceUri "http://schema.org/" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+
 
 #
 # We need this term internally when generating source-code artifacts from vocabularies.
@@ -254,3 +256,70 @@ schema:email
     rdfs:comment "E-Mail-Addresse."@de ;
     rdfs:comment "Dirección de correo electrónico."@es ;
     rdfs:comment "Indirizzo e-mail."@it .
+
+#
+# Terms added initially to help describe Verifiable Credentials.
+#
+schema:MedicalTherapy
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Medical therapy"@en ;
+    schema:alternateName "Thérapie médicale"@fr ;
+    schema:alternateName "Medizinische Therapie"@de ;
+    schema:alternateName "Terapia medica"@es ;
+    schema:alternateName "Terapia medica"@it ;
+    rdfs:comment "Toute intervention médicale conçue pour prévenir, traiter et guérir les maladies humaines et les conditions médicales, y compris les thérapies curatives et palliatives. Les thérapies médicales sont généralement des processus de soins reposant sur la pharmacothérapie, la thérapie comportementale, la thérapie de soutien (avec du liquide ou de la nutrition par exemple) ou la désintoxication (par exemple l'hémodialyse) visant à améliorer ou à prévenir un état de santé."@fr ;
+    rdfs:comment "Jede medizinische Intervention zur Vorbeugung, Behandlung und Heilung menschlicher Krankheiten und Erkrankungen, einschließlich kurativer und palliativer Therapien. Medizinische Therapien sind typischerweise Pflegeprozesse, die auf Pharmakotherapie, Verhaltenstherapie, unterstützender Therapie (zum Beispiel mit Flüssigkeit oder Ernährung) oder Entgiftung (z. B. Hämodialyse) beruhen, um einen Gesundheitszustand zu verbessern oder zu verhindern."@de ;
+    rdfs:comment "Cualquier intervención médica diseñada para prevenir, tratar y curar enfermedades y afecciones humanas, incluidas las terapias curativas y paliativas. Las terapias médicas son típicamente procesos de atención que se basan en farmacoterapia, terapia conductual, terapia de apoyo (con líquidos o nutrición, por ejemplo) o desintoxicación (por ejemplo, hemodiálisis) con el objetivo de mejorar o prevenir una condición de salud."@es ;
+    rdfs:comment "Qualsiasi intervento medico progettato per prevenire, trattare e curare malattie e condizioni mediche umane, comprese le terapie curative e palliative. Le terapie mediche sono tipicamente processi di cura che si basano su farmacoterapia, terapia comportamentale, terapia di supporto (con liquidi o nutrizione per esempio) o disintossicazione (ad esempio emodialisi) volti a migliorare o prevenire una condizione di salute."@it .
+
+schema:primaryPrevention
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Primary prevention"@en ;
+    schema:alternateName "Prévention primaire"@fr ;
+    schema:alternateName "Primärprävention"@de ;
+    schema:alternateName "Prevención primaria"@es ;
+    schema:alternateName "Prevenzione primaria"@it ;
+    rdfs:comment "Une thérapie préventive utilisée pour empêcher une apparition initiale de la condition médicale, telle que la vaccination."@fr ;
+    rdfs:comment "Eine vorbeugende Therapie, die verwendet wird, um ein anfängliches Auftreten des medizinischen Zustands zu verhindern, wie z. B. eine Impfung.."@de ;
+    rdfs:comment "Terapia preventiva que se usa para prevenir la aparición inicial de la afección médica, como la vacunación."@es ;
+    rdfs:comment "Una terapia preventiva utilizzata per prevenire il verificarsi iniziale della condizione medica, come la vaccinazione."@it .
+
+schema:EducationalOccupationalCredential
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Educational occupational credential"@en ;
+    schema:alternateName "Diplôme professionnel d'études"@fr ;
+    schema:alternateName "Berufsausbildungsnachweis"@de ;
+    schema:alternateName "Credencial educativa ocupacional"@es ;
+    schema:alternateName "Credenziali professionali educative"@it ;
+    rdfs:comment "Un diplôme d'études ou professionnelles. Un diplôme, un diplôme universitaire, une certification, une qualification, un insigne, etc., qui peut être décerné à une personne ou à une autre entité qui répond aux exigences définies par le justificatif."@fr ;
+    rdfs:comment "Ein Bildungs- oder Berufsausweis. Ein Diplom, ein akademischer Abschluss, eine Zertifizierung, eine Qualifikation, ein Abzeichen usw., das an eine Person oder eine andere Einrichtung vergeben werden kann, die die vom Berechtigungsnachweis festgelegten Anforderungen erfüllt."@de ;
+    rdfs:comment "Una credencial educativa u ocupacional. Un diploma, título académico, certificación, calificación, insignia, etc., que se puede otorgar a una persona u otra entidad que cumpla con los requisitos definidos por el credencial."@es ;
+    rdfs:comment "Una credenziale educativa o professionale. Un diploma, titolo accademico, certificazione, qualifica, badge, ecc., Che possono essere rilasciati a una persona o altra entità che soddisfi i requisiti definiti dal credenziale."@it .
+
+schema:qualifications
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Qualifications"@en ;
+    schema:alternateName "Qualifications"@fr ;
+    schema:alternateName "Qualifikationen"@de ;
+    schema:alternateName "Calificaciones"@es ;
+    schema:alternateName "Titoli di studio"@it ;
+    rdfs:comment "Qualifications spécifiques requises pour ce rôle ou cette profession."@fr ;
+    rdfs:comment "Spezifische Qualifikationen, die für diese Rolle oder diesen Beruf erforderlich sind."@de ;
+    rdfs:comment "Calificaciones específicas requeridas para este rol u ocupación."@es ;
+    rdfs:comment "Qualifiche specifiche richieste per questo ruolo o occupazione."@it .
+
+#
+# Template for pulling in new terms!
+#
+#schema:
+#    rdfs:isDefinedBy schema-inrupt-ext: ;
+#    schema:alternateName ""@en ;
+#    schema:alternateName ""@fr ;
+#    schema:alternateName ""@de ;
+#    schema:alternateName ""@es ;
+#    schema:alternateName ""@it ;
+#    rdfs:comment "."@fr ;
+#    rdfs:comment "."@de ;
+#    rdfs:comment "."@es ;
+#    rdfs:comment "."@it .
+#
