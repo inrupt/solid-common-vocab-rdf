@@ -632,6 +632,7 @@ vocabList:
     inputResources:
       - https://w3id.org/security#
 
+
   - description: JSON-LD vocabulary
     nameAndPrefixOverride: jsonld
     inputResources:

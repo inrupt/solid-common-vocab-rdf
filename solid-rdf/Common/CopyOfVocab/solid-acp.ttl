@@ -30,7 +30,7 @@ acp:AuthenticatedAgent a rdfs:Resource ;
     rdfs:label "Authenticated Agent"@en ;
     rdfs:comment """An IRI representing an authenticated agent.
  Please note that in a decentralized authentication ecosystem, an authenticated agent may be ephemeral
- and, from a security standpoint, may not be significantly different than an anonymous agent"""@en ;
+ and, from a security standpoint, may not be significantly different than an anonymous agent."""@en ;
     rdfs:isDefinedBy acp: .
 
 acp:CreatorAgent a rdfs:Resource ;
@@ -40,7 +40,7 @@ acp:CreatorAgent a rdfs:Resource ;
 
 acp:PublicAgent a rdfs:Resource ;
     rdfs:label "Public Agent"@en ;
-    rdfs:comment "An IRI representing a public or anonymous agent"@en ;
+    rdfs:comment "An IRI representing a public or anonymous agent."@en ;
     rdfs:isDefinedBy acp: .
 
 
@@ -55,7 +55,7 @@ acp:AccessControl a rdfs:Class ;
 
 acp:AccessControlResource a rdfs:Class ;
     rdfs:label "Access Control Resource"@en ;
-    rdfs:comment "An RDF resource that includes AccessControl statements"@en ;
+    rdfs:comment "An RDF resource that includes AccessControl statements."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:Policy a rdfs:Class ;
@@ -65,12 +65,12 @@ acp:Policy a rdfs:Class ;
 
 acp:Rule a rdfs:Class ;
     rdfs:label "Rule"@en ;
-    rdfs:comment "A Rule defines which agent(s), group(s) and client application(s) match a Policy filter"@en ;
+    rdfs:comment "A Rule defines which agent(s), group(s) and client application(s) match a Policy filter."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:AccessMode a rdfs:Class ;
     rdfs:label "Access Mode"@en ;
-    rdfs:comment "An abstract access mode. This class should not be used directly. Instead, please use Read, Write and Append"@en ;
+    rdfs:comment "An abstract access mode. This class should not be used directly. Instead, please use Read, Write and Append."@en ;
     rdfs:isDefinedBy acp: .
 
 acp:Read a rdfs:Class ;
@@ -81,7 +81,7 @@ acp:Read a rdfs:Class ;
 
 acp:Write a rdfs:Class ;
     rdfs:label "Write"@en ;
-    rdfs:comment "An access mode indicating Write access"@en ;
+    rdfs:comment "An access mode indicating Write access."@en ;
     rdfs:subClassOf acp:AccessMode ;
     rdfs:isDefinedBy acp: .
 
@@ -131,20 +131,20 @@ acp:accessMembers a rdf:Property ;
 acp:accessMembersLocked a rdf:Property ;
     rdfs:label "access members locked"@en ;
     rdfs:comment """The accessMembersLocked property identifies the access policies that apply to the ACR itself, recursively.
-    These policies may not be removed except by an agent with write access to the root ACR."""@en ;
+ These policies may not be removed except by an agent with write access to the root ACR."""@en ;
     rdfs:range acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:accessMembersProtected a rdf:Property ;
     rdfs:label "access members protected"@en ;
     rdfs:comment """The accessMembersProtected property identifies the access policies that apply to the ACR itself, recursively.
-    These policies may not be removed except by an agent with write access to the ACR where the policy was initially applied."""@en ;
+ These policies may not be removed except by an agent with write access to the ACR where the policy was initially applied."""@en ;
     rdfs:range acp:Policy ;
     rdfs:isDefinedBy acp: .
 
 acp:apply a rdf:Property ;
     rdfs:label "apply"@en ;
-    rdfs:comment "The apply property indentifies the access policies to apply to a resource."@en ;
+    rdfs:comment "The apply property identifies the access policies to apply to a resource."@en ;
     rdfs:domain acp:AccessControl ;
     rdfs:range acp:Policy ;
     rdfs:isDefinedBy acp: .
@@ -152,7 +152,7 @@ acp:apply a rdf:Property ;
 acp:applyProtected a rdf:Property ;
     rdfs:label "apply protected"@en ;
     rdfs:comment """The applyProtected property identifies the access policies to apply to a resource's members recursively.
-    These policies may not be removed except by an agent with write access to the ACR where the policy was initially applied."""@en ;
+ These policies may not be removed except by an agent with write access to the ACR where the policy was initially applied."""@en ;
     rdfs:domain acp:AccessControl ;
     rdfs:range acp:Policy ;
     rdfs:isDefinedBy acp: .
@@ -167,7 +167,7 @@ acp:applyLocked a rdf:Property ;
 
 acp:applyMembers a rdf:Property ;
     rdfs:label "apply members"@en ;
-    rdfs:comment "The applyMembers property indentifies the access policies to apply to a resource's members recursively."@en ;
+    rdfs:comment "The applyMembers property identifies the access policies to apply to a resource's members recursively."@en ;
     rdfs:domain acp:AccessControl ;
     rdfs:range acp:Policy ;
     rdfs:isDefinedBy acp: .
@@ -182,7 +182,7 @@ acp:applyMembersProtected a rdf:Property ;
 
 acp:applyMembersLocked a rdf:Property ;
     rdfs:label "apply members locked"@en ;
-    rdfs:comment """The applyMembersLocked property identifies the access policies to apply to a resource's members recurseively.
+    rdfs:comment """The applyMembersLocked property identifies the access policies to apply to a resource's members recursively.
  These policies may not be removed except by an agent with write access to the root ACR."""@en ;
     rdfs:domain acp:AccessControl ;
     rdfs:range acp:Policy ;
@@ -190,21 +190,21 @@ acp:applyMembersLocked a rdf:Property ;
 
 acp:allOf a rdf:Property ;
     rdfs:label "all of"@en ;
-    rdfs:comment "The allOf property identifies a collection of Rules, each of which must match in order for the Policy to take effect."@en ;
+    rdfs:comment "The allOf property identifies a collection of Matchers, each of which must match in order for the Policy to take effect."@en ;
     rdfs:domain acp:Policy ;
     rdfs:range acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:anyOf a rdf:Property ;
     rdfs:label "any of"@en ;
-    rdfs:comment "The anyOf property identifies a collection of Rules, one of which must match in order for the Policy to take effect."@en ;
+    rdfs:comment "The anyOf property identifies a collection of Matchers, one of which must match in order for the Policy to take effect."@en ;
     rdfs:domain acp:Policy ;
     rdfs:range acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:noneOf a rdf:Property ;
     rdfs:label "none of"@en ;
-    rdfs:comment "The noneOf property identifies a collection of Rules, none of which must match in order for the Policy to take effect."@en ;
+    rdfs:comment "The noneOf property identifies a collection of Matchers, none of which must match in order for the Policy to take effect."@en ;
     rdfs:domain acp:Policy ;
     rdfs:range acp:Rule ;
     rdfs:isDefinedBy acp: .
@@ -225,19 +225,19 @@ acp:deny a rdf:Property ;
 
 acp:agent a rdf:Property ;
     rdfs:label "agent"@en ;
-    rdfs:comment "The agent property identifies the agent WebID(s) to which a Rule applies."@en ;
+    rdfs:comment "The agent property identifies the agent WebID(s) to which a Matcher matches."@en ;
     rdfs:domain acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:client a rdf:Property ;
     rdfs:label "client"@en ;
-    rdfs:comment "The client property identifies the client WebID(s) to which a Rule applies."@en ;
+    rdfs:comment "The client property identifies the client WebID(s) to which a Matcher matches."@en ;
     rdfs:domain acp:Rule ;
     rdfs:isDefinedBy acp: .
 
 acp:group a rdf:Property ;
     rdfs:label "group"@en ;
-    rdfs:comment "The group property identifies the vcard group(s) to which a Rule applies."@en ;
+    rdfs:comment "The group property identifies the vCard group(s) to which a Matcher matches."@en ;
     rdfs:domain acp:Rule ;
     rdfs:range vcard:Group ;
     rdfs:isDefinedBy acp: .

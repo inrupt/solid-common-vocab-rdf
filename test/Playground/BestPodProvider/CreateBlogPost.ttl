@@ -1,0 +1,28 @@
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:   <http://schema.org/>
+PREFIX ldp:      <http://www.w3.org/ns/ldp#>
+
+PREFIX ex:       <https://example.com#>
+PREFIX my-pod:   <https://pat.best-pod-provider.com/pod/>
+
+
+#
+# A single blog entry - but it's a 'complex' entity, with a 'structure' made up of a 'Header' and
+# 'Footer' and attachments, etc.
+#
+my-pod:Blog-Entry-1 a schema:BlogPosting ;
+    schema:title "How to Cook for Forty Humans"@en ;
+    schema:articleBody "Lisa Simpson - 'Truly there were monsters on that ship, and truly we were them.'"@en ;
+    schema:messageAttachment <https://simpsonswiki.com/wiki/How_to_Cook_for_Forty_Humans> ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure .
+my-pod:Blog-Entry-1-Structure
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Header ;
+    schema:hasPart my-pod:Blog-Entry-1-Structure-Footer .
+my-pod:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
+my-pod:Blog-Entry-1-Structure-Footer
+    rdfs:comment "My footer actually has a bike as part of it..."@en ;
+    schema:hasPart my-pod:Bike-Cannondale-EVO ;
+
+# Loops are totally fine, SPARQL property paths will not infinitely recurse!
+    schema:hasPart my-pod:Blog-Entry-1 ;
+    ldp:contains my-pod:Blog-Entry-1 .
