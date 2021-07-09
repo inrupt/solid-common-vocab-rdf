@@ -624,6 +624,11 @@ vocabList:
 
   - description: Security vocabulary
     nameAndPrefixOverride: sec
+    # In mid-2021, the newly added term 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoverySignature2020'
+    # was causing our simple heuristic that guesses the namespace of a vocab
+    # that doesn't explicitly state its namespace (which is bad form!) to
+    # blow up - so we just provide the correct one manually here now instead.
+    namespaceOverride: https://w3id.org/security#
     inputResources:
       - https://w3id.org/security#
 
