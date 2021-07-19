@@ -245,6 +245,30 @@ Tenga en cuenta que Event usa startDate / endDate en lugar de startTime / endTim
 
 Nota che Event utilizza startDate / endDate invece di startTime / endTime, anche quando descrive le date con gli orari. Questa situazione potrebbe essere chiarita in future revisioni."""@it .
 
+schema:startDate
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Start date"@en ;
+    schema:alternateName "Date de début"@fr ;
+    schema:alternateName "Anfangsdatum"@de ;
+    schema:alternateName "Fecha de inicio"@es ;
+    schema:alternateName "Data d'inizio"@it ;
+    rdfs:comment "La date et l'heure de début de l'élément (au format de date ISO 8601)."@fr ;
+    rdfs:comment "Das Startdatum und die Startzeit des Elements (im ISO 8601-Datumsformat)."@de ;
+    rdfs:comment "La fecha y hora de inicio del artículo (en formato de fecha ISO 8601)."@es ;
+    rdfs:comment "La data e l'ora di inizio dell'articolo (in formato data ISO 8601)."@it .
+
+schema:endDate
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "End date"@en ;
+    schema:alternateName "Date de fin"@fr ;
+    schema:alternateName "Endtermin"@de ;
+    schema:alternateName "Fecha final"@es ;
+    schema:alternateName "Data di fine"@it ;
+    rdfs:comment "La date et l'heure de fin de l'article (au format de date ISO 8601)."@fr ;
+    rdfs:comment "Das Enddatum und die Endzeit des Elements (im ISO 8601-Datumsformat)."@de ;
+    rdfs:comment "La fecha y hora de finalización del artículo (en formato de fecha ISO 8601)."@es ;
+    rdfs:comment "La data e l'ora di fine dell'articolo (in formato data ISO 8601)."@it .
+
 schema:email
     rdfs:isDefinedBy schema-inrupt-ext: ;
     schema:alternateName "EMail"@en ;
@@ -307,6 +331,19 @@ schema:qualifications
     rdfs:comment "Spezifische Qualifikationen, die für diese Rolle oder diesen Beruf erforderlich sind."@de ;
     rdfs:comment "Calificaciones específicas requeridas para este rol u ocupación."@es ;
     rdfs:comment "Qualifiche specifiche richieste per questo ruolo o occupazione."@it .
+
+schema:attendee
+    rdfs:isDefinedBy schema-inrupt-ext: ;
+    schema:alternateName "Attendee"@en ;
+    schema:alternateName "Participante"@fr ;
+    schema:alternateName "Teilnehmerin"@de ;
+    schema:alternateName "Asistente"@es ;
+    schema:alternateName "Partecipante"@it ;
+    rdfs:comment "Une personne ou une organisation participant à l'événement."@fr ;
+    rdfs:comment "Eine Person oder Organisation, die an der Veranstaltung teilnimmt.."@de ;
+    rdfs:comment "Una persona u organización que asista al evento."@es ;
+    rdfs:comment "Una persona o un'organizzazione che partecipa all'evento."@it .
+
 
 #
 # Template for pulling in new terms!

@@ -1,6 +1,8 @@
 PREFIX me:         <https://pat.best-pod-provider.com/profile/card#me>
 PREFIX my-profile: <https://pat.example.com/profile/card>
-PREFIX my-pod:     <https://pat.best-pod-provider.com/pod/>
+PREFIX my-storage: <https://pat.best-pod-provider.com/storage/>
+PREFIX my-storage-ACP: <https://pat.best-pod-provider.com/storage/?meta=ACP>
+
 
 PREFIX webIdAlice: <https://alice-provider.com/profile/card#me>
 PREFIX webIdBob:   <https://bob-provider.com/profile/card#me>
@@ -21,16 +23,14 @@ PREFIX ws:         <http://www.w3.org/ns/pim/space#>
 PREFIX ldp:        <http://www.w3.org/ns/ldp#>
 PREFIX dbpedia:    <http://dbpedia.org/resource/>
 PREFIX httph:      <http://www.w3.org/2007/ont/httph#>
-
-PREFIX solid:      <http://www.w3.org/ns/solid/terms#>
-PREFIX acp:        <http://www.w3.org/ns/solid/acp#>
-
 PREFIX schema:     <http://schema.org/>
 PREFIX odrl:       <http://www.w3.org/ns/odrl/2/>
 PREFIX dpv:        <http://www.w3.org/ns/dpv#>
 PREFIX gconsent:   <https://w3id.org/GConsent#>
 
+PREFIX solid:      <http://www.w3.org/ns/solid/terms#>
 PREFIX solid-ext:  <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
+PREFIX acp:        <http://www.w3.org/ns/solid/acp#>
 
 PREFIX ex:         <https://example.com#>
 
@@ -41,16 +41,7 @@ PREFIX viz:        <https://viz.example.com#>
 # Create a Named Graph for this entire Pod.
 # Inside here we actually define the Agent, and their Profile document.
 #
-my-pod: {
-  #
-  # Describe this Pod instance (is this allowed to add meta-data for the Named Graph itself?!)
-  #
-  my-pod: a ws:Storage ;
-    rdfs:label "Solid Pod"@en ;
-    rdfs:comment "A Solid Pod hosted by Inrupt's ESS product."@en ;
-    solid-ext:hasServiceManager my-pod:Service-Manager ;
-    viz:nodeSize 0.45 .
-
+my-storage: {
   #
   # Describe the Agent using it's WebID as the RDF Subject (e.g., often 'me', as a human being).
   # Points to the Agent's Solid Pod (i.e., back to this Named Graph!).
@@ -61,8 +52,10 @@ my-pod: {
     vcard:fn "Pat McB"@en, "Padraig MacB"@ga ;
     schema:name "Pat McB"@en, "Padraig MacB"@ga ;
     foaf:name "Pat McB"@en, "Padraig MacB"@ga ;
-    # solid:account my-pod: ; # NSS might do it, but we have no need for 2 references to storage!
-    ws:storage my-pod: ;
+  # solid:account my-storage: ; # NSS might do it, but we have no need for 2 references to storage!
+    ws:storage my-storage: ;
+    solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+    solid:account  my-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
   #
@@ -73,17 +66,28 @@ my-pod: {
     rdfs:comment "Personal profile document that points to it's 'maker' and 'primary topic'."@en ;
     foaf:maker me: ;
     foaf:primaryTopic me: ;
+    schema:dateCreated "2009/01/01" ;
+    solid:podProvider "Inrupt, Inc. (made up predicate - just for illustration)" ;
     viz:nodeSize 0.55 .
+
+  #
+  # Describe this Pod instance (is this allowed to add meta-data for the Named Graph itself?!)
+  #
+  my-storage: a ws:Storage ;
+    rdfs:label "Solid Pod"@en ;
+    rdfs:comment "A Solid Pod hosted by Inrupt's ESS product."@en ;
+    solid-ext:hasServiceManager my-storage:Service-Manager ;
+    viz:nodeSize 0.45 .
 
   #
   # My bikes...
   #
-  my-pod:Bike-Cannondale-EVO a ex:Bicycle ;
+  my-storage:Bike-Cannondale-EVO a ex:Bicycle ;
     schema:mileageFromOdometer "500km" ;
     schema:purchaseDate "2021/01/01" ;
     schema:size "54cm" .
 
-  my-pod:Bike-Felt-Commuter a ex:Bicycle ;
+  my-storage:Bike-Felt-Commuter a ex:Bicycle ;
     schema:mileageFromOdometer "63,000km" ;
     schema:purchaseDate "2014/01/01" .
 
@@ -91,7 +95,7 @@ my-pod: {
   #
   # My pets...
   #
-  my-pod:Pet-Dog-Bobby a ex:Dog ;
+  my-storage:Pet-Dog-Bobby a ex:Dog ;
     schema:label "Bobby"@en, "Bobik"@sk ;
     schema:comment "Bobby the wonder dog!"@en ;
     ex:breed "Jack Russel"@en .
@@ -99,7 +103,7 @@ my-pod: {
   #
   # My properties...
   #
-  my-pod:House-Phibsboro a schema:House ;
+  my-storage:House-Phibsboro a schema:House ;
     rdfs:comment "Lovely end-of-terrace Victorian redbrick overlooking pitch-and-putt coarse."@en ;
     schema:numberOfRooms "8"^^xsd:integer ;
     schema:address "Phibsboro, Dublin 7"@en .
@@ -108,189 +112,189 @@ my-pod: {
   #
   # My Service Manager.
   #
-  my-pod:Service-Manager a solid-ext:ServiceManager ;
+  my-storage:Service-Manager a solid-ext:ServiceManager ;
     rdfs:comment "Service manager (e.g., for managing my views, transactions, access control, contacts, etc.)."@en ;
     ldp:contains
-      my-pod:Service-Notification ,
-      my-pod:Service-Consent ,
-      my-pod:Service-Owning ,
-      my-pod:Service-View ,
-      my-pod:Service-Txn .
+      my-storage:Service-Notification ,
+      my-storage:Service-Consent ,
+      my-storage:Service-Owning ,
+      my-storage:Service-View ,
+      my-storage:Service-Txn .
 
 
   #
   # My Notification service...
   #
-  my-pod:Service-Notification a solid-ext:Service ;
+  my-storage:Service-Notification a solid-ext:Service ;
     rdfs:comment "Service handling notifications."@en .
 
   #
   # My Consent service...
   #
-  my-pod:Service-Consent a solid-ext:Service ;
+  my-storage:Service-Consent a solid-ext:Service ;
     rdfs:comment "Service handling Consent (granting, revoking, receipts, etc.)."@en .
 
 
   #
   # My Owning service...
   #
-  my-pod:Service-Owning a solid-ext:Service ;
+  my-storage:Service-Owning a solid-ext:Service ;
     rdfs:comment "Service to manage things I 'own'."@en ;
     ldp:contains
-      my-pod:Bike-Cannondale-EVO ,
-      my-pod:Bike-Felt-Commuter ,
-      my-pod:Pet-Dog ,
-      my-pod:House-Phibsboro .
+      my-storage:Bike-Cannondale-EVO ,
+      my-storage:Bike-Felt-Commuter ,
+      my-storage:Pet-Dog ,
+      my-storage:House-Phibsboro .
 
 
   #
   # My Transaction service...
   #
-  my-pod:Service-Txn a solid-ext:Service ;
+  my-storage:Service-Txn a solid-ext:Service ;
     rdfs:comment "Service to manage transactions in a Pod, e.g., credit card purchases, house purchases, etc."@en ;
     ldp:contains
-      my-pod:Txn-CreditCard-1 ,
-      my-pod:Txn-DebitCard-1 ,
-      my-pod:Txn-CreditCard-2 ,
-      my-pod:Txn-CreditCard-3 .
+      my-storage:Txn-CreditCard-1 ,
+      my-storage:Txn-DebitCard-1 ,
+      my-storage:Txn-CreditCard-2 ,
+      my-storage:Txn-CreditCard-3 .
 
-  my-pod:Txn-CreditCard-1 a schema:BuyAction ;
+  my-storage:Txn-CreditCard-1 a schema:BuyAction ;
     rdfs:comment "Purchased groceries at local market."@en .
-  my-pod:Txn-DebitCard-1 a schema:BuyAction ;
+  my-storage:Txn-DebitCard-1 a schema:BuyAction ;
     rdfs:comment "Bought shoes for kids."@en .
-  my-pod:Txn-CreditCard-2 a schema:BuyAction ;
+  my-storage:Txn-CreditCard-2 a schema:BuyAction ;
     rdfs:comment "Booked holiday with Ryanair."@en .
-  my-pod:Txn-CreditCard-3 a schema:BuyAction ;
+  my-storage:Txn-CreditCard-3 a schema:BuyAction ;
     rdfs:comment "Paid electricity bill."@en .
 
 
   #
   # My blog...
   #
-  my-pod:Blog a schema:Blog, solid-ext:Resource;
+  my-storage:Blog a schema:Blog, solid-ext:Resource;
     rdfs:label "My Blog"@en ;
     ldp:contains
-      my-pod:Blog-Entry-1 ,
-      my-pod:Blog-Entry-2 .
+      my-storage:Blog-Entry-1 ,
+      my-storage:Blog-Entry-2 .
 
   #
   # A single blog entry - but it's a 'complex' entity, with a 'structure' made up of a 'Header' and
   # 'Footer' and attachments, etc.
   #
-  my-pod:Blog-Entry-1 a schema:BlogPosting ;
+  my-storage:Blog-Entry-1 a schema:BlogPosting ;
     schema:title "How to Cook for Forty Humans"@en ;
     schema:articleBody "Lisa Simpson - 'Truly there were monsters on that ship, and truly we were them.'"@en ;
     schema:messageAttachment <https://simpsonswiki.com/wiki/How_to_Cook_for_Forty_Humans> ;
-    schema:hasPart my-pod:Blog-Entry-1-Structure .
-  my-pod:Blog-Entry-1-Structure
-    schema:hasPart my-pod:Blog-Entry-1-Structure-Header ;
-    schema:hasPart my-pod:Blog-Entry-1-Structure-Footer .
-  my-pod:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
-  my-pod:Blog-Entry-1-Structure-Footer
+    schema:hasPart my-storage:Blog-Entry-1-Structure .
+  my-storage:Blog-Entry-1-Structure
+    schema:hasPart my-storage:Blog-Entry-1-Structure-Header ;
+    schema:hasPart my-storage:Blog-Entry-1-Structure-Footer .
+  my-storage:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
+  my-storage:Blog-Entry-1-Structure-Footer
     rdfs:comment "My footer actually has a bike as part of it..."@en ;
-    schema:hasPart my-pod:Bike-Cannondale-EVO .
-    # Loops are totally fine, SPARQL property paths will not infinitely recurse!
-#    schema:hasPart my-pod:Blog-Entry-1 ;
-#    ldp:contains my-pod:Blog-Entry-1 .
+    schema:hasPart my-storage:Bike-Cannondale-EVO .
+  # Loops are totally fine, SPARQL property paths will not infinitely recurse!
+  #    schema:hasPart my-storage:Blog-Entry-1 ;
+  #    ldp:contains my-storage:Blog-Entry-1 .
 
-  my-pod:Blog-Entry-2 a schema:BlogPosting ;
+  my-storage:Blog-Entry-2 a schema:BlogPosting ;
     schema:title "Blog about my new house that I just bought...!"@en ;
-    schema:hasPart my-pod:House-Phibsboro .
+    schema:hasPart my-storage:House-Phibsboro .
 
 
   #
   # My View service...
   #
-  my-pod:Service-View a solid-ext:Service ;
+  my-storage:Service-View a solid-ext:Service ;
     rdfs:comment "Service to manage all my views over my Pod, e.g., hierarchical, tag-based, etc."@en ;
     ldp:contains
-      my-pod:View-Hierarchy-Files ,
-      my-pod:View-Hierarchy-Sensitivity ,
-      my-pod:View-Tagged .
+      my-storage:View-Hierarchy-Files ,
+      my-storage:View-Hierarchy-Sensitivity ,
+      my-storage:View-Tagged .
 
   #
   # Hierarchical by folder...
   #
-  my-pod:View-Hierarchy-Files a solid-ext:View ;
+  my-storage:View-Hierarchy-Files a solid-ext:View ;
     rdfs:comment "Legacy Solid hierarchy view - folders and files."@en ;
     ldp:contains
-      my-pod:Folder-Public,
-      my-pod:Folder-Private ,
-      my-pod:Folder-Photo .
+      my-storage:Folder-Public,
+      my-storage:Folder-Private ,
+      my-storage:Folder-Photo .
 
-  my-pod:Folder-Public a ldp:BasicContainer ;
+  my-storage:Folder-Public a ldp:BasicContainer ;
     ldp:contains
-      # my-pod:Photo-Dog-1 ,  # REMOVE FOR NOW - It's contained in 'Folder-Photo' too
-      my-pod:Photo-Dog-21 ,
-      my-pod:Blog .
+  # my-storage:Photo-Dog-1 ,  # REMOVE FOR NOW - It's contained in 'Folder-Photo' too
+      my-storage:Photo-Dog-21 ,
+      my-storage:Blog .
 
-  my-pod:Folder-Private a ldp:BasicContainer ;
+  my-storage:Folder-Private a ldp:BasicContainer ;
     ldp:contains
-      my-pod:My-Current-Location,
-      my-pod:Photo-Heart-Scan .
+      my-storage:My-Current-Location,
+      my-storage:Photo-Heart-Scan .
 
-  my-pod:Folder-Photo a ldp:BasicContainer ;
+  my-storage:Folder-Photo a ldp:BasicContainer ;
     ldp:contains
-      my-pod:Photo-Dog-1,
-      my-pod:Photo-Dog-2,
-      my-pod:Folder-Photo-Friend .
+      my-storage:Photo-Dog-1,
+      my-storage:Photo-Dog-2,
+      my-storage:Folder-Photo-Friend .
 
-  my-pod:Folder-Photo-Friend a ldp:BasicContainer ;
-    ldp:contains my-pod:Photo-Graduation-43, my-pod:Photo-Dog-2 .
+  my-storage:Folder-Photo-Friend a ldp:BasicContainer ;
+    ldp:contains my-storage:Photo-Graduation-43, my-storage:Photo-Dog-2 .
 
-  my-pod:Photo-Dog-1 a schema:Photo ;
-    rdfs:seeAlso my-pod:Pet-Dog-Bobby.
-  my-pod:Photo-Dog-2 a schema:Photo ;
+  my-storage:Photo-Dog-1 a schema:Photo ;
+    rdfs:seeAlso my-storage:Pet-Dog-Bobby.
+  my-storage:Photo-Dog-2 a schema:Photo ;
     rdfs:seeAlso <https://musicart.xboxlive.com/6/cfa9c6d7-0000-0000-0000-000000000009/504/image.jpg?w=1920&h=1080>.
-  my-pod:Photo-Dog-21 a schema:Photo ;
-    rdfs:seeAlso my-pod:Pet-Dog-Bobby.
-  my-pod:Photo-Graduation-43 a schema:Photo .
-  my-pod:Photo-Heart-Scan a schema:Photo .
+  my-storage:Photo-Dog-21 a schema:Photo ;
+    rdfs:seeAlso my-storage:Pet-Dog-Bobby.
+  my-storage:Photo-Graduation-43 a schema:Photo .
+  my-storage:Photo-Heart-Scan a schema:Photo .
 
-  my-pod:My-Current-Location a schema:Place ;
+  my-storage:My-Current-Location a schema:Place ;
     rdfs:comment "At home in Dublin, Ireland."@en ;
     schema:longitude "53.3493° N" ;
     schema:latitude "6.2607° W" ;
-    schema:location my-pod:House-Phibsboro .
+    schema:location my-storage:House-Phibsboro .
 
   #
   # Hierarchical by data-sensitivity...
   #
-  my-pod:View-Hierarchy-Sensitivity a solid-ext:View ;
+  my-storage:View-Hierarchy-Sensitivity a solid-ext:View ;
     rdfs:comment "Hierarchy view by sensitivity."@en ;
     ldp:contains
-      # my-pod:Folder-Public ,  # REMOVE FOR NOW - Cross-references are initially confusing!
-      my-pod:Folder-Secret ,
-      my-pod:Folder-Confidential .
+  # my-storage:Folder-Public ,  # REMOVE FOR NOW - Cross-references are initially confusing!
+      my-storage:Folder-Secret ,
+      my-storage:Folder-Confidential .
 
-  my-pod:Folder-Secret a ldp:BasicContainer ;
-    ldp:contains my-pod:My-Current-Location .
+  my-storage:Folder-Secret a ldp:BasicContainer ;
+    ldp:contains my-storage:My-Current-Location .
 
-  my-pod:Folder-Confidential a ldp:BasicContainer ;
-    ldp:contains my-pod:Photo-X-Ray-32 .
+  my-storage:Folder-Confidential a ldp:BasicContainer ;
+    ldp:contains my-storage:Photo-X-Ray-32 .
 
 
   #
   # My Tagged View...
   #
-  my-pod:View-Tagged a solid-ext:View ;
+  my-storage:View-Tagged a solid-ext:View ;
     rdfs:comment "Manages references to resources I wish to view by tags I've created."@en ;
-    ldp:contains my-pod:tag-bike, my-pod:tag-mortgage, my-pod:tag-I-like .
+    ldp:contains my-storage:tag-bike, my-storage:tag-mortgage, my-storage:tag-I-like .
 
-  my-pod:tag-bike a solid-ext:Tag, ldp:BasicContainer ;
+  my-storage:tag-bike a solid-ext:Tag, ldp:BasicContainer ;
     rdfs:comment "Resources I've tagged as being bikes."@en ;
     solid-ext:tagValue "bike"@en ;
-    ldp:contains my-pod:Bike-Cannondale-EVO, my-pod:Bike-Felt-Commuter .
+    ldp:contains my-storage:Bike-Cannondale-EVO, my-storage:Bike-Felt-Commuter .
 
-  my-pod:tag-mortgage a solid-ext:Tag, ldp:BasicContainer ;
+  my-storage:tag-mortgage a solid-ext:Tag, ldp:BasicContainer ;
     rdfs:comment "Resources I've tagged as being mortgages."@en ;
     solid-ext:tagValue "mortgage"@en ;
-    ldp:contains my-pod:House-Phibsboro.
+    ldp:contains my-storage:House-Phibsboro.
 
-  my-pod:tag-I-like a solid-ext:Tag, ldp:BasicContainer ;
+  my-storage:tag-I-like a solid-ext:Tag, ldp:BasicContainer ;
     rdfs:comment "Resources I've tagged as being things I like!"@en ;
     solid-ext:tagValue "like"@en ;
-    ldp:contains my-pod:Bike-Cannondale-EVO .
+    ldp:contains my-storage:Bike-Cannondale-EVO .
 
 
   #
@@ -304,108 +308,125 @@ my-pod: {
     schema:height "213cm" .
 
   # That should return a 'Location:' header with information about that POST:
-  #   Location: <my-pod>/query?subject=my-pod:event-ingest-999
-  my-pod:event-ingest-999 a solid-ext:EventIngestRdf ;
+  #   Location: <my-pod>/query?subject=my-storage:event-ingest-999
+  my-storage:event-ingest-999 a solid-ext:EventIngestRdf ;
     httph:method "POST" ;
     httph:content-type "application/trig" ;
     schema:startTime "10:32am April 1st 2021" ;
-#    solid-ext:authUser me: ; # This is correct, but clutters up graph initially...
-    solid-ext:receivedRawPayload my-pod:blob-store-1 ;
-    # How can we link this POST request to the nodes now in our graph that were contained in it's
-    # payload...?
+  #    solid-ext:authUser me: ; # This is correct, but clutters up graph initially...
+    solid-ext:receivedRawPayload my-storage:blob-store-1 ;
+  # How can we link this POST request to the nodes now in our graph that were contained in it's
+  # payload...?
     solid-ext:ingestSubject <https://www.justinbiebermusic.com/profile/card#me>,
-      dbpedia:Michael_Jackson .
+                              dbpedia:Michael_Jackson .
 
 
-#
-# POST /resourceX
-#
-# dbpedia:Michael_Jackson ex:loves dbpedia:Mickey_Mouse .
-#
-# It would seem that the node 'dbpedia:Michael_Jackson' is now orphaned, and that /resourceX is a
-# completely meaningless IRI too - i.e., to handle it at all, we need to force a node into our
-# graph, which is fine too I guess...
-#
-# But also to post a 'ldp:contains' triple to it's 'parent resource'
-#
-# GET /resourceX
+  #
+  # POST /resourceX
+  #
+  # dbpedia:Michael_Jackson ex:loves dbpedia:Mickey_Mouse .
+  #
+  # It would seem that the node 'dbpedia:Michael_Jackson' is now orphaned, and that /resourceX is a
+  # completely meaningless IRI too - i.e., to handle it at all, we need to force a node into our
+  # graph, which is fine too I guess...
+  #
+  # But also to post a 'ldp:contains' triple to it's 'parent resource'
+  #
+  # GET /resourceX
 
 
   #
   # Access control for my Blog...
   #
-  my-pod:Blog acp:accessControl my-pod:acrForBlog .
-  my-pod:acrForBlog acp:hasAccessControl my-pod:Blog . # Made up - just to point from ACR back to Node it protects.
+  my-storage:Blog acp:accessControl my-storage:acrForBlog .
+  my-storage:acrForBlog acp:hasAccessControl my-storage:Blog . # Made up - just to point from ACR back to Node it protects.
 
   # ACR for Blog - friends can read, controllers can read/write/append.
-  my-pod:acrForBlog a acp:AccessControlResource ;
-    acp:apply my-pod:myFriendNotNeighbourPolicy ;
-    acp:access my-pod:myAccountControllerPolicy.
+  my-storage:acrForBlog a acp:AccessControlResource ;
+    acp:apply my-storage:policyFriendNotNeighbour ;
+    acp:access my-storage:myAccountControllerPolicy.
 
-  my-pod:Blog-Entry-1 acp:accessControl [
+  my-storage:Blog-Entry-1 acp:accessControl [
     a acp:AccessControlResource ;
-    acp:hasAccessControl my-pod:Blog-Entry-1 ;  # Made up - just to point from ACR back to Node it protects.
-    acp:apply my-pod:myFriendsFromCollegeAndSchoolInWorkPolicy
+    acp:hasAccessControl my-storage:Blog-Entry-1 ;  # Made up - just to point from ACR back to Node it protects.
+    acp:apply my-storage:policyFriendsFromCollegeAndSchoolInWork
   ] .
 
-    #
+  #
   # Policies.
   #
-  my-pod:myAccountControllerPolicy a acp:AccessControlPolicy ;
+  my-storage:myAccountControllerPolicy a acp:AccessControlPolicy ;
     acp:allow acp:Read, acp:Write, acp:Append ;
-    acp:allOf my-pod:myMatcherTrusted .
+    acp:allOf my-storage:myMatcherTrusted .
 
-  my-pod:myFriendPolicy a acp:AccessControlPolicy ;
+  my-storage:policyFriend a acp:AccessControlPolicy ;
     acp:allow acp:Read ;
-    acp:anyOf my-pod:myMatcherFriendCollege, my-pod:myMatcherFriendWork .
+    acp:anyOf my-storage:myMatcherFriendCollege, my-storage:myMatcherFriendWork .
 
-  my-pod:myFriendsFromCollegeInWorkPolicy a acp:AccessControlPolicy ;
+  my-storage:policyFriendsFromCollegeInWork a acp:AccessControlPolicy ;
     acp:allow acp:Read ;
-    acp:allOf my-pod:myMatcherFriendCollege, my-pod:myMatcherFriendWork .
+    acp:allOf my-storage:myMatcherFriendCollege, my-storage:myMatcherFriendWork .
 
-  my-pod:myFriendsFromCollegeAndSchoolInWorkPolicy a acp:AccessControlPolicy ;
+  my-storage:policyFriendsFromCollegeAndSchoolInWork a acp:AccessControlPolicy ;
     acp:allow acp:Read ;
     acp:allOf
-      my-pod:myMatcherFriendCollege ,
-      my-pod:myMatcherFriendSchool ,
-      my-pod:myMatcherFriendWork .
+      my-storage:myMatcherFriendCollege ,
+      my-storage:myMatcherFriendSchool ,
+      my-storage:myMatcherFriendWork ;
+    acp:noneOf my-storage:myMatcherNeighbour .
 
-  my-pod:myFriendNotNeighbourPolicy a acp:AccessControlPolicy ;
+  my-storage:policyFriendNotNeighbour a acp:AccessControlPolicy ;
     acp:allow acp:Read ;
-    acp:allOf my-pod:myMatcherFriendCollege, my-pod:myMatcherFriendWork ;
-    acp:noneOf my-pod:myMatcherNeighbour .
+    acp:allOf my-storage:myMatcherFriendCollege, my-storage:myMatcherFriendWork ;
+    acp:noneOf my-storage:myMatcherNeighbour .
 
 
   #
   # Matchers (all entries are OR'ed - any one match means the Matcher matches).
   #
-  my-pod:myMatcherTrusted a acp:Matcher ;
+  my-storage:myMatcherTrusted a acp:Matcher ;
     acp:agent
       webIdHarry: ,
       webIdIvanna: .
 
-  my-pod:myMatcherNeighbour a acp:Matcher ;
+  my-storage:myMatcherNeighbour a acp:Matcher ;
     acp:agent
       webIdAlice: ,
       webIdBob: .
 
-  my-pod:myMatcherFriendCollege a acp:Matcher ;
+
+  my-storage:myMatcherFriendCollege a acp:Matcher ;
     acp:agent
       webIdAlice: ,
       webIdBob: ,
       webIdCarol: ,
       webIdGreg: .
 
-  my-pod:myMatcherFriendSchool  a acp:Matcher ;
+  my-storage:myMatcherFriendSchool  a acp:Matcher ;
     acp:agent
       webIdAlice: ,
       webIdCarol: .
 
-  my-pod:myMatcherFriendWork a acp:Matcher ;
+  my-storage:myMatcherFriendWork a acp:Matcher ;
     acp:agent
       webIdAlice: ,
+      webIdCarol: ,
       webIdDee: ,
       webIdErik: ,
       webIdFiona: ,
       webIdGreg: .
 }
+
+#
+# ACP in a separate Named Graph (separation of data and ACP).
+#
+my-storage-ACP: {
+  my-storage:Blog acp:accessControl my-storage:acrForBlog .
+  my-storage:acrForBlog acp:hasAccessControl my-storage:Blog . # Made up - just to point from ACR back to Node it protects.
+
+  # ACR for Blog - friends can read, controllers can read/write/append.
+  my-storage:acrForBlog a acp:AccessControlResource ;
+    acp:apply my-storage:policyFriendNotNeighbour ;
+    acp:access my-storage:myAccountControllerPolicy.
+}
+

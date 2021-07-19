@@ -206,7 +206,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -247,7 +247,7 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.4"
+#    artifactVersion: "0.7.5"
 #    artifactDirectoryName: TypeScript-rdfjs-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -282,7 +282,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 #
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     artifactSuffix: -rdfjs-rdfdatafactory
@@ -319,7 +319,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -349,6 +349,25 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 vocabList:
+#
+# Note: These are not 'common' vocabs per se (so commented out), but provided here merely as
+#  informational for anyone who may be interested in Resumes (CVs), and as an example of vocabs
+#  that require an override to the Content-Type response header (since the server serving these
+#  vocabs returns 'text/plain' when the content is actually RDF/XML).
+#
+#  - description: Resume (CV) vocab
+#    nameAndPrefixOverride: cv
+#    inputResources:
+#      - http://rdfs.org/resume-rdf/cv.rdfs#
+#    vocabContentTypeHeaderOverride: "application/rdf+xml"
+#
+#  - description: Resume (CV) base vocab
+#    nameAndPrefixOverride: cv_base
+#    inputResources:
+#      - http://rdfs.org/resume-rdf/base.rdfs#
+#    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+
   # Note: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
   # (used in our Java artifact generator) will not follow the 301 redirect from
   # 'http://', and so our RDF4J model will be empty and therefore so will our

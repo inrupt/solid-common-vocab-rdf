@@ -24,7 +24,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts

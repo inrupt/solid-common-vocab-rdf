@@ -74,7 +74,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -112,7 +112,7 @@ artifactToGenerate:
             fileName: rollup.config.js  
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
@@ -157,7 +157,7 @@ artifactToGenerate:
   # RDF/JS interface DataFactory type).
   #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.4"
+#    artifactVersion: "0.7.5"
 #    artifactDirectoryName: TypeScript-rdfjs-base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -192,7 +192,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.4"
+    artifactVersion: "0.7.5"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js

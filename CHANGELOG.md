@@ -5,7 +5,14 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## 0.7.5
+
 - Added CHANGELOG.
+- Added examples of Resume/CV vocabs to Common RDF (these examples require the
+  use of a Content-Type override, as they are served with 'text/plain' instead
+  of 'application/rdf+xml').
+- Added some more cherry-picked terms to our Schema.org extension.
+- Playground RDF samples continue to evolve (still very experimental!).
 
 ## 0.7.4
 
