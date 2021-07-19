@@ -349,6 +349,25 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 vocabList:
+#
+# Note: These are not 'common' vocabs per se (so commented out), but provided here merely as
+#  informational for anyone who may be interested in Resumes (CVs), and as an example of vocabs
+#  that require an override to the Content-Type response header (since the server serving these
+#  vocabs returns 'text/plain' when the content is actually RDF/XML).
+#
+#  - description: Resume (CV) vocab
+#    nameAndPrefixOverride: cv
+#    inputResources:
+#      - http://rdfs.org/resume-rdf/cv.rdfs#
+#    vocabContentTypeHeaderOverride: "application/rdf+xml"
+#
+#  - description: Resume (CV) base vocab
+#    nameAndPrefixOverride: cv_base
+#    inputResources:
+#      - http://rdfs.org/resume-rdf/base.rdfs#
+#    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+
   # Note: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
   # (used in our Java artifact generator) will not follow the 301 redirect from
   # 'http://', and so our RDF4J model will be empty and therefore so will our
