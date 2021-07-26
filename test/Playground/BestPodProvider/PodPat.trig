@@ -53,8 +53,8 @@ my-storage: {
     schema:name "Pat McB"@en, "Padraig MacB"@ga ;
     foaf:name "Pat McB"@en, "Padraig MacB"@ga ;
   # solid:account my-storage: ; # NSS might do it, but we have no need for 2 references to storage!
-    ws:storage my-storage: ;
     solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+    ws:storage my-storage: ;
     solid:account  my-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
@@ -339,7 +339,6 @@ my-storage: {
   # Access control for my Blog...
   #
   my-storage:Blog acp:accessControl my-storage:acrForBlog .
-  my-storage:acrForBlog acp:hasAccessControl my-storage:Blog . # Made up - just to point from ACR back to Node it protects.
 
   # ACR for Blog - friends can read, controllers can read/write/append.
   my-storage:acrForBlog a acp:AccessControlResource ;
@@ -348,7 +347,6 @@ my-storage: {
 
   my-storage:Blog-Entry-1 acp:accessControl [
     a acp:AccessControlResource ;
-    acp:hasAccessControl my-storage:Blog-Entry-1 ;  # Made up - just to point from ACR back to Node it protects.
     acp:apply my-storage:policyFriendsFromCollegeAndSchoolInWork
   ] .
 
@@ -422,11 +420,9 @@ my-storage: {
 #
 my-storage-ACP: {
   my-storage:Blog acp:accessControl my-storage:acrForBlog .
-  my-storage:acrForBlog acp:hasAccessControl my-storage:Blog . # Made up - just to point from ACR back to Node it protects.
 
   # ACR for Blog - friends can read, controllers can read/write/append.
   my-storage:acrForBlog a acp:AccessControlResource ;
     acp:apply my-storage:policyFriendNotNeighbour ;
     acp:access my-storage:myAccountControllerPolicy.
 }
-
