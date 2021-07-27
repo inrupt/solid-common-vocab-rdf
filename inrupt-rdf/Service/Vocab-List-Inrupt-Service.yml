@@ -29,7 +29,7 @@ license:
 
 artifactToGenerate:
   - programmingLanguage: Java
-    artifactVersion: 0.8.1
+    artifactVersion: 0.8.2-SNAPSHOT
 
     artifactDirectoryName: Java
     sourceFileExtension: java
