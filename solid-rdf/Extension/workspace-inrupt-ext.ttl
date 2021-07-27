@@ -18,7 +18,7 @@ prefix ws:       <http://www.w3.org/ns/pim/space#>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate. 
 #
-prefix ws_solid_ext: <https://w3id.org/lit/vocab/extension/ws#>
+prefix ws_solid_ext: <https://inrupt.com/vocab/extension/ws#>
 
 ws_solid_ext: a owl:Ontology;
     owl:versionInfo "0.1" ;

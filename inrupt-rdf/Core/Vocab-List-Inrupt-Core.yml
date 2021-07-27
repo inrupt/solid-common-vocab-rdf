@@ -168,6 +168,4 @@ vocabList:
 
   - description: The Inrupt Metric Ontology contains vocab terms to represent metric statistics
     inputResources:
-      # Inrupt team Pod no longer running, so just use local copy instead...
-      #- https://team.inrupt.net/public/lit/vocab/metric.ttl
       - ./CopyOfVocab/inrupt-metric.ttl

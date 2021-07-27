@@ -16,7 +16,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate. 
 #
-prefix rdf_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/rdf#>
+prefix rdf_inrupt_ext: <https://inrupt.com/vocab/extension/rdf#>
 
 rdf_inrupt_ext:
     a owl:Ontology;
@@ -26,7 +26,7 @@ rdf_inrupt_ext:
     dcterms:title "Inrupt extension adding multilingual meta-data for RDF terms" ;
     dcterms:description "Extension to RDF terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
     vann:preferredNamespacePrefix "rdf_inrupt_ext" ;
-    vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/rdf#" ;
+    vann:preferredNamespaceUri "https://inrupt.com/vocab/extension/rdf#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 
