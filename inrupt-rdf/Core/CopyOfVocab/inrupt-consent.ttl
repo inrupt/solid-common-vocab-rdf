@@ -30,7 +30,7 @@ inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
  	dcterms:title "Consent vocabulary for the LIT"@en ;
 	dcterms:description "Consent vocabulary defining LIT-specific terms, especially terms that provide context"@en ;
 	vann:preferredNamespacePrefix "lit_consent" ;
-	vann:preferredNamespaceUri "https://w3id.org/lit/vocab/consent#" ;
+	vann:preferredNamespaceUri "https://inrupt.com/vocab/consent#" ;
 	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 
