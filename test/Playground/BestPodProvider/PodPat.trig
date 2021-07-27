@@ -1,41 +1,41 @@
-PREFIX me:         <https://pat.best-pod-provider.com/profile/card#me>
-PREFIX my-profile: <https://pat.example.com/profile/card>
-PREFIX my-storage: <https://pat.best-pod-provider.com/storage/>
-PREFIX my-storage-ACP: <https://pat.best-pod-provider.com/storage/?meta=ACP>
+prefix me:         <https://pat.best-pod-provider.com/profile/card#me>
+prefix my-profile: <https://pat.example.com/profile/card>
+prefix my-storage: <https://pat.best-pod-provider.com/storage/>
+prefix my-storage-ACP: <https://pat.best-pod-provider.com/storage/?meta=ACP>
 
 
-PREFIX webIdAlice: <https://alice-provider.com/profile/card#me>
-PREFIX webIdBob:   <https://bob-provider.com/profile/card#me>
-PREFIX webIdCarol: <https://carol-provider.com/profile/card#me>
-PREFIX webIdDee:   <https://dee-provider.com/profile/card#me>
-PREFIX webIdErik:  <https://erik-provider.com/profile/card#me>
-PREFIX webIdFiona: <https://fiona-provider.com/profile/card#me>
-PREFIX webIdGreg:  <https://greg-provider.com/profile/card#me>
-PREFIX webIdHarry:  <https://harry-provider.com/profile/card#me>
-PREFIX webIdIvanna: <https://ivanna-provider.com/profile/card#me>
+prefix webIdAlice: <https://alice-provider.com/profile/card#me>
+prefix webIdBob:   <https://bob-provider.com/profile/card#me>
+prefix webIdCarol: <https://carol-provider.com/profile/card#me>
+prefix webIdDee:   <https://dee-provider.com/profile/card#me>
+prefix webIdErik:  <https://erik-provider.com/profile/card#me>
+prefix webIdFiona: <https://fiona-provider.com/profile/card#me>
+prefix webIdGreg:  <https://greg-provider.com/profile/card#me>
+prefix webIdHarry:  <https://harry-provider.com/profile/card#me>
+prefix webIdIvanna: <https://ivanna-provider.com/profile/card#me>
 
-PREFIX rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:        <http://www.w3.org/2001/XMLSchema#>
-PREFIX foaf:       <http://xmlns.com/foaf/0.1/>
-PREFIX vcard:      <http://www.w3.org/2006/vcard/ns#>
-PREFIX ws:         <http://www.w3.org/ns/pim/space#>
-PREFIX ldp:        <http://www.w3.org/ns/ldp#>
-PREFIX dbpedia:    <http://dbpedia.org/resource/>
-PREFIX httph:      <http://www.w3.org/2007/ont/httph#>
-PREFIX schema:     <http://schema.org/>
-PREFIX odrl:       <http://www.w3.org/ns/odrl/2/>
-PREFIX dpv:        <http://www.w3.org/ns/dpv#>
-PREFIX gconsent:   <https://w3id.org/GConsent#>
+prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:        <http://www.w3.org/2001/XMLSchema#>
+prefix foaf:       <http://xmlns.com/foaf/0.1/>
+prefix vcard:      <http://www.w3.org/2006/vcard/ns#>
+prefix ws:         <http://www.w3.org/ns/pim/space#>
+prefix ldp:        <http://www.w3.org/ns/ldp#>
+prefix dbpedia:    <http://dbpedia.org/resource/>
+prefix httph:      <http://www.w3.org/2007/ont/httph#>
+prefix schema:     <http://schema.org/>
+prefix odrl:       <http://www.w3.org/ns/odrl/2/>
+prefix dpv:        <http://www.w3.org/ns/dpv#>
+prefix gconsent:   <https://w3id.org/GConsent#>
 
-PREFIX solid:      <http://www.w3.org/ns/solid/terms#>
-PREFIX solid-ext:  <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
-PREFIX acp:        <http://www.w3.org/ns/solid/acp#>
+prefix solid:      <http://www.w3.org/ns/solid/terms#>
+prefix solid-ext:  <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
+prefix acp:        <http://www.w3.org/ns/solid/acp#>
 
-PREFIX ex:         <https://example.com#>
+prefix ex:         <https://example.com#>
 
 # Just made up this visualization vocab to allow us easily size nodes in GraphDB visualizations!
-PREFIX viz:        <https://viz.example.com#>
+prefix viz:        <https://viz.example.com#>
 
 #
 # Create a Named Graph for this entire Pod.

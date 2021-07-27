@@ -5,6 +5,8 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Major restructuring and tidying-up in preparation for open sourcing.
+
 ## 0.7.5
 
 - Added CHANGELOG.
