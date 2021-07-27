@@ -40,7 +40,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.8.0
+    artifactVersion: 0.8.1
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -85,7 +85,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.8.0
+    artifactVersion: 0.8.1
 
     artifactDirectoryName: Java-StringLiteral
     sourceFileExtension: java
@@ -129,7 +129,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.8.0
+    artifactVersion: 0.8.1
 
     artifactDirectoryName: Java-SolidCommonVocab-Rdf4J
     sourceFileExtension: java
@@ -165,7 +165,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.8.0
+    artifactVersion: 0.8.1
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
