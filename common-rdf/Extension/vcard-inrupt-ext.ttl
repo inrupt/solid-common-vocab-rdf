@@ -17,7 +17,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 # own prefix to try and differentiate. 
 #
 prefix vcard: <http://www.w3.org/2006/vcard/ns#>
-prefix vcard_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/vcard#>
+prefix vcard_inrupt_ext: <https://inrupt.com/vocab/extension/vcard#>
 
 vcard_inrupt_ext:
     a owl:Ontology;
@@ -27,7 +27,7 @@ vcard_inrupt_ext:
     dcterms:title "Inrupt extension adding multilingual meta-data for VCard terms" ;
     dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
     vann:preferredNamespacePrefix "vcard_inrupt_ext" ;
-    vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/vcard#" ;
+    vann:preferredNamespaceUri "https://inrupt.com/vocab/extension/vcard#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 

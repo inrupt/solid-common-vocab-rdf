@@ -18,7 +18,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 #
 prefix http: <https://www.w3.org/2007/ont/http#>
 prefix httph: <http://www.w3.org/2007/ont/httph#>
-prefix httph_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/httph#>
+prefix httph_inrupt_ext: <https://inrupt.com/vocab/extension/httph#>
 
 httph_inrupt_ext:
     a owl:Ontology;
@@ -31,7 +31,7 @@ httph_inrupt_ext:
  and multilingual alternative names and translations for comments (e.g. for use
  directly as labels or tool-tips in user interfaces or error messages)""" ;
     vann:preferredNamespacePrefix "httph_inrupt_ext" ;
-    vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/httph#" ;
+    vann:preferredNamespaceUri "https://inrupt.com/vocab/extension/httph#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
   httph:accept a rdf:Property ;

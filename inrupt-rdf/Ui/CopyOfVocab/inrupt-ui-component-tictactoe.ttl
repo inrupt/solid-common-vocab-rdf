@@ -40,5 +40,4 @@ inrupt_ui_comp_tictactoe:opponentWebId a rdfs:Literal ;
 	rdfs:comment "Enter the WebID of your opponent - when you click 'Create Game' they will receive a notification that you wish to play a game of Tic-Tac-Toe with them."@en ;
 	rdfs:comment "Ingrese el WebID de su oponente: cuando haga clic en 'Crear juego', recibirá una notificación de que desea jugar un juego de Tic-Tac-Toe con ellos."@es ;
 	skos:definition "Opponent WebID"@en ;
-	skos:definition "WebID del oponente"@es ;
-	rdfs:seeAlso <https://team.inrupt.net/public/lit/seeAlso-opponentWebId.html> .
+	skos:definition "WebID del oponente"@es .

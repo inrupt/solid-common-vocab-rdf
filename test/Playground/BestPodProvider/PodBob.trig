@@ -604,7 +604,3 @@ _:a solid:occurrenceOf << :s :p :o >> ;
 _:b :occurrenceOf << :s :p :o >> ;
   :in <https://bob.pod.com/resource/ResourceB> ;
   dct:creator :bob.
-
-
-
-
