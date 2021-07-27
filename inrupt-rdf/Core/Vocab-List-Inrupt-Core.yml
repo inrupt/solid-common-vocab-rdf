@@ -17,7 +17,7 @@
 # list file.
 #
 artifactName: vocab-inrupt
-artifactGeneratorVersion: 0.13.4
+artifactGeneratorVersion: 0.14.0
 
 versioning:
   type: git
@@ -39,7 +39,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.6.1-SNAPSHOT
+    artifactVersion: 0.8.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -79,7 +79,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.5"
+    artifactVersion: "0.8.0"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
