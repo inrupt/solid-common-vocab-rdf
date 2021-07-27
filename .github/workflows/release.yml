@@ -12,7 +12,7 @@ jobs:
             "solid-rdf/Vocab-List-Solid.yml",
             "inrupt-rdf/Core/Vocab-List-Inrupt-Core.yml",
             "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
-            "inrupt-rdf/Test/Vocab-List-Test.yml"
+            "inrupt-rdf/Test/Vocab-List-Inrupt-Test.yml"
         ]
     name: npm release for ${{ matrix.vocab }}
     steps:
