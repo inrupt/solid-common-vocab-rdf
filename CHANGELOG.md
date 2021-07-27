@@ -5,9 +5,11 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## v0.0.27 2021-07-27
+
 - Major restructuring and tidying-up in preparation for open sourcing.
 
-## 0.7.5
+## 0.0.26 (missing the leading 'v'!) 2021-07-19
 
 - Added CHANGELOG.
 - Added examples of Resume/CV vocabs to Common RDF (these examples require the
@@ -16,7 +18,7 @@ configuration files contained in this repository.
 - Added some more cherry-picked terms to our Schema.org extension.
 - Playground RDF samples continue to evolve (still very experimental!).
 
-## 0.7.4
+## 0.0.25
 
 - Removed `_EXT` suffix from generated Inrupt extension vocabularies (it's not
   necessary given we already suffix with `_INRUPT`).
