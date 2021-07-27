@@ -6,24 +6,27 @@ prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix vann:     <http://purl.org/vocab/vann/>
 
-prefix lit-core: <https://w3id.org/lit/vocab/core#>
-prefix inrupt-client-app: <https://inrupt.com/vocab/sample/client-app#>
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 
+prefix inrupt_client_app: <https://inrupt.com/vocab/sample/client-app#>
 
-inrupt-client-app:
-    a owl:Ontology;
+#
+# By marking our vocabulary as an Inrupt Artifact Generator ontology (i.e., inrupt_gen:Ontology)
+# our generator can enforce many best-practice guidelines (like all terms must provide a label and
+# comment, and in at least English).
+#
+inrupt_client_app: a owl:Ontology, inrupt_gen:Ontology ;
     owl:versionInfo "0.1" ;
     dcterms:title "Sample Inrupt client application vocabulary"@en ;
-    dcterms:description """Just a sample of what a cliet application vocabulary
- might look like."""@en ;
+    dcterms:description "Just a sample of what a client application vocabulary might look like."@en ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
-    vann:preferredNamespacePrefix "inrupt-client-app" ;
+    vann:preferredNamespacePrefix "inrupt_client_app" ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/sample/client-app#" .
 
 
-inrupt-client-app:sampleProperty a rdf:Property ;
-    rdfs:definedBy inrupt-client-app: ;
+inrupt_client_app:sampleProperty a rdf:Property ;
+    rdfs:definedBy inrupt_client_app: ;
     rdfs:label "Sample client application property"@en ;
     rdfs:comment "Just a sample of a propery that a client application might need."@en .

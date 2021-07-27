@@ -9,7 +9,7 @@ prefix ldp: <http://www.w3.org/ns/ldp#>
 prefix vann: <http://purl.org/vocab/vann/>
 
 prefix schema: <http://schema.org/>
-prefix schema-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/schema#>
+prefix schema_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
 
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
@@ -19,7 +19,7 @@ prefix schema-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/schema#>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
-schema-inrupt-ext:
+schema_inrupt_ext:
     a owl:Ontology;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
@@ -34,7 +34,7 @@ schema-inrupt-ext:
  bundle size when generating programming language artifacts that provide
  convenient constants for just these selected terms, rather than including the
  over 2,500 terms currently defined in Schema.org).""" ;
-    vann:preferredNamespacePrefix "schema-inrupt-ext" ;
+    vann:preferredNamespacePrefix "schema_inrupt_ext" ;
     vann:preferredNamespaceUri "http://schema.org/" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
@@ -43,7 +43,7 @@ schema-inrupt-ext:
 # We need this term internally when generating source-code artifacts from vocabularies.
 #
 schema:alternateName
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Alternate Name"@en ;
     schema:alternateName "Nom alternatif"@fr ;
     schema:alternateName "Anderer Name"@de ;
@@ -57,7 +57,7 @@ schema:alternateName
 
 
   schema:Person
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Person"@en ;
     schema:alternateName "La personne"@fr ;
     schema:alternateName "Person"@de ;
@@ -70,7 +70,7 @@ schema:alternateName
 
 
 schema:givenName
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Given Name"@en ;
     schema:alternateName "Prénom"@fr ;
     schema:alternateName "Vorname"@de ;
@@ -82,7 +82,7 @@ schema:givenName
     rdfs:comment "Nome di battesimo. Negli Stati Uniti, il primo nome di una persona. Questo può essere usato insieme a familyName al posto della proprietà name."@it .
 
 schema:familyName a rdf:Property ;
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Family Name"@en ;
     schema:alternateName "Nom de famille"@fr ;
     schema:alternateName "Nachname"@de ;
@@ -94,7 +94,7 @@ schema:familyName a rdf:Property ;
     rdfs:comment "Cognome. Negli Stati Uniti, il cognome di una persona. Questo può essere usato insieme a givenName al posto della proprietà name."@it .
 
 schema:additionalName
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     rdfs:label "additionalName" ;
     schema:alternateName "Additional Name"@en ;
     schema:alternateName "Nom additionnel"@fr ;
@@ -107,7 +107,7 @@ schema:additionalName
     rdfs:comment "Un nome aggiuntivo per una persona può essere usato per un secondo nome."@it .
 
 schema:license
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "License"@en ;
     schema:alternateName "License"@fr ;
     schema:alternateName "Lizenz"@de ;
@@ -119,7 +119,7 @@ schema:license
     rdfs:comment "Un documento di licenza che si applica a questo contenuto, generalmente indicato dall'URL."@it .
 
 schema:name
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Name"@en ;
     schema:alternateName "Nom"@fr ;
     schema:alternateName "Name"@de ;
@@ -131,7 +131,7 @@ schema:name
     rdfs:comment "Il nome dell'articolo."@it .
 
 schema:text
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Text"@en ;
     schema:alternateName "Texte"@fr ;
     schema:alternateName "Text"@de ;
@@ -143,7 +143,7 @@ schema:text
     rdfs:comment "Il contenuto testuale di questo CreativeWork."@it .
 
 schema:identifier
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     rdfs:seeAlso <https://schema.org/docs/datamodel.html#identifierBg> ;
     schema:alternateName "Identifer"@en ;
     schema:alternateName "Identifiant"@fr ;
@@ -156,7 +156,7 @@ schema:identifier
     rdfs:comment "La proprietà identificatore rappresenta qualsiasi tipo di identificatore per qualsiasi tipo di Cosa, come ISBN, codici GTIN, UUID ecc. Schema.org fornisce proprietà dedicate per rappresentare molti di questi, sia come stringhe di testo o come collegamenti URL (URI). Vedere le note di fondo per maggiori dettagli."@it .
 
 schema:description
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Description"@en ;
     schema:alternateName "Description"@fr ;
     schema:alternateName "Beschreibung"@de ;
@@ -168,7 +168,7 @@ schema:description
     rdfs:comment "Una descrizione dell'articolo."@it .
 
 schema:image
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     rdfs:seeAlso <https://schema.org/ImageObject> ;
     rdfs:seeAlso <https://schema.org/URL> ;
     schema:alternateName "Image"@en ;
@@ -182,7 +182,7 @@ schema:image
     rdfs:comment "Un'immagine dell'articolo. Può essere un URL o un ImageObject completamente descritto."@it .
 
 schema:url
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "URL"@en ;
     schema:alternateName "URL"@fr ;
     schema:alternateName "URL"@de ;
@@ -194,7 +194,7 @@ schema:url
     rdfs:comment "URL dell'articolo."@it .
 
 schema:URL
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Datatype URL"@en ;
     schema:alternateName "URL du type de données"@fr ;
     schema:alternateName "Datentyp-URL"@de ;
@@ -206,7 +206,7 @@ schema:URL
     rdfs:comment "URL del tipo di dati."@it .
 
 schema:startTime
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Start time"@en ;
     schema:alternateName "Heure de début"@fr ;
     schema:alternateName "Startzeit"@de ;
@@ -226,7 +226,7 @@ Tenga en cuenta que Event usa startDate / endDate en lugar de startTime / endTim
 Nota che Event utilizza startDate / endDate invece di startTime / endTime, anche quando descrive le date con gli orari. Questa situazione potrebbe essere chiarita in future revisioni."""@it .
 
 schema:endTime
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "End time"@en ;
     schema:alternateName "Heure de fin"@fr ;
     schema:alternateName "Endzeit"@de ;
@@ -246,7 +246,7 @@ Tenga en cuenta que Event usa startDate / endDate en lugar de startTime / endTim
 Nota che Event utilizza startDate / endDate invece di startTime / endTime, anche quando descrive le date con gli orari. Questa situazione potrebbe essere chiarita in future revisioni."""@it .
 
 schema:startDate
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Start date"@en ;
     schema:alternateName "Date de début"@fr ;
     schema:alternateName "Anfangsdatum"@de ;
@@ -258,7 +258,7 @@ schema:startDate
     rdfs:comment "La data e l'ora di inizio dell'articolo (in formato data ISO 8601)."@it .
 
 schema:endDate
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "End date"@en ;
     schema:alternateName "Date de fin"@fr ;
     schema:alternateName "Endtermin"@de ;
@@ -270,7 +270,7 @@ schema:endDate
     rdfs:comment "La data e l'ora di fine dell'articolo (in formato data ISO 8601)."@it .
 
 schema:email
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "EMail"@en ;
     schema:alternateName "E-mail"@fr ;
     schema:alternateName "EMail"@de ;
@@ -285,7 +285,7 @@ schema:email
 # Terms added initially to help describe Verifiable Credentials.
 #
 schema:MedicalTherapy
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Medical therapy"@en ;
     schema:alternateName "Thérapie médicale"@fr ;
     schema:alternateName "Medizinische Therapie"@de ;
@@ -297,7 +297,7 @@ schema:MedicalTherapy
     rdfs:comment "Qualsiasi intervento medico progettato per prevenire, trattare e curare malattie e condizioni mediche umane, comprese le terapie curative e palliative. Le terapie mediche sono tipicamente processi di cura che si basano su farmacoterapia, terapia comportamentale, terapia di supporto (con liquidi o nutrizione per esempio) o disintossicazione (ad esempio emodialisi) volti a migliorare o prevenire una condizione di salute."@it .
 
 schema:primaryPrevention
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Primary prevention"@en ;
     schema:alternateName "Prévention primaire"@fr ;
     schema:alternateName "Primärprävention"@de ;
@@ -309,7 +309,7 @@ schema:primaryPrevention
     rdfs:comment "Una terapia preventiva utilizzata per prevenire il verificarsi iniziale della condizione medica, come la vaccinazione."@it .
 
 schema:EducationalOccupationalCredential
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Educational occupational credential"@en ;
     schema:alternateName "Diplôme professionnel d'études"@fr ;
     schema:alternateName "Berufsausbildungsnachweis"@de ;
@@ -321,7 +321,7 @@ schema:EducationalOccupationalCredential
     rdfs:comment "Una credenziale educativa o professionale. Un diploma, titolo accademico, certificazione, qualifica, badge, ecc., Che possono essere rilasciati a una persona o altra entità che soddisfi i requisiti definiti dal credenziale."@it .
 
 schema:qualifications
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Qualifications"@en ;
     schema:alternateName "Qualifications"@fr ;
     schema:alternateName "Qualifikationen"@de ;
@@ -333,7 +333,7 @@ schema:qualifications
     rdfs:comment "Qualifiche specifiche richieste per questo ruolo o occupazione."@it .
 
 schema:attendee
-    rdfs:isDefinedBy schema-inrupt-ext: ;
+    rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Attendee"@en ;
     schema:alternateName "Participante"@fr ;
     schema:alternateName "Teilnehmerin"@de ;
@@ -349,7 +349,7 @@ schema:attendee
 # Template for pulling in new terms!
 #
 #schema:
-#    rdfs:isDefinedBy schema-inrupt-ext: ;
+#    rdfs:isDefinedBy schema_inrupt_ext: ;
 #    schema:alternateName ""@en ;
 #    schema:alternateName ""@fr ;
 #    schema:alternateName ""@de ;

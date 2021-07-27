@@ -1,44 +1,44 @@
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix http: <http://www.w3.org/2011/http#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-PREFIX webIdBob:   <https://bob-provider.com/profile/card#me>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix http: <http://www.w3.org/2011/http#>
+prefix prov: <http://www.w3.org/ns/prov#>
+prefix webIdBob:   <https://bob-provider.com/profile/card#me>
 
-PREFIX bob-profile: <https://bob.example.com/profile/card>
-PREFIX bob-storage: <https://bob.best-pod-provider.com/storage/>
-PREFIX bob-storage-ACP: <https://bob.best-pod-provider.com/storage/?meta=ACP>
+prefix bob-profile: <https://bob.example.com/profile/card>
+prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
+prefix bob-storage-ACP: <https://bob.best-pod-provider.com/storage/?meta=ACP>
 
 
-PREFIX webIdAlice: <https://alice-provider.com/profile/card#me>
-PREFIX webIdCarol: <https://carol-provider.com/profile/card#me>
-PREFIX webIdDee:   <https://dee-provider.com/profile/card#me>
-PREFIX webIdErik:  <https://erik-provider.com/profile/card#me>
-PREFIX webIdFiona: <https://fiona-provider.com/profile/card#me>
-PREFIX webIdGreg:  <https://greg-provider.com/profile/card#me>
-PREFIX webIdHarry:  <https://harry-provider.com/profile/card#me>
-PREFIX webIdIvanna: <https://ivanna-provider.com/profile/card#me>
+prefix webIdAlice: <https://alice-provider.com/profile/card#me>
+prefix webIdCarol: <https://carol-provider.com/profile/card#me>
+prefix webIdDee:   <https://dee-provider.com/profile/card#me>
+prefix webIdErik:  <https://erik-provider.com/profile/card#me>
+prefix webIdFiona: <https://fiona-provider.com/profile/card#me>
+prefix webIdGreg:  <https://greg-provider.com/profile/card#me>
+prefix webIdHarry:  <https://harry-provider.com/profile/card#me>
+prefix webIdIvanna: <https://ivanna-provider.com/profile/card#me>
 
-PREFIX rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:        <http://www.w3.org/2001/XMLSchema#>
-PREFIX foaf:       <http://xmlns.com/foaf/0.1/>
-PREFIX vcard:      <http://www.w3.org/2006/vcard/ns#>
-PREFIX ws:         <http://www.w3.org/ns/pim/space#>
-PREFIX ldp:        <http://www.w3.org/ns/ldp#>
-PREFIX dbpedia:    <http://dbpedia.org/resource/>
-PREFIX httph:      <http://www.w3.org/2007/ont/httph#>
-PREFIX schema:     <http://schema.org/>
-PREFIX odrl:       <http://www.w3.org/ns/odrl/2/>
-PREFIX dpv:        <http://www.w3.org/ns/dpv#>
-PREFIX gconsent:   <https://w3id.org/GConsent#>
+prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:        <http://www.w3.org/2001/XMLSchema#>
+prefix foaf:       <http://xmlns.com/foaf/0.1/>
+prefix vcard:      <http://www.w3.org/2006/vcard/ns#>
+prefix ws:         <http://www.w3.org/ns/pim/space#>
+prefix ldp:        <http://www.w3.org/ns/ldp#>
+prefix dbpedia:    <http://dbpedia.org/resource/>
+prefix httph:      <http://www.w3.org/2007/ont/httph#>
+prefix schema:     <http://schema.org/>
+prefix odrl:       <http://www.w3.org/ns/odrl/2/>
+prefix dpv:        <http://www.w3.org/ns/dpv#>
+prefix gconsent:   <https://w3id.org/GConsent#>
 
-PREFIX solid:      <http://www.w3.org/ns/solid/terms#>
-PREFIX solid-ext:  <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
-PREFIX acp:        <http://www.w3.org/ns/solid/acp#>
+prefix solid:      <http://www.w3.org/ns/solid/terms#>
+prefix solid-ext:  <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
+prefix acp:        <http://www.w3.org/ns/solid/acp#>
 
-PREFIX ex:         <https://example.com#>
+prefix ex:         <https://example.com#>
 
 # Just made up this visualization vocab to allow us easily size nodes in GraphDB visualizations!
-PREFIX viz:        <https://viz.example.com#>
+prefix viz:        <https://viz.example.com#>
 
 #
 # Create a Named Graph for this entire Pod.
@@ -165,7 +165,7 @@ bob-storage-ACP: {
 #   Content-Type: application/trig
 #
 # POSTing quads **REQUIRES** the URL and the Named Graph to match (query params can differ)
-PREFIX bob-storage: <https://bob.best-pod-provider.com/storage/>
+prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
 
 bob-storage: {
   bob-storage:Bike-Cannondale-EVO a ex:Bicycle ;
@@ -182,8 +182,8 @@ bob-storage: {
 #
 # POSTing quads **REQUIRES** all Named Graph IRIs to *start with* the URL,
 # Unless the URL itself has query params
-PREFIX pat-storage: <https://pat.best-pod-provider.com/storage/>
-PREFIX bob-storage: <https://bob.best-pod-provider.com/storage/>
+prefix pat-storage: <https://pat.best-pod-provider.com/storage/>
+prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
 
 pat-storage: {
   bob-storage:Bike-Cannondale-EVO a ex:Bicycle ;
@@ -212,8 +212,8 @@ bob-storage: {
 #    - Be a SINGLE Named Graph with an IRI of the full URL.
 #   Apart from these conditions, the payload may contain any triples at all.
 
-PREFIX pat-storage: <https://pat.best-pod-provider.com/storage/>
-PREFIX bob-storage: <https://bob.best-pod-provider.com/storage/>
+prefix pat-storage: <https://pat.best-pod-provider.com/storage/>
+prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
 
 <https://bob.best-pod-provider.com/storage/public/ThingsIOwn/?ext=ACP> {
   bob-storage-ACP:acrForBike-Cannondale-EVO a acp:AccessControlResource ;
@@ -429,13 +429,13 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 
 
 # POST https://pod.inrupt.com/bob/resourceA
-# PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # <https://pod.inrupt.com/bob/resourceA> {
 #   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 # }
 
 # POST https://pod.inrupt.com/bob/resourceB
-# PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # <https://pod.inrupt.com/bob/resourceB> {
 #   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
 # }
@@ -443,12 +443,12 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 
 # What does GET /resourceA return?
 
-# PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 
 # ...or...
 
-# PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .
 
 
@@ -482,12 +482,12 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # the other a Named Graph to represent the entire Pod.
 #
 
- PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
- PREFIX acp:         <http://www.w3.org/ns/solid/acp#>
- PREFIX solid-ext:   <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
- PREFIX ex:          <https://example.com#>
+ prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+ prefix acp:         <http://www.w3.org/ns/solid/acp#>
+ prefix solid-ext:   <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
+ prefix ex:          <https://example.com#>
 
- PREFIX bob-storage: <https://bob.best-pod-provider.com/storage/>
+ prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
 
  <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
  {| ex:provenance <https://pod.inrupt.com/bob/resourceA> |}
@@ -584,8 +584,8 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 
 
 
-PREFIX : <https://default.com/>
-PREFIX dct: <https://dct.com/>
+prefix : <https://default.com/>
+prefix dct: <https://dct.com/>
 
 _:a solid:occurrenceOf << :s :p :o >> ;
   solid:meta <https://bob.pod.com/meta/triple/GUID-1> ;

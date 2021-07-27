@@ -1,9 +1,9 @@
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX schema:   <http://schema.org/>
-PREFIX ldp:      <http://www.w3.org/ns/ldp#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix schema:   <http://schema.org/>
+prefix ldp:      <http://www.w3.org/ns/ldp#>
 
-PREFIX ex:       <https://example.com#>
-PREFIX my-pod:   <https://pat.best-pod-provider.com/pod/>
+prefix ex:       <https://example.com#>
+prefix my-pod:   <https://pat.best-pod-provider.com/pod/>
 
 
 #

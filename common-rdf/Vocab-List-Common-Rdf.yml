@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 0.13.4
+artifactGeneratorVersion: 0.14.0
 
 versioning:
   type: git
@@ -40,7 +40,7 @@ artifactToGenerate:
   # whether it provides VocabTerm constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
-    artifactVersion: 0.6.1-SNAPSHOT
+    artifactVersion: 0.8.0
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -85,7 +85,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.6.1-SNAPSHOT
+    artifactVersion: 0.8.0
 
     artifactDirectoryName: Java-StringLiteral
     sourceFileExtension: java
@@ -129,7 +129,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.6.1-SNAPSHOT
+    artifactVersion: 0.8.0
 
     artifactDirectoryName: Java-SolidCommonVocab-Rdf4J
     sourceFileExtension: java
@@ -165,7 +165,7 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
   - programmingLanguage: Java
-    artifactVersion: 0.6.1-SNAPSHOT
+    artifactVersion: 0.8.0
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
@@ -206,7 +206,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.5"
+    artifactVersion: "0.8.0"
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -247,7 +247,7 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.7.5"
+#    artifactVersion: "0.8.0"
 #    artifactDirectoryName: TypeScript-rdfjs-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -282,7 +282,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 #
   - programmingLanguage: TypeScript
-    artifactVersion: "0.7.5"
+    artifactVersion: "0.8.0"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     artifactSuffix: -rdfjs-rdfdatafactory
@@ -319,7 +319,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.7.5"
+    artifactVersion: "0.8.0"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js

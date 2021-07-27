@@ -1,12 +1,13 @@
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix ldp:      <http://www.w3.org/ns/ldp#> .
-@prefix schema:   <http://schema.org/> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix ldp:      <http://www.w3.org/ns/ldp#>
+prefix schema:   <http://schema.org/>
+prefix vann:     <http://purl.org/vocab/vann/>
+
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multi-lingual
@@ -15,11 +16,11 @@
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
-@prefix http: <https://www.w3.org/2007/ont/http#> .
-@prefix httph: <http://www.w3.org/2007/ont/httph#> .
-@prefix httph-inrupt-ext: <https://w3id.org/inrupt/vocab/extension/httph#> .
+prefix http: <https://www.w3.org/2007/ont/http#>
+prefix httph: <http://www.w3.org/2007/ont/httph#>
+prefix httph_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/httph#>
 
-httph-inrupt-ext:
+httph_inrupt_ext:
     a owl:Ontology;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
@@ -29,12 +30,12 @@ httph-inrupt-ext:
  providing terms for more headers that the current (Aug 2019) namespace document,
  and multilingual alternative names and translations for comments (e.g. for use
  directly as labels or tool-tips in user interfaces or error messages)""" ;
-    vann:preferredNamespacePrefix "httph-inrupt-ext" ;
+    vann:preferredNamespacePrefix "httph_inrupt_ext" ;
     vann:preferredNamespaceUri "https://w3id.org/lit/vocab/extension/httph#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
   httph:accept a rdf:Property ;
-    rdfs:isDefinedBy httph-inrupt-ext: ;
+    rdfs:isDefinedBy httph_inrupt_ext: ;
     rdfs:label "Accept"@en ;
     rdfs:comment "See the HTTP specification"@en ;
     rdfs:domain http:Message ;
@@ -42,7 +43,7 @@ httph-inrupt-ext:
     rdfs:range rdfs:Literal .
 
   httph:accept-language a rdf:Property ;
-    rdfs:isDefinedBy httph-inrupt-ext: ;
+    rdfs:isDefinedBy httph_inrupt_ext: ;
     rdfs:label "Accept-Language"@en ;
     rdfs:comment "See the HTTP specification"@en ;
     rdfs:domain http:Message ;
