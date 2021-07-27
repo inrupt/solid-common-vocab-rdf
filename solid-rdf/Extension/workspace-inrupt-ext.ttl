@@ -18,15 +18,15 @@ prefix ws:       <http://www.w3.org/ns/pim/space#>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate. 
 #
-prefix ws-solid-ext: <https://w3id.org/lit/vocab/extension/ws#>
+prefix ws_solid_ext: <https://w3id.org/lit/vocab/extension/ws#>
 
-ws-solid-ext: a owl:Ontology;
+ws_solid_ext: a owl:Ontology;
     owl:versionInfo "0.1" ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension to the Workspace Ontology"@en ;
     dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;
-    vann:preferredNamespacePrefix "ws-solid-ext" ;
+    vann:preferredNamespacePrefix "ws_solid_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
     dcterms:license "https://opensource.org/licenses/MIT" .
 
