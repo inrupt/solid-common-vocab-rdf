@@ -27,9 +27,9 @@ inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.1" ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;
- 	dcterms:title "Consent vocabulary for the LIT"@en ;
-	dcterms:description "Consent vocabulary defining LIT-specific terms, especially terms that provide context"@en ;
-	vann:preferredNamespacePrefix "lit_consent" ;
+ 	dcterms:title "Inrupt Consent vocabulary"@en ;
+	dcterms:description "Consent vocabulary defining Inrupt-specific terms, especially terms that provide context"@en ;
+	vann:preferredNamespacePrefix "inrupt_consent" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/consent#" ;
 	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
