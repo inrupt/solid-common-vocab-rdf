@@ -5,6 +5,8 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Further prefix name updates (e.g., changing to underscores instead of hyphens, mismatches fixed).
+
 ## v0.0.27 2021-07-27
 
 - Major restructuring and tidying-up in preparation for open sourcing.

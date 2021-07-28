@@ -31,46 +31,46 @@ vcard_inrupt_ext:
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 
-  vcard:hasAddress
+vcard:hasAddress
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Address'@en, 'Dirección'@es .
 
-  vcard:hasEmail
+vcard:hasEmail
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'EMail'@en, 'Correo electrónico'@es .
 
-  vcard:hasTelephone
+vcard:hasTelephone
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Telephone'@en, 'Teléfono'@es .
 
-  vcard:fn
+vcard:fn
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Name'@en, 'Nombre'@es .
 
-  vcard:role
+vcard:role
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Role'@en, 'Rol'@es .
 
-  vcard:organization-name
+vcard:organization-name
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Company'@en, 'Compañía'@es .
 
-  vcard:street-address
+vcard:street-address
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Street Address'@en, 'Dirección'@es .
 
-  vcard:locality
+vcard:locality
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Locality'@en, 'Localidad'@es .
 
-  vcard:postal-code
+vcard:postal-code
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Postal Code'@en, 'Código Postal'@es .
 
-  vcard:region
+vcard:region
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Region'@en, 'Región'@es .
 
-  vcard:country-name
+vcard:country-name
     rdfs:isDefinedBy vcard_inrupt_ext: ;
     rdfs:label 'Country'@en, 'Pais'@es .
