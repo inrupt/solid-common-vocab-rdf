@@ -14,8 +14,8 @@ prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 
 inrupt_gen: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.1" ;
- 	dcterms:title "LIT Core Ontology"@en ;
-	dcterms:description "The Artifact Generator Ontology - part of the collection of utility libraries to ease the adoption of RDF for developers."@en ;
+ 	dcterms:title "Artifact Generator vocabulary"@en ;
+	dcterms:description "The Artifact Generator vocabulary - part of the collection of utility libraries to ease the adoption of RDF for developers."@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
@@ -25,12 +25,11 @@ inrupt_gen: a owl:Ontology, inrupt_gen:Ontology ;
 
 inrupt_gen:Ontology a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
-    rdfs:label "LIT Ontology"@en ;
-    rdfs:label "Ontologie LIT"@fr ;
-    rdfs:label "Ontología LIT"@es ;
-    rdfs:label "LIT-Ontologie"@de ;
-    rdfs:comment """Class of LIT-specific ontologies. Useful for enforcing LIT constraints when generating source
-code from LIT ontologies, such as enforcing all terms to have rdfs:label and rdfs:comment predicates."""@en .
+    rdfs:label "Inrupt Ontology"@en ;
+    rdfs:label "Ontologie Inrupt"@fr ;
+    rdfs:label "Ontología Inrupt"@es ;
+    rdfs:label "Inrupt-Ontologie"@de ;
+    rdfs:comment """Class of Inrupt-specific ontologies. Useful for enforcing Inrupt constraints when generating source code from RDF ontologies, such as enforcing all terms to have rdfs:label and rdfs:comment predicates."""@en .
 
 inrupt_gen:ConstantString a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
@@ -419,8 +418,8 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
 
 
   inrupt_gen:errGenericInternal a rdfs:Literal ;
-    skos:definition "Internal LIT log message: [{{0}}]"@en ;
-    skos:definition "Mensaje de registro interno de LIT: [{{0}}]"@es .
+    skos:definition "Internal Inrupt log message: [{{0}}]"@en ;
+    skos:definition "Mensaje de registro interno de Inrupt: [{{0}}]"@es .
 
 
   #

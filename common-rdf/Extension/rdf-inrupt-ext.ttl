@@ -30,6 +30,6 @@ rdf_inrupt_ext:
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 
-  rdf:type
+rdf:type
     rdfs:isDefinedBy rdf: ;
     rdfs:label 'Tipo'@es .

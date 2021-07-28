@@ -25,4 +25,4 @@ in your code to provide direct access to all the Classes, Properties and
 constants defined in those vocabularies.
 
 For more information about the Artifact Generator itself, feel free to visit 
-[the documentation](https://github.com/inrupt/lit-artifact-generator).
+[the documentation](https://github.com/inrupt/artifact-generator).
