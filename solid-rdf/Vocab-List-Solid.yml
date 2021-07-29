@@ -259,6 +259,9 @@ artifactToGenerate:
             fileName: package.json
           - templateInternal: generic/javascript/index.hbs
             fileName: index.js
+      - packagingTool: rollup
+        packagingDirectory: config
+        packagingTemplates:
           - templateInternal: generic/javascript/rollup.config.hbs
             fileName: rollup.config.js
 
@@ -288,13 +291,11 @@ artifactToGenerate:
             fileName: package.json
           - templateInternal: rdfLibraryDependent/javascript/index.hbs
             fileName: index.js
-      - packagingTool: webpack
+      - packagingTool: rollup
         packagingDirectory: config
         packagingTemplates:
-          - templateInternal: webpack.dev.config.hbs
-            fileName: webpack.dev.config.js
-          - templateInternal: webpack.prod.config.hbs
-            fileName: webpack.prod.config.js
+          - templateInternal: generic/javascript/rollup.config.hbs
+            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
     artifactVersion: "0.8.1"
@@ -321,13 +322,11 @@ artifactToGenerate:
             fileName: package.json
           - templateInternal: rdfLibraryDependent/javascript/index.hbs
             fileName: index.js
-      - packagingTool: webpack
+      - packagingTool: rollup
         packagingDirectory: config
         packagingTemplates:
-          - templateInternal: webpack.dev.config.hbs
-            fileName: webpack.dev.config.js
-          - templateInternal: webpack.prod.config.hbs
-            fileName: webpack.prod.config.js
+          - templateInternal: generic/javascript/rollup.config.hbs
+            fileName: rollup.config.js
 
 vocabList:
   - description: "Solid server-generated creational meta-data (i.e. static meta-data generated at server startup)"
