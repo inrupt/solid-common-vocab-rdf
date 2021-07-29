@@ -6,6 +6,7 @@ configuration files contained in this repository.
 ## Unreleased
 
 - Further prefix name updates (e.g., changing to underscores instead of hyphens, mismatches fixed).
+- Update JS packaging YAML to correctly point to rollup config
 
 ## v0.0.27 2021-07-27
 

@@ -218,6 +218,9 @@ artifactToGenerate:
             fileName: package.json
           - templateInternal: generic/javascript/index.hbs
             fileName: index.js
+      - packagingTool: rollup
+        packagingDirectory: config
+        packagingTemplates:
           - templateInternal: generic/javascript/rollup.config.hbs
             fileName: rollup.config.js
 
