@@ -60,7 +60,7 @@ jobs:
         # The package is renamed in order to enable having different versions
         # side-by-side.
         - name: Install Artifact Generator
-          run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/lit-artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
+          run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         # Note: This only pushes to Cloudsmith (not npm), because it does not
