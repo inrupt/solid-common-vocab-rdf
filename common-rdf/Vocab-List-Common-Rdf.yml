@@ -623,11 +623,6 @@ vocabList:
     inputResources:
       - ./CopyOfVocab/inrupt-void.ttl
 
-  - description: Time Ontology in OWL
-    nameAndPrefixOverride: time
-    inputResources:
-      - http://www.w3.org/2006/time#
-
   - description: The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model.
     nameAndPrefixOverride: odrl
     # This vocab is interesting in that it defines a lot of SKOS:Collection
@@ -696,3 +691,8 @@ vocabList:
 #    # need to explicitly ask for just Turtle.
 #    vocabAcceptHeaderOverride: text/turtle
 #    ignoreNonVocabTerms: true
+
+#  - description: Time Ontology in OWL
+#    nameAndPrefixOverride: time
+#    inputResources:
+#      - http://www.w3.org/2006/time#
