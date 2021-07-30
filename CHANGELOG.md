@@ -5,8 +5,11 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## v0.0.28 2021-07-30
+
+- Updated CI workflows to use renamed Artifact Generator.
 - Further prefix name updates (e.g., changing to underscores instead of hyphens, mismatches fixed).
-- Update JS packaging YAML to correctly point to rollup config
+- Update JS packaging YAML to correctly point to rollup config.
 
 ## v0.0.27 2021-07-27
 
