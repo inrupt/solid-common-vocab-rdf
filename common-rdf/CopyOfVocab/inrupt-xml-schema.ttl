@@ -15,7 +15,8 @@ prefix vann: <http://purl.org/vocab/vann/>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 xsd: a owl:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <http://www.w3.org/2001/XMLSchema/1.0.0> ;
     dcterms:title "The XML Schema Datatype Vocabulary (XSD)"@en ;
     dcterms:description "A vocabulary for describing XML Schema datatypes."@en ;
     vann:preferredNamespacePrefix "xsd" ;

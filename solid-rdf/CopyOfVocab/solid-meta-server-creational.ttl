@@ -13,7 +13,8 @@ prefix solid_meta_server_creational: <https://inrupt.com/vocab/solid_meta_server
 
 
 solid_meta_server_creational: a owl:Ontology;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/solid_meta_server_creational/0.0.1> ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.
  informative labels or error messages) used by Solid servers at server creation time."""@en ;

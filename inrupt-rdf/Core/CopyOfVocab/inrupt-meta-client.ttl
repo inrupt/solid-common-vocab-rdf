@@ -14,7 +14,8 @@ prefix inrupt_meta_client: <https://inrupt.com/vocab/meta/client#>
 
 
 inrupt_meta_client: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/meta/client/0.0.1> ;
 	dcterms:title "Metadata Client Vocabulary"@en ;
 	dcterms:description "This vocabulary provides client metadata terms (e.g. classes, properties and text strings (e.g., informative labels or error messages)) used by clients at runtime."@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;

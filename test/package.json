@@ -11,12 +11,12 @@
     "url": "git@github.com:inrupt/solid-common-vocab-rdf.git"
   },
   "dependencies": {
-    "@inrupt/vocab-common-rdf": "^0.6.3",
-    "@inrupt/vocab-common-rdf-rdfjs": "^0.6.3",
-    "@inrupt/vocab-inrupt-common": "^0.6.3",
-    "@inrupt/vocab-inrupt-common-rdfjs": "^0.6.3",
-    "@inrupt/vocab-solid-common": "^0.6.3",
-    "@inrupt/vocab-solid-common-rdfext": "^0.6.3"
+    "@inrupt/vocab-common-rdf-vocabterm": "*",
+    "@inrupt/vocab-inrupt-core-rdfjs-rdfdatafactory": "*",
+    "@inrupt/vocab-inrupt-core-vocabterm": "*",
+    "@inrupt/vocab-solid-rdfjs-rdfdatafactory": "*",
+    "@inrupt/vocab-solid-rdflib": "*",
+    "@inrupt/vocab-solid-vocabterm": "*"
   },
   "author": "Inrupt, Inc.",
   "license": "MIT"

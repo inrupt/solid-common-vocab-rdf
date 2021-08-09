@@ -154,68 +154,71 @@ artifactToGenerate:
           - templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/pom.hbs
             fileName: pom.xml
 
-  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
+  # This is the configuration of the DEFAULT JavaScript artifact - i.e. where
   # the name of the generated npm module does not contain details of it's
   # dependencies (e.g. whether it provides VocabTerm constants or just string
-  # constants, or whether it depends on RDF4J or Jena or RDF Commons, etc.).
-  - programmingLanguage: TypeScript
-    artifactVersion: "0.8.2"
+  # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
+  - programmingLanguage: JavaScript
+    artifactVersion: "0.8.3"
 
-    artifactDirectoryName: TypeScript
-    sourceFileExtension: ts
+    artifactDirectoryName: JavaScript
+    sourceFileExtension: js
 
-    solidCommonVocabVersion: "^0.5.3"
-    templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+    templateInternal: stringLiteral/javascript/vocab.hbs
 
-#    artifactSuffix: -rdfjs-rdfdatafactory
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
-        typescriptVersion: "^4.1.3"
-        rdfjsTypesVersion: "^4.0.0"
-        rdfjsImplVersion: "^1.0.4"
+        bundleName: "VocabSolid"
+
         rollupVersion: "^2.36.1"
-        rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
-        bundleName: "SolidVocab"
+
         publish:
-        - key: "npmLocal"
-          command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-        - key: "npmPublic"
-          command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/package.hbs
+          - templateInternal: stringLiteral/javascript/package.hbs
             fileName: package.json
-          - templateInternal: generic/typescript/index.hbs
-            fileName: index.ts
-          - templateInternal: generic/typescript/tsconfig.hbs
-            fileName: tsconfig.json
-          - templateInternal: generic/typescript/rollup.config.hbs
+          - templateInternal: generic/javascript/index.hbs
+            fileName: index.js
+      - packagingTool: rollup
+        packagingDirectory: config
+        packagingTemplates:
+          - templateInternal: generic/javascript/rollup.config.hbs
             fileName: rollup.config.js
 
 
+  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
+  # i.e., where the name of the generated npm module does not contain details
+  # of the underlying RDF library dependencies (e.g., whether it depends on
+  # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.2"
+    artifactVersion: "0.8.3"
 
-    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-rdfdatafactory
+    artifactSuffix: -vocabterm
 
-    solidCommonVocabVersion: "^0.5.3"
+    solidCommonVocabVersion: "^0.5.4"
+    rdfjsImplVersion: "^1.0.4"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
         typescriptVersion: "^4.1.3"
-        rdfjsTypesVersion: "^4.0.0"
-        rdfjsImplVersion: "^1.0.4"
         rollupVersion: "^2.36.1"
         rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
-        bundleName: "SolidVocab"
+
         publish:
           - key: "npmLocal"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
@@ -231,9 +234,82 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.8.3"
+
+    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    sourceFileExtension: ts
+    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+
+    solidCommonVocabVersion: "^0.5.4"
+    rdfjsImplVersion: "^1.0.4"
+    templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
+        typescriptVersion: "^4.1.3"
+        rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
+
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+  - programmingLanguage: TypeScript
+    artifactVersion: "0.8.3"
+
+    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    sourceFileExtension: ts
+    artifactSuffix: -rdfjs-rdfdatafactory
+
+    rdfjsImplVersion: "^1.0.4"
+    templateInternal: rdfLibraryDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
+        typescriptVersion: "^4.1.3"
+        rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
+
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: rdfLibraryDependent/typescript/rdfjsRdfDataFactory/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.8.2"
+    artifactVersion: "0.8.3"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js
@@ -244,10 +320,12 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
         rollupVersion: "^2.36.1"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
-        bundleName: "SolidVocab"
+
         publish:
           - key: "npmLocal"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
@@ -267,7 +345,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.8.2"
+    artifactVersion: "0.8.3"
 
     artifactDirectoryName: JavaScript-rdfjsBase
     sourceFileExtension: js
@@ -279,6 +357,8 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
         publish:
           - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
@@ -298,7 +378,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.8.2"
+    artifactVersion: "0.8.3"
 
     artifactDirectoryName: JavaScript-rdflib
     sourceFileExtension: js
@@ -310,6 +390,8 @@ artifactToGenerate:
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
+        bundleName: "VocabSolid"
+
         publish:
           - key: "npmLocalWeb"
             command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"

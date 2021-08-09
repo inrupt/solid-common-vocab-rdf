@@ -14,7 +14,8 @@ prefix inrupt_request: <https://inrupt.com/vocab/request#>
 
 
 inrupt_request: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/request/0.0.1> ;
  	dcterms:title "Solid Request Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms for a various
  Named Graphs that make up a request. For example; Headers, Body, Metadata,

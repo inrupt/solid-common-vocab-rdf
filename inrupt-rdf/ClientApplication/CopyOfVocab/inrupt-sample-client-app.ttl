@@ -16,7 +16,8 @@ prefix inrupt_client_app: <https://inrupt.com/vocab/sample/client-app#>
 # comment, and in at least English).
 #
 inrupt_client_app: a owl:Ontology, inrupt_gen:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/sample/client-app/0.0.1> ;
     dcterms:title "Sample Inrupt client application vocabulary"@en ;
     dcterms:description "Just a sample of what a client application vocabulary might look like."@en ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;

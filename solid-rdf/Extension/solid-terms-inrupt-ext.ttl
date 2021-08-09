@@ -19,9 +19,9 @@ prefix solid_terms_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid_te
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
-solid_terms_inrupt_ext:
-    a owl:Ontology;
-    owl:versionInfo "0.1" ;
+solid_terms_inrupt_ext: a owl:Ontology;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <http://www.w3.org/ns/solid/terms/0.0.1> ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2020/10/02"^^xsd:date ;
     dcterms:title "Inrupt extension adding new Solid Terms" ;

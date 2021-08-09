@@ -11,11 +11,10 @@ jobs:
     strategy:
       matrix:
         vocab: [
-            "common-rdf/Vocab-List-Common-Rdf.yml",
-            "solid-rdf/Vocab-List-Solid.yml",
-            "inrupt-rdf/Core/Vocab-List-Inrupt-Core.yml",
-            "inrupt-rdf/Service/Vocab-List-Inrupt-Service.yml",
-            "inrupt-rdf/Test/Vocab-List-Inrupt-Test.yml"
+            "common-rdf/vocab-common-rdf.yml",
+            "solid-rdf/vocab-Solid.yml",
+            "inrupt-rdf/Core/vocab-inrupt-core.yml",
+            "inrupt-rdf/Test/vocab-inrupt-test.yml"
         ]
     name: npm release for ${{ matrix.vocab }}
     steps:

@@ -9,6 +9,8 @@ prefix ldp: <http://www.w3.org/ns/ldp#>
 prefix vann: <http://purl.org/vocab/vann/>
 
 prefix schema: <http://schema.org/>
+
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix schema_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
 
 #
@@ -19,9 +21,9 @@ prefix schema_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
-schema_inrupt_ext:
-    a owl:Ontology;
-    owl:versionInfo "0.1" ;
+schema_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/extension/schema/0.0.1> ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/06/18"^^xsd:date ;
     dcterms:title "Inrupt extension adding multilingual meta-data for Schema.org terms" ;

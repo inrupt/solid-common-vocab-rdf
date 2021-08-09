@@ -17,6 +17,8 @@ prefix void: <http://rdfs.org/ns/void#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <http://vocab.deri.ie/void> a owl:Ontology, adms:SemanticAsset;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <http://rdfs.org/ns/void/1.0.0> ;
     dcterms:title "Vocabulary of Interlinked Datasets (VoID)";
     dcterms:description "The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.";
     dcterms:modified "2011-03-06"^^xsd:date;

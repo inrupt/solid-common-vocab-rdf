@@ -18,7 +18,8 @@ prefix sec: <https://w3id.org/security#>
 prefix cred: <https://www.w3.org/2018/credentials#>
 
 cred: a owl:Ontology ;
-    owl:versionInfo "1.0" ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://www.w3.org/2018/credentials/1.0.0> ;
     dcterms:title "The Verifiable Credentials Data Model Vocabulary"@en ;
     dcterms:description "A vocabulary for the Data Model for W3C Verifiable Credentials."@en ;
     vann:preferredNamespacePrefix "cred" ;

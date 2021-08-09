@@ -21,7 +21,8 @@ prefix ws:       <http://www.w3.org/ns/pim/space#>
 prefix ws_solid_ext: <https://inrupt.com/vocab/extension/ws#>
 
 ws_solid_ext: a owl:Ontology;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <http://www.w3.org/ns/pim/space/0.0.1> ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension to the Workspace Ontology"@en ;

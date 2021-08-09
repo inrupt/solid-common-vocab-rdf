@@ -14,7 +14,8 @@ prefix solid_service_core: <https://inrupt.com/vocab/solid_service_core#>
 
 
 solid_service_core: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/solid_service_core/0.0.1> ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g. classes, properties and text strings (e.g.
  informative labels or error messages) commonly used across Solid services."""@en ;
