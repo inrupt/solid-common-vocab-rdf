@@ -281,11 +281,11 @@ artifactToGenerate:
         npmModuleScope: "@inrupt/"
         publish:
           - key: "npmLocalWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
           - key: "npmLocal"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
           - key: "npmPublic"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --access public"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdfext/package.hbs
             fileName: package.json
@@ -312,11 +312,11 @@ artifactToGenerate:
         npmModuleScope: "@inrupt/"
         publish:
           - key: "npmLocalWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run dev && npm publish --registry http://localhost:4873/"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
           - key: "npmLocal"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm publish --registry http://localhost:4873/"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
           - key: "npmPublic"
-            command: "npm install --registry https://registry.npmjs.org/ && npm publish --registry https://registry.npmjs.org/ --access public"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/javascript/rdflib/package.hbs
             fileName: package.json
