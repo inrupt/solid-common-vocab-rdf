@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid
-artifactGeneratorVersion: 0.15.0
+artifactGeneratorVersion: 0.15.1
 
 versioning:
   type: git

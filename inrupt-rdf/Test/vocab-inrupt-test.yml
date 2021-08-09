@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-test
-artifactGeneratorVersion: 0.15.0
+artifactGeneratorVersion: 0.15.1
 
 versioning:
   type: git
