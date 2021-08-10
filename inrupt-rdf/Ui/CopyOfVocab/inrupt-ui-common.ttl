@@ -11,7 +11,8 @@ prefix inrupt_ui_common: <https://inrupt.com/vocab/ui/common#>
 
 
 inrupt_ui_common: a owl:Ontology, inrupt_gen:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/ui/common/0.0.1> ;
     dcterms:title "Inrupt UI common vocabulary"@en ;
     dcterms:description """The Inrupt User Interface (UI) common vocabulary -
  commonly used terms across all Inrupt UI components."""@en ;

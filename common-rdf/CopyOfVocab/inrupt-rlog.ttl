@@ -12,7 +12,8 @@ prefix vann: <http://purl.org/vocab/vann/>
 prefix rlog: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#>
 
 rlog: a owl:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog/1.0.0> ;
     dcterms:title "Inrupt-created copy of RLOG"@en ;
     dcterms:description "Inrupt-created copy of RLOG, needed due to Server 500 errors resolving original uni-leipzig.org!"@en ;
     vann:preferredNamespacePrefix "rlog" ;

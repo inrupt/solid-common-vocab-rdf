@@ -11,7 +11,8 @@ prefix inrupt_ui_comp_tictactoe: <https://inrupt.com/vocab/ui/component/tictacto
 
 
 inrupt_ui_comp_tictactoe: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/ui/component/tictactoe/0.0.1> ;
  	dcterms:title "Inrupt Tic-Tac-Toe game vocabulary"@en ;
 	dcterms:description """The Inrupt Tic-Tac-Toe game vocabulary."""@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;

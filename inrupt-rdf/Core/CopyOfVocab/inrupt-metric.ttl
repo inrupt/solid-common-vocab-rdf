@@ -14,7 +14,8 @@ prefix inrupt_metric: <https://inrupt.com/vocab/metric#>
 
 
 inrupt_metric: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/metric/0.0.1> ;
  	dcterms:title "Inrupt Metric Ontology"@en ;
 	dcterms:description "The Inrupt Metric Ontology contains vocab terms to represent metric statistics"@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;

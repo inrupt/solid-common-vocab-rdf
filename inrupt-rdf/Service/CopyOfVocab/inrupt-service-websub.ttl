@@ -14,7 +14,8 @@ prefix inrupt_websub: <https://inrupt.com/vocab/service/websub#>
 
 
 inrupt_websub: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/service/websub/0.0.1> ;
  	dcterms:title "Inrupt WebSub vocabulary"@en ;
 	dcterms:description """The Inrupt WebSub vocabulary."""@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;

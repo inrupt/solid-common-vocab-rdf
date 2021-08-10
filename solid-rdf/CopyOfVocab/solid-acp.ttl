@@ -12,7 +12,8 @@ prefix acp: <http://www.w3.org/ns/solid/acp#>
 
 
 acp: a owl:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <http://www.w3.org/ns/solid/acp/0.0.1> ;
     dcterms:title "Solid Access Control Policy Vocabulary"@en ;
     dcterms:description "A vocabulary to structure policy-based access controls for the Solid ecosystem."@en ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;

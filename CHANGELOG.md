@@ -5,8 +5,21 @@ configuration files contained in this repository.
 
 ## Unreleased
 
-- Further prefix name updates (e.g., changing to underscores instead of hyphens, mismatches fixed).
-- Update JS packaging YAML to correctly point to rollup config
+- Remove '@types/rdf-js' and 'rdfjsTypesVersion' from YAMLs (it's
+  deprecated now).
+- Remove '-List' from all YAML filenames, and make all lower-case.
+
+## v0.0.28 2021-07-30
+
+- Updated CI workflows to use renamed Artifact Generator.
+- Further prefix name updates (e.g., changing to underscores instead of
+  hyphens, mismatches fixed).
+- Update JS packaging YAML to correctly point to rollup config.
+- Flipped 'default' term types for atifacts to be string literal, instead
+  of RDF/JS types. This means the default artifacts have no dependencies on
+  any external libraries (but may make working with RDF libraries more
+  awkward, and will hav eno access to term meta-data - but we do publish
+  those artifacts too, they're just not the 'default').
 
 ## v0.0.27 2021-07-27
 

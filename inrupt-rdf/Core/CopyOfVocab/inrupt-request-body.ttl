@@ -14,7 +14,8 @@ prefix inrupt_request_body: <https://inrupt.com/vocab/request_body#>
 
 
 inrupt_request_body: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/request_body/0.0.1> ;
  	dcterms:title "Solid Request body Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms for a request body (in this case, we're really just
  providing the Named Graph details (e.g. the IRI for the named graph itself), since the contents of a request body are

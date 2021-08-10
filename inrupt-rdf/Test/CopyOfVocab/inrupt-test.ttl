@@ -13,7 +13,8 @@ prefix inrupt_test: <https://inrupt.com/vocab/test#>
 
 
 inrupt_test: a owl:Ontology, inrupt_gen:Ontology;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/test/0.0.1> ;
  	dcterms:title "Inrupt test vocabulary"@en ;
 	dcterms:description """The Inrupt test vocabulary - just commonly used terms
  across all Inrupt tests."""@en ;

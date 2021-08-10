@@ -8,7 +8,12 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 
+
+prefix http: <https://www.w3.org/2007/ont/http#>
+prefix httph: <http://www.w3.org/2007/ont/httph#>
+
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix httph_inrupt_ext: <https://inrupt.com/vocab/extension/httph#>
 
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
@@ -18,12 +23,9 @@ prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
-prefix http: <https://www.w3.org/2007/ont/http#>
-prefix httph: <http://www.w3.org/2007/ont/httph#>
-prefix httph_inrupt_ext: <https://inrupt.com/vocab/extension/httph#>
-
 httph_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/extension/httph/0.0.1> ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension adding terms and multilingual meta-data for HTTP headers" ;
@@ -32,7 +34,7 @@ httph_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
  and multilingual alternative names and translations for comments (e.g. for use
  directly as labels or tool-tips in user interfaces or error messages)""" ;
     vann:preferredNamespacePrefix "httph_inrupt_ext" ;
-    vann:preferredNamespaceUri "https://inrupt.com/vocab/extension/httph#" ;
+    vann:preferredNamespaceUri "http://www.w3.org/2007/ont/httph#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 httph:accept a rdf:Property ;

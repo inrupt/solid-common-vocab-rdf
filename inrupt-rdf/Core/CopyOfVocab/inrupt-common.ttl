@@ -11,7 +11,8 @@ prefix inrupt_common: <https://inrupt.com/vocab/common#>
 
 
 inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+	owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
  	dcterms:title "Inrupt common vocabulary"@en ;
 	dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;

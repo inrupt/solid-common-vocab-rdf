@@ -4,11 +4,11 @@ Generated/
 
 # In case publishing script is run from within this repo, we ignore the default
 # target generation directory.
-src/LitVocab
+src/SolidCommonVocab
 
+# IntelliJ IDE.
 .idea
 *.iml
 
-#vscode
+# VS Code IDE.
 /.vscode
-

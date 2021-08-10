@@ -14,7 +14,7 @@ prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
 
 
 solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
-    owl:versionInfo "0.1" ;
+    owl:versionInfo "1.2.1" ;
     owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
     owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/solid-generator-ui#" ;

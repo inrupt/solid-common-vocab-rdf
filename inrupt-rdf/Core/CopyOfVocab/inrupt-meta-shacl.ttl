@@ -14,7 +14,8 @@ prefix inrupt_meta_shacl: <https://inrupt.com/vocab/meta/shacl#>
 
 
 inrupt_meta_shacl: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.1" ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/meta/shacl/0.0.1> ;
  	dcterms:title "LIT Metadata Client Vocabulary"@en ;
 	dcterms:description """The LIT vocabulary providing terms (e.g. classes, properties and text strings (e.g.
  informative labels or error messages) usable by SHACL validation engines at runtime."""@en ;

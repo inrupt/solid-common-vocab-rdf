@@ -21,35 +21,76 @@ vocabulary (see the example below showing how easy it is to access the
 terms from the popular Friend-of-a-Friend (FOAF) RDF vocabulary).
 
 Because developers typically use terms from multiple, often related
-vocabularies, it can be very convenient for them if we bundle together the
-generated classes from related vocabularies together into 
-libraries/modules for them to import more easily.
+vocabularies, it's generally more convenient if we bundle the generated
+classes from related vocabularies together into a single library/module,
+making it easier for developers to import.
+
+Inrupt's [Artifact Generator](https://github.com/inrupt/artifact-generator) is
+a tool that can generate these convenient developer libraries/modules in
+multiple programming languages.
 
 ## Published vocabulary bundles
 
-Currently, this repository contains configuration for the following bundles of
-vocabularies (each configured in its own directory from the root of this
-repository):
+This repository contains Artifact Generator configuration files for many
+bundles of related vocabularies (each configured in its own sub-directory from
+the root of this repository).
+
+**Note:** Below we provide links to the default JavaScript artifacts that Inrupt
+publishes to `npmjs.org` (which define individual vocabulary terms using String
+literals), but in fact we also publish many more artifacts that are more
+specialized for working with RDF too (e.g., we publish artifacts where the
+vocabulary terms are typed as `IRI` from your favorite RDF library, such as in
+Java from [RDF4J](https://rdf4j.org/javadoc/latest/index.html?org/eclipse/rdf4j/model/IRI.html),
+or as `NamedNode` in JavaScript with [RDF/JS](https://rdf.js.org/data-model-spec/#namednode-interface)).
 
  - [@inrupt/vocab-common-rdf](https://www.npmjs.com/package/@inrupt/vocab-common-rdf),
  including dozens of well-known RDF vocabularies: [FOAF](http://xmlns.com/foaf/spec/), 
  [LDP](http://www.w3.org/ns/ldp#), [OWL](http://www.w3.org/2002/07/owl#),
  [RDFS](http://www.w3.org/2000/01/rdf-schema#), etc.
  
- - [@inrupt/vocab-solid-common](https://www.npmjs.com/package/@inrupt/vocab-solid-common), 
+ - [@inrupt/vocab-solid](https://www.npmjs.com/package/@inrupt/vocab-solid), 
  including vocabularies related to Solid like [Solid Terms](https://www.w3.org/ns/solid/terms), 
  [WebACL](http://www.w3.org/ns/auth/acl#), the [Workspace Ontology](http://www.w3.org/ns/pim/space), etc.
  
- - [@inrupt/vocab-inrupt-common](https://www.npmjs.com/package/@inrupt/vocab-inrupt-common), 
- including Inrupt-specific vocabularies, such as product-specific vocabs, or our
- UI components).
+ - Inrupt's vocabulary bundles:
+   
+   Within Inrupt we use a number of bundles of vocabularies - for example, we
+   have a bundle of Glossaries that we maintain as RDF vocabularies; we have a
+   bundle for Unit Testing terms; we have a bundle for Inrupt Services; we
+   have a bundle for UI components, etc.
+   
+   Of all these bundles, the 'Core' bundle contains vocabularies commonly used
+   right across Inrupt:
+   
+   - [@inrupt/vocab-inrupt-core](https://www.npmjs.com/package/@inrupt/vocab-inrupt-core), 
+     includes Inrupt-specific vocabularies that define terms commonly used right 
+     across Inrupt.
 
-To see how and where these bundles are generated, packaged and published, you'll
-need to look at the configuration files themselves (i.e., the YAML files) in each
-of the respective directories (since different artifacts can be generated for
-different programming languages, and that depend on multiple different underlying
-RDF libraries, and can be published to multiple repositories - in other words,
-the entire generation process is extremely configurable and flexible!).
+To see how and where these bundles are generated, packaged, and published,
+you'll need to look at the configuration files themselves (i.e., the YAML
+files) in each of the respective directories (since different artifacts can be
+generated for different programming languages, and that depend on multiple
+different underlying RDF libraries, and can be published to multiple
+repositories - in other words, the entire generation process is extremely
+configurable and flexible!).
+
+## Vocabularies referenced in the repository
+
+The general directory structure we use for each vocabulary bundle is as
+follows:
+
+* In the root directory we generally provide an Artifact Generator
+  configuration file that configured which vocabularies we wish to bundle
+  together, and how to package and publish multiple artifacts (e.g., multiple
+  `npm` modules, or multiple Java JARs, etc.).
+
+* A 'CopyOfVocab' directory that stores local vocabulary files (typically in
+  Turtle), such as copies of online vocabularies (e.g., if we can't easily
+  access online versions in RDF, or if the hosting server is unreliable).
+
+* An 'Extension' directory that stores extension vocabularies that, for
+  example, may provide translations of labels or comments for terms from other
+  vocabularies, or that select subsets of terms from other large vocabularies.
 
 ## Example usage - JavaScript
 
@@ -84,10 +125,21 @@ The Agent term from the FOAF vocabulary has the IRI: [http://xmlns.com/foaf/0.1/
 Our artifact generation process can optionally generate static constants that
 also provide very easy access to certain meta-data that is commonly provided by
 vocabularies (e.g., `rdfs:label` and `rdfs:comment` values, `rdfs:seeAlso`
-links, `rdfs:isDefinedBy` links, etc.). For example, to access the comment
-associated with the FOAF term 'Agent', do the following:
+links, `rdfs:isDefinedBy` links, etc.). 
+
+To take advantage of this capability, you'll need to import one of the
+specialist artifacts that we routinely generate, one that generates individual
+vocabulary terms using Inrupt's [solid-common-vocab-js](https://github.com/inrupt/solid-common-vocab-js)
+library that is designed to pull in meta-data defined in the original RDF
+vocabulary, and that exposes that meta-data (like `rdfs:label`, `rdfs:comment`,
+`rdfs:seeAlso`, `rdfs:isDefinedBy`, etc.) via simple JavaScript methods.
+
+For example, to access the comment associated with the FOAF term 'Agent', do
+the following:
 
 ```javascript
+const { FOAF } = require("@inrupt/vocab-common-rdf-with-metadata");
+
 console.log(`The comment associated with Agent: [${FOAF.Agent.comment}]`);
 ```
 
