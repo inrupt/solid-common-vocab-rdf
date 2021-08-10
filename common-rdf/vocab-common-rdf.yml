@@ -481,12 +481,11 @@ vocabList:
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: vCard with selective terms having translations - for describing People and Organizations
-#    nameAndPrefixOverride: vcard-inrupt
-#    inputResources:
-#      - http://www.w3.org/2006/vcard/ns#
-#    termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
+  - description: vCard with selective terms having translations - for describing People and Organizations
+    nameAndPrefixOverride: vcard-inrupt
+    inputResources:
+      - http://www.w3.org/2006/vcard/ns#
+    termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
 
 
   - description: RDF (Resource Description Framework) - a framework for representing information in the Web
@@ -494,12 +493,11 @@ vocabList:
     inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-#    nameAndPrefixOverride: rdf-inrupt
-#    inputResources:
-#      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
-#    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
+  - description: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
+    nameAndPrefixOverride: rdf-inrupt
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
 
   - description: RDFS (RDF Schema) - a data-modelling vocabulary for RDF data
     nameAndPrefixOverride: rdfs
@@ -519,12 +517,11 @@ vocabList:
     inputResources:
       - https://www.w3.org/ns/ldp#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-#    nameAndPrefixOverride: ldp-inrupt
-#    inputResources:
-#      - https://www.w3.org/ns/ldp#
-#      - ./Extension/ldp-inrupt-ext.ttl
+  - description: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
+    nameAndPrefixOverride: ldp-inrupt
+    inputResources:
+      - https://www.w3.org/ns/ldp#
+      - ./Extension/ldp-inrupt-ext.ttl
 
   - description: HTTP Ontology - terms from the HTTP protocol
     nameAndPrefixOverride: http
@@ -542,23 +539,24 @@ vocabList:
     inputResources:
       - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
 
-  - description: Simple Knowledge Organisation System (SKOS)
-    nameAndPrefixOverride: skos
-    inputResources:
-      - http://www.w3.org/2004/02/skos/core#
-
-  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
-    nameAndPrefixOverride: skos-xl
-    inputResources:
-      - http://www.w3.org/2008/05/skos-xl#
-    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation properly
-    # at all. If basically ignores all content types and just returns RDF/XML
-    # *unless* the content-type contains 'text/html' (regardless of any 'q' values
-    # provided at all), in which case it returns HTML containing two RDFa triples.
-    # So unfortunately we need to work around this exception, and make sure we
-    # don't request 'text/html' at all for just this vocab (and since it only
-    # returns RDF/XML otherwise, we might as well explicitly ask for that).
-    vocabAcceptHeaderOverride: application/rdf+xml
+# REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING THESE VOCABS DURING CI...
+#  - description: Simple Knowledge Organisation System (SKOS)
+#    nameAndPrefixOverride: skos
+#    inputResources:
+#      - http://www.w3.org/2004/02/skos/core#
+#
+#  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
+#    nameAndPrefixOverride: skos-xl
+#    inputResources:
+#      - http://www.w3.org/2008/05/skos-xl#
+#    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation properly
+#    # at all. If basically ignores all content types and just returns RDF/XML
+#    # *unless* the content-type contains 'text/html' (regardless of any 'q' values
+#    # provided at all), in which case it returns HTML containing two RDFa triples.
+#    # So unfortunately we need to work around this exception, and make sure we
+#    # don't request 'text/html' at all for just this vocab (and since it only
+#    # returns RDF/XML otherwise, we might as well explicitly ask for that).
+#    vocabAcceptHeaderOverride: application/rdf+xml
 
 
   #
