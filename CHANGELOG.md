@@ -5,11 +5,7 @@ configuration files contained in this repository.
 
 ## Unreleased
 
-- Remove '@types/rdf-js' and 'rdfjsTypesVersion' from YAMLs (it's
-  deprecated now).
-- Remove '-List' from all YAML filenames, and make all lower-case.
-
-## v0.0.28 2021-07-30
+## v0.0.28 2021-08-10
 
 - Updated CI workflows to use renamed Artifact Generator.
 - Further prefix name updates (e.g., changing to underscores instead of
@@ -20,6 +16,9 @@ configuration files contained in this repository.
   any external libraries (but may make working with RDF libraries more
   awkward, and will hav eno access to term meta-data - but we do publish
   those artifacts too, they're just not the 'default').
+- Remove '@types/rdf-js' and 'rdfjsTypesVersion' from YAMLs (it's
+  deprecated now).
+- Remove '-List' from all YAML filenames, and make all lower-case.
 
 ## v0.0.27 2021-07-27
 
