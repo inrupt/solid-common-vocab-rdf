@@ -542,23 +542,24 @@ vocabList:
     inputResources:
       - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
 
-  - description: Simple Knowledge Organisation System (SKOS)
-    nameAndPrefixOverride: skos
-    inputResources:
-      - http://www.w3.org/2004/02/skos/core#
-
-  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
-    nameAndPrefixOverride: skos-xl
-    inputResources:
-      - http://www.w3.org/2008/05/skos-xl#
-    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation properly
-    # at all. If basically ignores all content types and just returns RDF/XML
-    # *unless* the content-type contains 'text/html' (regardless of any 'q' values
-    # provided at all), in which case it returns HTML containing two RDFa triples.
-    # So unfortunately we need to work around this exception, and make sure we
-    # don't request 'text/html' at all for just this vocab (and since it only
-    # returns RDF/XML otherwise, we might as well explicitly ask for that).
-    vocabAcceptHeaderOverride: application/rdf+xml
+# REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING THESE VOCABS DURING CI...
+#  - description: Simple Knowledge Organisation System (SKOS)
+#    nameAndPrefixOverride: skos
+#    inputResources:
+#      - http://www.w3.org/2004/02/skos/core#
+#
+#  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
+#    nameAndPrefixOverride: skos-xl
+#    inputResources:
+#      - http://www.w3.org/2008/05/skos-xl#
+#    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation properly
+#    # at all. If basically ignores all content types and just returns RDF/XML
+#    # *unless* the content-type contains 'text/html' (regardless of any 'q' values
+#    # provided at all), in which case it returns HTML containing two RDFa triples.
+#    # So unfortunately we need to work around this exception, and make sure we
+#    # don't request 'text/html' at all for just this vocab (and since it only
+#    # returns RDF/XML otherwise, we might as well explicitly ask for that).
+#    vocabAcceptHeaderOverride: application/rdf+xml
 
 
   #
