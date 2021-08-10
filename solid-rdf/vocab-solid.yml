@@ -23,7 +23,7 @@ artifactGeneratorVersion: 0.15.1
 versioning:
   type: git
   # Remove URL until we open-source this repository...
-  # url: https://github.com/inrupt/solid-vocab-rdf.git
+  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -71,7 +71,8 @@ artifactToGenerate:
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
-            command: "mvn -s /home/runner/work/solid-vocab-rdf/solid-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml
+            deploy --log-file ../../../mvn-deploy.log"
         packagingTemplates:
           - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
             fileName: pom.xml
@@ -110,7 +111,7 @@ artifactToGenerate:
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
-            command: "mvn -s /home/runner/work/solid-vocab-rdf/solid-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/pom.hbs
             fileName: pom.xml
@@ -149,7 +150,7 @@ artifactToGenerate:
           - key: "mavenRemote"
             command: "mvn deploy"
           - key: "cloudsmith"
-            command: "mvn -s /home/runner/work/solid-vocab-rdf/solid-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/pom.hbs
             fileName: pom.xml
