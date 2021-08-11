@@ -539,15 +539,18 @@ vocabList:
     inputResources:
       - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
 
-# REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING THESE VOCABS DURING CI...
-#  - description: Simple Knowledge Organisation System (SKOS)
-#    nameAndPrefixOverride: skos
-#    inputResources:
+  - description: Simple Knowledge Organisation System (SKOS)
+    nameAndPrefixOverride: skos
+    inputResources:
+      - ./CopyOfVocab/inrupt-skos.ttl
+      # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
 #      - http://www.w3.org/2004/02/skos/core#
-#
-#  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
-#    nameAndPrefixOverride: skos-xl
-#    inputResources:
+
+  - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
+    nameAndPrefixOverride: skos-xl
+    inputResources:
+      - ./CopyOfVocab/inrupt-skos-xl.ttl
+      # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
 #      - http://www.w3.org/2008/05/skos-xl#
 #    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation properly
 #    # at all. If basically ignores all content types and just returns RDF/XML
