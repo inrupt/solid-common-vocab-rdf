@@ -12,7 +12,7 @@ jobs:
       matrix:
         vocab: [
             "common-rdf/vocab-common-rdf.yml",
-            "solid-rdf/vocab-Solid.yml",
+            "solid-rdf/vocab-solid.yml",
             "inrupt-rdf/Core/vocab-inrupt-core.yml",
             "inrupt-rdf/Test/vocab-inrupt-test.yml"
         ]
