@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-test
-artifactGeneratorVersion: 0.15.1
+artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
@@ -74,7 +74,7 @@ artifactToGenerate:
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: JavaScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: JavaScript
     sourceFileExtension: js
@@ -112,13 +112,13 @@ artifactToGenerate:
   # of the underlying RDF library dependencies (e.g., whether it depends on
   # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
     artifactSuffix: -vocabterm
 
-    solidCommonVocabVersion: "^0.5.4"
+    solidCommonVocabVersion: "^1.0.0"
     rdfjsImplVersion: "^1.0.4"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
@@ -152,13 +152,13 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
 
-    solidCommonVocabVersion: "^0.5.4"
+    solidCommonVocabVersion: "^1.0.0"
     rdfjsImplVersion: "^1.0.4"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
@@ -192,7 +192,7 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
@@ -235,7 +235,7 @@ artifactToGenerate:
   # RDF/JS interface DataFactory type).
   #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "0.8.3"
+#    artifactVersion: "1.0.0"
 #    artifactDirectoryName: TypeScript-rdfjs-base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
 #    sourceFileExtension: ts
@@ -271,7 +271,7 @@ artifactToGenerate:
 #            fileName: rollup.config.js
 
   - programmingLanguage: JavaScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: JavaScript-StringLiteral
     sourceFileExtension: js

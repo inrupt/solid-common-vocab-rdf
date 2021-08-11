@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-client-application
-artifactGeneratorVersion: 0.15.1
+artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
@@ -70,13 +70,13 @@ artifactToGenerate:
   # of the underlying RDF library dependencies (e.g., whether it depends on
   # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
     artifactSuffix: -vocabterm
 
-    solidCommonVocabVersion: "^0.5.4"
+    solidCommonVocabVersion: "^1.0.0"
     rdfjsImplVersion: "^1.0.4"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
@@ -109,13 +109,13 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "0.8.3"
+    artifactVersion: "1.0.0"
 
     artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
 
-    solidCommonVocabVersion: "^0.5.4"
+    solidCommonVocabVersion: "^1.0.0"
     rdfjsImplVersion: "^1.0.4"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
