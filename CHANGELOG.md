@@ -21,8 +21,8 @@ configuration files contained in this repository.
 - Flipped 'default' term types for artifacts to be string literal, instead
   of RDF/JS types. This means the default artifacts have no dependencies on
   any external libraries (but may make working with RDF libraries more
-  awkward, and will hav eno access to term meta-data - but we do publish
-  those artifacts too, they're just not the 'default').
+  awkward, and will have no access to term meta-data - but we do publish
+  those artifacts explicitly too, they're just not the 'default').
 - Remove '@types/rdf-js' and 'rdfjsTypesVersion' from YAMLs (it's
   deprecated now).
 - Remove '-List' from all YAML filenames, and make all lower-case.
