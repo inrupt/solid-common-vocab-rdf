@@ -18,7 +18,7 @@ configuration files contained in this repository.
 - Further prefix name updates (e.g., changing to underscores instead of
   hyphens, mismatches fixed).
 - Update JS packaging YAML to correctly point to rollup config.
-- Flipped 'default' term types for atifacts to be string literal, instead
+- Flipped 'default' term types for artifacts to be string literal, instead
   of RDF/JS types. This means the default artifacts have no dependencies on
   any external libraries (but may make working with RDF libraries more
   awkward, and will hav eno access to term meta-data - but we do publish
