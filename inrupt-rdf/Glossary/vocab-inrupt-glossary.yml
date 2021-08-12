@@ -15,8 +15,7 @@ artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
-  # Remove URL until we open-source this repository...
-  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates: 
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"

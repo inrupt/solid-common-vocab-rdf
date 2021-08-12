@@ -5,7 +5,11 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Now that the AG is open-sourced, added back the git URL to the versioning
+  section of all the YAMLs.
+
 ## v1.0.0 2021-08-11
+
 - Release to open source.
 
 ## v0.0.28 2021-08-10
