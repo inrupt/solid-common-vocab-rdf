@@ -24,7 +24,7 @@ jobs:
           uses: actions/setup-node@v1
           with:
             node-version: '12.12.0'
-            registry-url: https://npm.pkg.github.com/
+            registry-url: https://registry.npmjs.com/
             scope: '@inrupt'
         # The following step sets up Maven.
         - name: Set up JDK 11
@@ -54,20 +54,10 @@ jobs:
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
-
-        # Installs the Artifact Generator from its GitHub package.
-        # The package is renamed in order to enable having different versions
-        # side-by-side.
-        - name: Install Artifact Generator
-          run: npm install artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}@npm:@inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} --registry https://npm.pkg.github.com/inrupt
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         # Note: This only pushes to Cloudsmith (not npm), because it does not
         # increment the version number, which is fine for Maven SNAPSHOT
         # versions.
-        - run: node node_modules/artifact-generator${{steps.generator-version-common.outputs.vocab-generator-version}}/index.js generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith
-          env:
-              NODE_AUTH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith
         - name: Upload log for debug
           # Only upload if the previous step failed.
           if: failure()
