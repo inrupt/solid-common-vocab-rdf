@@ -5,7 +5,12 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Updated the StringLiteral artifacts to generate TypeScript instead of
+  JavaScript.
+- Configure the required Typescript packaging files consistently. 
+
 ## v1.0.0 2021-08-11
+
 - Release to open source.
 
 ## v0.0.28 2021-08-10

@@ -15,8 +15,7 @@ artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
-  # Remove URL until we open-source this repository...
-  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -69,24 +68,26 @@ artifactToGenerate:
         id: cloudsmith-development
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
-  # This is the configuration of the DEFAULT JavaScript artifact - i.e. where
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
   # the name of the generated npm module does not contain details of it's
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
-  - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
+  - programmingLanguage: TypeScript
+    artifactVersion: "1.0.1"
 
-    artifactDirectoryName: JavaScript
-    sourceFileExtension: js
+    artifactDirectoryName: TypeScript
+    sourceFileExtension: ts
 
-    templateInternal: stringLiteral/javascript/vocab.hbs
+    templateInternal: stringLiteral/typescript/vocab.hbs
 
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         bundleName: "VocabInruptTest"
 
+        typescriptVersion: "^4.1.3"
         rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
 
@@ -97,29 +98,30 @@ artifactToGenerate:
           - key: "npmPublic"
             command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: stringLiteral/javascript/package.hbs
+          - templateInternal: stringLiteral/typescript/package.hbs
             fileName: package.json
-          - templateInternal: generic/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: rollup
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: generic/javascript/rollup.config.hbs
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
+
 
   # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
   # i.e., where the name of the generated npm module does not contain details
   # of the underlying RDF library dependencies (e.g., whether it depends on
   # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
     artifactSuffix: -vocabterm
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -128,8 +130,6 @@ artifactToGenerate:
         bundleName: "VocabInruptTest"
 
         typescriptVersion: "^4.1.3"
-        rdfjsNamespaceVersion: "^1.1.0"
-        rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.36.1"
         rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
@@ -152,14 +152,15 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -168,8 +169,6 @@ artifactToGenerate:
         bundleName: "VocabInruptTest"
 
         typescriptVersion: "^4.1.3"
-        rdfjsNamespaceVersion: "^1.1.0"
-        rdfjsNamespaceTypesVersion: "^1.1.1"
         rollupVersion: "^2.36.1"
         rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
@@ -192,13 +191,14 @@ artifactToGenerate:
             fileName: rollup.config.js
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -rdfjs-rdfdatafactory
 
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: rdfLibraryDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -235,9 +235,9 @@ artifactToGenerate:
   # RDF/JS interface DataFactory type).
   #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "1.0.0"
+#    artifactVersion: "1.0.1"
 #    artifactDirectoryName: TypeScript-rdfjs-base
-#    templateInternal: rdfLibraryDependent/typescript/rdfjsBase/vocab.hbs
+#    templateInternal: rdfLibraryDependent/typescript/rdfjsBase-DataModel/vocab.hbs
 #    sourceFileExtension: ts
 #    artifactSuffix: -rdfjs-base
 #    packaging:
@@ -247,8 +247,6 @@ artifactToGenerate:
 #
 #        typescriptVersion: "^4.1.3"
 #        rdfjsImplVersion: "^1.2.0"
-#        rdfjsNamespaceVersion: "^1.1.0"
-#        rdfjsNamespaceTypesVersion: "^1.1.1"
 #        rollupVersion: "^2.36.1"
 #        rollupTypescriptPluginVersion: "^0.29.0"
 #        rollupCommonjsPluginVersion: "^17.0.0"
@@ -261,7 +259,7 @@ artifactToGenerate:
 #          - key: "npmPublic"
 #            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
 #        packagingTemplates:
-#          - templateInternal: rdfLibraryDependent/typescript/rdfjsBase/package.hbs
+#          - templateInternal: rdfLibraryDependent/typescript/rdfjsBase-DataModel/package.hbs
 #            fileName: package.json
 #          - templateInternal: generic/typescript/index.hbs
 #            fileName: index.ts
@@ -270,21 +268,23 @@ artifactToGenerate:
 #          - templateInternal: generic/typescript/rollup.config.hbs
 #            fileName: rollup.config.js
 
-  - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
+  - programmingLanguage: TypeScript
+    artifactVersion: "1.0.1"
 
-    artifactDirectoryName: JavaScript-StringLiteral
-    sourceFileExtension: js
+    artifactDirectoryName: TypeScript-StringLiteral
+    sourceFileExtension: ts
     artifactSuffix: -stringliteral
 
-    templateInternal: stringLiteral/javascript/vocab.hbs
+    templateInternal: stringLiteral/typescript/vocab.hbs
 
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         bundleName: "VocabInruptTest"
 
+        typescriptVersion: "^4.1.3"
         rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
 
@@ -295,15 +295,15 @@ artifactToGenerate:
           - key: "npmPublic"
             command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: stringLiteral/javascript/package.hbs
+          - templateInternal: stringLiteral/typescript/package.hbs
             fileName: package.json
-          - templateInternal: generic/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: rollup
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: generic/javascript/rollup.config.hbs
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
+
 
 vocabList:
   - description: Test vocabulary - defines classes and properties for testing (like WebID's, resources, containers, etc.).

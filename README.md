@@ -35,9 +35,9 @@ This repository contains Artifact Generator configuration files for many
 bundles of related vocabularies (each configured in its own sub-directory from
 the root of this repository).
 
-**Note:** Below we provide links to the default JavaScript artifacts that Inrupt
+**Note:** Below we provide links to the default TypeScript artifacts that Inrupt
 publishes to `npmjs.org` (which define individual vocabulary terms using String
-literals), but in fact we also publish many more artifacts that are more
+literals). In fact we also publish many more artifacts that are more
 specialized for working with RDF too (e.g., we publish artifacts where the
 vocabulary terms are typed as `IRI` from your favorite RDF library, such as in
 Java from [RDF4J](https://rdf4j.org/javadoc/latest/index.html?org/eclipse/rdf4j/model/IRI.html),
@@ -57,7 +57,7 @@ or as `NamedNode` in JavaScript with [RDF/JS](https://rdf.js.org/data-model-spec
    Within Inrupt we use a number of bundles of vocabularies - for example, we
    have a bundle of Glossaries that we maintain as RDF vocabularies; we have a
    bundle for Unit Testing terms; we have a bundle for Inrupt Services; we
-   have a bundle for UI components, etc.
+   have a bundle for UI components; etc.
    
    Of all these bundles, the 'Core' bundle contains vocabularies commonly used
    right across Inrupt:
@@ -69,8 +69,8 @@ or as `NamedNode` in JavaScript with [RDF/JS](https://rdf.js.org/data-model-spec
 To see how and where these bundles are generated, packaged, and published,
 you'll need to look at the configuration files themselves (i.e., the YAML
 files) in each of the respective directories (since different artifacts can be
-generated for different programming languages, and that depend on multiple
-different underlying RDF libraries, and can be published to multiple
+generated for different programming languages, and they can each depend on
+multiple different underlying RDF libraries, and can be published to multiple
 repositories - in other words, the entire generation process is extremely
 configurable and flexible!).
 
