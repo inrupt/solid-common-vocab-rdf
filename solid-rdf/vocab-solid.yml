@@ -22,8 +22,7 @@ artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
-  # Remove URL until we open-source this repository...
-  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -77,6 +76,7 @@ artifactToGenerate:
           - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
             fileName: pom.xml
 
+
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
 
@@ -115,6 +115,7 @@ artifactToGenerate:
         packagingTemplates:
           - templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/pom.hbs
             fileName: pom.xml
+
 
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
@@ -155,24 +156,27 @@ artifactToGenerate:
           - templateInternal: rdfLibraryDependent/java/commonsRdfSimpleRdf/pom.hbs
             fileName: pom.xml
 
-  # This is the configuration of the DEFAULT JavaScript artifact - i.e. where
+
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
   # the name of the generated npm module does not contain details of it's
   # dependencies (e.g. whether it provides VocabTerm constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
-  - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
+  - programmingLanguage: TypeScript
+    artifactVersion: "1.0.1"
 
-    artifactDirectoryName: JavaScript
-    sourceFileExtension: js
+    artifactDirectoryName: TypeScript
+    sourceFileExtension: ts
 
-    templateInternal: stringLiteral/javascript/vocab.hbs
+    templateInternal: stringLiteral/typescript/vocab.hbs
 
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         bundleName: "VocabSolid"
 
+        typescriptVersion: "^4.1.3"
         rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
 
@@ -183,14 +187,13 @@ artifactToGenerate:
           - key: "npmPublic"
             command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: stringLiteral/javascript/package.hbs
+          - templateInternal: stringLiteral/typescript/package.hbs
             fileName: package.json
-          - templateInternal: generic/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: rollup
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: generic/javascript/rollup.config.hbs
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
 
@@ -199,14 +202,15 @@ artifactToGenerate:
   # of the underlying RDF library dependencies (e.g., whether it depends on
   # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
     artifactSuffix: -vocabterm
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -235,15 +239,17 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
+
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -272,14 +278,16 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
+
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -rdfjs-rdfdatafactory
 
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: rdfLibraryDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -309,21 +317,24 @@ artifactToGenerate:
           - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
-  - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
 
-    artifactDirectoryName: JavaScript-StringLiteral
-    sourceFileExtension: js
+  - programmingLanguage: TypeScript
+    artifactVersion: "1.0.1"
+
+    artifactDirectoryName: TypeScript-StringLiteral
+    sourceFileExtension: ts
     artifactSuffix: -stringliteral
 
-    templateInternal: stringLiteral/javascript/vocab.hbs
+    templateInternal: stringLiteral/typescript/vocab.hbs
 
     packaging:
       - packagingTool: npm
         npmModuleScope: "@inrupt/"
         bundleName: "VocabSolid"
 
+        typescriptVersion: "^4.1.3"
         rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
         rollupCommonjsPluginVersion: "^17.0.0"
         rollupNodeResolveVersion: "^11.0.1"
 
@@ -334,52 +345,18 @@ artifactToGenerate:
           - key: "npmPublic"
             command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
         packagingTemplates:
-          - templateInternal: stringLiteral/javascript/package.hbs
+          - templateInternal: stringLiteral/typescript/package.hbs
             fileName: package.json
-          - templateInternal: generic/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: rollup
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: generic/javascript/rollup.config.hbs
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
             fileName: rollup.config.js
 
 
   - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
-
-    artifactDirectoryName: JavaScript-rdfjsBase
-    sourceFileExtension: js
-    artifactSuffix: -rdfjs-base
-
-    rdfjsNamespaceVersion: "^1.1.0"
-    templateInternal: rdfLibraryDependent/javascript/rdfext/vocab.hbs
-
-    packaging:
-      - packagingTool: npm
-        npmModuleScope: "@inrupt/"
-        bundleName: "VocabSolid"
-
-        publish:
-          - key: "npmLocalWeb"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-          - key: "npmLocal"
-            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
-          - key: "npmPublic"
-            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
-        packagingTemplates:
-          - templateInternal: rdfLibraryDependent/javascript/rdfext/package.hbs
-            fileName: package.json
-          - templateInternal: rdfLibraryDependent/javascript/index.hbs
-            fileName: index.js
-      - packagingTool: rollup
-        packagingDirectory: config
-        packagingTemplates:
-          - templateInternal: generic/javascript/rollup.config.hbs
-            fileName: rollup.config.js
-
-  - programmingLanguage: JavaScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: JavaScript-rdflib
     sourceFileExtension: js
@@ -406,6 +383,9 @@ artifactToGenerate:
           - templateInternal: rdfLibraryDependent/javascript/index.hbs
             fileName: index.js
       - packagingTool: rollup
+        # Note: We provide the location of the packaging files here, since in
+        # this case our JavaScript Rollup template happens to expect it's
+        # configuration file in this specific directory.
         packagingDirectory: config
         packagingTemplates:
           - templateInternal: generic/javascript/rollup.config.hbs

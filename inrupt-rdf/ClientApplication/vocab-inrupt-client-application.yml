@@ -15,8 +15,7 @@ artifactGeneratorVersion: 1.0.0
 
 versioning:
   type: git
-  # Remove URL until we open-source this repository...
-  # url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  url: https://github.com/inrupt/solid-common-vocab-rdf.git
   versioningTemplates:
     - templateInternal: ".gitignore.hbs"
       fileName: ".gitignore"
@@ -70,14 +69,15 @@ artifactToGenerate:
   # of the underlying RDF library dependencies (e.g., whether it depends on
   # RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm
     sourceFileExtension: ts
     artifactSuffix: -vocabterm
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
@@ -109,14 +109,15 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.0"
+    artifactVersion: "1.0.1"
 
     artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
     sourceFileExtension: ts
     artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
-    rdfjsImplVersion: "^1.0.4"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
 
     packaging:
