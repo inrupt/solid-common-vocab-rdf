@@ -7,7 +7,8 @@ configuration files contained in this repository.
 
 - Updated the StringLiteral artifacts to generate TypeScript instead of
   JavaScript.
-- Configure the required Typescript packaging files consistently. 
+- Configure the required Typescript packaging files consistently.
+- Updated spelling of multilingual - it should not be hyphenated.
 
 ## v1.0.0 2021-08-11
 
