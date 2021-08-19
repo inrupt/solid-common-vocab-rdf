@@ -15,7 +15,7 @@ prefix ui_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/ui#>
 
 #
 # Extensions deliberately add (i.e. extend) existing terms in existing
-# vocabularies, specifically to add extra features, such as multi-lingual
+# vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
 # So we very deliberately re-use the underlying vocab's namespace, but use our

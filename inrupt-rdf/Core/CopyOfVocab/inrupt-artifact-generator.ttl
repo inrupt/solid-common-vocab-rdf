@@ -54,12 +54,12 @@ inrupt_gen:subjectRoot a rdf:Property ;
  processor enriching this metadata with their specific metadata), and this
  term defines the root term of that graph."""@en .
 
-  inrupt_gen:MultiLingualLiteral a rdfs:Class ;
+  inrupt_gen:MultilingualLiteral a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
-    rdfs:label "Multi-lingual literal"@en ;
+    rdfs:label "Multilingual literal"@en ;
     rdfs:label "Literal multilingüe"@es ;
-    rdfs:comment """The class of multi-lingual literal strings. Could be used by code generation to auto-generate
- multi-lingual message resource bundles (e.g. for supporting error messages in multiple languages, or UI labels)."""@en .
+    rdfs:comment """The class of multilingual literal strings. Could be used by code generation to auto-generate
+ multilingual message resource bundles (e.g. for supporting error messages in multiple languages, or UI labels)."""@en .
 
 
   inrupt_gen:ExpressRdfHandler a rdfs:Class ;
