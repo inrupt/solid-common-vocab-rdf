@@ -5,10 +5,16 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+-
+
+## v1.0.1 2021-08-20
+
 - Updated the StringLiteral artifacts to generate TypeScript instead of
   JavaScript.
 - Configure the required Typescript packaging files consistently.
-- Updated spelling of multilingual - it should not be hyphenated.
+- Updated spelling of multilingual - it shouldn't be hyphenated!
+- Now that the AG is open-sourced, added back the git URL to the versioning
+  section of all the YAMLs.
 
 ## v1.0.0 2021-08-11
 
@@ -20,11 +26,11 @@ configuration files contained in this repository.
 - Further prefix name updates (e.g., changing to underscores instead of
   hyphens, mismatches fixed).
 - Update JS packaging YAML to correctly point to rollup config.
-- Flipped 'default' term types for atifacts to be string literal, instead
+- Flipped 'default' term types for artifacts to be string literal, instead
   of RDF/JS types. This means the default artifacts have no dependencies on
   any external libraries (but may make working with RDF libraries more
-  awkward, and will hav eno access to term meta-data - but we do publish
-  those artifacts too, they're just not the 'default').
+  awkward, and will have no access to term meta-data - but we do publish
+  those artifacts explicitly too, they're just not the 'default').
 - Remove '@types/rdf-js' and 'rdfjsTypesVersion' from YAMLs (it's
   deprecated now).
 - Remove '-List' from all YAML filenames, and make all lower-case.
