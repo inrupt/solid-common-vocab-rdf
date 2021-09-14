@@ -1,7 +1,7 @@
 #
 # PMcB: I needed to manually create this Turtle representation as
 # dereferencing the namespace just returns HTML, even when specifically
-# using a HTTP 'Accept' header value of 'text/turtle' (e.g. using POSTMAN).
+# using a HTTP 'Accept' header value of 'text/turtle' (e.g., using POSTMAN).
 #
 # Note: I also took the liberty of adding triples for the ontology itself too.
 #

@@ -8,7 +8,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix dcterms: <http://purl.org/dc/terms/>
-prefix skos-xl: <http://www.w3.org/2008/05/skos-xl#>
+prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>
 prefix ldp: <http://www.w3.org/ns/ldp#>
 prefix as: <https://www.w3.org/ns/activitystreams#>
 prefix sparql-sd: <http://www.w3.org/ns/sparql-service-description#>
@@ -39,8 +39,7 @@ solid_sd: a owl:Ontology, inrupt_gen:Ontology ;
 solid_sd:Service a rdfs:Class ;
     rdfs:label "Solid Service"@en ;
     rdfs:comment """A Solid Service is some function provided by a Solid Server,
-e.g., to search a Pod, send a notification to an Inbox, logout of a Pod,
-etc."""@en .
+ e.g., to search a Pod, send a notification to an Inbox, logout of a Pod, etc."""@en .
 
 solid_sd:Feature a rdfs:Class ;
     rdfs:label "Feature" ;
@@ -159,7 +158,7 @@ solid_sd:serviceWebSocket a rdf:Property, as:rel ;
 # value of HTTP request 'Sec-WebSocket-Protocol' headers.
 #
 solid_sd:WebSocketSubProtocol0_1 a solid_sd:Protocol ;
-    skos-xl:prefLabel solid_sd:WebSocketSubProtocol0_2Label ;
+    skosxl:prefLabel solid_sd:WebSocketSubProtocol0_2Label ;
     rdfs:seeAlso <https://github.com/solid/solid-spec/blob/master/api-websockets.md> ,
                  <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols> ,
                  <https://tools.ietf.org/html/rfc6455#section-4.1> ,
@@ -171,12 +170,12 @@ solid_sd:WebSocketSubProtocol0_1 a solid_sd:Protocol ;
  Note: the value of this protocol cannot be an IRI (see the rdfs:seeAlso links),
  which is why we must use a label instead."""@en .
 
-solid_sd:WebSocketSubProtocol0_1Label a skos-xl:Label ;
+solid_sd:WebSocketSubProtocol0_1Label a skosxl:Label ;
     rdfs:seeAlso solid_sd:WebSocketSubProtocol0_1 ;
-    skos-xl:literalForm "solid-0.1" .
+    skosxl:literalForm "solid-0.1" .
 
 solid_sd:WebSocketSubProtocol0_2 a solid_sd:Protocol ;
-    skos-xl:prefLabel solid_sd:WebSocketSubProtocol0_2Label ;
+    skosxl:prefLabel solid_sd:WebSocketSubProtocol0_2Label ;
     rdfs:seeAlso <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols> ,
                  <https://tools.ietf.org/html/rfc6455#section-4.1> ,
                  <https://bugs.chromium.org/p/chromium/issues/detail?id=398407> ,
@@ -189,9 +188,9 @@ solid_sd:WebSocketSubProtocol0_2 a solid_sd:Protocol ;
  Note: the value of this protocol cannot be an IRI (see the rdfs:seeAlso links),
  which is why we must use a label instead."""@en .
 
-solid_sd:WebSocketSubProtocol0_2Label a skos-xl:Label ;
+solid_sd:WebSocketSubProtocol0_2Label a skosxl:Label ;
     rdfs:seeAlso solid_sd:WebSocketSubProtocol0_2 ;
-    skos-xl:literalForm "solid-0.2" .
+    skosxl:literalForm "solid-0.2" .
 
 #################################################################
 #

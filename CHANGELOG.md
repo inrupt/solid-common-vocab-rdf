@@ -5,7 +5,12 @@ configuration files contained in this repository.
 
 ## Unreleased
 
--
+- Updated glossary vocabs, and added an initial Solid one (based on
+  [SolidProject](https://docs.inrupt.com/developer-tools/javascript/client-libraries/reference/glossary/)).
+- Removed unnecessary vocab descriptions from YAMLS (as descriptions should
+  come from vocabs themselves - we only provide the capability for vocabs that
+  fail to describe themselves).
+- Moved the basic test code into a JavaScript-specific sub-directory.
 
 ## v1.0.1 2021-08-20
 

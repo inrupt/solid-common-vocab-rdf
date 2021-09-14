@@ -32,7 +32,7 @@ inrupt_websub:hub a rdf:Property ;
 inrupt_websub:self a rdf:Property ;
   rdfs:isDefinedBy inrupt_websub: ;
   rdfs:label "Self"@en ;
-  rdfs:comment """Refers to ourselves as a resource (e.g. can be used as the value of a Link
+  rdfs:comment """Refers to ourselves as a resource (e.g., can be used as the value of a Link
  header)."""@en .
 
 inrupt_websub:topic a rdf:Property ;

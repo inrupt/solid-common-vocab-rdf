@@ -14,7 +14,7 @@ prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix vcard_inrupt_ext: <https://inrupt.com/vocab/extension/vcard#>
 
 #
-# Extensions deliberately add (i.e. extend) existing terms in existing
+# Extensions deliberately add (i.e., extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
@@ -27,7 +27,7 @@ vcard_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension adding multilingual meta-data for VCard terms" ;
-    dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g. for use directly as labels or tool-tips in user interfaces or error messages)" ;
+    dcterms:description "Extension to VCard terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)" ;
     vann:preferredNamespacePrefix "vcard_inrupt_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/2006/vcard/ns#" ;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .

@@ -11,7 +11,10 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 
-
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
 inrupt_gen: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/tool/artifact_generator/0.0.1> ;
@@ -35,13 +38,13 @@ inrupt_gen:Ontology a rdfs:Class ;
 inrupt_gen:ConstantString a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Constant string"@en ;
-    rdfs:comment """Used to provide a constant String value within a vocabulary - e.g. the value of
+    rdfs:comment """Used to provide a constant String value within a vocabulary - e.g., the value of
  the constant could be a default timeout value to use as a system configuration value."""@en .
 
 inrupt_gen:ConstantIri a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Constant IRI"@en ;
-    rdfs:comment """Used to provide a constant IRI value within a vocabulary - e.g. the value of
+    rdfs:comment """Used to provide a constant IRI value within a vocabulary - e.g., the value of
  the constant could be default WebID to be used for testing (in other words it doesn't need to have
  reference to the IRI of the vocabulary itself)."""@en .
 
@@ -50,7 +53,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
     rdfs:label "Subject root"@en ;
     rdfs:comment """The root subject for metadata.
  The idea for subject roots is that we could build up an entire graph of
- metadata (i.e. as processing progresses along a chain of processors, with each
+ metadata (i.e., as processing progresses along a chain of processors, with each
  processor enriching this metadata with their specific metadata), and this
  term defines the root term of that graph."""@en .
 
@@ -59,7 +62,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
     rdfs:label "Multilingual literal"@en ;
     rdfs:label "Literal multilingüe"@es ;
     rdfs:comment """The class of multilingual literal strings. Could be used by code generation to auto-generate
- multilingual message resource bundles (e.g. for supporting error messages in multiple languages, or UI labels)."""@en .
+ multilingual message resource bundles (e.g., for supporting error messages in multiple languages, or UI labels)."""@en .
 
 
   inrupt_gen:ExpressRdfHandler a rdfs:Class ;
@@ -67,7 +70,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
     rdfs:label "Express RDF Handler"@en ;
     rdfs:label "Express RDF Handler"@es ;
     rdfs:label "Gestionnaire RDF Express"@fr ;
-    rdfs:comment """This class is used to identify Node Express RDF handlers (i.e. the outer-most handlers of a Node
+    rdfs:comment """This class is used to identify Node Express RDF handlers (i.e., the outer-most handlers of a Node
  server). This can be very useful when determining the overall status of a request, where that single request may have
  initiated, within the server, a very complex workflow that resulted in multiple request/response actions, each of which
  would have their own response codes and data."""@en ;
@@ -83,8 +86,8 @@ inrupt_gen:subjectRoot a rdf:Property ;
   inrupt_gen:ExpressRdfHandlerInput a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Express RDF Input Handler"@en ;
-    rdfs:comment """This class is used to identify Node Express RDF input handlers (i.e. the outer-most handlers of a
- Node server). This can be very useful when determining the 'entrypoint' into a complex input (i.e. input that contains
+    rdfs:comment """This class is used to identify Node Express RDF input handlers (i.e., the outer-most handlers of a
+ Node server). This can be very useful when determining the 'entrypoint' into a complex input (i.e., input that contains
  not just the data from the client, but also cookie session information, or proxy information, or infrastructure
  information."""@en .
 
@@ -104,7 +107,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
   inrupt_gen:ResultListSuccess a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Result List Success"@en ;
-    rdfs:comment """Class to represent a list of successful outcomes (e.g. when importing a file of people to
+    rdfs:comment """Class to represent a list of successful outcomes (e.g., when importing a file of people to
  auto-register, this class can be used to represent the list of people successfully registered from that import
  file)."""@en .
 
@@ -116,7 +119,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
   inrupt_gen:ResultListFail a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Result List Success"@en ;
-    rdfs:comment """Class to represent a list of failed outcomes (e.g. when importing a file of people to
+    rdfs:comment """Class to represent a list of failed outcomes (e.g., when importing a file of people to
  auto-register, this class can be used to represent the list of people that failed to register from that import
  file)."""@en .
 
@@ -133,14 +136,14 @@ inrupt_gen:subjectRoot a rdf:Property ;
   inrupt_gen:SessionInfo a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Session Info"@en ;
-    rdfs:comment """Class to represent session info - typically cookies (i.e. if set as a property on a ResponseData
+    rdfs:comment """Class to represent session info - typically cookies (i.e., if set as a property on a ResponseData
  object returned from a server-side operation, then our Express handler will attempt to set cookies for each property
  contained within the referenced entity."""@en .
 
   inrupt_gen:RemoveSessionInfo a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Session Info"@en ;
-    rdfs:comment """Class to represent session info that we wish to remove - typically cookies (i.e. if set as a
+    rdfs:comment """Class to represent session info that we wish to remove - typically cookies (i.e., if set as a
  property on a ResponseData object returned from a server-side operation, then our Express handler will attempt to
  remove cookies for each property contained within the referenced entity).
 Note: We may only wish to remove 'some' cookies, and not all - for instance if an Admin user is logged into a
@@ -218,9 +221,9 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "has response data"@en ;
     rdfs:comment """When a response can contain lots of information, this predicate tells us the specific response
- data. For example, if storing requests in multiple backends (e.g. file system, SPARQL endpoint, in-memory, etc.), the
+ data. For example, if storing requests in multiple backends (e.g., file system, SPARQL endpoint, in-memory, etc.), the
  response may contain the results of each separate storage attempt - but this predicate points us directly at the
- response we should consider overall (i.e. the 'definitive' response, which is extremely subjective, in that every
+ response we should consider overall (i.e., the 'definitive' response, which is extremely subjective, in that every
  service will need to determine what that means for itself). It simply provides a simple way for any client to
  immediately and consistently find where to start in navigating a potentially complex server response."""@en .
 
@@ -254,18 +257,18 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Link"@en ;
     rdfs:comment """Used to mark something as being a Link, which effectively means this 'thing' is being 'Linked To'
- from another triple, i.e. it's a 'target' of a link from somewhere else."""@en .
+ from another triple, i.e., it's a 'target' of a link from somewhere else."""@en .
 
 
   inrupt_gen:hasLink a rdf:Property ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Has link"@en ;
-    rdfs:comment """Used to specify a Link to a new subject, e.g. for Skolemization when we want to avoid using blank nodes."""@en .
+    rdfs:comment """Used to specify a Link to a new subject, e.g., for Skolemization when we want to avoid using blank nodes."""@en .
 
   inrupt_gen:isLinkedFrom a rdf:Property ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Is Linked From"@en ;
-    rdfs:comment """The source of a link to this entity, i.e. from where this entity is Linked."""@en .
+    rdfs:comment """The source of a link to this entity, i.e., from where this entity is Linked."""@en .
 
 
   inrupt_gen:WebForm a rdfs:Class ;
@@ -291,12 +294,12 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
   inrupt_gen:EventRegister a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Event Register"@en ;
-    rdfs:comment """Event marking a registration (e.g. user registration, account registration)."""@en .
+    rdfs:comment """Event marking a registration (e.g., user registration, account registration)."""@en .
 
   inrupt_gen:EventUnregister a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Event Unregister"@en ;
-    rdfs:comment """Event marking an unregistration (e.g. unregistering a user, or an account)."""@en .
+    rdfs:comment """Event marking an unregistration (e.g., unregistering a user, or an account)."""@en .
 
   inrupt_gen:EventLogin a rdfs:Class ;
     rdfs:isDefinedBy inrupt_gen: ;
@@ -406,7 +409,7 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
     skos:definition "Error al cargar la secuencia desde IRI [{{0}}]"@es .
 
   inrupt_gen:errLoadingStreamFromJavaResource a rdfs:Literal ;
-    skos:definition "Failed to load stream from local resource [{{0}}] (we expect it to exist on the current Classpath, e.g. as a file on the local file system, or within a JAR on the Classpath)"@en ;
+    skos:definition "Failed to load stream from local resource [{{0}}] (we expect it to exist on the current Classpath, e.g., as a file on the local file system, or within a JAR on the Classpath)"@en ;
     skos:definition "Error al cargar la secuencia desde el recurso local [{{0}}] (esperamos que exista en el Classpath actual, p. como un archivo en el sistema de archivos local, o dentro de un JAR en el Classpath)"@es .
 
   inrupt_gen:errLoadingStreamIntoNamedGraph a rdfs:Literal ;

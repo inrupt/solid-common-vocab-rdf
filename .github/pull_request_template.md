@@ -29,4 +29,4 @@ This PR bumps the version to <version number>.
   - the CHANGELOG update.
   - the version update.
 - [ ] I will make sure **not** to squash these commits, but **rebase** instead.
-- [ ] Once this PR is merged, I will push the tag I created (e.g. `git push origin vx.y.z`).
+- [ ] Once this PR is merged, I will push the tag I created (e.g., `git push origin vx.y.z`).

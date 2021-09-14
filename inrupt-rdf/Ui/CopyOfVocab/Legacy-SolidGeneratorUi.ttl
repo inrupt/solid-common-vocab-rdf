@@ -21,8 +21,8 @@ solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
     vann:preferredNamespacePrefix "solid_generator_ui" ;
     dcterms:title "Solid Generator UI"@en ;
     dcterms:description """The Solid Generator UI Vocabulary. The Solid Generator bootstraps Solid applications, and this
-    vocabulary provides terms (e.g. classes and properties) and messages (e.g. informative labels, error messages, etc.))
-    for use in that bootstrapped code."""@en ;
+ vocabulary provides terms (e.g., classes and properties) and messages (e.g., informative labels, error messages, etc.))
+ for use in that bootstrapped code."""@en ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:contributor "Developer SDK team"@en ;
     dcterms:issued "2019/07/21"^^xsd:date ;

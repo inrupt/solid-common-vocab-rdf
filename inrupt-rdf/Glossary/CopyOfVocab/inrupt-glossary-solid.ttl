@@ -1,0 +1,211 @@
+prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
+prefix owl:     <http://www.w3.org/2002/07/owl#>
+prefix vann:    <http://purl.org/vocab/vann/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix cc:      <http://creativecommons.org/ns#>
+prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#>
+
+prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_common:           <https://inrupt.com/inrupt/vocab/common#>
+prefix inrupt_glossary_acronym: <https://inrupt.com/inrupt/vocab/glossary/acronym#>
+prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#>
+
+
+# Just for illustration purposes in Widoco, we type 'skosxl:Label' as an 'owl:NamedIndividual'
+# (as that WebVOWL will display the terms).
+# Note: This usage requires the use of the '
+skosxl:Label a owl:NamedIndividual ;
+     # We also make our Lables sub-classes of the vocabulary itself, so that they'll all be joined
+     # up to it in WebVOWL.
+     rdfs:subClassOf inrupt_glossary_solid: .
+# We use sub-classes to link related terms together (WebVOWL won't show 'rdfs:seeAlso' links).
+inrupt_glossary_solid:AppendAccess rdfs:subClassOf inrupt_glossary_solid:AccessMode .
+inrupt_glossary_solid:ControlAccess rdfs:subClassOf inrupt_glossary_solid:AccessMode .
+inrupt_glossary_solid:ReadAccess rdfs:subClassOf inrupt_glossary_solid:AccessMode .
+inrupt_glossary_solid:WriteAccess rdfs:subClassOf inrupt_glossary_solid:AccessMode .
+inrupt_glossary_solid:FallbackACL rdfs:subClassOf inrupt_glossary_solid:AccessControlList .
+
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
+inrupt_glossary_solid: a owl:Ontology, inrupt_gen:Ontology  ;
+     owl:versionInfo "0.0.1" ;
+     owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/solid/0.0.1> ;
+     dcterms:title "Inrupt's Solid glossary" ;
+     dcterms:description """Solid glossary describing terms and concepts used across the entire Solid eco-system.
+ For questions around the concepts and terminology specific to Solid, refer to
+ https://solidproject.org/faqs."""@en ;
+     rdfs:seeAlso <https://solidproject.org/faqs> ;
+     dcterms:creator <https://inrupt.com/profile/card/#us> ;
+     dcterms:issued "2021-08-23"^^xsd:date ;
+     vann:preferredNamespacePrefix "inrupt_glossary_solid" ;
+     vann:preferredNamespaceURI <https://inrupt.com/inrupt/vocab/glossary/solid#> ;
+     cc:attributionURL inrupt_glossary_solid: ;
+     cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
+
+
+inrupt_glossary_solid:AccessControlList rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Access Control List"@en ;
+     rdfs:comment """An Access Control List is a Resource that controls users' level of access
+ ({read: <boolean>, append: <boolean>, write: <boolean>, control: <boolean> }) to a Resource.
+ For example, it can list rules like "https://jcaesar.solid.community/profile/card#me can read this Resource",
+ and “https://cleopatra.solid.community/profile/card#me can read this Resource and its children"."""@en ;
+     rdfs:seeAlso <https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/manage-access-control-list/> ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessMode ;
+     inrupt_common:acronym inrupt_glossary_acronym:ACL .
+
+#
+# We COULD put our acronyms in here too - but more powerful (i.e., more flexible, more efficient,
+# albeit potentially more complex to manage) if we place acronyms in their own vocabulary, and just
+# cross-reference between the two vocabs (and external references too of course).
+#
+#inrupt_glossary_solid:ACL rdfs:subClassOf inrupt_common:Acronym ;
+#     rdfs:isDefinedBy inrupt_glossary_solid: ;
+#     skosxl:literalForm "ACL"@en ;
+#     rdfs:label "ACL"@en ;
+#     rdfs:comment """Acronym for Access Control List."""@en ;
+#     rdfs:seeAlso inrupt_glossary_solid:AccessControlList ;
+#     inrupt_common:acronymExpandedForm inrupt_glossary_solid:AccessControlList .
+
+
+inrupt_glossary_solid:AccessControlPolicy rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Access Control Policy"@en ;
+     rdfs:comment "One of the access control mechanisms that can be used with Solid."@en ;
+     rdfs:seeAlso <https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/manage-acp/> ;
+     inrupt_common:acronym inrupt_glossary_solid:ACP .
+
+
+inrupt_glossary_solid:Agent rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Agent"@en ;
+     rdfs:comment "A user. Agent typically refers to a person but could also refer to other users, e.g., bots."@en .
+
+inrupt_glossary_solid:AccessMode rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Access Mode"@en ;
+     rdfs:comment "The types of access that have been granted: Read, Write, Append and/or Control."@en .
+
+inrupt_glossary_solid:AppendAccess rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Append Access"@en ;
+     rdfs:comment "Access to add data to the applicable Resource."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource .
+
+inrupt_glossary_solid:Client rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Client"@en ;
+     rdfs:comment "An application; also referred to as client application. Can be Web-based, server-based, CLI tools, etc."@en ;
+     rdfs:seeAlso <https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/authenticate-client/> .
+
+inrupt_glossary_solid:ControlAccess rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Control Access"@en ;
+     rdfs:comment "Access to view and manage who has access to the applicable Resource. Applicable to the ACL authorization system."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessControlList .
+
+inrupt_glossary_solid:Container rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Container"@en ;
+     rdfs:comment """A special type of Resource that can contain other Resources or Containers,
+ much like folders on your file system. Technically, a Container is itself a SolidDataset.
+ For example, given a Resource at 'https://cleopatra.solid.community/profile/card', both
+ 'https://cleopatra.solid.community/profile/' and
+ 'https://cleopatra.solid.community/' are Containers.
+ The URL for a Container ends with a slash '/'."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource ;
+     rdfs:seeAlso inrupt_glossary_solid:SolidDataset .
+
+inrupt_glossary_solid:DefaultAccess rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Default access"@en ;
+     rdfs:comment """Rules defining Access Modes that apply not to the Container Resource directly,
+ but are inherited by its children, their children if applicable, and so forth."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Container ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessMode .
+
+inrupt_glossary_solid:FallbackACL rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Fallback ACL"@en ;
+     rdfs:comment """If a Resource does not have an explicit Resource ACL of its own, the Fallback
+ ACL is the ACL of the Container closest to that Resource that does have its own explicit Resource
+ ACL. Only the Default access rules in the Fallback ACL apply."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessControlList ;
+     rdfs:seeAlso inrupt_glossary_solid:DefaultAccess ;
+     rdfs:seeAlso inrupt_glossary_solid:Container ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource ;
+     rdfs:seeAlso inrupt_glossary_solid:ResourceACL .
+
+inrupt_glossary_solid:IRI rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "IRI"@en ;
+     rdfs:comment """Internationalized Resource Identifier. An IRI is similar to standard web URI
+ but allows for internationalized characters such as the umlaut Ä, or the Greek letter Δ."""@en ;
+     rdfs:seeAlso <https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier> .
+
+inrupt_glossary_solid:Pod rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Pod"@en ;
+     rdfs:comment "Storage location for your data. You manage the access to data stored in your Pod."@en .
+
+inrupt_glossary_solid:Resource rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Resource"@en ;
+     rdfs:comment "The data sent to you when you type a URL into a web browser."@en .
+
+inrupt_glossary_solid:ResourceACL rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Resource ACL"@en ;
+     rdfs:comment "The ACL that applies to a given Resource. If none exists, the Fallback ACL applies."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessControlList ;
+     rdfs:seeAlso inrupt_glossary_solid:FallbackACL ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource .
+
+inrupt_glossary_solid:ReadAccess rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Read Access"@en ;
+     rdfs:comment "Access to view the contents of the applicable Resource."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource .
+
+inrupt_glossary_solid:SolidDataset rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "SolidDataset"@en ;
+     rdfs:comment "Set of Things."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:Thing ;
+     rdfs:seeAlso <https://docs.inrupt.com/developer-tools/javascript/client-libraries/structured-data/#structured-data> .
+
+inrupt_glossary_solid:Thing rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Thing"@en ;
+     rdfs:comment """A data entity, e.g., a person. A Thing is associated with a set of data or
+ properties about the Thing, e.g., name, date of birth, address, etc.
+ A Thing is saved as part of a SolidDataset, where a SolidDataset is a set of Things."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:SolidDataset .
+
+inrupt_glossary_solid:WebAccessControl rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Web Access Control"@en ;
+     rdfs:comment "One of the access control mechanisms that can be used with Solid, based on Access Control Lists."@en ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessControlList .
+
+inrupt_glossary_solid:WebID rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "WebID"@en ;
+     rdfs:comment """A URL that identifies an Agent or a Client. The Resource found at the WebID
+ can provide more information about this Agent or Client, such as the location of their data."""@en ;
+     rdfs:seeAlso <https://www.w3.org/2005/Incubator/webid/spec/identity/#dfn-webid> .
+
+
+inrupt_glossary_solid:WriteAccess rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Write Access"@en ;
+     rdfs:comment """Access to add (i.e., append), update, and delete contents of Resource. Granting
+ Write access automatically grants Append Access."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:AppendAccess ;
+     rdfs:seeAlso inrupt_glossary_solid:Resource .

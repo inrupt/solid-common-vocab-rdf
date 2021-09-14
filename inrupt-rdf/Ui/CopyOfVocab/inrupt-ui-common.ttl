@@ -29,7 +29,7 @@ inrupt_ui_common: a owl:Ontology, inrupt_gen:Ontology ;
   #
 
   #
-  # Generic messages, i.e. not component-specific.
+  # Generic messages, i.e., not component-specific.
   #
   inrupt_ui_common:errUnsupportedMediaType a rdfs:Literal ;
     rdfs:isDefinedBy inrupt_ui_common: ;
@@ -44,7 +44,7 @@ inrupt_ui_common: a owl:Ontology, inrupt_gen:Ontology ;
   #
   inrupt_ui_common:errFileUpload_exceededSizeLimit a rdfs:Literal ;
     rdfs:isDefinedBy inrupt_ui_common: ;
-    rdfs:comment "Tip: To fix this problem, try and reduce the file size (e.g. crop an image, compress an audio file, etc.)."@en ;
+    rdfs:comment "Tip: To fix this problem, try and reduce the file size (e.g., crop an image, compress an audio file, etc.)."@en ;
     skos:definition "File [{{0}}] has size [{{1}}] that exceeds the allowable limit of [{{2}}]"@en ;
     skos:definition "El tamaño [{{1}}] del archivo [{{0}}] excede el límite permitido [{{2}}]"@es ;
     skos:definition "La taille du fichier [{{1}}], de [{{0}}], dépasse la limite autorisée [{{2}}]"@fr .

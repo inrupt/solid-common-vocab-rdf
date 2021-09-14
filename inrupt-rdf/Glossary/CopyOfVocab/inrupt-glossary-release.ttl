@@ -1,41 +1,58 @@
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix vann: <http://purl.org/vocab/vann/>
+prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl:     <http://www.w3.org/2002/07/owl#>
+prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
+prefix vann:    <http://purl.org/vocab/vann/>
 prefix dcterms: <http://purl.org/dc/terms/>
+prefix cc:      <http://creativecommons.org/ns#>
+prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#>
 
-prefix inrupt_glossary_release: <http://w3id.org/inrupt/vocab/glossary/release#>
+prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_glossary_release: <https://inrupt.com/inrupt/vocab/glossary/release#>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
+inrupt_glossary_release: a owl:Ontology, inrupt_gen:Ontology  ;
+     owl:versionInfo "0.0.1" ;
+     owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/release/0.0.1> ;
+     dcterms:title "Inrupt release glossary vocabulary" ;
+     dcterms:description "The Inrupt release glossary vocabulary describes the terms used within Inrupt to describe the various stages of product releases."@en ;
+     dcterms:creator <https://inrupt.com/profile/card/#us> ;
+     dcterms:issued "2021-08-23"^^xsd:date ;
+     vann:preferredNamespacePrefix "inrupt_glossary_release" ;
+     vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/release#" ;
+     cc:attributionURL inrupt_glossary_release: ;
+     cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
 
 
-inrupt_glossary_release: rdf:type owl:Ontology ;
-    # Description
-    dcterms:title "Inrupt release glossary vocabulary" ;
-    dcterms:description "The Inrupt release vocabulary describes the terms used within Inrupt to describe the various stages of product releases."@en ;
-    vann:preferredNamespacePrefix "inrupt_glossary_release" ;
-    vann:preferredNamespaceURI <http://w3id.org/inrupt/vocab/glossary/release#> .
-
-
-inrupt_glossary_release:ProofOfConcept a rdfs:Class ;
+inrupt_glossary_release:ProofOfConcept a skosxl:Label ;
     rdfs:label "Proof of Concept"@en ;
     rdfs:comment "Proof of Concept"@en ;
+    rdfs:isDefinedBy inrupt_glossary_release: ;
     rdfs:seeAlso <https://inrupt.atlassian.net/wiki/spaces/PD/pages/9830859/Release+Types?focusedCommentId=12255296#Proof-of-Concept> .
 
-inrupt_glossary_release:Pilot a rdfs:Class ;
+inrupt_glossary_release:Pilot a skosxl:Label ;
     rdfs:label "Pilot"@en ;
-    rdfs:comment ""@en ;
+    rdfs:comment "Pilot"@en ;
+    rdfs:isDefinedBy inrupt_glossary_release: ;
     rdfs:seeAlso <https://inrupt.atlassian.net/wiki/spaces/PD/pages/9830859/Release+Types?focusedCommentId=12255296#Pilot> .
 
-inrupt_glossary_release:Alpha a rdfs:Class ;
+inrupt_glossary_release:Alpha a skosxl:Label ;
     rdfs:label "Alpha"@en ;
     rdfs:comment "Alpha"@en ;
+    rdfs:isDefinedBy inrupt_glossary_release: ;
     rdfs:seeAlso <https://inrupt.atlassian.net/wiki/spaces/PD/pages/9830859/Release+Types?focusedCommentId=12255296#Alpha> .
 
-inrupt_glossary_release:Beta a rdfs:Class ;
+inrupt_glossary_release:Beta a skosxl:Label ;
     rdfs:label "Beta"@en ;
     rdfs:comment "Beta"@en ;
+    rdfs:isDefinedBy inrupt_glossary_release: ;
     rdfs:seeAlso <https://inrupt.atlassian.net/wiki/spaces/PD/pages/9830859/Release+Types?focusedCommentId=12255296#Beta> .
 
-inrupt_glossary_release:GeneralAvailability a rdfs:Class ;
+inrupt_glossary_release:GeneralAvailability a skosxl:Label ;
     rdfs:label "General Availability"@en ;
     rdfs:comment "General Availability"@en ;
+    rdfs:isDefinedBy inrupt_glossary_release: ;
     rdfs:seeAlso <https://inrupt.atlassian.net/wiki/spaces/PD/pages/9830859/Release+Types?focusedCommentId=12255296#GA> .

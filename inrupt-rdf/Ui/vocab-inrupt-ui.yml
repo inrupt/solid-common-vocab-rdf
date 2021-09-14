@@ -22,16 +22,16 @@ license:
   name: "MIT"
 
 artifactToGenerate:
-  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
-  # i.e., where the name of the generated npm module does not contain details
-  # of the underlying RDF library dependencies (e.g., whether it depends on
-  # RDF/JS or a specific implementation, etc.).
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm
+    artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm
+    artifactSuffix: -solidcommonvocab
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -70,9 +70,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -108,9 +108,9 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 
-  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
-  # the name of the generated npm module does not contain details of it's
-  # dependencies (e.g. whether it provides VocabTerm constants or just string
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e., where
+  # the name of the generated npm module does not contain details of its
+  # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
@@ -188,9 +188,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-rdfdatafactory
+    artifactSuffix: -rdfdatafactory
 
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
@@ -225,14 +225,11 @@ artifactToGenerate:
 
 
 vocabList:
-  - description: User Interface (UI) Common Vocabulary, for terms common across all Inrupt UI.
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-ui-common.ttl
 
-  - description: Inrupt Welcome Page Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-ui-component-welcome.ttl
 
-  - description: Inrupt TicTacToe Game Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-ui-component-tictactoe.ttl
