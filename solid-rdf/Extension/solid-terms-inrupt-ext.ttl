@@ -12,7 +12,7 @@ prefix solid_terms: <http://www.w3.org/ns/solid/terms#>
 prefix solid_terms_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid_terms#>
 
 #
-# Extensions deliberately add (i.e. extend) existing terms in existing
+# Extensions deliberately add (i.e., extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #

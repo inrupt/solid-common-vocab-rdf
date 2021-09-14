@@ -2,14 +2,20 @@ prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
 prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix vann:     <http://purl.org/vocab/vann/>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
-prefix vann:     <http://purl.org/vocab/vann/>
+prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
+prefix cc:       <http://creativecommons.org/ns#>
+prefix schema:   <http://schema.org/>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix inrupt_common: <https://inrupt.com/vocab/common#>
 
-
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
 inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
@@ -21,9 +27,51 @@ inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
 	vann:preferredNamespacePrefix "inrupt_common" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
 
+#
+# Acronym support.
+#
+inrupt_common:Acronym a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Acronym"@en ;
+    rdfs:comment """The class of all acronyms."""@en .
 
-inrupt_common:errFailedToProcessIncomingRdf a rdfs:Literal ;
+inrupt_common:acronym rdfs:subPropertyOf skosxl:labelRelation ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Acronym"@en ;
+    rdfs:comment """An instance of an acronym - expected to be used on terminology, phrases, or concepts."""@en ;
+    schema:domainIncludes skosxl:Label ;
+    schema:rangeIncludes skosxl:Label .
+
+inrupt_common:acronymExpandedForm a rdfs:Property ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Acronym expanded form"@en ;
+    rdfs:comment """This property references an expanded form for an acronym, expected to provide more detail on what an acronym actually refers to."""@en ;
+    schema:domainIncludes skosxl:Label ;
+    schema:rangeIncludes skosxl:Label .
+
+
+#
+# Common error messages.
+#
+inrupt_common:errFailedToProcessIncomingRdf a skosxl:Label ;
 	skos:definition "Failed to process incoming message as RDF"@en .
 
-inrupt_common:msgRequestValidatedAsRdf a rdfs:Literal ;
+inrupt_common:msgRequestValidatedAsRdf a skosxl:Label ;
 	skos:definition "Incoming request validated as RDF (it has [{{0}}] triples!)"@en .
+
+
+#
+# Customer identifiers.
+#
+inrupt_common:CustomerId a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Class of customer identifiers"@en ;
+    rdfs:comment """The class of customer identifiers (e.g., identifiers for customers from legacy
+ systems, or 3rd-party systems, or separate internal systems, etc.)."""@en .
+
+inrupt_common:customerId a rdf:Property ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Customer identifier"@en ;
+    rdfs:comment """A generic customer identifier (e.g., an identifier for a customer from a legacy
+ system, or a 3rd-party system, or a separate internal system, etc.)."""@en .
+

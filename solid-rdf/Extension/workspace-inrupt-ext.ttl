@@ -11,7 +11,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix ws:       <http://www.w3.org/ns/pim/space#>
 
 #
-# Extensions deliberately add (i.e. extend) existing terms in existing
+# Extensions deliberately add (i.e., extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #

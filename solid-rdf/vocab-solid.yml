@@ -34,9 +34,9 @@ license:
   name: "MIT"
 
 artifactToGenerate:
-  # This is the configuration of the DEFAULT Java artifact - i.e. where the name
-  # of the generated JAR does not contain details of it's dependencies (e.g.
-  # whether it provides VocabTerm constants or just string constants, or whether
+  # This is the configuration of the DEFAULT Java artifact - i.e., where the name
+  # of the generated JAR does not contain details of its dependencies (e.g.
+  # whether it provides SolidCommonVocab constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
@@ -82,7 +82,7 @@ artifactToGenerate:
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
-    javaPackageName: com.inrupt.vocab.solid
+    javaPackageName: com.inrupt.vocab.solid.commonsrdf.serviceloader
     artifactSuffix: -commonsrdf-serviceloader
 
     # This config doesn't use our own vocab library - it uses a specific
@@ -122,7 +122,7 @@ artifactToGenerate:
 
     artifactDirectoryName: Java-CommonsRdf-SimpleRdf
     sourceFileExtension: java
-    javaPackageName: com.inrupt.vocab.solid
+    javaPackageName: com.inrupt.vocab.solid.commonsrdf.simplerdf
     artifactSuffix: -commonsrdf-simplerdf
 
     # This config doesn't use our own vocab library - it uses a specific
@@ -157,9 +157,9 @@ artifactToGenerate:
             fileName: pom.xml
 
 
-  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
-  # the name of the generated npm module does not contain details of it's
-  # dependencies (e.g. whether it provides VocabTerm constants or just string
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e., where
+  # the name of the generated npm module does not contain details of its
+  # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
@@ -197,16 +197,16 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 
-  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
-  # i.e., where the name of the generated npm module does not contain details
-  # of the underlying RDF library dependencies (e.g., whether it depends on
-  # RDF/JS or a specific implementation, etc.).
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm
+    artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm
+    artifactSuffix: -solidcommonvocab
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -243,9 +243,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -282,9 +282,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-rdfdatafactory
+    artifactSuffix: -rdfdatafactory
 
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
@@ -392,24 +392,19 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 vocabList:
-  - description: "Solid server-generated creational meta-data (i.e. static meta-data generated at server startup)"
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-meta-server-creational.ttl
 
-  - description: "Solid server-generated runtime meta-data"
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-meta-server-runtime.ttl
 
-  - description: "Solid client-generated meta-data"
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-meta-client.ttl
 
-  - description: "Solid meta-data for ACL's"
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-meta-acl.ttl
 
-  - description: "Solid terms common across services"
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-service-core.ttl
 
   - description: Web Access Control Vocabulary
@@ -418,12 +413,10 @@ vocabList:
     inputResources:
        - http://www.w3.org/ns/auth/acl
 
-  - description: Solid Access Control Policy (ACP)
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-acp.ttl
 
-  - description: Solid Terms
-    nameAndPrefixOverride: solid
+  - nameAndPrefixOverride: solid
     # Note: Although we use the HTTPS form of this namespace, the BASE namespace
     # of the vocabulary itself uses HTTP!
     inputResources:
@@ -436,6 +429,5 @@ vocabList:
        - http://www.w3.org/ns/pim/space
        - ./Extension/workspace-inrupt-ext.ttl
 
-  - description: Solid service description vocabulary
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/solid-service-description.ttl

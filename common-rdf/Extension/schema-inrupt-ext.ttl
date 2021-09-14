@@ -14,7 +14,7 @@ prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix schema_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
 
 #
-# Extensions deliberately add (i.e. extend) existing terms in existing
+# Extensions deliberately add (i.e., extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
@@ -28,8 +28,8 @@ schema_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:issued "2019/06/18"^^xsd:date ;
     dcterms:title "Inrupt extension adding multilingual meta-data for Schema.org terms" ;
     dcterms:description """Inrupt extension to Schema.org terms providing
- multilingual alternative names (i.e. labels) and translations for comments
- (e.g. for use directly as labels or tool-tips in user interfaces or error
+ multilingual alternative names (i.e., labels) and translations for comments
+ (e.g., for use directly as labels or tool-tips in user interfaces or error
  messages). This extension very deliberately cherry-picks the individual terms
  from Schema.org that Inrupt currently deem generally useful for Solid and Solid
  applications (meaning we can provide a much cleaner, less noisy and smaller
@@ -346,6 +346,17 @@ schema:attendee
     rdfs:comment "Una persona u organización que asista al evento."@es ;
     rdfs:comment "Una persona o un'organizzazione che partecipa all'evento."@it .
 
+schema:accessCode
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Access code"@en ;
+    schema:alternateName "Code d'accès"@fr ;
+    schema:alternateName "Zugangscode"@de ;
+    schema:alternateName "Código de acceso"@es ;
+    schema:alternateName "Codice d'accesso"@it ;
+    rdfs:comment "Mot de passe, code PIN ou code d'accès nécessaire à la livraison (par exemple depuis un casier)."@fr ;
+    rdfs:comment "Passwort, PIN oder Zugangscode, der für die Lieferung benötigt wird (z. B. aus einem Schließfach)."@de ;
+    rdfs:comment "Se necesita contraseña, PIN o código de acceso para la entrega (por ejemplo, de un casillero)."@es ;
+    rdfs:comment "Password, PIN o codice di accesso necessari per la consegna (ad es. da un armadietto)."@it .
 
 #
 # Template for pulling in new terms!

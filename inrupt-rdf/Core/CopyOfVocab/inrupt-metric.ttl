@@ -9,10 +9,13 @@ prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix inrupt_metric: <https://inrupt.com/vocab/metric#>
 
-
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
 inrupt_metric: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/metric/0.0.1> ;

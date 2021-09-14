@@ -64,16 +64,16 @@ artifactToGenerate:
         id: cloudsmith-development
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
-  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
-  # i.e., where the name of the generated npm module does not contain details
-  # of the underlying RDF library dependencies (e.g., whether it depends on
-  # RDF/JS or a specific implementation, etc.).
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm
+    artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs
+    artifactSuffix: -solidcommonvocab-rdfjs
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -110,9 +110,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -149,9 +149,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-rdfdatafactory
+    artifactSuffix: -rdfdatafactory
 
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
@@ -185,10 +185,8 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 vocabList:
-  - description: Inrupt Notification Service Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-service-notification.ttl
 
-  - description: Inrupt WebSub Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-service-websub.ttl

@@ -5,7 +5,7 @@ controlled or used by Inrupt.
 
 Vocabularies (also known, slightly more formally, as Ontologies) provide the
 basis to allow developers build interoperable applications by reusing the
-individual terms (i.e. Classes and Properties) from well-known and public
+individual terms (i.e., Classes and Properties) from well-known and public
 vocabularies (such as Schema.org, or Friend-of-a-Friend (FOAF) or the Dublin
 Core (DC Terms) etc.), as well as from highly specialised or even private
 vocabularies, perhaps only ever intended for use within a narrow field, or

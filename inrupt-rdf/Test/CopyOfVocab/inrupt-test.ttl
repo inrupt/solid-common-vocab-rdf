@@ -11,7 +11,10 @@ prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 
 prefix inrupt_test: <https://inrupt.com/vocab/test#>
 
-
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
 inrupt_test: a owl:Ontology, inrupt_gen:Ontology;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/test/0.0.1> ;

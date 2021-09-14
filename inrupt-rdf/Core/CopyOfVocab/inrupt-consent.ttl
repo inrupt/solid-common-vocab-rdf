@@ -1,20 +1,20 @@
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
+prefix owl:     <http://www.w3.org/2002/07/owl#>
 prefix dcterms: <http://purl.org/dc/terms/>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-prefix olo: <http://purl.org/ontology/olo/core#>
-prefix ldp: <http://www.w3.org/ns/ldp#>
-prefix schema: <http://schema.org/>
-prefix vann: <http://purl.org/vocab/vann/>
+prefix skos:    <http://www.w3.org/2004/02/skos/core#>
+prefix olo:     <http://purl.org/ontology/olo/core#>
+prefix ldp:     <http://www.w3.org/ns/ldp#>
+prefix schema:  <http://schema.org/>
+prefix vann:    <http://purl.org/vocab/vann/>
 
-prefix gconsent: <https://w3id.org/GConsent#>
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix gconsent:       <https://w3id.org/GConsent#>
+prefix inrupt_gen:     <https://inrupt.com/vocab/tool/artifact_generator#>
 
 prefix inrupt_consent: <https://inrupt.com/vocab/consent#>
 
-prefix project: <https://data.company.com/vocab/apps/project#>
+prefix project:        <https://data.company.com/vocab/apps/project#>
 
 #
 # This vocab doesn't exist yet, but I've requested an update to the WebID draft spec (from Henry Story on the Solid
@@ -22,7 +22,10 @@ prefix project: <https://data.company.com/vocab/apps/project#>
 #
 prefix webid: <https://www.w3.org/ns/webid#>
 
-
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
 inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/consent/0.0.1> ;
@@ -63,17 +66,17 @@ inrupt_consent:replacesConsent a rdf:Property ;
     rdfs:isDefinedBy inrupt_consent: ;
     rdfs:label "Replaces Consent"@en ;
     rdfs:comment """(Should propose adding to GConsent vocab) Property linking back to the Consent that the current
- Consent replaces. It's necessary to complete replace a Consent object when the data subject changes the Purpose (e.g.
- removes the Sharing action) or changes the structure of the personal data being consented (e.g. such as a new field
- being added)."""@en .
+ Consent replaces. It's necessary to complete replace a Consent object when the data subject
+ changes the Purpose (e.g., removes the Sharing action) or changes the structure of the personal
+ data being consented (e.g., such as a new field being added)."""@en .
 
 inrupt_consent:wasReplacedByConsent a rdf:Property ;
     rdfs:isDefinedBy inrupt_consent: ;
     rdfs:label "Was Replaced By Consent"@en ;
     rdfs:comment """(Should propose adding to GConsent vocab) Property linking an old Consent to the Consent
- that replaces it. It's necessary to complete replace a Consent object when the data subject changes the Purpose (e.g.
- removes the Sharing action) or changes the structure of the personal data being consented (e.g. such as a new field
- being added)."""@en .
+ that replaces it. It's necessary to complete replace a Consent object when the data subject
+ changes the Purpose (e.g., removes the Sharing action) or changes the structure of the personal
+ data being consented (e.g., such as a new field being added)."""@en .
 
 
 inrupt_consent:profileContainsConsent a rdf:Property ;
@@ -127,7 +130,7 @@ inrupt_consent:capturedByOrganisationWebId a rdf:Property ;
     rdfs:isDefinedBy inrupt_consent: ;
     rdfs:subPropertyOf gconsent:isContextForConsentInstance ;
     rdfs:label "WebID of the organization capturing/obtaining consent"@en ;
-    rdfs:comment '''The WebID of the organisation (e.g. an NGO, a mobile operator, a merchant, etc.) that captured or
+    rdfs:comment '''The WebID of the organisation (e.g., an NGO, a mobile operator, a merchant, etc.) that captured or
  obtained this instance of consent.''' ;
     rdfs:domain gconsent:ConsentInstance ;
     rdfs:range webid:webId .
@@ -185,7 +188,7 @@ inrupt_consent:ProjectApp a rdfs:Class ;
     rdfs:subClassOf schema:SoftwareApplication ;
     rdfs:label "Project Applications"@en ;
     rdfs:comment '''The class of applications that are considered to make up the entire Project eco-system, as developed by
-Company. Project can consist of a number of applications (e.g. a registration app, a reporting tool, a personal
+Company. Project can consist of a number of applications (e.g., a registration app, a reporting tool, a personal
 data manager app).''' .
 
 inrupt_consent:webFormRegistration a rdf:Property ;

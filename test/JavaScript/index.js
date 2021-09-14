@@ -7,7 +7,7 @@
 //    npm install --registry http://localhost:4873
 //
 
-const { FOAF, RDF, RDF_INRUPT } = require("@inrupt/vocab-common-rdf-vocabterm");
+const { FOAF, RDF, RDF_INRUPT } = require("@inrupt/vocab-common-rdf-solidcommonvocab");
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage: [${FOAF.accountServiceHomepage}]`);
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage - label: [${FOAF.accountServiceHomepage.label}]`);
 console.log(`Common RDF: FOAF vocab term accountServiceHomepage - comment:  [${FOAF.accountServiceHomepage.comment}]`);
@@ -20,13 +20,13 @@ console.log(`Common RDF: RDF type - label in Spanish: [${RDF_INRUPT.type.asLangu
 console.log();
 
 
-const { SOLID } = require("@inrupt/vocab-solid-vocabterm");
+const { SOLID } = require("@inrupt/vocab-solid-solidcommonvocab");
 console.log(`Solid vocab term ListedDocument: [${SOLID.ListedDocument}]`);
 console.log(`Solid vocab term ListedDocument - label: [${SOLID.ListedDocument.label}]`);
 console.log(`Solid vocab term ListedDocument - comment:  [${SOLID.ListedDocument.comment}]`);
 console.log();
 
-const { SOLID:SOLID_RDFJS_DATAFACTORY } = require("@inrupt/vocab-solid-rdfjs-rdfdatafactory");
+const { SOLID:SOLID_RDFJS_DATAFACTORY } = require("@inrupt/vocab-solid-rdfdatafactory");
 console.log(`Solid vocab term ListedDocument (RDF/JS DataFactory): [${SOLID_RDFJS_DATAFACTORY.ListedDocument.value}]`);
 console.log();
 
@@ -37,6 +37,6 @@ console.log();
 
 // We rename the Inrupt Common vocab, just to indicate that it's coming in
 // fact from the Inrupt Core bundle.
-const { INRUPT_COMMON: INRUPT_CORE_COMMON } = require("@inrupt/vocab-inrupt-core-vocabterm");
+const { INRUPT_COMMON: INRUPT_CORE_COMMON } = require("@inrupt/vocab-inrupt-core-solidcommonvocab");
 console.log(`Inrupt Core vocab term errFailedToProcessIncomingRdf: [${INRUPT_CORE_COMMON.errFailedToProcessIncomingRdf}]`);
 console.log(`Inrupt Core vocab term errFailedToProcessIncomingRdf: [${INRUPT_CORE_COMMON.errFailedToProcessIncomingRdf.message}]`);

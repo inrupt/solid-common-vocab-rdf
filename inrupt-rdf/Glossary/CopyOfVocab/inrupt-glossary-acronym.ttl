@@ -1,0 +1,242 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix cc: <http://creativecommons.org/ns#>
+prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>
+
+prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_common:           <https://inrupt.com/inrupt/vocab/common#>
+prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#>
+
+prefix inrupt_glossary_acronym: <https://inrupt.com/inrupt/vocab/glossary/acronym#>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who created it, its
+# suggested prefix, its license, etc.
+#
+inrupt_glossary_acronym: a owl:Ontology, inrupt_gen:Ontology  ;
+     owl:versionInfo "0.0.1" ;
+     owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/acronym/0.0.1> ;
+     dcterms:title "Inrupt's glossary of acronyms" ;
+     dcterms:description """A glossary of acronyms used across Inrupt, Solid, and the Semantic Web"""@en ;
+     rdfs:seeAlso <https://acronymproject.org/faqs> ;
+     dcterms:creator <https://inrupt.com/profile/card/#us> ;
+     dcterms:issued "2021-08-23"^^xsd:date ;
+     vann:preferredNamespacePrefix "inrupt_glossary_acronym" ;
+     vann:preferredNamespaceURI <https://inrupt.com/inrupt/vocab/glossary/acronym#> ;
+     cc:attributionURL inrupt_glossary_acronym: ;
+     cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
+
+#
+# Note: We don't use 'rdfs:label' predicates for 'skosxl:Label' instances, we use
+# 'skosxl:literalForm' instead.
+#
+
+inrupt_glossary_acronym:ACL a skosxl:Label ;
+    rdfs:subClassOf inrupt_common:Acronym ;
+    rdfs:isDefinedBy inrupt_glossary_acronym: ;
+    skosxl:literalForm "ACL"@en ;
+    rdfs:comment """Acronym for Access Control List."""@en ;
+    rdfs:seeAlso inrupt_glossary_solid:AccessControlList ;
+    inrupt_common:acronymExpandedForm inrupt_glossary_solid:AccessControlList .
+
+inrupt_glossary_acronym:ACP a skosxl:Label ;
+     rdfs:subClassOf inrupt_common:Acronym ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "ACP"@en ;
+     rdfs:comment """Acronym for Access Control Policy."""@en ;
+     rdfs:seeAlso inrupt_glossary_solid:AccessControlList ;
+     inrupt_common:acronymExpandedForm inrupt_glossary_solid:AccessControlPolicy .
+
+
+
+inrupt_glossary_acronym:ACR a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "ACR"@en ;
+     rdfs:comment "Access Control Resource"@en .
+
+inrupt_glossary_acronym:AS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "AS"@en ;
+     rdfs:comment "Authorization Server"@en ;
+     rdfs:seeAlso inrupt_glossary_acronym:IdP .
+
+inrupt_glossary_acronym: a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "CSS"@en ;
+     rdfs:comment "Community Solid Server"@en ;
+     rdfs:seeAlso <https://github.com/solid/community-server> .
+
+inrupt_glossary_acronym:CURIE a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "CURIE"@en ;
+     rdfs:comment "Compact URI"@en .
+
+inrupt_glossary_acronym:DPoP a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "DPoP"@en ;
+     rdfs:comment "Demonstration of Proof-of-Possession at the application layer"@en .
+
+inrupt_glossary_acronym:ESS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "ESS"@en ;
+     rdfs:comment "Enterprise Solid Server"@en .
+
+inrupt_glossary_acronym:HDT a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "HDT"@en ;
+     rdfs:comment "Header Dictionary Triples"@en .
+
+inrupt_glossary_acronym:IANA a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "IANA"@en ;
+     rdfs:comment "Internet Assigned Numbers Authority"@en .
+
+inrupt_glossary_acronym:IdP a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "IdP"@en ;
+     rdfs:comment "Identity Provider"@en ;
+     rdfs:seeAlso inrupt_glossary_acronym:AS .
+
+inrupt_glossary_acronym:JOSE a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JOSE"@en ;
+     rdfs:comment "JSON Object Signing and Encryption"@en .
+
+inrupt_glossary_acronym:JSON a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JSON"@en ;
+     rdfs:comment "JavaScript Object Notation"@en .
+
+inrupt_glossary_acronym:JWA a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JWA"@en ;
+     rdfs:comment "JSON Web Algorithms"@en ;
+     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc7518> .
+
+inrupt_glossary_acronym:JWK a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JWK"@en ;
+     rdfs:comment "JSON Web Key"@en ;
+     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc7517> .
+
+inrupt_glossary_acronym:JWKS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JWKS"@en ;
+     rdfs:comment "JSON Web Key Set"@en .
+
+inrupt_glossary_acronym:JWS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JWS"@en ;
+     rdfs:comment "JSON Web Signature"@en ;
+     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc7515> .
+
+inrupt_glossary_acronym:JWT a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "JWT"@en ;
+     rdfs:comment "JSON Web Token"@en ;
+     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc7519> .
+
+inrupt_glossary_acronym:LDN a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "LDN"@en ;
+     rdfs:comment "Linked Data Notifications"@en .
+
+inrupt_glossary_acronym:NSS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "NSS"@en ;
+     rdfs:comment "Node Solid Server"@en .
+
+inrupt_glossary_acronym:OIDC a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "OIDC"@en ;
+     rdfs:comment "OpenID Connect"@en .
+
+inrupt_glossary_acronym:OP a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "OP"@en ;
+     rdfs:comment "OpenID Provider"@en ;
+     rdfs:seeAlso
+          inrupt_glossary_acronym:IdP ,
+          inrupt_glossary_acronym:OS .
+
+inrupt_glossary_acronym:OS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "OS"@en ;
+     rdfs:comment "OIDC Server"@en ;
+     rdfs:seeAlso
+          inrupt_glossary_acronym:IdP ,
+          inrupt_glossary_acronym:OP .
+
+inrupt_glossary_acronym:OSSS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "OSSS"@en ;
+     rdfs:comment "Open Source Solid Server"@en .
+
+inrupt_glossary_acronym:OWL a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "OWL"@en ;
+     rdfs:comment "OWL Web ontology Language"@en .
+
+inrupt_glossary_acronym:PIM a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "PIM"@en ;
+     rdfs:comment "Personal Information Manager"@en .
+
+inrupt_glossary_acronym:PKCE a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "PKCE"@en ;
+     rdfs:comment "Proof Key for Code Exchange"@en .
+
+inrupt_glossary_acronym:RDF a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "RDF"@en ;
+     rdfs:comment "Resource Description Framework"@en .
+
+inrupt_glossary_acronym:RDFa a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "RDFa"@en ;
+     rdfs:comment "Resource Description Framework in Attributes"@en .
+
+inrupt_glossary_acronym:RP a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "RP"@en ;
+     rdfs:comment "Relying Party (OAuth)"@en .
+
+inrupt_glossary_acronym:RS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "RS"@en ;
+     rdfs:comment "Resource Server"@en .
+
+inrupt_glossary_acronym:TTL a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "TTL"@en ;
+     rdfs:comment "Turtle (Terse RDF Triple Language)"@en .
+
+inrupt_glossary_acronym:SDK a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "SDK"@en ;
+     rdfs:comment "Software Development Kit"@en .
+
+inrupt_glossary_acronym:SOLID a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "SOLID"@en ;
+     rdfs:comment "Social Linked Data"@en .
+
+inrupt_glossary_acronym:SRS a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "SRS"@en ;
+     rdfs:comment "Software Requirements Spec"@en .
+
+inrupt_glossary_acronym:SWAP a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "SWAP"@en ;
+     rdfs:comment "Semantic Web Application Platform"@en .
+
+inrupt_glossary_acronym:WAC a skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_acronym: ;
+     skosxl:literalForm "WAC"@en ;
+     rdfs:comment "Web Access Control"@en .

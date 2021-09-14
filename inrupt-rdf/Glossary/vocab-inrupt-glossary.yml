@@ -27,9 +27,9 @@ license:
   name: "MIT"
 
 artifactToGenerate:
-  # This is the configuration of the DEFAULT Java artifact - i.e. where the name
-  # of the generated JAR does not contain details of it's dependencies (e.g.
-  # whether it provides VocabTerm constants or just string constants, or whether
+  # This is the configuration of the DEFAULT Java artifact - i.e., where the name
+  # of the generated JAR does not contain details of its dependencies (e.g.,
+  # whether it provides SolidCommonVocab constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
@@ -38,9 +38,7 @@ artifactToGenerate:
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.inrupt.glossary
 
-    solidCommonVocabVersion: 0.0.3
-    rdf4jVersion: 3.4.2
-    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+    templateInternal: stringLiteral/java/vocab.hbs
 
     # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
     languageKeywordsToUnderscore:
@@ -58,7 +56,7 @@ artifactToGenerate:
       - key: "cloudsmith"
         command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
       packagingTemplates: 
-      - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+      - templateInternal: stringLiteral/java/pom.hbs
         fileName: pom.xml
       repository:
       - type: repository
@@ -69,9 +67,165 @@ artifactToGenerate:
         url: https://maven.cloudsmith.io/inrupt/sdk-development/
       
 
-  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
-  # the name of the generated npm module does not contain details of it's
-  # dependencies (e.g. whether it provides VocabTerm constants or just string
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+
+    artifactDirectoryName: Java-StringLiteral
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.inrupt.glossary.stringliteral
+
+    templateInternal: stringLiteral/java/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: stringLiteral/java/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  # This is the configuration of the DEFAULT SolidCommonVocab Java
+  # artifact - i.e., where the name of the generated JAR does not contain
+  # details of its dependencies (e.g., whether it provides SolidCommonVocab
+  # constants or just string constants, or whether it depends on RDF4J or Jena
+  # or RDF Commons, etc.).
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+
+    artifactDirectoryName: Java-SolidCommonVocab
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.inrupt.glossary.solidcommonvocab
+
+    solidCommonVocabVersion: 0.0.3
+    rdf4jVersion: 3.4.2
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+
+    artifactDirectoryName: Java-SolidCommonVocab-RDF4J
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.inrupt.glossary.solidcommonvocab.rdf4j
+
+    solidCommonVocabVersion: 0.0.3
+    rdf4jVersion: 3.4.2
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+
+    artifactDirectoryName: Java-CommonsRDF-ServiceLoader
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.inrupt.glossary.commonsrdf.serviceloader
+
+    # This config doesn't use our own vocab library - it uses a specific
+    # underlying RDF library instead.
+    commonsRdfVersion: 0.5.0
+    templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - default   # Defined in ACL
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: rdfLibraryDependent/java/commonsRdfServiceLoader/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e., where
+  # the name of the generated npm module does not contain details of its
+  # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
@@ -146,16 +300,16 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 
-  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
-  # i.e., where the name of the generated npm module does not contain details
-  # of the underlying RDF library dependencies (e.g., whether it depends on
-  # RDF/JS or a specific implementation, etc.).
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm
+    artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm
+    artifactSuffix: -solidcommonvocab
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -194,9 +348,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -233,10 +387,17 @@ artifactToGenerate:
 
 
 vocabList:
-  - description: Inrupt ESS Vocabulary
-    inputResources:
+  - inputResources:
+      - CopyOfVocab/inrupt-glossary-acronym.ttl
+
+  - inputResources:
       - CopyOfVocab/inrupt-glossary-ess.ttl
 
-  - description: Inrupt Release Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-glossary-release.ttl
+
+  - inputResources:
+      - CopyOfVocab/inrupt-glossary-solid.ttl
+    # For WebVOWL visualizations (generated from Widoco), we need to wire things up a little
+    # strangely, and we need this option to prevent the AG from complaining!
+    ignoreNonVocabTerms: true

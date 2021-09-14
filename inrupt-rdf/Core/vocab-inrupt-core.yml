@@ -33,9 +33,9 @@ license:
   name: "MIT"
 
 artifactToGenerate:
-  # This is the configuration of the DEFAULT Java artifact - i.e. where the name
-  # of the generated JAR does not contain details of it's dependencies (e.g.
-  # whether it provides VocabTerm constants or just string constants, or whether
+  # This is the configuration of the DEFAULT Java artifact - i.e., where the name
+  # of the generated JAR does not contain details of its dependencies (e.g.,
+  # whether it provides SolidCommonVocab constants or just string constants, or whether
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
@@ -43,6 +43,50 @@ artifactToGenerate:
     artifactDirectoryName: Java
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.core
+
+    templateInternal: stringLiteral/java/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+      - abstract  # Defined in DCTerms.
+      - for       # Defined in ?.
+      - default   # Defined in ACL.
+      - boolean   # Defined in XML Schema Datatypes.
+      - float     # Defined in XML Schema Datatypes.
+      - double    # Defined in XML Schema Datatypes.
+      - byte      # Defined in XML Schema Datatypes.
+      - int       # Defined in XML Schema Datatypes.
+      - long      # Defined in XML Schema Datatypes.
+      - short     # Defined in XML Schema Datatypes.
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: stringLiteral/java/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+
+    artifactDirectoryName: Java
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.core.solidcommonvocab.rdf4j
 
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
@@ -74,9 +118,9 @@ artifactToGenerate:
             url: https://maven.cloudsmith.io/inrupt/sdk-development/
 
 
-  # This is the configuration of the DEFAULT TypeScript artifact - i.e. where
-  # the name of the generated npm module does not contain details of it's
-  # dependencies (e.g. whether it provides VocabTerm constants or just string
+  # This is the configuration of the DEFAULT TypeScript artifact - i.e., where
+  # the name of the generated npm module does not contain details of its
+  # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
@@ -114,16 +158,16 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 
-  # This is the configuration of the DEFAULT VocabTerm TypeScript artifact -
-  # i.e., where the name of the generated npm module does not contain details
-  # of the underlying RDF library dependencies (e.g., whether it depends on
-  # RDF/JS or a specific implementation, etc.).
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm
+    artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm
+    artifactSuffix: -solidcommonvocab
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -161,9 +205,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-VocabTerm-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -vocabterm-rdfjs-rdfdatafactory
+    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -201,9 +245,9 @@ artifactToGenerate:
   - programmingLanguage: TypeScript
     artifactVersion: "1.0.1"
 
-    artifactDirectoryName: TypeScript-rdfjs-RdfDataFactory
+    artifactDirectoryName: TypeScript-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfjs-rdfdatafactory
+    artifactSuffix: -rdfdatafactory
 
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
@@ -275,55 +319,44 @@ artifactToGenerate:
 
 
 vocabList:
-  - description: Inrupt Common Vocabulary, for terms common across all of Inrupt.
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-common.ttl
 
-  - description: The Inrupt Artifact Generator vocabulary
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-artifact-generator.ttl
 
-  - description: The Inrupt Consent vocabulary
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-consent.ttl
 
-  - description: Inrupt vocab that really just provides the Named Graph details for request body data
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-request-body.ttl
 
-  - description: Inrupt vocab for request data
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-request.ttl
 
-  - description: Inrupt vocab for client metadata
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-meta-client.ttl
 
-  - description: Inrupt vocab for SHACL metadata
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-meta-shacl.ttl
 
-  - description: Inrupt vocab for server creation-time metadata
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-meta-server-creational.ttl
 
-  - description: Inrupt vocab for server runtime metadata
-    inputResources:
+  - inputResources:
       # Currently (Aug 2019), we just reference our Inrupt vocabs locally, and
       # not as published vocabs online...
       - ./CopyOfVocab/inrupt-meta-server-runtime.ttl
 
-
-  - description: The Inrupt Metric Ontology contains vocab terms to represent metric statistics
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-metric.ttl
