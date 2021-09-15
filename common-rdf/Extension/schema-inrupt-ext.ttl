@@ -358,6 +358,18 @@ schema:accessCode
     rdfs:comment "Se necesita contraseña, PIN o código de acceso para la entrega (por ejemplo, de un casillero)."@es ;
     rdfs:comment "Password, PIN o codice di accesso necessari per la consegna (ad es. da un armadietto)."@it .
 
+schema:accountId
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Account ID"@en ;
+    schema:alternateName "Identifiant de compte"@fr ;
+    schema:alternateName "Konto-ID"@de ;
+    schema:alternateName "ID de la cuenta"@es ;
+    schema:alternateName "Account ID"@it ;
+    rdfs:comment "L'identifiant du compte sur lequel le paiement sera appliqué."@fr ;
+    rdfs:comment "Die Kennung des Kontos, auf das die Zahlung angewendet wird."@de ;
+    rdfs:comment "El identificador de la cuenta a la que se aplicará el pago."@es ;
+    rdfs:comment "L'identificativo dell'account a cui verrà applicato il pagamento."@it .
+
 #
 # Template for pulling in new terms!
 #

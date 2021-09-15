@@ -11,6 +11,7 @@ configuration files contained in this repository.
   come from vocabs themselves - we only provide the capability for vocabs that
   fail to describe themselves).
 - Moved the basic test code into a JavaScript-specific sub-directory.
+- Added Schema.org term ('accountId'), and authn token as a JWT term for Inrupt.
 
 ## v1.0.1 2021-08-20
 
