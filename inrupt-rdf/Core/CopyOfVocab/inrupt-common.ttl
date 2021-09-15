@@ -75,3 +75,11 @@ inrupt_common:customerId a rdf:Property ;
     rdfs:comment """A generic customer identifier (e.g., an identifier for a customer from a legacy
  system, or a 3rd-party system, or a separate internal system, etc.)."""@en .
 
+#
+# Authentication.
+#
+inrupt_common:authenticationTokenAsJwt a rdf:Property ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Authentication token as JWT"@en ;
+    rdfs:comment """An authentication token encoded as a JSON Web Token (JWT). This JWT may
+ contain not just an access code, but also user account IDs or other information."""@en .
