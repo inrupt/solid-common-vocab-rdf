@@ -17,17 +17,17 @@ prefix inrupt_common: <https://inrupt.com/vocab/common#>
 # suggested prefix, its license, etc.
 #
 inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
-	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
     dcterms:title "Inrupt common vocabulary"@en ;
     dcterms:title "Inrupt vocabulario común"@es ;
-	dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
-	dcterms:description "El Inrupt vocabulario común: términos de uso común en todos los productos y servicios de Inrupt."@es ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
-	dcterms:issued "2019/11/08"^^xsd:date ;
-	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
-	vann:preferredNamespacePrefix "inrupt_common" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
+    dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
+    dcterms:description "El Inrupt vocabulario común: términos de uso común en todos los productos y servicios de Inrupt."@es ;
+    dcterms:creator <https://inrupt.com/profile/card/#us> ;
+    dcterms:issued "2019/11/08"^^xsd:date ;
+    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+    vann:preferredNamespacePrefix "inrupt_common" ;
+    vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
 
 #
 # Acronym support.
@@ -62,12 +62,12 @@ inrupt_common:acronymExpandedForm a rdfs:Property ;
 # Common error messages.
 #
 inrupt_common:errFailedToProcessIncomingRdf a skosxl:Label ;
-	skos:definition "Failed to process incoming message as RDF."@en ;
+    skos:definition "Failed to process incoming message as RDF."@en ;
     skos:definition "No se pudo procesar el mensaje entrante como RDF."@es .
 
 inrupt_common:msgRequestValidatedAsRdf a skosxl:Label ;
     skos:definition "Incoming request validated as RDF (it has [{{0}}] triples!)."@en ;
-	skos:definition "Solicitud entrante validada como RDF (¡tiene [{{0}}] triples!)."@es .
+    skos:definition "Solicitud entrante validada como RDF (¡tiene [{{0}}] triples!)."@es .
 
 
 #
