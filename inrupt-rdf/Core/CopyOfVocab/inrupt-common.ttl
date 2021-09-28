@@ -19,8 +19,10 @@ prefix inrupt_common: <https://inrupt.com/vocab/common#>
 inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
- 	dcterms:title "Inrupt common vocabulary"@en ;
+    dcterms:title "Inrupt common vocabulary"@en ;
+    dcterms:title "Inrupt vocabulario común"@es ;
 	dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
+	dcterms:description "El Inrupt vocabulario común: términos de uso común en todos los productos y servicios de Inrupt."@es ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/11/08"^^xsd:date ;
 	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
@@ -33,19 +35,25 @@ inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
 inrupt_common:Acronym a rdfs:Class ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Acronym"@en ;
-    rdfs:comment """The class of all acronyms."""@en .
+    rdfs:label "Acrónimo"@es ;
+    rdfs:comment """The class of all acronyms."""@en ;
+    rdfs:comment """La clase de todas las siglas."""@es .
 
 inrupt_common:acronym rdfs:subPropertyOf skosxl:labelRelation ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Acronym"@en ;
+    rdfs:label "Acrónimo"@es ;
     rdfs:comment """An instance of an acronym - expected to be used on terminology, phrases, or concepts."""@en ;
+    rdfs:comment """Una instancia de un acrónimo: se espera que se use en terminología, frases o conceptos."""@es ;
     schema:domainIncludes skosxl:Label ;
     schema:rangeIncludes skosxl:Label .
 
 inrupt_common:acronymExpandedForm a rdfs:Property ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Acronym expanded form"@en ;
-    rdfs:comment """This property references an expanded form for an acronym, expected to provide more detail on what an acronym actually refers to."""@en ;
+    rdfs:label "Forma expandida de siglas"@es ;
+    rdfs:comment """An expanded form for an acronym, expected to provide more detail on what an acronym actually refers to."""@en ;
+    rdfs:comment """Una forma ampliada de un acrónimo, que se espera que proporcione más detalles sobre a qué se refiere realmente un acrónimo."""@es ;
     schema:domainIncludes skosxl:Label ;
     schema:rangeIncludes skosxl:Label .
 
@@ -54,10 +62,12 @@ inrupt_common:acronymExpandedForm a rdfs:Property ;
 # Common error messages.
 #
 inrupt_common:errFailedToProcessIncomingRdf a skosxl:Label ;
-	skos:definition "Failed to process incoming message as RDF"@en .
+	skos:definition "Failed to process incoming message as RDF."@en ;
+    skos:definition "No se pudo procesar el mensaje entrante como RDF."@es .
 
 inrupt_common:msgRequestValidatedAsRdf a skosxl:Label ;
-	skos:definition "Incoming request validated as RDF (it has [{{0}}] triples!)"@en .
+    skos:definition "Incoming request validated as RDF (it has [{{0}}] triples!)."@en ;
+	skos:definition "Solicitud entrante validada como RDF (¡tiene [{{0}}] triples!)."@es .
 
 
 #
@@ -66,20 +76,49 @@ inrupt_common:msgRequestValidatedAsRdf a skosxl:Label ;
 inrupt_common:CustomerId a rdfs:Class ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Class of customer identifiers"@en ;
+    rdfs:label "Clase de identificadores de clientes"@es ;
     rdfs:comment """The class of customer identifiers (e.g., identifiers for customers from legacy
- systems, or 3rd-party systems, or separate internal systems, etc.)."""@en .
+ systems, or 3rd-party systems, or separate internal systems, etc.)."""@en ;
+    rdfs:comment """La clase de identificadores de clientes (p. Ej., Identificadores de clientes de
+ legacy sistemas o sistemas de terceros, o sistemas internos separados, etc.)."""@es .
+
 
 inrupt_common:customerId a rdf:Property ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Customer identifier"@en ;
+    rdfs:label "Identificador de cliente"@es ;
     rdfs:comment """A generic customer identifier (e.g., an identifier for a customer from a legacy
- system, or a 3rd-party system, or a separate internal system, etc.)."""@en .
+ system, or a 3rd-party system, or a separate internal system, etc.)."""@en ;
+    rdfs:comment """Un identificador de cliente genérico (por ejemplo, un identificador de un
+ cliente de un sistema heredado, un sistema de terceros o un sistema interno separado, etc.)."""@es .
 
 #
 # Authentication.
 #
+inrupt_common:AuthenticationResponse a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Class of Authentication Responses"@en ;
+    rdfs:label "Clase de respuestas de autenticación"@es ;
+    rdfs:comment """Type used to denote a response from an authentication request (expected to
+ contain things like access tokens, user IDs, account IDs, etc., when authenticating with an API)."""@en ;
+    rdfs:comment """Tipo utilizado para denotar una respuesta de una solicitud de autenticación (se
+ espera que contenga elementos como tokens de acceso, ID de usuario, ID de cuenta, etc., al
+ autenticarse con una API)."""@es .
+
+
 inrupt_common:authenticationTokenAsJwt a rdf:Property ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Authentication token as JWT"@en ;
+    rdfs:label "Token de autenticación como JWT"@es ;
     rdfs:comment """An authentication token encoded as a JSON Web Token (JWT). This JWT may
- contain not just an access code, but also user account IDs or other information."""@en .
+ contain not just an access code, but also user account IDs or other information."""@en ;
+    rdfs:comment """Un token de autenticación codificado como JSON Web Token (JWT). Este JWT puede
+ contener no solo un código de acceso, sino también ID de cuenta de usuario u otra información."""@es .
+
+inrupt_common:accessTokenAsString a rdf:Property ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Access token (as string)"@en ;
+    rdfs:label "Token de acceso (como cadena)"@es ;
+    rdfs:comment """An access token, typically used to access an API, represented as a simple string value."""@en ;
+    rdfs:comment """Un token de acceso, normalmente utilizado para acceder a una API, representado
+ como un valor de cadena simple."""@es .

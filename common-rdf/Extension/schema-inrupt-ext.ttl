@@ -370,6 +370,43 @@ schema:accountId
     rdfs:comment "El identificador de la cuenta a la que se aplicará el pago."@es ;
     rdfs:comment "L'identificativo dell'account a cui verrà applicato il pagamento."@it .
 
+schema:serialNumber
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Serial number"@en ;
+    schema:alternateName "Numéro de série"@fr ;
+    schema:alternateName "Seriennummer"@de ;
+    schema:alternateName "Número de serie"@es ;
+    schema:alternateName "Numero di serie"@it ;
+    rdfs:comment """Le numéro de série ou tout identifiant alphanumérique d'un produit particulier.
+ Lorsqu'il est joint à une offre, il s'agit d'un raccourci pour le numéro de série du produit inclus
+ dans l'offre."""@fr ;
+    rdfs:comment """Die Seriennummer oder eine beliebige alphanumerische Kennung eines bestimmten
+ Produkts. Wenn es einem Angebot beigefügt ist, ist es eine Abkürzung für die Seriennummer des im
+ Angebot enthaltenen Produkts."""@de ;
+    rdfs:comment """El número de serie o cualquier identificador alfanumérico de un producto en
+ particular. Cuando se adjunta a una oferta, es un atajo para el número de serie del producto
+ incluido en la oferta."""@es ;
+    rdfs:comment "."@it .
+
+schema:Product
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Produit"@fr ;
+    schema:alternateName "Produkt"@de ;
+    schema:alternateName "Producto"@es ;
+    schema:alternateName "Prodotto"@it ;
+    rdfs:comment """Tout produit ou service offert. Par exemple : une paire de chaussures ; un
+ billet de concert ; la location d'une voiture ; une coupe de cheveux; ou un épisode d'une émission
+ télévisée diffusé en ligne."""@fr ;
+    rdfs:comment """Alle angebotenen Produkte oder Dienstleistungen. Zum Beispiel: ein Paar Schuhe;
+ eine Konzertkarte; die Anmietung eines Autos; ein Haarschnitt; oder eine Folge einer online
+ gestreamten Fernsehsendung."""@de ;
+    rdfs:comment """Cualquier producto o servicio ofrecido. Por ejemplo: un par de zapatos; un
+ boleto de concierto; el alquiler de un coche; un corte de pelo o un episodio de un programa de
+ televisión transmitido en línea."""@es ;
+    rdfs:comment """Qualsiasi prodotto o servizio offerto. Ad esempio: un paio di scarpe; un
+ biglietto per il concerto; il noleggio di un'auto; un taglio di capelli; o un episodio di un
+ programma televisivo trasmesso in streaming online."""@it .
+
 #
 # Template for pulling in new terms!
 #
