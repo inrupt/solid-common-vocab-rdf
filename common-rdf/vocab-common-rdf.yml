@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 1.0.1
+artifactGeneratorVersion: 1.0.3
 
 versioning:
   type: git
@@ -40,6 +40,8 @@ artifactToGenerate:
   # it depends on RDF4J or Jena or RDF Commons, etc.).
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: ""
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -84,6 +86,8 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab-rdf4j
 
     artifactDirectoryName: Java
     sourceFileExtension: java
@@ -129,11 +133,12 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: -stringliteral
 
     artifactDirectoryName: Java-StringLiteral
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf.stringliteral
-    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/java/vocab.hbs
 
@@ -174,11 +179,12 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab-rdf4j
 
     artifactDirectoryName: Java-SolidCommonVocab-RDF4J
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf.rdf4j
-    artifactSuffix: -solidcommonvocab-rdf4j
 
     solidCommonVocabVersion: 0.0.3
     rdf4jVersion: 3.4.2
@@ -211,11 +217,12 @@ artifactToGenerate:
 
   - programmingLanguage: Java
     artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: -commonsrdf-serviceloader
 
     artifactDirectoryName: Java-CommonsRdf-ServiceLoader
     sourceFileExtension: java
     javaPackageName: com.inrupt.vocab.common.rdf.commonsrdf.serviceloader
-    artifactSuffix: -commonsrdf-serviceloader
 
     # This config doesn't use our own vocab library - it uses a specific
     # underlying RDF library instead.
@@ -251,7 +258,9 @@ artifactToGenerate:
   # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.1"
+    artifactVersion: "1.0.2"
+    artifactNamePrefix: ""
+    artifactNameSuffix: ""
 
     artifactDirectoryName: TypeScript
     sourceFileExtension: ts
@@ -291,11 +300,12 @@ artifactToGenerate:
   # contain details of the underlying RDF library dependencies (e.g.,
   # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.1"
+    artifactVersion: "1.0.2"
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab
 
     artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
-    artifactSuffix: -solidcommonvocab
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -331,11 +341,12 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.1"
+    artifactVersion: "1.0.2"
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab-rdfdatafactory
 
     artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -solidcommonvocab-rdfdatafactory
 
     solidCommonVocabVersion: "^1.0.0"
     rdfjsTypesVersion: "^1.0.1"
@@ -377,11 +388,13 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "1.0.1"
+#    artifactVersion: "1.0.2"
+#    artifactNamePrefix: ""
+#    artifactNameSuffix: -base
+#
 #    artifactDirectoryName: TypeScript-Base
 #    templateInternal: rdfLibraryDependent/typescript/rdfjsBase-DataModel/vocab.hbs
 #    sourceFileExtension: ts
-#    artifactSuffix: -base
 #    packaging:
 #      - packagingTool: npm
 #        npmModuleScope: "@inrupt/"
@@ -412,11 +425,12 @@ artifactToGenerate:
 #
 #
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.1"
+    artifactVersion: "1.0.2"
+    artifactNamePrefix: ""
+    artifactNameSuffix: -rdfdatafactory
 
     artifactDirectoryName: TypeScript-RdfDataFactory
     sourceFileExtension: ts
-    artifactSuffix: -rdfdatafactory
 
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
@@ -451,11 +465,12 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.1"
+    artifactVersion: "1.0.2"
+    artifactNamePrefix: ""
+    artifactNameSuffix: -stringliteral
 
     artifactDirectoryName: TypeScript-StringLiteral
     sourceFileExtension: ts
-    artifactSuffix: -stringliteral
 
     templateInternal: stringLiteral/typescript/vocab.hbs
 
