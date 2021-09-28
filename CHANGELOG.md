@@ -12,6 +12,12 @@ configuration files contained in this repository.
   fail to describe themselves).
 - Moved the basic test code into a JavaScript-specific sub-directory.
 - Added Schema.org term ('accountId'), and authn token as a JWT term for Inrupt.
+- Fixed 3 occurrences of `vann:preferredNamespaceURI` with `vann:preferredNamespaceUri`!
+- Updated configuration field names from `artifactPrefix` and `artifactSuffix`
+  to `artifactNamePrefix` and `artifactNameSuffix` respectively, to better
+  convey their intent, and to align them better with the `artifactName` field
+  that they both apply to.
+
 
 ## v1.0.1 2021-08-20
 

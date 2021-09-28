@@ -1,0 +1,36 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix vann: <http://purl.org/vocab/vann/>
+
+#
+# This is just a super-simple, minimalist vocabulary for testing with Widoco - it's not intended to
+# ever be used in real code, and so I wouldn't expect it to ever appear in a bundling configuration
+# (i.e., YAML) file - instead it's intended to be referenced directly.
+#
+<https://ex.com/namespace-with-slash/> a owl:Ontology ;
+    dcterms:title "Widoco Test Vocab"@en ;
+    dcterms:description """Test vocab for playing around with Widoco."""@en ;
+    vann:preferredNamespacePrefix "ex" ;
+    vann:preferredNamespaceUri <https://ex.com/namespace-with-slash/> .
+
+<https://ex.com/namespace-with-slash/SomeClass> a rdfs:Class ;
+    rdfs:label "Class"@en ;
+    rdfs:comment """The class of Class."""@en .
+
+<https://ex.com/namespace-with-slash/SomeObj> a owl:ObjectProperty ;
+    rdfs:label "Some ObjectProperty"@en ;
+    rdfs:comment """The class of ObjectProperty."""@en .
+
+<https://ex.com/namespace-with-slash/SomeRdfProperty> a rdf:Property ;
+    rdfs:label "RDF Property"@en ;
+    rdfs:comment """The class of RDF Property."""@en .
+
+<https://ex.com/namespace-with-slash/SomeDatatypeProp> a owl:DatatypeProperty ;
+    rdfs:label "Datatype Property"@en ;
+    rdfs:comment """The class of DatatypeProperty."""@en .
+
+<https://ex.com/namespace-with-slash/SomeNamedIndividual> a owl:NamedIndividual ;
+    rdfs:label "Named Individual"@en ;
+    rdfs:comment """The class of NamedIndividual."""@en .
