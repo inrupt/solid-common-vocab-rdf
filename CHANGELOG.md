@@ -17,6 +17,9 @@ configuration files contained in this repository.
   to `artifactNamePrefix` and `artifactNameSuffix` respectively, to better
   convey their intent, and to align them better with the `artifactName` field
   that they both apply to.
+- Cherry-picked some new generic terms from Schema.org, and added a couple of
+  generically useful terms to the Inrupt Common vocab (for concepts that don't
+  seem to exist in Schema.org). 
 
 
 ## v1.0.1 2021-08-20
