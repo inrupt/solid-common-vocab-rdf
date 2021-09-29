@@ -5,6 +5,8 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## v1.0.2 2021-09-29
+
 - Updated glossary vocabs, and added an initial Solid one (based on
   [SolidProject](https://docs.inrupt.com/developer-tools/javascript/client-libraries/reference/glossary/)).
 - Removed unnecessary vocab descriptions from YAMLS (as descriptions should
@@ -20,7 +22,6 @@ configuration files contained in this repository.
 - Cherry-picked some new generic terms from Schema.org, and added a couple of
   generically useful terms to the Inrupt Common vocab (for concepts that don't
   seem to exist in Schema.org). 
-
 
 ## v1.0.1 2021-08-20
 
