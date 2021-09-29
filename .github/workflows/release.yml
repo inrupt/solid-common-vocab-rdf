@@ -14,6 +14,7 @@ jobs:
             "common-rdf/vocab-common-rdf.yml",
             "solid-rdf/vocab-solid.yml",
             "inrupt-rdf/Core/vocab-inrupt-core.yml",
+            "inrupt-rdf/Glossary/vocab-inrupt-glossary.yml",
             "inrupt-rdf/Test/vocab-inrupt-test.yml"
         ]
     name: npm release for ${{ matrix.vocab }}
