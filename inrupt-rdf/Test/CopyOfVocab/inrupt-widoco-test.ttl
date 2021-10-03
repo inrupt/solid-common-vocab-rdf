@@ -11,26 +11,38 @@ prefix vann: <http://purl.org/vocab/vann/>
 #
 <https://ex.com/namespace-with-slash/> a owl:Ontology ;
     dcterms:title "Widoco Test Vocab"@en ;
-    dcterms:description """Test vocab for playing around with Widoco."""@en ;
+    dcterms:title "Vocab de prueba de Widoco"@es ;
+    dcterms:description "Test vocab for playing around with Widoco."@en ;
+    dcterms:description "Prueba de vocabulario para jugar con Widoco."@es ;
     vann:preferredNamespacePrefix "ex" ;
     vann:preferredNamespaceUri <https://ex.com/namespace-with-slash/> .
 
 <https://ex.com/namespace-with-slash/SomeClass> a rdfs:Class ;
     rdfs:label "Class"@en ;
-    rdfs:comment """The class of Class."""@en .
+    rdfs:label "Clase"@es ;
+    rdfs:comment "The class of Class."@en ;
+    rdfs:comment "La clase de Class."@es .
 
 <https://ex.com/namespace-with-slash/SomeObj> a owl:ObjectProperty ;
     rdfs:label "Some ObjectProperty"@en ;
-    rdfs:comment """The class of ObjectProperty."""@en .
+    rdfs:label "Alguna propiedad de objeto"@es ;
+    rdfs:comment """The class of ObjectProperty."""@en ;
+    rdfs:comment """La clase de ObjectProperty."""@es .
 
 <https://ex.com/namespace-with-slash/SomeRdfProperty> a rdf:Property ;
     rdfs:label "RDF Property"@en ;
-    rdfs:comment """The class of RDF Property."""@en .
+    rdfs:label "Propiedad RDF"@es ;
+    rdfs:comment """The class of RDF Property."""@en ;
+    rdfs:comment """La clase de propiedad RDF."""@es .
 
 <https://ex.com/namespace-with-slash/SomeDatatypeProp> a owl:DatatypeProperty ;
     rdfs:label "Datatype Property"@en ;
-    rdfs:comment """The class of DatatypeProperty."""@en .
+    rdfs:label "Propiedad de tipo de datos"@es ;
+    rdfs:comment """The class of DatatypeProperty."""@en ;
+    rdfs:comment """La clase de DatatypeProperty."""@es .
 
 <https://ex.com/namespace-with-slash/SomeNamedIndividual> a owl:NamedIndividual ;
     rdfs:label "Named Individual"@en ;
-    rdfs:comment """The class of NamedIndividual."""@en .
+    rdfs:label "Nombrada individual"@es ;
+    rdfs:comment """The class of NamedIndividual."""@en ;
+    rdfs:comment """La clase de NamedIndividual."""@es .
