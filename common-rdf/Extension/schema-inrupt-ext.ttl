@@ -346,6 +346,96 @@ schema:attendee
     rdfs:comment "Una persona u organización que asista al evento."@es ;
     rdfs:comment "Una persona o un'organizzazione che partecipa all'evento."@it .
 
+#
+# Address information.
+#
+schema:PostalAddress
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Postal address"@en ;
+    schema:alternateName "Adresse postale"@fr ;
+    schema:alternateName "Anschrift"@de ;
+    schema:alternateName "Direccion postal"@es ;
+    schema:alternateName "Indirizzo postale"@it ;
+    rdfs:comment "L'adresse postale."@fr ;
+    rdfs:comment "Die Postanschrift."@de ;
+    rdfs:comment "La dirección postal."@es ;
+    rdfs:comment "L'indirizzo di posta."@it .
+
+schema:address
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Address"@en ;
+    schema:alternateName "Adresse"@fr ;
+    schema:alternateName "Die Anschrift"@de ;
+    schema:alternateName "Dirección"@es ;
+    schema:alternateName "Indirizzo"@it ;
+    rdfs:comment "Adresse physique de l'article."@fr ;
+    rdfs:comment "Physische Adresse des Artikels."@de ;
+    rdfs:comment "Dirección física del artículo."@es ;
+    rdfs:comment "Indirizzo fisico dell'articolo."@it .
+
+schema:streetAddress
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Street address"@en ;
+    schema:alternateName "Adresse de la rue"@fr ;
+    schema:alternateName "Adresse"@de ;
+    schema:alternateName "Dirección"@es ;
+    schema:alternateName "Indirizzo"@it ;
+    rdfs:comment "L'adresse de la rue. Par exemple, 1600 Amphitheatre Pkwy."@fr ;
+    rdfs:comment "Die Straßenadresse. Zum Beispiel, 1600 Amphitheatre Pkwy."@de ;
+    rdfs:comment "La dirección de la calle. Por ejemplo, 1600 Amphitheatre Pkwy."@es ;
+    rdfs:comment "L'indirizzo stradale. Per esempio, 1600 Amphitheatre Pkwy."@it .
+
+schema:addressLocality
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Address locality"@en ;
+    schema:alternateName "Adresse localité"@fr ;
+    schema:alternateName "Adresse Ort"@de ;
+    schema:alternateName "Dirección localidad"@es ;
+    schema:alternateName "Indirizzo località"@it ;
+    rdfs:comment "La localité dans laquelle se trouve l'adresse postale et qui se trouve dans la région. Par exemple, vue sur la montagne."@fr ;
+    rdfs:comment "Der Ort, in dem sich die Straßenadresse befindet und der sich in der Region befindet. Zum Beispiel Mountain View."@de ;
+    rdfs:comment "La localidad en la que se encuentra la dirección postal y en la región. Por ejemplo, Mountain View."@es ;
+    rdfs:comment "La località in cui si trova l'indirizzo e che si trova nella regione. Ad esempio, Mountain View."@it .
+
+schema:addressRegion
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Address region"@en ;
+    schema:alternateName "Région de l'adresse"@fr ;
+    schema:alternateName "Adressregion"@de ;
+    schema:alternateName "Región de dirección"@es ;
+    schema:alternateName "Indirizzo regione"@it ;
+    rdfs:comment "La région dans laquelle se trouve la localité et qui se trouve dans le pays. Par exemple, la Californie ou une autre division administrative de premier niveau appropriée."@fr ;
+    rdfs:comment "Die Region, in der sich der Ort befindet und die sich im Land befindet. Zum Beispiel Kalifornien oder eine andere geeignete Verwaltungseinheit der ersten Ebene."@de ;
+    rdfs:comment "La región en la que se encuentra la localidad y en el país. Por ejemplo, California u otra división administrativa de primer nivel apropiada."@es ;
+    rdfs:comment "La regione in cui si trova la località e che si trova nel paese. Ad esempio, la California o un'altra divisione amministrativa di primo livello appropriata."@it .
+
+schema:postalCode
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Postal code"@en ;
+    schema:alternateName "Code postal"@fr ;
+    schema:alternateName "Postleitzahl"@de ;
+    schema:alternateName "Código Postal"@es ;
+    schema:alternateName "Codice postale"@it ;
+    rdfs:comment "Le code postal. Par exemple, 94043."@fr ;
+    rdfs:comment "Die Postleitzahl. Beispiel: 94043."@de ;
+    rdfs:comment "El código postal. Por ejemplo, 94043."@es ;
+    rdfs:comment "Il codice postale. Ad esempio, 94043."@it .
+
+schema:addressCountry
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Address country"@en ;
+    schema:alternateName "Pays de l'adresse"@fr ;
+    schema:alternateName "Adressland"@de ;
+    schema:alternateName "País de la dirección"@es ;
+    schema:alternateName "Indirizzo paese"@it ;
+    rdfs:comment "Le pays. Par exemple, États-Unis. Vous pouvez également fournir le code de pays ISO 3166-1 alpha-2 à deux lettres."@fr ;
+    rdfs:comment "Das Land. Zum Beispiel USA. Sie können auch den zweibuchstabigen ISO 3166-1 Alpha-2-Ländercode angeben."@de ;
+    rdfs:comment "El país. Por ejemplo, EE. UU. También puede proporcionar el código de país ISO 3166-1 alpha-2 de dos letras."@es ;
+    rdfs:comment "Paese. Ad esempio, Stati Uniti. Puoi anche fornire il codice paese ISO 3166-1 alpha-2 di due lettere."@it .
+
+#
+# General terms...
+#
 schema:accessCode
     rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Access code"@en ;
@@ -406,6 +496,18 @@ schema:Product
     rdfs:comment """Qualsiasi prodotto o servizio offerto. Ad esempio: un paio di scarpe; un
  biglietto per il concerto; il noleggio di un'auto; un taglio di capelli; o un episodio di un
  programma televisivo trasmesso in streaming online."""@it .
+
+schema:productID
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Product ID"@en ;
+    schema:alternateName "Identifiant du produit"@fr ;
+    schema:alternateName "Produkt ID"@de ;
+    schema:alternateName "Identificación de producto"@es ;
+    schema:alternateName "Numero identificativo del prodotto"@it ;
+    rdfs:comment "L'identifiant du produit, tel que l'ISBN. Par exemple : meta itemprop=\"productID\" content=\"isbn:123-456-789\"."@fr ;
+    rdfs:comment "Die Produktkennung, z. B. ISBN. Beispiel: meta itemprop=\"productID\" content=\"isbn:123-456-789\"."@de ;
+    rdfs:comment "El identificador de producto, como ISBN. Por ejemplo: meta itemprop = \"productID\" content = \"isbn: 123-456-789\"."@es ;
+    rdfs:comment "L'identificatore del prodotto, ad esempio ISBN. Ad esempio: meta itemprop=\"productID\" content=\"isbn:123-456-789\"."@it .
 
 #
 # Template for pulling in new terms!

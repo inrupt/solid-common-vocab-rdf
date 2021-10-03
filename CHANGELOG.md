@@ -21,7 +21,8 @@ configuration files contained in this repository.
   that they both apply to.
 - Cherry-picked some new generic terms from Schema.org, and added a couple of
   generically useful terms to the Inrupt Common vocab (for concepts that don't
-  seem to exist in Schema.org). 
+  seem to exist in Schema.org).
+- Added all 5 address-related terms from Schema.org.
 
 ## v1.0.1 2021-08-20
 
