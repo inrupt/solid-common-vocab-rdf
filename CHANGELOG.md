@@ -5,6 +5,13 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## v1.0.3 2021-10-03
+
+- Cherry-picked some new generic terms from Schema.org, and added a couple of
+  generically useful terms to the Inrupt Common vocab (for concepts that don't
+  seem to exist in Schema.org).
+- Added all 5 address-related terms from Schema.org.
+
 ## v1.0.2 2021-09-29
 
 - Updated glossary vocabs, and added an initial Solid one (based on
@@ -19,10 +26,6 @@ configuration files contained in this repository.
   to `artifactNamePrefix` and `artifactNameSuffix` respectively, to better
   convey their intent, and to align them better with the `artifactName` field
   that they both apply to.
-- Cherry-picked some new generic terms from Schema.org, and added a couple of
-  generically useful terms to the Inrupt Common vocab (for concepts that don't
-  seem to exist in Schema.org).
-- Added all 5 address-related terms from Schema.org.
 
 ## v1.0.1 2021-08-20
 
