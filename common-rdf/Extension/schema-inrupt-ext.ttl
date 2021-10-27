@@ -58,7 +58,7 @@ schema:alternateName
     rdfs:comment "Un alias per l'elemento."@it .
 
 
-  schema:Person
+schema:Person
     rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Person"@en ;
     schema:alternateName "La personne"@fr ;

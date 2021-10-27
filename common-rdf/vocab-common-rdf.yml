@@ -835,6 +835,12 @@ vocabList:
     inputResources:
       - ./CopyOfVocab/inrupt-vc-data-model.ttl
 
+  - inputResources:
+      - http://rdfs.org/sioc/ns#
+    nameAndPrefixOverride: sioc
+    ignoreNonVocabTerms: true
+
+
 #
 # It 'seems' to be the case that 44 vocabs being retrieved asynchronously causes the generator to
 # blow up (with a 'readable-stream' error complaining about 'right-hand side of instanceof'). So

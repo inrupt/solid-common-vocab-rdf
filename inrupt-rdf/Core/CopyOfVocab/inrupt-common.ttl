@@ -95,6 +95,15 @@ inrupt_common:customerId a rdf:Property ;
 #
 # Authentication.
 #
+inrupt_common:UserCredentialResource a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Class of User Credential Resources"@en ;
+    rdfs:label "Clase de recursos de credenciales de usuario"@es ;
+    rdfs:comment """A user credential resource contains credentials needed to access various
+ APIs, which can include APIs provided by 3rd-parties."""@en ;
+    rdfs:comment """Un recurso de credenciales de usuario contiene las credenciales necesarias para
+ acceder a varias API, que pueden incluir API proporcionadas por terceros."""@es .
+
 inrupt_common:AuthenticationResponse a rdfs:Class ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Class of Authentication Responses"@en ;
@@ -122,3 +131,20 @@ inrupt_common:accessTokenAsString a rdf:Property ;
     rdfs:comment """An access token, typically used to access an API, represented as a simple string value."""@en ;
     rdfs:comment """Un token de acceso, normalmente utilizado para acceder a una API, representado
  como un valor de cadena simple."""@es .
+
+#
+# Working with external data sources.
+#
+inrupt_common:DataSourceContainer a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Class of data source containers"@en ;
+    rdfs:label "Clase de contenedores de fuentes de datos"@es ;
+    rdfs:comment "The class of containers for all data from a particular data source."@en ;
+    rdfs:comment "La clase de contenedores para todos los datos de una fuente de datos en particular."@es .
+
+inrupt_common:dataSourceContainer a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Data source container"@en ;
+    rdfs:label "Contenedor de fuente de datos"@es ;
+    rdfs:comment "Container for all data from a particular data source."@en ;
+    rdfs:comment "Contenedor para todos los datos de una fuente de datos en particular."@es .

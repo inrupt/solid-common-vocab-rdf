@@ -11,6 +11,7 @@ configuration files contained in this repository.
   generically useful terms to the Inrupt Common vocab (for concepts that don't
   seem to exist in Schema.org).
 - Added all 5 address-related terms from Schema.org.
+- Added SIOC to our Common RDF bundle.
 
 ## v1.0.2 2021-09-29
 
