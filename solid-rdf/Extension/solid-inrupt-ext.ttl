@@ -32,7 +32,7 @@ solid_inrupt_ext: a owl:Ontology;
 
 
 solid_oidc:WebId a rdfs:Class ;
-    rdfs:isDefinedBy solid_inrupt_ext: .
+    rdfs:isDefinedBy solid_inrupt_ext: ;
     rdfs:label "Class of WebID"@en ;
     rdfs:comment "The class of WebIDs - where a WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en .
 
