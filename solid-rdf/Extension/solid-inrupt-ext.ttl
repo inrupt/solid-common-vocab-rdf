@@ -8,7 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 
-prefix solid_oidc: <http://www.w3.org/ns/solid/terms#>
+prefix solid: <http://www.w3.org/ns/solid/terms#>
 prefix solid_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid#>
 
 #
@@ -31,12 +31,12 @@ solid_inrupt_ext: a owl:Ontology;
     dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
 
 
-solid_oidc:WebId a rdfs:Class ;
+solid:WebId a rdfs:Class ;
     rdfs:isDefinedBy solid_inrupt_ext: ;
     rdfs:label "Class of WebID"@en ;
     rdfs:comment "The class of WebIDs - where a WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en .
 
-solid_oidc:webId a rdf:Property ;
+solid:webId a rdf:Property ;
     rdfs:isDefinedBy solid_inrupt_ext: ;
     rdfs:label "WebID"@en ;
     rdfs:comment "A WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en .
