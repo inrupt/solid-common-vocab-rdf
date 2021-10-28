@@ -696,17 +696,10 @@ vocabList:
   - description: Friend of a friend, v0.99
     nameAndPrefixOverride: foaf
     inputResources:
-       - http://xmlns.com/foaf/0.1/
-
-  - description: The RDF Data Cube Vocabulary
-    nameAndPrefixOverride: qb
-    inputResources:
-       - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/cube.ttl
-
-  - description: SDMX Dimension Vocabulary
-    nameAndPrefixOverride: sdmx-dimension
-    inputResources:
-       - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
+       # As of Oct 2021, the FOAF namespace URI was consistently timing out,
+       # so we need to pull from a local copy for now...
+      - ./CopyOfVocab/inrupt-foaf.ttl
+#      - http://xmlns.com/foaf/0.1/
 
   - description: Shape Expressions (ShEx) - for validating RDF
     nameAndPrefixOverride: shex
@@ -835,11 +828,20 @@ vocabList:
     inputResources:
       - ./CopyOfVocab/inrupt-vc-data-model.ttl
 
+  - description: The RDF Data Cube Vocabulary
+    nameAndPrefixOverride: qb
+    inputResources:
+      - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/cube.ttl
+
+  - description: SDMX Dimension Vocabulary
+    nameAndPrefixOverride: sdmx-dimension
+    inputResources:
+      - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
+
   - inputResources:
       - http://rdfs.org/sioc/ns#
     nameAndPrefixOverride: sioc
     ignoreNonVocabTerms: true
-
 
 #
 # It 'seems' to be the case that 44 vocabs being retrieved asynchronously causes the generator to
