@@ -66,7 +66,7 @@ my-storage: {
   #
   my-profile: a foaf:PersonalProfileDocument ;
     rdfs:label "Profile document"@en ;
-    rdfs:comment "Personal profile document, references user preferences and public contact details. Points to it's 'maker' and 'primary topic'."@en ;
+    rdfs:comment "Personal profile document, references user preferences and public contact details. Points to its 'maker' and 'primary topic'."@en ;
     rdfs:comment "Documento de perfil personal, hace referencia a las preferencias del usuario y datos de contacto públicos. Señala su 'creador' y 'tema principal'."@es ;
 
     # Just a made-up predicate, or illustration - who provided this Solid Pod?
