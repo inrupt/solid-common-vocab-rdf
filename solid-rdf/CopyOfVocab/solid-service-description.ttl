@@ -213,7 +213,7 @@ solid_sd:WebSocketSubProtocol0_2Label a skosxl:Label ;
 #   solid:logoutEndpoint <{LOGOUT_URL}> .
 
     # These predicates might only apply to Pod-specific Service Descriptions.
-    # solid:podOwner <{WEBID}> ;
+    # solid:owner <{WEBID}> ;
     # ldp:inbox <{INBOX_URL}> ;
 
 <service-sparql> a sparql-sd:Service ;

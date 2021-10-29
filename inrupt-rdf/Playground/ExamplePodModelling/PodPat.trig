@@ -46,16 +46,19 @@ my-storage: {
   # Describe the Agent using it's WebID as the RDF Subject (e.g., often 'me', as a human being).
   # Points to the Agent's Solid Pod (i.e., back to this Named Graph!).
   #
-  me: a schema:Person, foaf:Person ;
+  me:
+    a schema:Person ;
+    # We could also type as FOAF:Person too, if we wanted...
+    # a foaf:Person ;
     rdfs:label "PatMcB"@en ;
-    rdfs:comment "Pat is a human 'agent' from Dublin, and has a Solid Pod!"@en ;
+    rdfs:comment "Pat is a human 'agent' from Dublin, Ireland - and he has a Solid Pod!"@en ;
     vcard:fn "Pat McB"@en, "Padraig MacB"@ga ;
     schema:name "Pat McB"@en, "Padraig MacB"@ga ;
     foaf:name "Pat McB"@en, "Padraig MacB"@ga ;
-  # solid:account my-storage: ; # NSS might do it, but we have no need for 2 references to storage!
     solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+  # solid:account my-storage: ; # NSS might do it, but we have no need for 2 references to storage!
+  # solid:account  my-storage: ;    # Or is this really the root, i.e., just up to the domain?
     ws:storage my-storage: ;
-    solid:account  my-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
   #
@@ -63,19 +66,34 @@ my-storage: {
   #
   my-profile: a foaf:PersonalProfileDocument ;
     rdfs:label "Profile document"@en ;
-    rdfs:comment "Personal profile document that points to it's 'maker' and 'primary topic'."@en ;
-    foaf:maker me: ;
+    rdfs:comment "Personal profile document, references user preferences and public contact details. Points to its 'maker' and 'primary topic'."@en ;
+    rdfs:comment "Documento de perfil personal, hace referencia a las preferencias del usuario y datos de contacto públicos. Señala su 'creador' y 'tema principal'."@es ;
+
+    # Just a made-up predicate, or illustration - who provided this Solid Pod?
+    # solid:podProvider "Inrupt, Inc." ;
+    # Usually we'd have 'foaf:maker' here too, but removed to un-clutter visualizations...
+    # foaf:maker me: ;
+
     foaf:primaryTopic me: ;
-    schema:dateCreated "2009/01/01" ;
-    solid:podProvider "Inrupt, Inc. (made up predicate - just for illustration)" ;
+    schema:dateCreated "2020/06/10" ;
     viz:nodeSize 0.55 .
+
+  #
+  # This vocab term meta-data really belongs in the vocab itself - just
+  # duplicated here to provide easy documentation in visualizations...
+  #
+  ws:Storage a rdfs:Class ;
+    rdfs:comment "The class of Pod storage - this can be any Solid-compliant server, storing any user data."@en ;
+    rdfs:comment "La clase de almacenamiento de Pod: puede ser cualquier servidor compatible con Solid que almacene los datos del usuario."@es .
+
 
   #
   # Describe this Pod instance (is this allowed to add meta-data for the Named Graph itself?!)
   #
   my-storage: a ws:Storage ;
     rdfs:label "Solid Pod"@en ;
-    rdfs:comment "A Solid Pod hosted by Inrupt's ESS product."@en ;
+    rdfs:comment "An example Solid Pod hosted (for free!) by Inrupt."@en ;
+    rdfs:comment "Un ejemplo de Solid Pod alojado (¡gratis!) Por Inrupt."@es ;
     solid-ext:hasServiceManager my-storage:Service-Manager ;
     viz:nodeSize 0.45 .
 
@@ -83,22 +101,28 @@ my-storage: {
   # My bikes...
   #
   my-storage:Bike-Cannondale-EVO a ex:Bicycle ;
-    schema:mileageFromOdometer "500km" ;
+    rdfs:comment "Wow! I really love this amazing bike - super light, super responsive, and superb for climbing."@en ;
+    rdfs:comment "¡Guau! Realmente amo esta increíble bicicleta: súper liviana, súper sensible y excelente para escalar."@es ;
+    schema:mileageFromOdometer "983km" ;
     schema:purchaseDate "2021/01/01" ;
-    schema:size "54cm" .
+    schema:size "54cm" ;
+    schema:price "Don't ask!" .
 
   my-storage:Bike-Felt-Commuter a ex:Bicycle ;
+    rdfs:comment "My trusty commuter - but not a bike I particular like."@en ;
     schema:mileageFromOdometer "63,000km" ;
-    schema:purchaseDate "2014/01/01" .
+    schema:purchaseDate "2014/01/01" ;
+    schema:price "900 Euro" .
 
 
   #
   # My pets...
   #
   my-storage:Pet-Dog-Bobby a ex:Dog ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Jack_Russell_Terrier> ;
     schema:label "Bobby"@en, "Bobik"@sk ;
     schema:comment "Bobby the wonder dog!"@en ;
-    ex:breed "Jack Russel"@en .
+    ex:breed "Jack Russell"@en .
 
   #
   # My properties...
@@ -117,9 +141,9 @@ my-storage: {
     ldp:contains
       my-storage:Service-Notification ,
       my-storage:Service-Consent ,
-      my-storage:Service-Owning ,
-      my-storage:Service-View ,
-      my-storage:Service-Txn .
+      my-storage:Service-ThingsIOwn ,
+      my-storage:Service-ViewMyData ,
+      my-storage:Service-Transactions .
 
 
   #
@@ -138,19 +162,19 @@ my-storage: {
   #
   # My Owning service...
   #
-  my-storage:Service-Owning a solid-ext:Service ;
+  my-storage:Service-ThingsIOwn a solid-ext:Service ;
     rdfs:comment "Service to manage things I 'own'."@en ;
     ldp:contains
       my-storage:Bike-Cannondale-EVO ,
       my-storage:Bike-Felt-Commuter ,
-      my-storage:Pet-Dog ,
+      my-storage:Pet-Dog-Bobby ,
       my-storage:House-Phibsboro .
 
 
   #
   # My Transaction service...
   #
-  my-storage:Service-Txn a solid-ext:Service ;
+  my-storage:Service-Transactions a solid-ext:Service ;
     rdfs:comment "Service to manage transactions in a Pod, e.g., credit card purchases, house purchases, etc."@en ;
     ldp:contains
       my-storage:Txn-CreditCard-1 ,
@@ -165,7 +189,8 @@ my-storage: {
   my-storage:Txn-CreditCard-2 a schema:BuyAction ;
     rdfs:comment "Booked holiday with Ryanair."@en .
   my-storage:Txn-CreditCard-3 a schema:BuyAction ;
-    rdfs:comment "Paid electricity bill."@en .
+    rdfs:comment "Bought Cannondale EVO."@en ;
+    schema:object my-storage:Bike-Cannondale-EVO .
 
 
   #
@@ -191,8 +216,8 @@ my-storage: {
     schema:hasPart my-storage:Blog-Entry-1-Structure-Footer .
   my-storage:Blog-Entry-1-Structure-Header rdfs:comment "Arbitrary header contents..."@en .
   my-storage:Blog-Entry-1-Structure-Footer
-    rdfs:comment "My footer actually has a bike as part of it..."@en ;
-    schema:hasPart my-storage:Bike-Cannondale-EVO .
+    rdfs:comment "This blog entry has a footer section that actually mentions my favorite bike..."@en ;
+    schema:mentions my-storage:Bike-Cannondale-EVO .
   # Loops are totally fine, SPARQL property paths will not infinitely recurse!
   #    schema:hasPart my-storage:Blog-Entry-1 ;
   #    ldp:contains my-storage:Blog-Entry-1 .
@@ -205,49 +230,51 @@ my-storage: {
   #
   # My View service...
   #
-  my-storage:Service-View a solid-ext:Service ;
+  my-storage:Service-ViewMyData a solid-ext:Service ;
     rdfs:comment "Service to manage all my views over my Pod, e.g., hierarchical, tag-based, etc."@en ;
     ldp:contains
-      my-storage:View-Hierarchy-Files ,
-      my-storage:View-Hierarchy-Sensitivity ,
+      my-storage:View-Hierarchy-By-Files ,
+      my-storage:View-Hierarchy-By-Sensitivity ,
       my-storage:View-Tagged .
 
   #
   # Hierarchical by folder...
   #
-  my-storage:View-Hierarchy-Files a solid-ext:View ;
+  my-storage:View-Hierarchy-By-Files a solid-ext:View ;
     rdfs:comment "Legacy Solid hierarchy view - folders and files."@en ;
     ldp:contains
-      my-storage:Folder-Public,
-      my-storage:Folder-Private ,
-      my-storage:Folder-Photo .
+      my-storage:Public-Folder,
+      my-storage:Private-Folder ,
+      my-storage:Photo-Folder .
 
-  my-storage:Folder-Public a ldp:BasicContainer ;
+  my-storage:Public-Folder a ldp:BasicContainer ;
     ldp:contains
-  # my-storage:Photo-Dog-1 ,  # REMOVE FOR NOW - It's contained in 'Folder-Photo' too
+  # my-storage:Photo-Dog-1 ,  # REMOVE FOR NOW - It's contained in 'Photo-Folder' too
       my-storage:Photo-Dog-21 ,
       my-storage:Blog .
 
-  my-storage:Folder-Private a ldp:BasicContainer ;
+  my-storage:Private-Folder a ldp:BasicContainer ;
     ldp:contains
       my-storage:My-Current-Location,
       my-storage:Photo-Heart-Scan .
 
-  my-storage:Folder-Photo a ldp:BasicContainer ;
+  my-storage:Photo-Folder a ldp:BasicContainer ;
     ldp:contains
-      my-storage:Photo-Dog-1,
-      my-storage:Photo-Dog-2,
-      my-storage:Folder-Photo-Friend .
+      my-storage:Photo-Dog-1 ,
+      my-storage:Photo-Dog-2 ,
+      my-storage:Photo-Dog-21 ,
+      my-storage:Photo-Folder-Friends .
 
-  my-storage:Folder-Photo-Friend a ldp:BasicContainer ;
-    ldp:contains my-storage:Photo-Graduation-43, my-storage:Photo-Dog-2 .
+  my-storage:Photo-Folder-Friends a ldp:BasicContainer ;
+    ldp:contains my-storage:Photo-Graduation-43 .
 
   my-storage:Photo-Dog-1 a schema:Photo ;
     rdfs:seeAlso my-storage:Pet-Dog-Bobby.
   my-storage:Photo-Dog-2 a schema:Photo ;
     rdfs:seeAlso <https://musicart.xboxlive.com/6/cfa9c6d7-0000-0000-0000-000000000009/504/image.jpg?w=1920&h=1080>.
   my-storage:Photo-Dog-21 a schema:Photo ;
-    rdfs:seeAlso my-storage:Pet-Dog-Bobby.
+    schema:mentions my-storage:Pet-Dog-Bobby ;
+    rdfs:seeAlso my-storage:Pet-Dog-Bobby .
   my-storage:Photo-Graduation-43 a schema:Photo .
   my-storage:Photo-Heart-Scan a schema:Photo .
 
@@ -260,14 +287,14 @@ my-storage: {
   #
   # Hierarchical by data-sensitivity...
   #
-  my-storage:View-Hierarchy-Sensitivity a solid-ext:View ;
+  my-storage:View-Hierarchy-By-Sensitivity a solid-ext:View ;
     rdfs:comment "Hierarchy view by sensitivity."@en ;
     ldp:contains
-  # my-storage:Folder-Public ,  # REMOVE FOR NOW - Cross-references are initially confusing!
-      my-storage:Folder-Secret ,
+  # my-storage:Public-Folder ,  # REMOVE FOR NOW - Cross-references are initially confusing!
+      my-storage:Secret-Folder ,
       my-storage:Folder-Confidential .
 
-  my-storage:Folder-Secret a ldp:BasicContainer ;
+  my-storage:Secret-Folder a ldp:BasicContainer ;
     ldp:contains my-storage:My-Current-Location .
 
   my-storage:Folder-Confidential a ldp:BasicContainer ;

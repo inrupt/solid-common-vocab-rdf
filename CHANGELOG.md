@@ -11,6 +11,9 @@ configuration files contained in this repository.
   generically useful terms to the Inrupt Common vocab (for concepts that don't
   seem to exist in Schema.org).
 - Added all 5 address-related terms from Schema.org.
+- Added SIOC to our Common RDF bundle.
+- Switch FOAF to use local copy (namespace URL (http://xmlns.com/foaf/0.1/)
+  seems down).
 
 ## v1.0.2 2021-09-29
 

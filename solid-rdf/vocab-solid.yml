@@ -437,7 +437,10 @@ vocabList:
     # of the vocabulary itself uses HTTP!
     inputResources:
        - https://www.w3.org/ns/solid/terms
-       - ./Extension/solid-terms-inrupt-ext.ttl
+       - ./Extension/solid-inrupt-ext.ttl
+
+  - inputResources:
+      - https://www.w3.org/ns/solid/oidc
 
   - description: Workspace Ontology
     nameAndPrefixOverride: ws
