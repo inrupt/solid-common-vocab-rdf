@@ -5,6 +5,9 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Added some more Schema.org terms to our Inrupt extension.
+- Updated year in license headers.
+
 ## v1.0.3 2021-10-03
 
 - Cherry-picked some new generic terms from Schema.org, and added a couple of

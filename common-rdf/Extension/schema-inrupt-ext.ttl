@@ -169,6 +169,18 @@ schema:description
     rdfs:comment "Una descripción del artículo."@es ;
     rdfs:comment "Una descrizione dell'articolo."@it .
 
+schema:ImageObject
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Image"@en ;
+    schema:alternateName "Image"@fr ;
+    schema:alternateName "Bild"@de ;
+    schema:alternateName "Imagen"@es ;
+    schema:alternateName "Immagine"@it ;
+    rdfs:comment "Un fichier image."@fr ;
+    rdfs:comment "Eine Bilddatei."@de ;
+    rdfs:comment "Un archivo de imagen."@es ;
+    rdfs:comment "Un file immagine."@it .
+
 schema:image
     rdfs:isDefinedBy schema_inrupt_ext: ;
     rdfs:seeAlso <https://schema.org/ImageObject> ;
@@ -508,6 +520,30 @@ schema:productID
     rdfs:comment "Die Produktkennung, z. B. ISBN. Beispiel: meta itemprop=\"productID\" content=\"isbn:123-456-789\"."@de ;
     rdfs:comment "El identificador de producto, como ISBN. Por ejemplo: meta itemprop = \"productID\" content = \"isbn: 123-456-789\"."@es ;
     rdfs:comment "L'identificatore del prodotto, ad esempio ISBN. Ad esempio: meta itemprop=\"productID\" content=\"isbn:123-456-789\"."@it .
+
+schema:brand
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Brand"@en ;
+    schema:alternateName "Marque"@fr ;
+    schema:alternateName "Marke"@de ;
+    schema:alternateName "Marca"@es ;
+    schema:alternateName "Marca"@it ;
+    rdfs:comment "La ou les marques associées à un produit ou à un service, ou la ou les marques maintenues par une organisation ou un homme d'affaires."@fr ;
+    rdfs:comment "Die mit einem Produkt oder einer Dienstleistung verbundene(n) Marke(n) oder die Marke(n), die von einer Organisation oder einer Geschäftsperson unterhalten wird."@de ;
+    rdfs:comment "Las marcas asociadas con un producto o servicio, o las marcas mantenidas por una organización o persona de negocios."@es ;
+    rdfs:comment "I marchi associati a un prodotto o servizio o i marchi gestiti da un'organizzazione o da un uomo d'affari."@it .
+
+schema:model
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Model"@en ;
+    schema:alternateName "Modèle"@fr ;
+    schema:alternateName "Modell"@de ;
+    schema:alternateName "Modelo"@es ;
+    schema:alternateName "Modella"@it ;
+    rdfs:comment "Le modèle du produit. À utiliser avec l'URL d'un ProductModel ou une représentation textuelle de l'identifiant du modèle. L'URL du ProductModel peut provenir d'une source externe. Il est recommandé de fournir en plus des identifiants de produit forts via les propriétés gtin8/gtin13/gtin14 et mpn."@fr ;
+    rdfs:comment "Das Modell des Produkts. Verwendung mit der URL eines Produktmodells oder einer Textdarstellung des Modellbezeichners. Die URL des Produktmodells kann aus einer externen Quelle stammen. Es wird empfohlen, zusätzlich starke Produktkennungen über die Eigenschaften gtin8/gtin13/gtin14 und mpn bereitzustellen."@de ;
+    rdfs:comment "El modelo del producto. Úselo con la URL de un modelo de producto o una representación textual del identificador del modelo. La URL de ProductModel puede provenir de una fuente externa. Se recomienda proporcionar además identificadores de producto sólidos a través de las propiedades gtin8 / gtin13 / gtin14 y mpn."@es ;
+    rdfs:comment "Il modello del prodotto. Utilizzare con l'URL di un ProductModel o una rappresentazione testuale dell'identificatore del modello. L'URL del ProductModel può provenire da una fonte esterna. Si consiglia di fornire anche identificatori di prodotto efficaci tramite le proprietà gtin8/gtin13/gtin14 e mpn."@it .
 
 #
 # Template for pulling in new terms!
