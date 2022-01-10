@@ -696,10 +696,12 @@ vocabList:
   - description: Friend of a friend, v0.99
     nameAndPrefixOverride: foaf
     inputResources:
-       # As of Oct 2021, the FOAF namespace URI was consistently timing out,
-       # so we need to pull from a local copy for now...
-      - ./CopyOfVocab/inrupt-foaf.ttl
-#      - http://xmlns.com/foaf/0.1/
+      # In Oct 2021, the FOAF namespace URI was consistently timing out,
+      # so we needed to pull from a local copy. But then (in early Nov 2021)
+      # it came back online. So leaving this reference here in case it
+      # re-occurs...
+#     - ./CopyOfVocab/inrupt-foaf.ttl
+      - http://xmlns.com/foaf/0.1/
 
   - description: Shape Expressions (ShEx) - for validating RDF
     nameAndPrefixOverride: shex
