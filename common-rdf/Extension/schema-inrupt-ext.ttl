@@ -58,6 +58,18 @@ schema:alternateName
     rdfs:comment "Un alias per l'elemento."@it .
 
 
+schema:Organization
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Organization"@en ;
+    schema:alternateName "Organisation"@fr ;
+    schema:alternateName "Organisation"@de ;
+    schema:alternateName "Organización"@es ;
+    schema:alternateName "Organizzazione"@it ;
+    rdfs:comment "Une organisation telle qu'une école, une ONG, une société, un club, etc."@fr ;
+    rdfs:comment "Eine Organisation wie eine Schule, eine NGO, ein Unternehmen, ein Verein usw."@de ;
+    rdfs:comment "Una organización como una escuela, ONG, corporación, club, etc."@es ;
+    rdfs:comment "Un'organizzazione come una scuola, una ONG, una società, un club, ecc."@it .
+
 schema:Person
     rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Person"@en ;
