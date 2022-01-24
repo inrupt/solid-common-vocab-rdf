@@ -30,6 +30,18 @@ inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
 
 #
+# We did have terms to represent the very generic concept of a 'device'
+# (e.g., could be a mobile phone, or a home appliance, or any Internet of
+# Things (IoT) device, etc.), but we removed them in favor of reusing
+# existing vocabs such as SOSA (http://www.w3.org/ns/sosa), SSN
+# (http://www.w3.org/ns/ssn), or SAREF.
+#
+# Note: Schema.org has a 'device' term, but apparently it's been superceded by
+# 'https://schema.org/availableOnDevice' (according to
+# 'https://schema.org/SoftwareApplication').
+#
+
+#
 # Acronym support.
 #
 inrupt_common:Acronym a rdfs:Class ;
@@ -148,3 +160,106 @@ inrupt_common:dataSourceContainer a rdf:Property, owl:ObjectProperty ;
     rdfs:label "Contenedor de fuente de datos"@es ;
     rdfs:comment "Container for all data from a particular data source."@en ;
     rdfs:comment "Contenedor para todos los datos de una fuente de datos en particular."@es .
+
+#
+# Terms used across generic ETL processes.
+#
+inrupt_common:etlPushCredentialResourceToPod a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "ETL - push credential resource to Pod"@en ;
+    rdfs:label "ETL: enviar el recurso de credenciales al Pod"@es ;
+    rdfs:comment "Flag to tell our customer ETL process to push local customer credentials to their Pod."@en ;
+    rdfs:comment "Marcar para indicarle al proceso ETL de nuestro cliente que envíe las credenciales del cliente local a su Pod."@es .
+
+inrupt_common:webId a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://dvcs.w3.org/hg/WebID/raw-file/tip/spec/identity-respec.html> ;
+    rdfs:label "WebID"@en ;
+    rdfs:label "WebID"@es ;
+    rdfs:comment "A WebID is an identifier, typically for the owner of a Solid Pod (e.g., could be an individual, or a company, or an application, etc.)."@en ;
+    rdfs:comment "Un WebID es un identificador, generalmente para el propietario de un Solid Pod (por ejemplo, podría ser un individuo, una empresa, una aplicación, etc.)."@es .
+
+
+inrupt_common:storageRoot a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://solidproject.org/TR/protocol#storage> ;
+    rdfs:label "Storage root"@en ;
+    rdfs:label "Raíz de almacenamiento"@es ;
+    rdfs:comment "The IRI of the root resource of a Solid Pod."@en ;
+    rdfs:comment "El IRI del recurso raíz de un Solid Pod."@es .
+
+inrupt_common:CredentialResource a rdfs:Class, owl:Class ;
+     rdfs:isDefinedBy inrupt_common: ;
+     rdfs:label "Class of Credential Resources"@en ;
+     rdfs:label "Clase de recursos de credenciales"@es ;
+     rdfs:comment """A credential resource contains credentials needed to access various APIs or services, which can include APIs provided by 3rd-parties, or credentials to act as a registered application, etc."""@en ;
+     rdfs:comment """Un recurso de credenciales contiene las credenciales necesarias para acceder a varias API o servicios, que pueden incluir API proporcionadas por terceros o credenciales para actuar como una aplicación registrada, etc."""@es .
+
+inrupt_common:clientId a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc6749#section-2.2> ;
+    rdfs:label "Client ID"@en ;
+    rdfs:label "Client ID"@es ;
+    rdfs:comment "The OIDC client identifier value, used by registered client applications to identify themselves to an identity provider."@en ;
+    rdfs:comment "El valor del identificador de cliente de OIDC, utilizado por las aplicaciones de cliente registradas para identificarse ante un proveedor de identidad."@es .
+
+inrupt_common:clientSecret a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc6749#section-2.2> ;
+    rdfs:label "Client secret"@en ;
+    rdfs:label "Secreta del cliente"@es ;
+    rdfs:comment "The OIDC client secret value, used by registered client applications to authenticate themselves to an identity provider."@en ;
+    rdfs:comment "El valor secreto del cliente OIDC, utilizado por las aplicaciones cliente registradas para autenticarse ante un proveedor de identidad."@es .
+
+inrupt_common:triplestoreEndpointUpdate a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Triplestore endpoint update"@en ;
+    rdfs:label "Actualización del punto final de Triplestore"@es ;
+    rdfs:comment "This should be a string representation of the endpoint URL for triplestore update requests."@en ;
+    rdfs:comment "Debe ser una representación de cadena de la URL del punto final para las solicitudes de actualización de triplestore."@es .
+
+inrupt_common:triplestoreNamedGraph a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Triplestore Named Graph"@en ;
+    rdfs:label "Gráfico con nombre de Triplestore"@es ;
+    rdfs:comment "Named graph to use to represent an individual Solid Pod (e.g., multiple users can have their Pods within their own Named Graph in a single triplestore database instance)."@en ;
+    rdfs:comment "Gráfico con nombre que se utiliza para representar un Solid Pod individual (p. Ej., Varios usuarios pueden tener sus Pods dentro de su propio Gráfico con nombre en una única instancia de base de datos de triple almacén)."@es .
+
+
+inrupt_common:NotificationContainer a rdf:Class, owl:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Notification container"@en ;
+    rdfs:label "Contenedor de notificaciones"@es ;
+    rdfs:comment "The class of notification containers."@en ;
+    rdfs:comment "La clase de contenedores de notificación."@es .
+
+
+inrupt_common:eventSource a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Event source"@en ;
+    rdfs:label "Origen del evento"@es ;
+    rdfs:comment "The source of an event, represented as an IRI identifying that source (e.g., some 3rd party API)."@en ;
+    rdfs:comment "La fuente de un evento, representada como un IRI que identifica esa fuente (por ejemplo, alguna API de terceros)."@es .
+
+
+inrupt_common:eventType a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Event type"@en ;
+    rdfs:label "Tipo de evento"@es ;
+    rdfs:comment "The specific type of event (e.g., a water leak detected, or an appliance turning on or off, etc.)."@en ;
+    rdfs:comment "El tipo específico de evento (por ejemplo, una fuga de agua detectada o un aparato que se enciende o apaga, etc.)."@es .
+
+inrupt_common:archived a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    rdfs:label "Archived"@en ;
+    rdfs:label "Archivado"@es ;
+    rdfs:comment "Whether the subject has been marked as archived, without being deleted."@en ;
+    rdfs:comment "Si el asunto se ha marcado como archivado, sin eliminarlo."@es .
+
+#
+#inrupt_common: a rdf:Property, owl:ObjectProperty ;
+#    rdfs:isDefinedBy inrupt_common: ;
+#    rdfs:label ""@en ;
+#    rdfs:label ""@es ;
+#    rdfs:comment ""@en ;
+#    rdfs:comment ""@es .

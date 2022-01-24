@@ -5,6 +5,9 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+
+## v1.0.4 2022-01-23
+
 - Added some more Schema.org terms to our Inrupt extension.
 - Updated year in license headers.
 

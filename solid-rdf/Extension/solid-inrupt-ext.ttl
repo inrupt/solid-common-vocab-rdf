@@ -50,3 +50,9 @@ solid:owner a rdf:Property ;
     rdfs:label "Owner"@en ;
     rdfs:comment "A person or social entity that is considered to have control, rights, and responsibilities over a data storage."@en ;
     schema:rangeIncludes solid:WebID .
+
+
+solid:storageRoot a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_inrupt_ext: ;
+    rdfs:label "Storage root"@en ;
+    rdfs:comment "The IRI of the root resource of a Solid Pod."@en .

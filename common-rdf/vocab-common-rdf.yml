@@ -258,7 +258,7 @@ artifactToGenerate:
   # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.3"
+    artifactVersion: "1.0.4"
     artifactNamePrefix: ""
     artifactNameSuffix: ""
 
@@ -300,7 +300,7 @@ artifactToGenerate:
   # contain details of the underlying RDF library dependencies (e.g.,
   # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.3"
+    artifactVersion: "1.0.4"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab
 
@@ -341,7 +341,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.3"
+    artifactVersion: "1.0.4"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab-rdfdatafactory
 
@@ -388,7 +388,7 @@ artifactToGenerate:
 # RDF/JS interface DataFactory type).
 #
 #  - programmingLanguage: TypeScript
-#    artifactVersion: "1.0.3"
+#    artifactVersion: "1.0.4"
 #    artifactNamePrefix: ""
 #    artifactNameSuffix: -base
 #
@@ -425,7 +425,7 @@ artifactToGenerate:
 #
 #
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.3"
+    artifactVersion: "1.0.4"
     artifactNamePrefix: ""
     artifactNameSuffix: -rdfdatafactory
 
@@ -465,7 +465,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.3"
+    artifactVersion: "1.0.4"
     artifactNamePrefix: ""
     artifactNameSuffix: -stringliteral
 
