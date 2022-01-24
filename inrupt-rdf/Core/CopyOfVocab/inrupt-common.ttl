@@ -30,6 +30,18 @@ inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
 
 #
+# We did have terms to represent the very generic concept of a 'device'
+# (e.g., could be a mobile phone, or a home appliance, or any Internet of
+# Things (IoT) device, etc.), but we removed them in favor of reusing
+# existing vocabs such as SOSA (http://www.w3.org/ns/sosa), SSN
+# (http://www.w3.org/ns/ssn), or SAREF.
+#
+# Note: Schema.org has a 'device' term, but apparently it's been superceded by
+# 'https://schema.org/availableOnDevice' (according to
+# 'https://schema.org/SoftwareApplication').
+#
+
+#
 # Acronym support.
 #
 inrupt_common:Acronym a rdfs:Class ;
@@ -159,39 +171,9 @@ inrupt_common:etlPushCredentialResourceToPod a rdf:Property, owl:ObjectProperty 
     rdfs:comment "Flag to tell our customer ETL process to push local customer credentials to their Pod."@en ;
     rdfs:comment "Marcar para indicarle al proceso ETL de nuestro cliente que envíe las credenciales del cliente local a su Pod."@es .
 
-#
-# Terms to represent the very generic concept of a 'device' (e.g., could be a
-# mobile phone, or a home appliance, or any Internet of Things (IoT) device,
-# etc.).
-#
-# Note: Schema.org has a 'device' term, but apparently it's been superceded by
-# 'https://schema.org/availableOnDevice' (according to
-# 'https://schema.org/SoftwareApplication').
-#
-inrupt_common:Device a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy inrupt_common: ;
-    rdfs:label "Class of devices"@en ;
-    rdfs:label "Clase de dispositivos"@es ;
-    rdfs:comment "Class of devices - can be any kind of monitoring device (e.g., to monitor water usage, electricity usage, solar power generation, etc.)."@en ;
-    rdfs:comment "Clase de dispositivos: puede ser cualquier tipo de dispositivo de monitoreo (por ejemplo, para monitorear el uso de agua, uso de electricidad, generación de energía solar, etc.)."@es .
-
-inrupt_common:device a rdf:Property, owl:ObjectProperty ;
-    rdfs:isDefinedBy inrupt_common: ;
-    rdfs:label "Device"@en ;
-    rdfs:label "Dispositivo"@es ;
-    rdfs:comment "The class of devices (e.g., monitoring devices, mobile devices, IoT devices, etc.)."@en ;
-    rdfs:comment "La clase de dispositivos (por ejemplo, dispositivos de monitoreo, dispositivos móviles, dispositivos IoT, etc.)."@es .
-
-inrupt_common:deviceId a rdf:Property, owl:ObjectProperty ;
-    rdfs:isDefinedBy inrupt_common: ;
-    rdfs:label "Device ID"@en ;
-    rdfs:label "ID del dispositivo"@es ;
-    rdfs:comment "Device identifier."@en ;
-    rdfs:comment "Identificador de dispositivo."@es .
-
-
 inrupt_common:webId a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://dvcs.w3.org/hg/WebID/raw-file/tip/spec/identity-respec.html> ;
     rdfs:label "WebID"@en ;
     rdfs:label "WebID"@es ;
     rdfs:comment "A WebID is an identifier, typically for the owner of a Solid Pod (e.g., could be an individual, or a company, or an application, etc.)."@en ;
@@ -200,6 +182,7 @@ inrupt_common:webId a rdf:Property, owl:ObjectProperty ;
 
 inrupt_common:storageRoot a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://solidproject.org/TR/protocol#storage> ;
     rdfs:label "Storage root"@en ;
     rdfs:label "Raíz de almacenamiento"@es ;
     rdfs:comment "The IRI of the root resource of a Solid Pod."@en ;
@@ -214,6 +197,7 @@ inrupt_common:CredentialResource a rdfs:Class, owl:Class ;
 
 inrupt_common:clientId a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc6749#section-2.2> ;
     rdfs:label "Client ID"@en ;
     rdfs:label "Client ID"@es ;
     rdfs:comment "The OIDC client identifier value, used by registered client applications to identify themselves to an identity provider."@en ;
@@ -221,6 +205,7 @@ inrupt_common:clientId a rdf:Property, owl:ObjectProperty ;
 
 inrupt_common:clientSecret a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy inrupt_common: ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc6749#section-2.2> ;
     rdfs:label "Client secret"@en ;
     rdfs:label "Secreta del cliente"@es ;
     rdfs:comment "The OIDC client secret value, used by registered client applications to authenticate themselves to an identity provider."@en ;
