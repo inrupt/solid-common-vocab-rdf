@@ -5,6 +5,11 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+- Added SOSA and SSN to the Common RDF bundle.
+- Added glossary term for 'Linked Data', that explains we capitalize the
+  letters, and provides a `rdfs:seeAlso` to Richard's reasons for why that's
+  important! 
+
 
 ## v1.0.4 2022-01-28
 
