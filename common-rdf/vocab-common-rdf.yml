@@ -749,9 +749,10 @@ vocabList:
     # needed.
     ignoreNonVocabTerms: true
 
-  - description: Hydra is a lightweight vocabulary to create hypermedia-driven Web APIs
-    inputResources:
-      - http://www.w3.org/ns/hydra/core#
+  - inputResources:
+# On 2022-03-25, this URL was not resolving!
+#      - http://www.w3.org/ns/hydra/core#
+      - ./CopyOfVocab/inrupt-hydra.ttl
 
   - description: Data Catalog Vocabulary (DCAT) - Version 2
     nameAndPrefixOverride: dcat
