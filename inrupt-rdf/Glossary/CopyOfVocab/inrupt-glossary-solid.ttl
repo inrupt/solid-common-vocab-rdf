@@ -14,10 +14,10 @@ prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#
 
 
 # Just for illustration purposes in Widoco, we type 'skosxl:Label' as an 'owl:NamedIndividual'
-# (as that WebVOWL will display the terms).
-# Note: This usage requires the use of the '
+# (so that WebVOWL will display the terms).
+# Note: This usage requires the use of the...
 skosxl:Label a owl:NamedIndividual ;
-     # We also make our Lables sub-classes of the vocabulary itself, so that they'll all be joined
+     # We also make our 'Labels' sub-classes of the vocabulary itself, so that they'll all be joined
      # up to it in WebVOWL.
      rdfs:subClassOf inrupt_glossary_solid: .
 # We use sub-classes to link related terms together (WebVOWL won't show 'rdfs:seeAlso' links).
@@ -209,3 +209,15 @@ inrupt_glossary_solid:WriteAccess rdfs:subClassOf skosxl:Label ;
  Write access automatically grants Append Access."""@en ;
      rdfs:seeAlso inrupt_glossary_solid:AppendAccess ;
      rdfs:seeAlso inrupt_glossary_solid:Resource .
+
+#
+# Important terminology for Solid, but more general...
+#
+
+inrupt_glossary_solid:LinkedData rdfs:subClassOf skosxl:Label ;
+     rdfs:isDefinedBy inrupt_glossary_solid: ;
+     rdfs:label "Linked Data"@en ;
+     rdfs:comment """Linked Data is structured data which is interlinked with other data so it becomes more useful (at Inrupt we capitalise as Linked Data)."""@en ;
+     rdfs:seeAlso <https://en.wikipedia.org/wiki/Linked_data> ;
+     rdfs:seeAlso <http://richard.cyganiak.de/blog/2009/11/whats-in-a-name-and-the-linked-data-police/> ;
+     rdfs:seeAlso <https://5stardata.info/en/> .

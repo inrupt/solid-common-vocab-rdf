@@ -503,23 +503,24 @@ artifactToGenerate:
 
 
 vocabList:
-#
-# Note: These are not 'common' vocabs per se (so commented out), but provided here merely as
-#  informational for anyone who may be interested in Resumes (CVs), and as an example of vocabs
-#  that require an override to the Content-Type response header (since the server serving these
-#  vocabs returns 'text/plain' when the content is actually RDF/XML).
-#
-#  - description: Resume (CV) vocab
-#    nameAndPrefixOverride: cv
-#    inputResources:
-#      - http://rdfs.org/resume-rdf/cv.rdfs#
-#    vocabContentTypeHeaderOverride: "application/rdf+xml"
-#
-#  - description: Resume (CV) base vocab
-#    nameAndPrefixOverride: cv_base
-#    inputResources:
-#      - http://rdfs.org/resume-rdf/base.rdfs#
-#    vocabContentTypeHeaderOverride: "application/rdf+xml"
+  #
+  # Note: These are not 'common' vocabs per se, but provided here merely as
+  # informational for anyone who may be interested in Resumes (CVs), and as
+  # an example of vocabs that require an override to the Content-Type response
+  # header (since the server serving these vocabs returns 'text/plain' when
+  # the content is actually RDF/XML).
+  #
+  - description: Resume (CV) vocab
+    nameAndPrefixOverride: cv
+    inputResources:
+      - http://rdfs.org/resume-rdf/cv.rdfs#
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+  - description: Resume (CV) base vocab
+    nameAndPrefixOverride: cv_base
+    inputResources:
+      - http://rdfs.org/resume-rdf/base.rdfs#
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
 
 
   # Note: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
@@ -546,25 +547,22 @@ vocabList:
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: vCard with selective terms having translations - for describing People and Organizations
-#    nameAndPrefixOverride: vcard-inrupt
-#    inputResources:
-#      - http://www.w3.org/2006/vcard/ns#
-#    termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
-
+  - description: vCard with selective terms having translations - for describing People and Organizations
+    nameAndPrefixOverride: vcard-inrupt
+    inputResources:
+      - http://www.w3.org/2006/vcard/ns#
+    termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
 
   - description: RDF (Resource Description Framework) - a framework for representing information in the Web
     nameAndPrefixOverride: rdf
     inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-#    nameAndPrefixOverride: rdf-inrupt
-#    inputResources:
-#      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
-#    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
+  - description: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
+    nameAndPrefixOverride: rdf-inrupt
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
 
   - description: RDFS (RDF Schema) - a data-modelling vocabulary for RDF data
     nameAndPrefixOverride: rdfs
@@ -584,12 +582,11 @@ vocabList:
     inputResources:
       - https://www.w3.org/ns/ldp#
 
-# REMOVED TEMPORARILY TO REDUCE TOTAL NUMBER OF VOCABS...
-#  - description: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-#    nameAndPrefixOverride: ldp-inrupt
-#    inputResources:
-#      - https://www.w3.org/ns/ldp#
-#      - ./Extension/ldp-inrupt-ext.ttl
+  - description: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
+    nameAndPrefixOverride: ldp-inrupt
+    inputResources:
+      - https://www.w3.org/ns/ldp#
+      - ./Extension/ldp-inrupt-ext.ttl
 
   - description: HTTP Ontology - terms from the HTTP protocol
     nameAndPrefixOverride: http
@@ -610,9 +607,9 @@ vocabList:
   - description: Simple Knowledge Organisation System (SKOS)
     nameAndPrefixOverride: skos
     inputResources:
-      - ./CopyOfVocab/inrupt-skos.ttl
+#      - ./CopyOfVocab/inrupt-skos.ttl
       # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
-#      - http://www.w3.org/2004/02/skos/core#
+      - http://www.w3.org/2004/02/skos/core#
 
   - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
     nameAndPrefixOverride: skos-xl
@@ -851,16 +848,27 @@ vocabList:
 # until looking at pooling the promises (in the function 'async generateVocabs() {}' of
 # ArtifactGenerator.js), just remove the more obscure vocabs to keep the upper limit 43!
 #
-#  - description: Ontology for surveys based on the Coney data model.
-#    nameAndPrefixOverride: sur
-#    inputResources:
-#      - https://w3id.org/survey-ontology#
-#    # The server serving this vocabulary doesn't honor the `q` parameter in Accept headers, so we
-#    # need to explicitly ask for just Turtle.
-#    vocabAcceptHeaderOverride: text/turtle
-#    ignoreNonVocabTerms: true
+  - description: Ontology for surveys based on the Coney data model.
+    nameAndPrefixOverride: sur
+    inputResources:
+      - https://w3id.org/survey-ontology#
+    # The server serving this vocabulary doesn't honor the `q` parameter in Accept headers, so we
+    # need to explicitly ask for just Turtle.
+    vocabAcceptHeaderOverride: text/turtle
+    ignoreNonVocabTerms: true
 
-#  - description: Time Ontology in OWL
-#    nameAndPrefixOverride: time
-#    inputResources:
-#      - http://www.w3.org/2006/time#
+  - description: Time Ontology in OWL
+    nameAndPrefixOverride: time
+    inputResources:
+      - http://www.w3.org/2006/time#
+
+  - inputResources:
+      - http://www.w3.org/ns/locn#
+
+  - inputResources:
+      - http://www.w3.org/ns/sosa/
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - http://www.w3.org/ns/ssn/
+    ignoreNonVocabTerms: true

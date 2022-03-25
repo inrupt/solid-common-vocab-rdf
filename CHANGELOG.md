@@ -6,10 +6,12 @@ configuration files contained in this repository.
 ## Unreleased
 
 
-## v1.0.4 2022-01-23
+## v1.0.4 2022-01-28
 
 - Added some more Schema.org terms to our Inrupt extension.
 - Updated year in license headers.
+- Changed Verifiable Credentials prefix from 'cred' to just 'vc' (which
+  appears available in prefix.cc).
 
 ## v1.0.3 2021-10-03
 

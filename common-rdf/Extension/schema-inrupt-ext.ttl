@@ -107,6 +107,30 @@ schema:familyName a rdf:Property ;
     rdfs:comment "Apellido. En los EE.UU., el apellido de una persona. Esto se puede usar junto con givenName en lugar de la propiedad name."@es ;
     rdfs:comment "Cognome. Negli Stati Uniti, il cognome di una persona. Questo può essere usato insieme a givenName al posto della proprietà name."@it .
 
+schema:birthDate
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Date of birth"@en ;
+    schema:alternateName "Date de naissance"@fr ;
+    schema:alternateName "Geburtsdatum"@de ;
+    schema:alternateName "Fecha de nacimiento"@es ;
+    schema:alternateName "Data di nascita"@it ;
+    rdfs:comment "Date de naissance."@fr ;
+    rdfs:comment "Geburtsdatum."@de ;
+    rdfs:comment "Fecha de nacimiento."@es ;
+    rdfs:comment "Data di nascita."@it .
+
+schema:gender
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Gender"@en ;
+    schema:alternateName "Le genre"@fr ;
+    schema:alternateName "Geschlecht"@de ;
+    schema:alternateName "Género"@es ;
+    schema:alternateName "Genere"@it ;
+    rdfs:comment "Genre de quelque chose, généralement une personne, mais peut-être aussi des personnages fictifs, des animaux, etc. Bien que https://schema.org/Male et https://schema.org/Female puissent être utilisés, les chaînes de texte sont également acceptables pour les personnes qui ne s'identifie pas comme un genre binaire. La propriété gender peut également être utilisée dans un sens étendu pour couvrir par ex. le sexe des équipes sportives. Comme pour le genre des individus, nous n'essayons pas d'énumérer toutes les possibilités. Une SportsTeam mixte peut être indiquée avec une valeur textuelle de 'Mixte'."@fr ;
+    rdfs:comment "Geschlecht von etwas, typischerweise eine Person, aber möglicherweise auch fiktive Charaktere, Tiere usw. Während https://schema.org/Male und https://schema.org/Female verwendet werden können, sind Textzeichenfolgen auch für Personen akzeptabel, die nicht als binäres Geschlecht identifizieren. Die Geschlechtseigenschaft kann auch im erweiterten Sinne verwendet werden, um z. das Geschlecht der Sportmannschaften. Wie beim Geschlecht von Personen versuchen wir nicht, alle Möglichkeiten aufzuzählen. Ein gemischtgeschlechtliches SportsTeam kann mit dem Textwert 'Mixed' angegeben werden."@de ;
+    rdfs:comment "Género de algo, generalmente una Persona, pero posiblemente también personajes ficticios, animales, etc. Si bien se pueden usar https://schema.org/Male y https://schema.org/Female, las cadenas de texto también son aceptables para personas que no se identifique como un género binario. La propiedad de género también se puede usar en un sentido amplio para cubrir, p. el género de los equipos deportivos. Al igual que con el género de los individuos, no tratamos de enumerar todas las posibilidades. Un SportsTeam de género mixto se puede indicar con un valor de texto de 'Mixto'."@es ;
+    rdfs:comment "Genere di qualcosa, tipicamente una Persona, ma possibilmente anche personaggi di fantasia, animali, ecc. Sebbene sia possibile utilizzare https://schema.org/Male e https://schema.org/Female, le stringhe di testo sono accettabili anche per le persone che non identificarsi come un genere binario. La proprietà di genere può anche essere utilizzata in senso esteso per coprire ad es. il genere delle squadre sportive. Come per il genere degli individui, non cerchiamo di enumerare tutte le possibilità. Uno SportsTeam di sesso misto può essere indicato con un valore di testo 'Misto'."@it .
+
 schema:additionalName
     rdfs:isDefinedBy schema_inrupt_ext: ;
     rdfs:label "additionalName" ;
