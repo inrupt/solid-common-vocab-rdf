@@ -627,8 +627,7 @@ schema:dateModified
     rdfs:comment "Date à laquelle CreativeWork a été modifié le plus récemment ou date à laquelle l'entrée de l'élément a été modifiée dans un DataFeed."@fr ;
     rdfs:comment "Das Datum, an dem das CreativeWork zuletzt geändert wurde oder wann der Eintrag des Elements in einem DataFeed geändert wurde."@de ;
     rdfs:comment "La fecha en la que CreativeWork se modificó más recientemente o cuando se modificó la entrada del elemento dentro de un DataFeed."@es ;
-    schema:comment "Data in cui CreativeWork è stato modificato più di recente o quando la voce dell'elemento è stata modificata all'interno di un DataFeed."@it.
-
+    rdfs:comment "Data in cui CreativeWork è stato modificato più di recente o quando la voce dell'elemento è stata modificata all'interno di un DataFeed."@it .
 
 # Template for pulling in new terms!
 #
