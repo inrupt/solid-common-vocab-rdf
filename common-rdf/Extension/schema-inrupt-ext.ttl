@@ -567,7 +567,7 @@ schema:Event
     rdfs:comment "Un événement se déroulant à une certaine heure et à un certain endroit, comme un concert, une conférence ou un festival. Des informations sur la billetterie peuvent être ajoutées via l'établissement des offres."@fr ;
     rdfs:comment "Ein Ereignis, das zu einer bestimmten Zeit und an einem bestimmten Ort stattfindet, z. B. ein Konzert, ein Vortrag oder ein Festival. Ticketing-Informationen können über die Angebotsunterkunft hinzugefügt werden."@de ;
     rdfs:comment "Un evento que ocurre en un momento y lugar determinados, como un concierto, conferencia o festival. La información de venta de entradas se puede agregar a través de la propiedad de ofertas."@es ;
-    rdfs:comment "Un evento che si svolge in un determinato momento e luogo, ad esempio un concerto, una conferenza o un festival. Le informazioni sulla bigliettazione possono essere aggiunte tramite la struttura delle offerte." @it .
+    rdfs:comment "Un evento che si svolge in un determinato momento e luogo, ad esempio un concerto, una conferenza o un festival. Le informazioni sulla bigliettazione possono essere aggiunte tramite la struttura delle offerte."@it .
 
 schema:value
     rdfs:isDefinedBy schema_inrupt_ext: ;
