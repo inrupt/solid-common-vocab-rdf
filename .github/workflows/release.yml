@@ -43,4 +43,4 @@ jobs:
     - name: Generation and publication
       run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} -p npmPublic --noprompt
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.INRUPT_NPM_TOKEN }}
