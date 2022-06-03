@@ -41,6 +41,6 @@ jobs:
     # Maven packages are published by the CD script, and do not need to be
     # published again on release.
     - name: Generation and publication
-      run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} -p npmPublic --noprompt
+      run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} -p npmPublic --noPrompt
       env:
         NODE_AUTH_TOKEN: ${{ secrets.INRUPT_NPM_TOKEN }}

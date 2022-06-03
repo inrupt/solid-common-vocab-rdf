@@ -58,7 +58,7 @@ jobs:
         # Note: This only pushes to Cloudsmith (not npm), because it does not
         # increment the version number, which is fine for Maven SNAPSHOT
         # versions.
-        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noprompt -p cloudsmith
+        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noPrompt -p cloudsmith
         - name: Upload log for debug
           # Only upload if the previous step failed.
           if: failure()
