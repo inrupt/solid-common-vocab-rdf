@@ -605,6 +605,78 @@ schema:member
     rdfs:comment "Un miembro de una Organización o una Membresía del Programa. Las organizaciones pueden ser miembros de organizaciones; La membresía del programa es típicamente para individuos."@es ;
     rdfs:comment "Un membro di un'organizzazione o un membro del programma. Le organizzazioni possono essere membri di organizzazioni; L'iscrizione al programma è in genere per individui."@it .
 
+schema:Event
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Event"@en ;
+    schema:alternateName "Événement"@fr ;
+    schema:alternateName "Ereignis"@de ;
+    schema:alternateName "Evento"@es ;
+    schema:alternateName "Evento"@it ;
+    rdfs:comment "Un événement se déroulant à une certaine heure et à un certain endroit, comme un concert, une conférence ou un festival. Des informations sur la billetterie peuvent être ajoutées via l'établissement des offres."@fr ;
+    rdfs:comment "Ein Ereignis, das zu einer bestimmten Zeit und an einem bestimmten Ort stattfindet, z. B. ein Konzert, ein Vortrag oder ein Festival. Ticketing-Informationen können über die Angebotsunterkunft hinzugefügt werden."@de ;
+    rdfs:comment "Un evento que ocurre en un momento y lugar determinados, como un concierto, conferencia o festival. La información de venta de entradas se puede agregar a través de la propiedad de ofertas."@es ;
+    rdfs:comment "Un evento che si svolge in un determinato momento e luogo, ad esempio un concerto, una conferenza o un festival. Le informazioni sulla bigliettazione possono essere aggiunte tramite la struttura delle offerte."@it .
+
+schema:value
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Value"@en ;
+    schema:alternateName "Valeur"@fr ;
+    schema:alternateName "Wert"@de ;
+    schema:alternateName "Valor"@es ;
+    schema:alternateName "Valore"@it ;
+    rdfs:comment "Valeur de la valeur quantitative ou du nœud de valeur de propriété."@fr ;
+    rdfs:comment "Der Wert des Quantitätswert- oder Eigenschaftswertknotens."@de ;
+    rdfs:comment "Valor del valor cuantitativo o del nodo valor de propiedad."@es ;
+    rdfs:comment "Valore del valore quantitativo o del nodo del valore della proprietà."@it .
+
+schema:distance
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Distance"@en ;
+    schema:alternateName "Distance"@fr ;
+    schema:alternateName "Abstand"@de ;
+    schema:alternateName "Distancia"@es ;
+    schema:alternateName "Distanza"@it ;
+    rdfs:comment "La distance parcourue, par exemple l'exercice ou le voyage."@fr ;
+    rdfs:comment "Die zurückgelegte Strecke, z.B. Sport treiben oder reisen."@de ;
+    rdfs:comment "La distancia recorrida, por ejemplo, hacer ejercicio o viajar."@es ;
+    rdfs:comment "La distanza percorsa, ad esempio esercitando o viaggiando."@it .
+
+schema:latitude
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Latitude"@en ;
+    schema:alternateName "Latitude"@fr ;
+    schema:alternateName "Breite"@de ;
+    schema:alternateName "Latitud"@es ;
+    schema:alternateName "Latitudine"@it ;
+    rdfs:comment "Latitude d'un emplacement. Par exemple 37.42242 (WGS 84)."@fr ;
+    rdfs:comment "Der Breitengrad eines Ortes. Beispiel: 37.42242 (WGS 84)."@de ;
+    rdfs:comment "La latitud de un lugar. Por ejemplo, 37.42242 (WGS 84)."@es ;
+    rdfs:comment "Latitudine di una posizione. Ad esempio 37.42242 (WGS 84)."@it .
+
+schema:longitude
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Longitude"@en ;
+    schema:alternateName "Longitude"@fr ;
+    schema:alternateName "Länge"@de ;
+    schema:alternateName "Longitud"@es ;
+    schema:alternateName "Longitudine"@it ;
+    rdfs:comment "Longitude d'un emplacement. Par exemple -122.08585 (WGS 84)."@fr ;
+    rdfs:comment "Der Längengrad eines Ortes. Beispiel: -122.08585 (WGS 84)."@de ;
+    rdfs:comment "Longitud de una ubicación. Por ejemplo, -122.08585 (WGS 84)."@es ;
+    rdfs:comment "Longitudine di una posizione. Ad esempio -122.08585 (WGS 84)."@it .
+
+schema:dateModified
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Date modified"@en ;
+    schema:alternateName "Date de modification"@fr ;
+    schema:alternateName "Änderungsdatum"@de ;
+    schema:alternateName "Fecha de modificacion"@es ;
+    schema:alternateName "Data di modifica"@it ;
+    rdfs:comment "Date à laquelle CreativeWork a été modifié le plus récemment ou date à laquelle l'entrée de l'élément a été modifiée dans un DataFeed."@fr ;
+    rdfs:comment "Das Datum, an dem das CreativeWork zuletzt geändert wurde oder wann der Eintrag des Elements in einem DataFeed geändert wurde."@de ;
+    rdfs:comment "La fecha en la que CreativeWork se modificó más recientemente o cuando se modificó la entrada del elemento dentro de un DataFeed."@es ;
+    rdfs:comment "Data in cui CreativeWork è stato modificato più di recente o quando la voce dell'elemento è stata modificata all'interno di un DataFeed."@it .
+
 #
 # Template for pulling in new terms!
 #

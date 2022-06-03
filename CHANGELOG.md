@@ -12,10 +12,6 @@ configuration files contained in this repository.
 - Aligned all vocab license IRIs to be "http://purl.org/NET/rdflicense/MIT1.0"
 - Added explicit 'xsd:anyURI' datatype to all VANN 'preferredNamespaceUri'
   objects in vocabs we create.
-
-
-## v1.0.4 2022-01-28
-
 - Added some more Schema.org terms to our Inrupt extension.
 - Updated year in license headers.
 - Changed Verifiable Credentials prefix from 'cred' to just 'vc' (which
