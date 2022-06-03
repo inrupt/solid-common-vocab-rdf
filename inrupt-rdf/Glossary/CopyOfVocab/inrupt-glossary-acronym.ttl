@@ -26,7 +26,7 @@ inrupt_glossary_acronym: a owl:Ontology, inrupt_gen:Ontology  ;
      dcterms:creator <https://inrupt.com/profile/card/#us> ;
      dcterms:issued "2021-08-23"^^xsd:date ;
      vann:preferredNamespacePrefix "inrupt_glossary_acronym" ;
-     vann:preferredNamespaceUri <https://inrupt.com/inrupt/vocab/glossary/acronym#> ;
+     vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/acronym#" ;
      cc:attributionURL inrupt_glossary_acronym: ;
      cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
 

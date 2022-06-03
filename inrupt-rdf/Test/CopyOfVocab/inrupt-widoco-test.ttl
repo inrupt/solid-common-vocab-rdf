@@ -15,7 +15,7 @@ prefix vann: <http://purl.org/vocab/vann/>
     dcterms:description "Test vocab for playing around with Widoco."@en ;
     dcterms:description "Prueba de vocabulario para jugar con Widoco."@es ;
     vann:preferredNamespacePrefix "ex" ;
-    vann:preferredNamespaceUri <https://ex.com/namespace-with-slash/> .
+    vann:preferredNamespaceUri "https://ex.com/namespace-with-slash/" .
 
 <https://ex.com/namespace-with-slash/SomeClass> a rdfs:Class ;
     rdfs:label "Class"@en ;

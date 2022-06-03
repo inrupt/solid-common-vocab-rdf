@@ -6,9 +6,12 @@ configuration files contained in this repository.
 ## Unreleased
 
 - Added SOSA and SSN to the Common RDF bundle.
-- Added glossary term for 'Linked Data', that explains we capitalize the
+- Added glossary term for 'Linked Data', that explains that we capitalize the
   letters, and provides a `rdfs:seeAlso` to Richard's reasons for why that's
   important! 
+- Aligned all vocab license IRIs to be "http://purl.org/NET/rdflicense/MIT1.0"
+- Added explicit 'xsd:anyURI' datatype to all VANN 'preferredNamespaceUri'
+  objects in vocabs we create.
 
 
 ## v1.0.4 2022-01-28

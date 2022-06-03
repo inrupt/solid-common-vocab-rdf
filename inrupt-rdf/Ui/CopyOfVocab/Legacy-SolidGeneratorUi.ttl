@@ -26,7 +26,7 @@ solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:contributor "Developer SDK team"@en ;
     dcterms:issued "2019/07/21"^^xsd:date ;
-    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" .
+    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0" .
 
 #
 # Generator UI messages...

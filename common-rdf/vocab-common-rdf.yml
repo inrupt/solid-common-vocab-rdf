@@ -536,36 +536,32 @@ vocabList:
 #      - https://schema.org/version/latest/schema.ttl
 
   - description: Inrupt-determined cherry-picked Schema.org terms (that include label and comment translations)
-    nameAndPrefixOverride: schema-inrupt
+    nameAndPrefixOverride: schema_inrupt
     inputResources:
       - https://schema.org/version/latest/schemaorg-current-http.ttl
     termSelectionResource: ./Extension/schema-inrupt-ext.ttl
 
-
-  - description: vCard - for describing People and Organizations
-    nameAndPrefixOverride: vcard
-    inputResources:
+  - inputResources:
       - http://www.w3.org/2006/vcard/ns#
+    nameAndPrefixOverride: vcard
 
   - description: vCard with selective terms having translations - for describing People and Organizations
-    nameAndPrefixOverride: vcard-inrupt
+    nameAndPrefixOverride: vcard_inrupt
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
     termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
 
-  - description: RDF (Resource Description Framework) - a framework for representing information in the Web
-    nameAndPrefixOverride: rdf
+  - nameAndPrefixOverride: rdf
     inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
   - description: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: rdf-inrupt
+    nameAndPrefixOverride: rdf_inrupt
     inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
     termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
 
-  - description: RDFS (RDF Schema) - a data-modelling vocabulary for RDF data
-    nameAndPrefixOverride: rdfs
+  - nameAndPrefixOverride: rdfs
     inputResources:
       - http://www.w3.org/2000/01/rdf-schema#
 
@@ -583,7 +579,7 @@ vocabList:
       - https://www.w3.org/ns/ldp#
 
   - description: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: ldp-inrupt
+    nameAndPrefixOverride: ldp_inrupt
     inputResources:
       - https://www.w3.org/ns/ldp#
       - ./Extension/ldp-inrupt-ext.ttl
@@ -594,7 +590,7 @@ vocabList:
       - http://www.w3.org/2011/http#
 
   - description: HTTPH Ontology - for describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019), so extended
-    nameAndPrefixOverride: httph-inrupt
+    nameAndPrefixOverride: httph_inrupt
     inputResources:
       - http://www.w3.org/2007/ont/httph#
       - ./Extension/http-header-inrupt-ext.ttl
@@ -612,7 +608,7 @@ vocabList:
       - http://www.w3.org/2004/02/skos/core#
 
   - description: Simple Knowledge Organisation System (SKOS) eXtension for Labels
-    nameAndPrefixOverride: skos-xl
+    nameAndPrefixOverride: skos_xl
     inputResources:
       - ./CopyOfVocab/inrupt-skos-xl.ttl
       # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
@@ -640,7 +636,7 @@ vocabList:
       - http://www.w3.org/ns/ui#
 
   - description: UI Ontology - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: ui-inrupt
+    nameAndPrefixOverride: ui_inrupt
     inputResources:
       - http://www.w3.org/ns/ui#
       - ./Extension/ui-inrupt-ext.ttl
@@ -674,12 +670,16 @@ vocabList:
       # RDF (it returns a JSON-LD context that maps the terms, but it provides
       # no meta-data for the terms themselves). The reasons for this appear to
       # be social as opposed to technical!
-      # This is why we reference the IRI we do below.
 #      - https://www.w3.org/ns/activitystreams#
-       - https://www.w3.org/ns/activitystreams-owl
-    # The input resource we use defines the vocabulary terms via 'http:'
-    # instead of the correct 'https:' scheme, so we need to override that.
-    namespaceOverride: https://www.w3.org/ns/activitystreams#
+      # We therefore attempted to use this URL - but it has *NOT* been updated
+      # to reflect the updated AS namespace IRI switch from HTTP to HTTPS
+      # (which according to the spec (https://www.w3.org/ns/activitystreams)
+      # happened in version 1.4 back in 2017):
+#       - https://www.w3.org/ns/activitystreams-owl
+      # So to get the correct HTTPS term IRIs, Inrupt created a local copy of
+      # this vocab and manually searched-and-replaced all HTTP IRIs with HTTPS
+      # versions:
+      - CopyOfVocab/inrupt-as.ttl
 
   - description: RLOG - RDF Logging Ontology
     nameAndPrefixOverride: rlog
@@ -721,7 +721,7 @@ vocabList:
       - https://www.w3.org/2002/12/cal/ical
 
   - description: W3C Provenance Ontology (just the main prov-o terms)
-    nameAndPrefixOverride: prov-o
+    nameAndPrefixOverride: prov_o
     inputResources:
       - http://www.w3.org/ns/prov-o#
     # The PROV-O ontology is really a collection of ontologies (such as
@@ -734,13 +734,14 @@ vocabList:
 
   - description: W3C Content Negotiation by Profile
     nameAndPrefixOverride: altr
-    # Perhaps because this is not a standard yet, nothing is returned from
-    # from the current namespace IRI, so use this instead (as referenced in the
+    # Perhaps because this is not a standard yet, nothing is returned from the
+    # current namespace IRI, so use this instead (as referenced in the
     # '6. Abstract Model' section of the working draft here:
     #   https://w3c.github.io/dx-connegp/connegp/#altr-owl).
     inputResources:
       - https://w3c.github.io/dx-connegp/connegp/altr.ttl
-    namespaceOverride: http://www.w3.org/ns/dx/conneg/altr#
+    # Namespace IRI is missing trailing '#' - so provide it:
+    namespaceOverride: http://www.w3.org/ns/dx/connegp/altp#
     # This vocab defines terms that are not actually defined in the vocabulary
     # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
     # Core terms, to provide extra contextual information for the vocabulary
@@ -797,6 +798,22 @@ vocabList:
     # that doesn't explicitly state its namespace (which is bad form!) to
     # blow up - so we just provide the correct one manually here now instead.
     namespaceOverride: https://w3id.org/security#
+    # This vocab is also defined terms in multiple namespaces (which is also
+    # bad form!), so ignore others.
+    ignoreNonVocabTerms: true
+    inputResources:
+      - https://w3id.org/security#
+
+  - description: Security vocabulary recovery terms
+    nameAndPrefixOverride: sec_recovery
+    # In mid-2021, new terms were added, but in the namespace
+    # 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#'.
+    # So here we process the Security vocab but only for terms from that
+    # namespace.
+    namespaceOverride: https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#
+    # This vocab is also defined terms in multiple namespaces (which is also
+    # bad form!), so ignore others.
+    ignoreNonVocabTerms: true
     inputResources:
       - https://w3id.org/security#
 
@@ -872,4 +889,67 @@ vocabList:
 
   - inputResources:
       - http://www.w3.org/ns/ssn/
+    ignoreNonVocabTerms: true
+
+  - description: Creative Commons (licensing vocabulary)
+    inputResources:
+      - http://creativecommons.org/ns#
+    nameAndPrefixOverride: cc
+
+  # GeoNames seems to still be serving the v3.1 version from their namespace
+  # URI, even though they've moved to v3.3 (although resolving their v3.3 vocab
+  # seems to still be returning the v3.2 vocab!).
+  # This means all the GeoNames terms have 'http://' namespaces instead of the
+  # updated (as of v3.2) namespace os 'https://'.
+  # So, as an experiment, I've overridden the prefix from 'gn' to include the
+  # version number.
+  - inputResources:
+      - https://www.geonames.org/ontology#
+    nameAndPrefixOverride: gn_v3_1
+    ignoreNonVocabTerms: true
+
+  # Here we try and provide the latest version of GeoNames (but although the
+  # URI states v3.3, it seems to still (as of April 2022) be serving v3.2).
+  - inputResources:
+      - https://www.geonames.org/ontology/ontology_v3.3.rdf
+    nameAndPrefixOverride: gn_v3_2
+    ignoreNonVocabTerms: true
+
+  # This NeoGeo vocab is pulled in by GeoNames via 'owl:import'.
+  - inputResources:
+      - http://geovocab.org/spatial
+    nameAndPrefixOverride: neogeo
+
+  - inputResources:
+      - http://qudt.org/schema/qudt/
+    nameAndPrefixOverride: qudt
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://w3id.org/dpv#
+
+  - inputResources:
+      - https://w3id.org/dpv/dpv-pd#
+
+  - inputResources:
+      - http://purl.org/ontology/bibo/
+    nameAndPrefixOverride: bibo
+    ignoreNonVocabTerms: true
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+  - inputResources:
+      - https://ontologies.semanticarts.com/o/gistCore11.0.0
+    nameAndPrefixOverride: gist
+    namespaceOverride: https://ontologies.semanticarts.com/gist/
+
+  - inputResources:
+      - https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/
+    nameAndPrefixOverride: auto_vc
+    vocabAcceptHeaderOverride: text/turtle
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/
+    nameAndPrefixOverride: auto_vs
+    vocabAcceptHeaderOverride: text/turtle
     ignoreNonVocabTerms: true

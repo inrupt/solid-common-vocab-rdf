@@ -29,7 +29,7 @@ ws_solid_ext: a owl:Ontology;
     dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;
     vann:preferredNamespacePrefix "ws_solid_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
-    dcterms:license "https://opensource.org/licenses/MIT" .
+    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0" .
 
 
 ws:ConfigurationFile a rdfs:Class ;

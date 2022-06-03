@@ -581,6 +581,30 @@ schema:model
     rdfs:comment "El modelo del producto. Úselo con la URL de un modelo de producto o una representación textual del identificador del modelo. La URL de ProductModel puede provenir de una fuente externa. Se recomienda proporcionar además identificadores de producto sólidos a través de las propiedades gtin8 / gtin13 / gtin14 y mpn."@es ;
     rdfs:comment "Il modello del prodotto. Utilizzare con l'URL di un ProductModel o una rappresentazione testuale dell'identificatore del modello. L'URL del ProductModel può provenire da una fonte esterna. Si consiglia di fornire anche identificatori di prodotto efficaci tramite le proprietà gtin8/gtin13/gtin14 e mpn."@it .
 
+schema:exifData
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "EXIF data"@en ;
+    schema:alternateName "Données EXIF"@fr ;
+    schema:alternateName "EXIF-Daten"@de ;
+    schema:alternateName "Datos EXIF"@es ;
+    schema:alternateName "Dati EXIF"@it ;
+    rdfs:comment "Données exif pour cet objet."@fr ;
+    rdfs:comment "Exif-Daten für dieses Objekt."@de ;
+    rdfs:comment "Datos exif para este objeto."@es ;
+    rdfs:comment "Dati exif per questo oggetto."@it .
+
+schema:member
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName ""@en ;
+    schema:alternateName ""@fr ;
+    schema:alternateName ""@de ;
+    schema:alternateName ""@es ;
+    schema:alternateName ""@it ;
+    rdfs:comment "Membre d'une organisation ou d'un programme. Les organisations peuvent être membres d'organisations ; L'adhésion au programme est généralement réservée aux particuliers."@fr ;
+    rdfs:comment "Ein Mitglied einer Organisation oder einer Programmmitgliedschaft. Organisationen können Mitglieder von Organisationen sein; Die Programmmitgliedschaft ist in der Regel für Einzelpersonen."@de ;
+    rdfs:comment "Un miembro de una Organización o una Membresía del Programa. Las organizaciones pueden ser miembros de organizaciones; La membresía del programa es típicamente para individuos."@es ;
+    rdfs:comment "Un membro di un'organizzazione o un membro del programma. Le organizzazioni possono essere membri di organizzazioni; L'iscrizione al programma è in genere per individui."@it .
+
 #
 # Template for pulling in new terms!
 #
