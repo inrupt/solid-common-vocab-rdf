@@ -7,6 +7,7 @@ prefix dcterms: <http://purl.org/dc/terms/>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix ldp: <http://www.w3.org/ns/ldp#>
 prefix vann: <http://purl.org/vocab/vann/>
+prefix sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix schema: <http://schema.org/>
 
@@ -38,7 +39,7 @@ schema_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
  over 2,500 terms currently defined in Schema.org).""" ;
     vann:preferredNamespacePrefix "schema_inrupt_ext" ;
     vann:preferredNamespaceUri "http://schema.org/" ;
-    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+    dcterms:license sm:MITLicense .
 
 
 #

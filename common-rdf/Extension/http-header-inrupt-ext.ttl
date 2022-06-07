@@ -7,6 +7,7 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 
 prefix http: <https://www.w3.org/2007/ont/http#>
@@ -35,7 +36,7 @@ httph_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
  directly as labels or tool-tips in user interfaces or error messages)""" ;
     vann:preferredNamespacePrefix "httph_inrupt_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/2007/ont/httph#" ;
-    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+    dcterms:license sm:MITLicense .
 
 httph:accept a rdf:Property ;
     rdfs:isDefinedBy httph_inrupt_ext: ;

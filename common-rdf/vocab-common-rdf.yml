@@ -953,3 +953,8 @@ vocabList:
     nameAndPrefixOverride: auto_vs
     vocabAcceptHeaderOverride: text/turtle
     ignoreNonVocabTerms: true
+
+  - inputResources:
+      - http://www.omg.org/techprocess/ab/SpecificationMetadata/
+    nameAndPrefixOverride: sm
+    ignoreNonVocabTerms: true

@@ -8,6 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
@@ -26,7 +27,7 @@ solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:contributor "Developer SDK team"@en ;
     dcterms:issued "2019/07/21"^^xsd:date ;
-    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0" .
+    dcterms:license sm:MITLicense .
 
 #
 # Generator UI messages...

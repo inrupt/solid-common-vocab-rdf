@@ -1,13 +1,14 @@
-prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
-prefix owl:     <http://www.w3.org/2002/07/owl#>
-prefix dcterms: <http://purl.org/dc/terms/>
-prefix skos:    <http://www.w3.org/2004/02/skos/core#>
-prefix olo:     <http://purl.org/ontology/olo/core#>
-prefix ldp:     <http://www.w3.org/ns/ldp#>
-prefix schema:  <http://schema.org/>
-prefix vann:    <http://purl.org/vocab/vann/>
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix olo:      <http://purl.org/ontology/olo/core#>
+prefix ldp:      <http://www.w3.org/ns/ldp#>
+prefix schema:   <http://schema.org/>
+prefix vann:     <http://purl.org/vocab/vann/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix gconsent:       <https://w3id.org/GConsent#>
 prefix inrupt_gen:     <https://inrupt.com/vocab/tool/artifact_generator#>
@@ -35,7 +36,7 @@ inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:description "Consent vocabulary defining Inrupt-specific terms, especially terms that provide context"@en ;
 	vann:preferredNamespacePrefix "inrupt_consent" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/consent#" ;
-	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+	dcterms:license sm:MITLicense .
 
 
 inrupt_consent:defaultConsentExpiryMonths a rdf:Property ;

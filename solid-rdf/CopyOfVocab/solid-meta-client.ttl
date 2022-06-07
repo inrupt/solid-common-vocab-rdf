@@ -8,6 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix solid_meta_client: <https://inrupt.com/vocab/solid_meta_client#>
 
@@ -22,7 +23,7 @@ solid_meta_client: a owl:Ontology;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_meta_client" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_meta_client#" ;
-	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+	dcterms:license sm:MITLicense .
 
 
 solid_meta_client:subjectRoot a rdf:Property ;

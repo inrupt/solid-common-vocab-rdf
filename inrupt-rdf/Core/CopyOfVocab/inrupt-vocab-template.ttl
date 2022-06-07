@@ -9,6 +9,7 @@ prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
 prefix cc:       <http://creativecommons.org/ns#>
 prefix schema:   <http://schema.org/>
 prefix foaf:     <http://xmlns.com/foaf/0.1/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 #
 # Prefix for terms from Inrupt's Artifact Generator vocabulary - use is purely
@@ -41,7 +42,7 @@ your_vocab: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:description "Description of YOUR vocabulary (in Spanish...)"@es ;
     dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
     dcterms:issued "2001/01/01"^^xsd:date ;
-    dcterms:license <http://purl.org/NET/rdflicense/MIT1.0> ;
+    dcterms:license sm:MITLicense ;
     vann:preferredNamespacePrefix "your_vocab" ;
     vann:preferredNamespaceUri "https://your-domain.com/vocab#" .
 

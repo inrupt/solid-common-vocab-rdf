@@ -8,6 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix inrupt_notification: <https://inrupt.com/vocab/service/notification#>
@@ -20,7 +21,7 @@ inrupt_notification: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/11/08"^^xsd:date ;
-	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0" ;
+	dcterms:license sm:MITLicense ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/service/notification#" .
 

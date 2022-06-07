@@ -8,6 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix inrupt_gen:        <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix inrupt_meta_shacl: <https://inrupt.com/vocab/meta/shacl#>
@@ -26,7 +27,7 @@ inrupt_meta_shacl: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:issued "2019/10/21"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_meta_shacl" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/meta/shacl#" ;
-	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+	dcterms:license sm:MITLicense .
 
 
   inrupt_meta_shacl:subjectRoot a rdf:Property ;
