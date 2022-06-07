@@ -1,3 +1,9 @@
+#
+# This file represents instance data, and is not intended for vocab terms.
+# The purpose is simply to play around with the notions of data in a Pod, and
+# for testing ACL or ACP patterns, or notifications, or multiple
+# Pods-per-WebID, etc.
+#
 prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 prefix schema:   <http://schema.org/>
 prefix ldp:      <http://www.w3.org/ns/ldp#>

@@ -1,3 +1,9 @@
+#
+# This file represents instance data, and is not intended for vocab terms.
+# The purpose is simply to play around with the notions of data in a Pod, and
+# for testing ACL or ACP patterns, or notifications, or multiple
+# Pods-per-WebID, etc.
+#
 prefix me:         <https://pat.best-pod-provider.com/profile/card#me>
 prefix my_profile: <https://pat.example.com/profile/card>
 prefix my_storage: <https://pat.best-pod-provider.com/storage/>
