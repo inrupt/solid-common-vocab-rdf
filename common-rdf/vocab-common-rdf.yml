@@ -958,3 +958,9 @@ vocabList:
       - http://www.omg.org/techprocess/ab/SpecificationMetadata/
     nameAndPrefixOverride: sm
     ignoreNonVocabTerms: true
+
+  # Sarven has added this description to the vocab itself now, but it's not
+  # yet published, so duplicated here for now too...
+  - description: Spec Terms provides classes and properties that can be used to describe any significant unit of information in technical reports.
+    inputResources:
+      - https://www.w3.org/ns/spec
