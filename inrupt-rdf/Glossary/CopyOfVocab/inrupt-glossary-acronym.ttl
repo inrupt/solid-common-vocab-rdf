@@ -64,7 +64,7 @@ inrupt_glossary_acronym:AS a skosxl:Label ;
      rdfs:comment "Authorization Server"@en ;
      rdfs:seeAlso inrupt_glossary_acronym:IdP .
 
-inrupt_glossary_acronym: a skosxl:Label ;
+inrupt_glossary_acronym:CSS a skosxl:Label ;
      rdfs:isDefinedBy inrupt_glossary_acronym: ;
      skosxl:literalForm "CSS"@en ;
      rdfs:comment "Community Solid Server"@en ;

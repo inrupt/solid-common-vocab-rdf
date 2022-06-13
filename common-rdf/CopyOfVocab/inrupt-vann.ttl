@@ -5,6 +5,10 @@
 #
 # Note: I also took the liberty of adding triples for the ontology itself too.
 #
+# Subsequently, Jarlath found this archived version here:
+#   https://www.w3.org/archive/purl.org/vocab/vann/
+# ...but keeping this local copy around for posterity!
+#
 
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>

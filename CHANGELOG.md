@@ -16,6 +16,8 @@ configuration files contained in this repository.
 - Updated year in license headers.
 - Changed Verifiable Credentials prefix from 'cred' to just 'vc' (which
   appears available in prefix.cc).
+- Updated SKOS-XL prefix to be just 'skosxl', that they use themselves.
+- Used archived VANN vocabulary resource (instead of local Turtle).
 
 ## v1.0.3 2021-10-03
 

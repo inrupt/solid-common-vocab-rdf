@@ -7,7 +7,7 @@
 #
 # Inrupt-specific creation - literally read (in May 2022) from
 # 'https://www.w3.org/ns/activitystreams-owl' using https://www.easyrdf.org/converter
-# to convert to Turtle, and then just search-and-replace all occurances of HTTP IRI:
+# to convert to Turtle, and then just search-and-replace all occurrences of HTTP IRI:
 #   http://www.w3.org/ns/activitystreams#
 # ...to HTTPS IRI...
 #   https://www.w3.org/ns/activitystreams#
