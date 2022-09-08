@@ -52,4 +52,4 @@ jobs:
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
-        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noprompt
+        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noPrompt

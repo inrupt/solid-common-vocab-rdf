@@ -7,6 +7,7 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix solid: <http://www.w3.org/ns/solid/terms#>
 prefix solid_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid#>
@@ -28,7 +29,7 @@ solid_inrupt_ext: a owl:Ontology;
     dcterms:description "Extension to the Solid Terms vocabulary adding new terms" ;
     vann:preferredNamespacePrefix "solid_inrupt_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/solid/terms#" ;
-    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+    dcterms:license sm:MITLicense .
 
 
 solid:WebId a rdfs:Class ;

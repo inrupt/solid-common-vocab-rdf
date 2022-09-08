@@ -7,6 +7,7 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix ui: <http://www.w3.org/ns/ui#>
 
@@ -28,7 +29,7 @@ ui_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:issued "2020/04/26"^^xsd:date ;
     dcterms:title "Inrupt extension for UI terms" ;
     dcterms:description "Extension to UI terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)" ;
-    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" ;
+    dcterms:license sm:MITLicense ;
 
     # Note: We deliberately use the underlying namespace here, as we are adding
     # missing terms to that underlying vocabulary.
@@ -37,7 +38,7 @@ ui_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
 
 
 #
-# Terms that seem to be missing from the original UI vocbaulary.
+# Terms that seem to be missing from the original UI vocabulary.
 #
 ui:label a rdf:Property ;
     rdfs:isDefinedBy ui_inrupt_ext: ;

@@ -7,6 +7,7 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix ws:       <http://www.w3.org/ns/pim/space#>
 
@@ -29,7 +30,7 @@ ws_solid_ext: a owl:Ontology;
     dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;
     vann:preferredNamespacePrefix "ws_solid_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
-    dcterms:license "https://opensource.org/licenses/MIT" .
+    dcterms:license sm:MITLicense .
 
 
 ws:ConfigurationFile a rdfs:Class ;

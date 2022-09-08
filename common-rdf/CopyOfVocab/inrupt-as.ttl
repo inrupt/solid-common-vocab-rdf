@@ -1,0 +1,1174 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#
+# Inrupt-specific creation - literally read (in May 2022) from
+# 'https://www.w3.org/ns/activitystreams-owl' using https://www.easyrdf.org/converter
+# to convert to Turtle, and then just search-and-replace all occurrences of HTTP IRI:
+#   http://www.w3.org/ns/activitystreams#
+# ...to HTTPS IRI...
+#   https://www.w3.org/ns/activitystreams#
+#
+
+<https://www.w3.org/ns/activitystreams#>
+  a owl:Ontology ;
+  rdfs:comment "Extended Activity Streams 2.0 Vocabulary"@en ;
+  rdfs:label "Activity Streams 2.0"@en ;
+  owl:imports prov: .
+
+rdf:langString a rdfs:Datatype .
+xsd:duration a rdfs:Datatype .
+<https://www.w3.org/ns/activitystreams#actor>
+  a owl:ObjectProperty ;
+  rdfs:label "actor"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "Subproperty of as:attributedTo that identifies the primary actor"@en ;
+  rdfs:subPropertyOf <https://www.w3.org/ns/activitystreams#attributedTo> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#attributedTo>
+  a owl:ObjectProperty ;
+  rdfs:label "attributedTo"@en ;
+  rdfs:comment "Identifies an entity to which an object is attributed"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#attachment>
+  a owl:ObjectProperty ;
+  rdfs:label "attachment"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Link>
+     <https://www.w3.org/ns/activitystreams#Object>
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  owl:equivalentProperty <https://www.w3.org/ns/activitystreams#attachments> .
+
+<https://www.w3.org/ns/activitystreams#attachments>
+  a owl:ObjectProperty, owl:DeprecatedProperty ;
+  rdfs:label "attachments"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#author>
+  a owl:ObjectProperty, owl:DeprecatedProperty ;
+  rdfs:label "author"@en ;
+  rdfs:comment "Identifies the author of an object. Deprecated. Use as:attributedTo instead"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:subPropertyOf <https://www.w3.org/ns/activitystreams#attributedTo> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#bcc>
+  a owl:ObjectProperty ;
+  rdfs:label "bcc"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#bto>
+  a owl:ObjectProperty ;
+  rdfs:label "bto"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#cc>
+  a owl:ObjectProperty ;
+  rdfs:label "cc"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#context>
+  a owl:ObjectProperty ;
+  rdfs:label "context"@en ;
+  rdfs:comment "Specifies the context within which an object exists or an activity was performed"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#current>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "current"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#CollectionPage>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#first>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "first"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#CollectionPage>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#generator>
+  a owl:ObjectProperty ;
+  rdfs:label "generator"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#icon>
+  a owl:ObjectProperty ;
+  rdfs:label "icon"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Image>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#image>
+  a owl:ObjectProperty ;
+  rdfs:label "image"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Image>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#inReplyTo>
+  a owl:ObjectProperty ;
+  rdfs:label "inReplyTo"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#items>
+  a owl:ObjectProperty ;
+  rdfs:label "items"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     _:genid51
+     <https://www.w3.org/ns/activitystreams#OrderedItems>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#last>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "last"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#CollectionPage>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#location>
+  a owl:ObjectProperty ;
+  rdfs:label "location"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#next>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "next"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#CollectionPage> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#CollectionPage>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#object>
+  a owl:ObjectProperty ;
+  rdfs:label "object"@en ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Activity>
+     <https://www.w3.org/ns/activitystreams#Relationship>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#oneOf>
+  a owl:ObjectProperty ;
+  rdfs:label "oneOf"@en ;
+  rdfs:comment "Describes a possible exclusive answer or option for a question."@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Question> .
+
+<https://www.w3.org/ns/activitystreams#anyOf>
+  a owl:ObjectProperty ;
+  rdfs:label "oneOf"@en ;
+  rdfs:comment "Describes a possible inclusive answer or option for a question."@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Question> .
+
+<https://www.w3.org/ns/activitystreams#prev>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "prev"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#CollectionPage> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#CollectionPage>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#preview>
+  a owl:ObjectProperty ;
+  rdfs:label "preview"@en ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#provider>
+  a owl:ObjectProperty, owl:DeprecatedProperty ;
+  rdfs:label "provider"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#replies>
+  a owl:ObjectProperty ;
+  rdfs:label "replies"@en ;
+  rdfs:range <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#result>
+  a owl:ObjectProperty ;
+  rdfs:label "result"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#audience>
+  a owl:ObjectProperty ;
+  rdfs:label "audience"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#partOf>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "partOf"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#CollectionPage> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Collection>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#tag>
+  a owl:ObjectProperty ;
+  rdfs:label "tag"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#tags>
+  a owl:ObjectProperty, owl:DeprecatedProperty ;
+  rdfs:label "tags"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] ;
+  owl:equivalentProperty <https://www.w3.org/ns/activitystreams#tag> .
+
+<https://www.w3.org/ns/activitystreams#target>
+  a owl:ObjectProperty ;
+  rdfs:label "target"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#origin>
+  a owl:ObjectProperty ;
+  rdfs:label "origin"@en ;
+  rdfs:comment "For certain activities, specifies the entity from which the action is directed."@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#instrument>
+  a owl:ObjectProperty ;
+  rdfs:label "instrument"@en ;
+  rdfs:comment "Indentifies an object used (or to be used) to complete an activity"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#to>
+  a owl:ObjectProperty ;
+  rdfs:label "to"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#url>
+  a owl:ObjectProperty ;
+  rdfs:label "url"@en ;
+  rdfs:comment "Specifies a link to a specific representation of the Object"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Link>
+     owl:Thing
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#subject>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:label "a"@en ;
+  rdfs:comment "On a Relationship object, identifies the subject. e.g. when saying \"John is connected to Sally\", 'subject' refers to 'John'"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Relationship> ;
+  rdfs:subPropertyOf rdf:subject ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Link>
+     <https://www.w3.org/ns/activitystreams#Object>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#relationship>
+  a owl:ObjectProperty ;
+  rdfs:label "relationship"@en ;
+  rdfs:comment "On a Relationship object, describes the type of relationship"@en ;
+  rdfs:subPropertyOf rdf:predicate ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Relationship> ;
+  rdfs:range rdf:Property .
+
+<https://www.w3.org/ns/activitystreams#describes>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "describes"@en ;
+  rdfs:comment "On a Profile object, describes the object described by the profile"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Profile> ;
+  rdfs:range <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#formerType>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:label "formerType"@en ;
+  rdfs:comment "On a Tombstone object, describes the former type of the deleted object"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Tombstone> ;
+  rdfs:range <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#accuracy>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "accuracy"@en ;
+  rdfs:comment "Specifies the accuracy around the point established by the longitude and latitude"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:onDatatype xsd:float ;
+    owl:withRestrictions ( _:genid123 )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#altitude>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "altitude"@en ;
+  rdfs:comment "The altitude of a place"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> ;
+  rdfs:range xsd:float .
+
+<https://www.w3.org/ns/activitystreams#content>
+  a owl:DatatypeProperty ;
+  rdfs:label "content"@en ;
+  rdfs:comment "The content of the object."@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     rdf:langString
+     xsd:string
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#name>
+  a owl:DatatypeProperty ;
+  rdfs:label "name"@en ;
+  rdfs:name "The default, plain-text display name of the object or link."@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     rdf:langString
+     xsd:string
+   )
+  ] ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#downstreamDuplicates>
+  a owl:DatatypeProperty, owl:DeprecatedProperty ;
+  rdfs:label "downstreamDuplicates"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#duration>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "duration"@en ;
+  rdfs:comment "The duration of the object"@en ;
+  rdfs:range xsd:duration ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#endTime>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "endTime"@en ;
+  rdfs:comment "The ending time of the object"@en ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#height>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "height"@en ;
+  rdfs:comment "The display height expressed as device independent pixels"@en ;
+  rdfs:range xsd:nonNegativeInteger ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Link> .
+
+<https://www.w3.org/ns/activitystreams#href>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "href"@en ;
+  rdfs:comment "The target URI of the Link"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Link> .
+
+<https://www.w3.org/ns/activitystreams#hreflang>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "hreflang"@en ;
+  rdfs:comment "A hint about the language of the referenced resource"@en ;
+  rdfs:range xsd:language ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Link> .
+
+<https://www.w3.org/ns/activitystreams#id>
+  a owl:DatatypeProperty, owl:FunctionalProperty, owl:DeprecatedProperty ;
+  rdfs:label "id"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Link>
+     <https://www.w3.org/ns/activitystreams#Object>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#latitude>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "latitude"@en ;
+  rdfs:comment "The latitude"@en ;
+  rdfs:range xsd:float ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> .
+
+<https://www.w3.org/ns/activitystreams#longitude>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "longitude"@en ;
+  rdfs:comment "The longitude"@en ;
+  rdfs:range xsd:float ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> .
+
+<https://www.w3.org/ns/activitystreams#mediaType>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "mediaType"@en ;
+  rdfs:comment "The MIME Media Type"@en ;
+  rdfs:range xsd:string ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Link>
+     <https://www.w3.org/ns/activitystreams#Object>
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#objectType>
+  a owl:DatatypeProperty, owl:FunctionalProperty, owl:DeprecatedProperty ;
+  rdfs:label "objectType"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#published>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "published"@en ;
+  rdfs:comment "Specifies the date and time the object was published"@en ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#radius>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "radius"@en ;
+  rdfs:comment "Specifies a radius around the point established by the longitude and latitude"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:onDatatype xsd:float ;
+    owl:withRestrictions ( _:genid141 )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#rating>
+  a owl:DatatypeProperty, owl:FunctionalProperty, owl:DeprecatedProperty ;
+  rdfs:label "rating"@en ;
+  rdfs:comment "A numeric rating (>= 0.0, <= 5.0) for the object"@en ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:onDatatype xsd:float ;
+    owl:withRestrictions (
+     _:genid144
+     _:genid146
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#rel>
+  a owl:DatatypeProperty ;
+  rdfs:label "rel"@en ;
+  rdfs:comment "The RFC 5988 or HTML5 Link Relation associated with the Link"@en ;
+  rdfs:range xsd:string ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Link> .
+
+<https://www.w3.org/ns/activitystreams#startIndex>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "startIndex"@en ;
+  rdfs:comment "In a strictly ordered logical collection, specifies the index position of the first item in the items list"@en ;
+  rdfs:range xsd:nonNegativeInteger ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#OrderedCollectionPage> .
+
+<https://www.w3.org/ns/activitystreams#startTime>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "startTime"@en ;
+  rdfs:comment "The starting time of the object"@en ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#summary>
+  a owl:DatatypeProperty ;
+  rdfs:label "summary"@en ;
+  rdfs:comment "A short summary of the object"@en ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     rdf:langString
+     xsd:string
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#totalItems>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "totalItems"@en ;
+  rdfs:comment "The total number of items in a logical collection"@en ;
+  rdfs:range xsd:nonNegativeInteger ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Collection> .
+
+<https://www.w3.org/ns/activitystreams#units>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "units"@en ;
+  rdfs:comment "Identifies the unit of measurement used by the radius, altitude and accuracy properties. The value can be expressed either as one of a set of predefined units or as a well-known common URI that identifies units."@en ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:unionOf (
+     _:genid152
+     xsd:anyURI
+   )
+  ] ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Place> .
+
+<https://www.w3.org/ns/activitystreams#updated>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "updated"@en ;
+  rdfs:comment "Specifies when the object was last updated"@en ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#upstreamDuplicates>
+  a owl:DatatypeProperty, owl:DeprecatedProperty ;
+  rdfs:label "upstreamDuplicates"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Object> .
+
+<https://www.w3.org/ns/activitystreams#verb>
+  a owl:DatatypeProperty, owl:FunctionalProperty, owl:DeprecatedProperty ;
+  rdfs:label "verb"@en ;
+  rdfs:range xsd:anyURI ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Activity> .
+
+<https://www.w3.org/ns/activitystreams#width>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "width"@en ;
+  rdfs:comment "Specifies the preferred display width of the content, expressed in terms of device independent pixels."@en ;
+  rdfs:range xsd:nonNegativeInteger ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Link> .
+
+<https://www.w3.org/ns/activitystreams#deleted>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:label "deleted"@en ;
+  rdfs:comment "Specifies the date and time the object was deleted"@en ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <https://www.w3.org/ns/activitystreams#Tombstone> .
+
+<https://www.w3.org/ns/activitystreams#Accept>
+  a owl:Class ;
+  rdfs:label "Accept"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "Actor accepts the Object"@en .
+
+<https://www.w3.org/ns/activitystreams#Activity>
+  a owl:Class ;
+  rdfs:label "Activity"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "An Object representing some form of Action that has been taken"@en .
+
+<https://www.w3.org/ns/activitystreams#Block>
+  a owl:Class ;
+  rdfs:label "Block"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Ignore> .
+
+<https://www.w3.org/ns/activitystreams#IntransitiveActivity>
+  a owl:Class ;
+  rdfs:label "IntransitiveActivity"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity>, [
+    a owl:Restriction ;
+    owl:onProperty <https://www.w3.org/ns/activitystreams#object> ;
+    owl:maxCardinality "0"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "An Activity that has no direct object"@en .
+
+<https://www.w3.org/ns/activitystreams#Add>
+  a owl:Class ;
+  rdfs:label "Add"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Add an Object or Link to Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Announce>
+  a owl:Class ;
+  rdfs:label "Announce"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "Actor announces the object to the target"@en .
+
+<https://www.w3.org/ns/activitystreams#Application>
+  a owl:Class ;
+  rdfs:label "Application"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "Represents a software application of any sort"@en .
+
+<https://www.w3.org/ns/activitystreams#Arrive>
+  a owl:Class ;
+  rdfs:label "Arrive"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#IntransitiveActivity> ;
+  rdfs:comment "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")"@en .
+
+<https://www.w3.org/ns/activitystreams#Article>
+  a owl:Class ;
+  rdfs:label "Article"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A written work. Typically several paragraphs long. For example, a blog post or a news article."@en .
+
+<https://www.w3.org/ns/activitystreams#Audio>
+  a owl:Class ;
+  rdfs:label "Audio"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Document> ;
+  rdfs:comment "An audio file"@en .
+
+<https://www.w3.org/ns/activitystreams#Collection>
+  a owl:Class ;
+  rdfs:label "Collection"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "An ordered or unordered collection of Objects or Links"@en .
+
+<https://www.w3.org/ns/activitystreams#CollectionPage>
+  a owl:Class ;
+  rdfs:label "CollectionPage"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Collection> ;
+  rdfs:comment "A subset of items from a Collection"@en .
+
+<https://www.w3.org/ns/activitystreams#OrderedCollectionPage>
+  a owl:Class ;
+  rdfs:label "OrderedCollectionPage"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#OrderedCollection>, <https://www.w3.org/ns/activitystreams#CollectionPage> ;
+  rdfs:comment "An ordered subset of items from an OrderedCollection"@en .
+
+<https://www.w3.org/ns/activitystreams#Relationship>
+  a owl:Class, rdf:Statement ;
+  rdfs:label "Relationship"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "Represents a Social Graph relationship between two Individuals (indicated by the 'a' and 'b' properties)"@en .
+
+<https://www.w3.org/ns/activitystreams#Create>
+  a owl:Class ;
+  rdfs:label "Create"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Create Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Delete>
+  a owl:Class ;
+  rdfs:label "Delete"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Delete Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Dislike>
+  a owl:Class ;
+  rdfs:label "Dislike"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "The actor dislikes the object"@en .
+
+<https://www.w3.org/ns/activitystreams#Document>
+  a owl:Class ;
+  rdfs:label "Document"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "Represents a digital document/file of any sort"@en .
+
+<https://www.w3.org/ns/activitystreams#Event>
+  a owl:Class ;
+  rdfs:label "Event"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "An Event of any kind"@en .
+
+<https://www.w3.org/ns/activitystreams#Flag>
+  a owl:Class ;
+  rdfs:label "Flag"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To flag something (e.g. flag as inappropriate, flag as spam, etc)"@en .
+
+<https://www.w3.org/ns/activitystreams#Follow>
+  a owl:Class ;
+  rdfs:label "Follow"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Express Interest in Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Group>
+  a owl:Class ;
+  rdfs:label "Group"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A Group of any kind."@en .
+
+<https://www.w3.org/ns/activitystreams#Ignore>
+  a owl:Class ;
+  rdfs:label "Ignore"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "Actor is ignoring the Object"@en .
+
+<https://www.w3.org/ns/activitystreams#Image>
+  a owl:Class ;
+  rdfs:label "Image"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Document> ;
+  rdfs:comment "An Image file"@en .
+
+<https://www.w3.org/ns/activitystreams#Invite>
+  a owl:Class ;
+  rdfs:label "Invite"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Offer> ;
+  rdfs:comment "To invite someone or something to something"@en .
+
+<https://www.w3.org/ns/activitystreams#Join>
+  a owl:Class ;
+  rdfs:label "Join"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Join Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Leave>
+  a owl:Class ;
+  rdfs:label "Leave"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Leave Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Like>
+  a owl:Class ;
+  rdfs:label "Like"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Like Something"@en .
+
+<https://www.w3.org/ns/activitystreams#View>
+  a owl:Class ;
+  rdfs:label "View"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "The actor viewed the object"@en .
+
+<https://www.w3.org/ns/activitystreams#Listen>
+  a owl:Class ;
+  rdfs:label "Listen"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "The actor listened to the object"@en .
+
+<https://www.w3.org/ns/activitystreams#Read>
+  a owl:Class ;
+  rdfs:label "Read"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "The actor read the object"@en .
+
+<https://www.w3.org/ns/activitystreams#Move>
+  a owl:Class ;
+  rdfs:label "Move"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from." .
+
+<https://www.w3.org/ns/activitystreams#Travel>
+  a owl:Class ;
+  rdfs:label "Travel"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#IntransitiveActivity> ;
+  rdfs:comment "The actor is traveling to the target. The origin specifies where the actor is traveling from." .
+
+<https://www.w3.org/ns/activitystreams#Link>
+  a owl:Class ;
+  rdfs:label "Link"@en ;
+  owl:disjointWith <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model"@en .
+
+<https://www.w3.org/ns/activitystreams#Mention>
+  a owl:Class ;
+  rdfs:label "Mention"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Link> ;
+  rdfs:comment "A specialized Link that represents an @mention"@en .
+
+<https://www.w3.org/ns/activitystreams#Note>
+  a owl:Class ;
+  rdfs:label "Note"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A Short note, typically less than a single paragraph. A \"tweet\" is an example, or a \"status update\""@en .
+
+<https://www.w3.org/ns/activitystreams#Object>
+  a owl:Class ;
+  rdfs:label "Object"@en .
+
+<https://www.w3.org/ns/activitystreams#Offer>
+  a owl:Class ;
+  rdfs:label "Offer"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Offer something to someone or something"@en .
+
+<https://www.w3.org/ns/activitystreams#OrderedCollection>
+  a owl:Class ;
+  rdfs:label "OrderedCollection"@en ;
+  rdfs:comment "A variation of Collection in which items are strictly ordered"@en ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <https://www.w3.org/ns/activitystreams#Collection>
+     _:genid164
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#OrderedItems>
+  a owl:Class ;
+  rdfs:label "OrderedItems"@en ;
+  rdfs:comment "A rdf:List variant for Objects and Links"@en ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     rdf:List
+     _:genid175
+     _:genid180
+   )
+  ] .
+
+<https://www.w3.org/ns/activitystreams#Page>
+  a owl:Class ;
+  rdfs:label "Page"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A Web Page"@en .
+
+<https://www.w3.org/ns/activitystreams#Person>
+  a owl:Class ;
+  rdfs:label "Person"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A Person"@en .
+
+<https://www.w3.org/ns/activitystreams#Organization>
+  a owl:Class ;
+  rdfs:label "Organization"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "An Organization"@en .
+
+<https://www.w3.org/ns/activitystreams#Profile>
+  a owl:Class ;
+  rdfs:label "Profile"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A Profile Document"@en .
+
+<https://www.w3.org/ns/activitystreams#Place>
+  a owl:Class ;
+  rdfs:label "Place"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A physical or logical location"@en .
+
+<https://www.w3.org/ns/activitystreams#Question>
+  a owl:Class ;
+  rdfs:label "Question"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#IntransitiveActivity> ;
+  rdfs:comment "A question of any sort."@en .
+
+<https://www.w3.org/ns/activitystreams#Reject>
+  a owl:Class ;
+  rdfs:label "Reject"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "Actor rejects the Object"@en .
+
+<https://www.w3.org/ns/activitystreams#Remove>
+  a owl:Class ;
+  rdfs:label "Remove"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Remove Something"@en .
+
+<https://www.w3.org/ns/activitystreams#Service>
+  a owl:Class ;
+  rdfs:label "Service"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A service provided by some entity"@en .
+
+<https://www.w3.org/ns/activitystreams#TentativeAccept>
+  a owl:Class ;
+  rdfs:label "TentativeAccept"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Accept> ;
+  rdfs:comment "Actor tentatively accepts the Object"@en .
+
+<https://www.w3.org/ns/activitystreams#TentativeReject>
+  a owl:Class ;
+  rdfs:label "TentativeReject"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Reject> ;
+  rdfs:comment "Actor tentatively rejects the object"@en .
+
+<https://www.w3.org/ns/activitystreams#Tombstone>
+  a owl:Class ;
+  rdfs:label "Tombstone"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Object> ;
+  rdfs:comment "A placeholder for a deleted object"@en .
+
+<https://www.w3.org/ns/activitystreams#Undo>
+  a owl:Class ;
+  rdfs:label "Undo"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> ;
+  rdfs:comment "To Undo Something. This would typically be used to indicate that a previous Activity has been undone."@en .
+
+<https://www.w3.org/ns/activitystreams#Update>
+  a owl:Class ;
+  rdfs:label "Update"@en ;
+  rdfs:comment "To Update/Modify Something"@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Activity> .
+
+<https://www.w3.org/ns/activitystreams#Video>
+  a owl:Class ;
+  rdfs:label "Video"@en ;
+  rdfs:comment "A Video document of any kind."@en ;
+  rdfs:subClassOf <https://www.w3.org/ns/activitystreams#Document> .
+
+rdf:nil a <https://www.w3.org/ns/activitystreams#OrderedItems> .
+_:genid51
+  a owl:Class ;
+  owl:unionOf (
+   <https://www.w3.org/ns/activitystreams#Object>
+   <https://www.w3.org/ns/activitystreams#Link>
+ ) .
+
+_:genid123 xsd:minInclusive "0.0"^^xsd:float .
+_:genid141 xsd:minInclusive "0.0"^^xsd:float .
+_:genid144 xsd:minInclusive "0.0"^^xsd:float .
+_:genid146 xsd:maxInclusive "5.0"^^xsd:float .
+_:genid152
+  a rdfs:Datatype ;
+  owl:oneOf (
+   "inches"
+   "feet"
+   "miles"
+   "cm"
+   "m"
+   "km"
+ ) .
+
+_:genid164
+  a owl:Restriction ;
+  owl:onProperty <https://www.w3.org/ns/activitystreams#items> ;
+  owl:allValuesFrom [
+    a owl:Class ;
+    owl:intersectionOf (
+     <https://www.w3.org/ns/activitystreams#OrderedItems>
+     _:genid168
+   )
+  ] .
+
+_:genid168
+  a owl:Class ;
+  owl:complementOf [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+_:genid175
+  a owl:Restriction ;
+  owl:onProperty rdf:first ;
+  owl:allValuesFrom [
+    a owl:Class ;
+    owl:unionOf (
+     <https://www.w3.org/ns/activitystreams#Object>
+     <https://www.w3.org/ns/activitystreams#Link>
+   )
+  ] .
+
+_:genid180
+  a owl:Restriction ;
+  owl:allValuesFrom <https://www.w3.org/ns/activitystreams#OrderedItems> ;
+  owl:onProperty rdf:rest .

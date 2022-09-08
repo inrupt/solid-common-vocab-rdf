@@ -8,6 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix solid_service_core: <https://inrupt.com/vocab/solid_service_core#>
@@ -23,7 +24,7 @@ solid_service_core: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_service_core" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_service_core#" ;
-	dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+	dcterms:license sm:MITLicense .
 
 
 solid_service_core:errFailedToProcessIncomingRdf a rdfs:Literal ;

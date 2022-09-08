@@ -8,6 +8,13 @@ prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
 prefix cc:       <http://creativecommons.org/ns#>
 prefix schema:   <http://schema.org/>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+
+# This vocab is 'old', and contains no owl:NamedIndividual's for the various
+# states a term can be in (such as 'standard', 'deprecated', 'experimental',
+# etc.), but it is W3C-hosted!
+# Suggests the need for the creation of a more 'modern' vocab perhaps...
+prefix vs:       <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 
 prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix inrupt_common: <https://inrupt.com/vocab/common#>
@@ -25,7 +32,7 @@ inrupt_common: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:description "El Inrupt vocabulario común: términos de uso común en todos los productos y servicios de Inrupt."@es ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
-    dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+    dcterms:license sm:MITLicense ;
     vann:preferredNamespacePrefix "inrupt_common" ;
     vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
 
@@ -255,6 +262,35 @@ inrupt_common:archived a rdf:Property, owl:ObjectProperty ;
     rdfs:label "Archivado"@es ;
     rdfs:comment "Whether the subject has been marked as archived, without being deleted."@en ;
     rdfs:comment "Si el asunto se ha marcado como archivado, sin eliminarlo."@es .
+
+#
+# Unstable, as I prefer demonstrating reuse of DPV-PD via its very specific
+# terms to denote categories and instances of data (mostly from a personal
+# data perspective, which seems to fit the general application of Solid, but
+# of course isn't 'just' for personal data!).
+#
+inrupt_common:Tag a rdfs:Class, owl:Class ;
+    rdfs:isDefinedBy inrupt_common: ;
+    vs:term_status "unstable" ;
+    owl:deprecated "true"^^xsd:boolean ;
+    rdfs:seeAlso <https://w3id.org/dpv/dpv-pd#> ;
+    rdfs:label "Tag"@en ;
+    rdfs:label "Etiqueta"@es ;
+    rdfs:comment "The class of tags - i.e., to associate an entity with a simple 'Tag', for example using Personal Data Categories from the DPV PD vocab."@en ;
+    rdfs:comment "La clase de etiquetas, es decir, para asociar una entidad con una 'Etiqueta' simple, por ejemplo, utilizando Categorías de datos personales del vocabulario DPV PD."@es .
+
+#
+# Unstable, as I prefer demonstrating reuse of Gist via its term:
+#   gist:isCategorizedBy
+#
+inrupt_common:tag a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy inrupt_common: ;
+    vs:term_status "unstable" ;
+    owl:deprecated "true"^^xsd:boolean ;
+    rdfs:label "Tag"@en ;
+    rdfs:label "Etiqueta"@es ;
+    rdfs:comment "Property used to denote that an entity has a specific tag."@en ;
+    rdfs:comment "Propiedad utilizada para indicar que una entidad tiene una etiqueta específica."@es .
 
 #
 #inrupt_common: a rdf:Property, owl:ObjectProperty ;

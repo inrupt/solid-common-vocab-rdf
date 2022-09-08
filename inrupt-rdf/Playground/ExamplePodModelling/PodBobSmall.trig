@@ -55,8 +55,10 @@ bob-storage: {
   # Describe the Agent using it's WebID as the RDF Subject (e.g., often 'me', as a human being).
   # Points to the Agent's Solid Pod (i.e., back to this Named Graph!).
   #
-  webIdBob: a schema:Person, foaf:Person ;
+  webIdBob: a schema:Person, foaf:Person, <https://www.w3.org/ns/person#Person> ;
     rdfs:label "Bob"@en ;
+    <https://www.w3.org/ns/person#birthName> "Born as Robert"@en ;
+
     rdfs:comment "Bob is a dog, an 'agent' from Ireland, and has his own Solid Pod!"@en ;
     vcard:fn "Bobby the dog"@en, "Bob Óg an madra"@ga ;
     schema:name "Bobby the dog"@en, "Bob Óg an madra"@ga ;
@@ -67,6 +69,8 @@ bob-storage: {
     solid:account  bob-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
+
+
   #
   # Describe this Pod instance (is this allowed to add meta-data for the Named Graph itself?!)
   #
@@ -74,7 +78,41 @@ bob-storage: {
     rdfs:label "Solid Pod"@en ;
     rdfs:comment "A Solid Pod hosted by Inrupt's ESS product."@en ;
     solid-ext:hasServiceManager bob-storage:Service-Manager ;
-    viz:nodeSize 0.45 .
+    viz:nodeSize 0.45 ;
+    ldp:contains
+      bob-storage:My-Current-Location ,
+      bob-storage:House-Phibsboro ,
+      bob-storage:House-Slovakia .
+
+
+  bob-storage:My-Current-Location a schema:Place ;
+    rdfs:comment "At home in Dublin, Ireland."@en ;
+    schema:longitude "53.3493° N" ;
+    schema:latitude "6.2607° W" ;
+    schema:location bob-storage:House-Phibsboro .
+
+  #
+  # Bob's homes or houses (e.g., vacation home, rental properties, etc.)...
+  #
+  bob-storage:House-Phibsboro a schema:House ;
+    rdfs:comment "Lovely end-of-terrace Victorian redbrick overlooking pitch-and-putt coarse."@en ;
+    schema:numberOfRooms "8"^^xsd:integer ;
+    schema:streetAddress "Phibsboro, Dublin 7"@en ;
+    <https://data.ireland.gov/ns/eircode> "D07 R111".
+
+
+  bob-storage:AddressOfHouseInPhibsboro a <http://www.w3.org/ns/locn#Address> ;
+
+
+  bob-storage:House-Slovakia a schema:House ;
+    rdfs:comment "Holiday cottage outside Hlohovec."@en ;
+    schema:numberOfRooms "4"^^xsd:integer ;
+    schema:streetAddress "1 Main Street"@en ;
+    schema:addressCountry "Slovakia"@en, "Slovak Republic"@sk ;
+    <https://data.slovakia.gov/ns/propertyTaxCode> "Tax-prop-1111".
+
+
+
 
   #
   # Describe my profile card - links back to the Agent's WebID, e.g., 'me', as a human being.
@@ -456,157 +494,3 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .
-
-
-#
-# What if there is a conflict between resources for the same Subject+Predicate+Object value?!
-# You'll just get back multiple values for that Subject+Predicate.
-#
- INSERT DATA {
-   <https://pod.inrupt.com/bob/resourceA> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
-   }
-   <https://pod.inrupt.com/bob/resourceB> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
-   }
-   <https://pod.inrupt.com/bob/EntirePod> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
-   }
- }
-
-
-
-# What do I get back if I query my entire Pod for <https://pod.inrupt.com/bob/public/subject1> ?
-# SELECT * WHERE { <https://pod.inrupt.com/bob/public/subject1> ?p ?o }
-
-# Seems like Resource POST/PUT requests can't contain quads (since a Solid Resourced needs to go
-# into it's own Named Graph if it's to be retrievable as a 'unit').
-
-#
-# Server needs to copy Resources triples into two Named Graphs, one for the Resource itself, and
-# the other a Named Graph to represent the entire Pod.
-#
-
- prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
- prefix acp:         <http://www.w3.org/ns/solid/acp#>
- prefix solid-ext:   <http://www.w3.org/ns/solid/terms/experimental-or-extension#>
- prefix ex:          <https://example.com#>
-
- prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
-
- <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- {| ex:provenance <https://pod.inrupt.com/bob/resourceA> |}
-
- <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- {| ex:provenance <https://pod.inrupt.com/bob/resourceB> |}
-
-
- # POST request, but no need for creation of dedicated Resource Named Graph (but could duplicate
- # data in Resource Named Graphs *if* Resource-centric performance was shown to be too slow).
- <https://pod.inrupt.com/bob/resourceA> {
-   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
-   <https://pod.inrupt.com/bob/public/subject2> ex:salary "$1 million" .
-   <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- }
-
- <https://pod.inrupt.com/bob/resourceB> {
-   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
-   <https://pod.inrupt.com/bob/public/subject2> ex:salary "$100 million" .
-   <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- }
-#
-#  What happens to the </subject3> triple in </EntirePod> Named Graph if I DELETE </resourceB>...?
-# We have to delete it - but now my ResourceA still has it, so aren't my Graph and Resource view's
-# inconsistent!?
-#  If we have resources in Named Graphs, but the Entire Pod as the Default Graph (which would
-# just be union of all Named Graphs) we'd be fine, but that needs a repository per Pod (since
-# there can be only one default graph per repository)!
-# ************************************
-#  Unless we can use RDF-Star to say which Resource 'said which triples' in the EntirePod Named
-# Graph (a bit like reference counting, but better!).
-# ************************************
-#
-
- <https://pod.inrupt.com/bob/EntirePod> {
-   << <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en >>
-     prov:qualifiedGeneration <https://pod.inrupt.com/bob/resourceA/GUID> .
-   << <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr >>
-     prov:qualifiedGeneration <https://pod.inrupt.com/bob/resourceB/GUID> .
-
-   << <https://pod.inrupt.com/bob/public/subject2> ex:salary "$1 million" >>
-     solid-ext:assertedBy <https://pod.inrupt.com/bob/resourceA> .
-   << <https://pod.inrupt.com/bob/public/subject2> ex:salary "$100 million" >>
-     solid-ext:assertedBy <https://pod.inrupt.com/bob/resourceB> .
-
-   << <https://pod.inrupt.com/bob/public/subject3>  ex:occupation "Lion tamer"@en >>
-     solid-ext:assertedBy
-       <https://pod.inrupt.com/bob/resourceA> ,
-       <https://pod.inrupt.com/bob/resourceB> .
-
-   <https://pod.inrupt.com/bob/resourceA> a solid-ext:SolidResource , ldp:NonRDFSource ;
-     schema:dateCreated "2021/01/10" ;
-     solid:nonBinaryId <https://amazon.com/s3/GUID-9999> .
-
-   <https://pod.inrupt.com/bob/resourceA/GUID> a prov:Generation ;
-     prov:collection <https://pod.inrupt.com/bob/resourceA> .
- }
-
-
-   # We could add triples to the Pod (not via a Resource) to access control individual Subjects, and
-   # we could choose to apply these policies even when returning Resources (to filter out Subjects).
-   # Could be very expensive (i.e., for every Subject in a Resource, check it's ACP)!
-   # But could be run for TPF, and possibly for CONSTRUCT queries (to filter on ?s).
-   <https://pod.inrupt.com/bob/public/subject1> acp:accessControl <https://pod.inrupt.com/bob/public/subject1?ext=acr> .
-   <https://pod.inrupt.com/bob/public/subject1?ext=acr>  a acp:AccessControlResource ;
-     acp:apply bob-storage:policyFriendNotNeighbour .
-
-
-   <https://pod.inrupt.com/bob/resourceA> acp:accessControl <https://pod.inrupt.com/bob/resourceA?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceA?ext=acr> a acp:AccessControlResource ;
-     acp:apply <https://pod.inrupt.com/bob/policy/policy-GUID-1> .
-   <https://pod.inrupt.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
-     acp:allow acp:Read, acp:Write, acp:Append ;
-     acp:anyOf bob-storage:myMatcherFriendCollege, bob-storage:myMatcherFriendWork .
- }
-
- <https://pod.inrupt.com/bob/resourceA?ext=acp> {
-   <https://pod.inrupt.com/bob/resourceA> acp:accessControl <https://pod.inrupt.com/bob/resourceA?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceA?ext=acr> acp:apply <https://pod.inrupt.com/bob/policy/policy-GUID-1> .
- }
-
- <https://pod.inrupt.com/bob/policy/policy-GUID-1> {
-   <https://pod.inrupt.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
-     acp:allow acp:Read, acp:Write, acp:Append ;
-     acp:anyOf bob-storage:myMatcherFriendCollege, bob-storage:myMatcherFriendWork .
- }
-
- <https://pod.inrupt.com/bob/resourceB?ext=acp> {
-   <https://pod.inrupt.com/bob/resourceB> acp:accessControl <https://pod.inrupt.com/bob/resourceB?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceB?ext=acr> acp:apply bob-storage:policyFriendNotNeighbour .
- }
-
-
-
-
-
-prefix : <https://default.com/>
-prefix dct: <https://dct.com/>
-
-_:a solid:occurrenceOf << :s :p :o >> ;
-  solid:meta <https://bob.pod.com/meta/triple/GUID-1> ;
-  dct:creator :alice.
-
-<https://bob.pod.com/meta/triple/GUID-1> a solid:Metadata ;
-  prov:qualifiedGeneration <https://bob.pod.com/resource/ResourceA> .
-
-<https://bob.pod.com/resource/ResourceA> a prov:Generation ;
-  prov:wasGeneratedBy :bob ;
-  schema:dateCreated "2021/01/01 19:08" ;
-  solid:createdVia <https://bob.pod.com/meta/dataIngest/http/post/GUID-1> .
-
-<https://bob.pod.com/meta/dataIngest/http/post/GUID-1> a solid:Http
-
-_:b :occurrenceOf << :s :p :o >> ;
-  :in <https://bob.pod.com/resource/ResourceB> ;
-  dct:creator :bob.

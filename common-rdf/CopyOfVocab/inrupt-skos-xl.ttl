@@ -1,5 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -8,12 +8,12 @@
 
 <http://www.w3.org/2008/05/skos-xl>
     a owl:Ontology ;
-    dc:creator "Alistair Miles", "Sean Bechhofer" ;
+    dcterms:creator "Alistair Miles", "Sean Bechhofer" ;
     rdfs:seeAlso <http://www.w3.org/2008/05/skos> ;
     owl:imports <http://www.w3.org/2004/02/skos/core> ;
-    dc:title "SKOS XL Vocabulary"@en ;
-    dc:contributor "Participants in W3C's Semantic Web Deployment Working Group." ;
-    dc:description "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."@en .
+    dcterms:title "SKOS XL Vocabulary"@en ;
+    dcterms:contributor "Participants in W3C's Semantic Web Deployment Working Group." ;
+    dcterms:description "An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities."@en .
 
 skosxl:Label
     rdfs:label "Label"@en ;

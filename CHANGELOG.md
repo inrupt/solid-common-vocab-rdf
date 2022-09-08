@@ -5,11 +5,19 @@ configuration files contained in this repository.
 
 ## Unreleased
 
-
-## v1.0.4 2022-01-23
-
+- Added SOSA and SSN to the Common RDF bundle.
+- Added glossary term for 'Linked Data', that explains that we capitalize the
+  letters, and provides a `rdfs:seeAlso` to Richard's reasons for why that's
+  important! 
+- Aligned all vocab license IRIs to be "http://purl.org/NET/rdflicense/MIT1.0"
+- Added explicit 'xsd:anyURI' datatype to all VANN 'preferredNamespaceUri'
+  objects in vocabs we create.
 - Added some more Schema.org terms to our Inrupt extension.
 - Updated year in license headers.
+- Changed Verifiable Credentials prefix from 'cred' to just 'vc' (which
+  appears available in prefix.cc).
+- Updated SKOS-XL prefix to be just 'skosxl', that they use themselves.
+- Used archived VANN vocabulary resource (instead of local Turtle).
 
 ## v1.0.3 2021-10-03
 

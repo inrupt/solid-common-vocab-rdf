@@ -6,9 +6,9 @@ prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix status:   <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
-
 prefix inrupt_test: <https://inrupt.com/vocab/test#>
 
 #
@@ -23,7 +23,7 @@ inrupt_test: a owl:Ontology, inrupt_gen:Ontology;
  across all Inrupt tests."""@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2020/07/05"^^xsd:date ;
-	dcterms:license "http://purl.org/NET/rdflicense/MIT1.0.ttl" ;
+	dcterms:license sm:MITLicense ;
 	vann:preferredNamespacePrefix "inrupt_test" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/test#" .
 

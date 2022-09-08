@@ -7,6 +7,7 @@ prefix dcterms: <http://purl.org/dc/terms/>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix ldp: <http://www.w3.org/ns/ldp#>
 prefix vann: <http://purl.org/vocab/vann/>
+prefix sm: <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 prefix schema: <http://schema.org/>
 
@@ -38,7 +39,7 @@ schema_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
  over 2,500 terms currently defined in Schema.org).""" ;
     vann:preferredNamespacePrefix "schema_inrupt_ext" ;
     vann:preferredNamespaceUri "http://schema.org/" ;
-    dcterms:license "http://www.opendatacommons.org/licenses/pddl/" .
+    dcterms:license sm:MITLicense .
 
 
 #
@@ -106,6 +107,30 @@ schema:familyName a rdf:Property ;
     rdfs:comment "Nachname. In den USA der Nachname einer Person. Dies kann zusammen mit givenName anstelle der Eigenschaft name verwendet werden."@de ;
     rdfs:comment "Apellido. En los EE.UU., el apellido de una persona. Esto se puede usar junto con givenName en lugar de la propiedad name."@es ;
     rdfs:comment "Cognome. Negli Stati Uniti, il cognome di una persona. Questo può essere usato insieme a givenName al posto della proprietà name."@it .
+
+schema:birthDate
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Date of birth"@en ;
+    schema:alternateName "Date de naissance"@fr ;
+    schema:alternateName "Geburtsdatum"@de ;
+    schema:alternateName "Fecha de nacimiento"@es ;
+    schema:alternateName "Data di nascita"@it ;
+    rdfs:comment "Date de naissance."@fr ;
+    rdfs:comment "Geburtsdatum."@de ;
+    rdfs:comment "Fecha de nacimiento."@es ;
+    rdfs:comment "Data di nascita."@it .
+
+schema:gender
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Gender"@en ;
+    schema:alternateName "Le genre"@fr ;
+    schema:alternateName "Geschlecht"@de ;
+    schema:alternateName "Género"@es ;
+    schema:alternateName "Genere"@it ;
+    rdfs:comment "Genre de quelque chose, généralement une personne, mais peut-être aussi des personnages fictifs, des animaux, etc. Bien que https://schema.org/Male et https://schema.org/Female puissent être utilisés, les chaînes de texte sont également acceptables pour les personnes qui ne s'identifie pas comme un genre binaire. La propriété gender peut également être utilisée dans un sens étendu pour couvrir par ex. le sexe des équipes sportives. Comme pour le genre des individus, nous n'essayons pas d'énumérer toutes les possibilités. Une SportsTeam mixte peut être indiquée avec une valeur textuelle de 'Mixte'."@fr ;
+    rdfs:comment "Geschlecht von etwas, typischerweise eine Person, aber möglicherweise auch fiktive Charaktere, Tiere usw. Während https://schema.org/Male und https://schema.org/Female verwendet werden können, sind Textzeichenfolgen auch für Personen akzeptabel, die nicht als binäres Geschlecht identifizieren. Die Geschlechtseigenschaft kann auch im erweiterten Sinne verwendet werden, um z. das Geschlecht der Sportmannschaften. Wie beim Geschlecht von Personen versuchen wir nicht, alle Möglichkeiten aufzuzählen. Ein gemischtgeschlechtliches SportsTeam kann mit dem Textwert 'Mixed' angegeben werden."@de ;
+    rdfs:comment "Género de algo, generalmente una Persona, pero posiblemente también personajes ficticios, animales, etc. Si bien se pueden usar https://schema.org/Male y https://schema.org/Female, las cadenas de texto también son aceptables para personas que no se identifique como un género binario. La propiedad de género también se puede usar en un sentido amplio para cubrir, p. el género de los equipos deportivos. Al igual que con el género de los individuos, no tratamos de enumerar todas las posibilidades. Un SportsTeam de género mixto se puede indicar con un valor de texto de 'Mixto'."@es ;
+    rdfs:comment "Genere di qualcosa, tipicamente una Persona, ma possibilmente anche personaggi di fantasia, animali, ecc. Sebbene sia possibile utilizzare https://schema.org/Male e https://schema.org/Female, le stringhe di testo sono accettabili anche per le persone che non identificarsi come un genere binario. La proprietà di genere può anche essere utilizzata in senso esteso per coprire ad es. il genere delle squadre sportive. Come per il genere degli individui, non cerchiamo di enumerare tutte le possibilità. Uno SportsTeam di sesso misto può essere indicato con un valore di testo 'Misto'."@it .
 
 schema:additionalName
     rdfs:isDefinedBy schema_inrupt_ext: ;
@@ -557,6 +582,30 @@ schema:model
     rdfs:comment "El modelo del producto. Úselo con la URL de un modelo de producto o una representación textual del identificador del modelo. La URL de ProductModel puede provenir de una fuente externa. Se recomienda proporcionar además identificadores de producto sólidos a través de las propiedades gtin8 / gtin13 / gtin14 y mpn."@es ;
     rdfs:comment "Il modello del prodotto. Utilizzare con l'URL di un ProductModel o una rappresentazione testuale dell'identificatore del modello. L'URL del ProductModel può provenire da una fonte esterna. Si consiglia di fornire anche identificatori di prodotto efficaci tramite le proprietà gtin8/gtin13/gtin14 e mpn."@it .
 
+schema:exifData
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "EXIF data"@en ;
+    schema:alternateName "Données EXIF"@fr ;
+    schema:alternateName "EXIF-Daten"@de ;
+    schema:alternateName "Datos EXIF"@es ;
+    schema:alternateName "Dati EXIF"@it ;
+    rdfs:comment "Données exif pour cet objet."@fr ;
+    rdfs:comment "Exif-Daten für dieses Objekt."@de ;
+    rdfs:comment "Datos exif para este objeto."@es ;
+    rdfs:comment "Dati exif per questo oggetto."@it .
+
+schema:member
+    rdfs:isDefinedBy schema_inrupt_ext: ;
+    schema:alternateName "Member"@en ;
+    schema:alternateName "Membre"@fr ;
+    schema:alternateName "Mitglied"@de ;
+    schema:alternateName "Miembro"@es ;
+    schema:alternateName "Membro"@it ;
+    rdfs:comment "Membre d'une organisation ou d'un programme. Les organisations peuvent être membres d'organisations ; L'adhésion au programme est généralement réservée aux particuliers."@fr ;
+    rdfs:comment "Ein Mitglied einer Organisation oder einer Programmmitgliedschaft. Organisationen können Mitglieder von Organisationen sein; Die Programmmitgliedschaft ist in der Regel für Einzelpersonen."@de ;
+    rdfs:comment "Un miembro de una Organización o una Membresía del Programa. Las organizaciones pueden ser miembros de organizaciones; La membresía del programa es típicamente para individuos."@es ;
+    rdfs:comment "Un membro di un'organizzazione o un membro del programma. Le organizzazioni possono essere membri di organizzazioni; L'iscrizione al programma è in genere per individui."@it .
+
 schema:Event
     rdfs:isDefinedBy schema_inrupt_ext: ;
     schema:alternateName "Event"@en ;
@@ -629,6 +678,7 @@ schema:dateModified
     rdfs:comment "La fecha en la que CreativeWork se modificó más recientemente o cuando se modificó la entrada del elemento dentro de un DataFeed."@es ;
     rdfs:comment "Data in cui CreativeWork è stato modificato più di recente o quando la voce dell'elemento è stata modificata all'interno di un DataFeed."@it .
 
+#
 # Template for pulling in new terms!
 #
 #schema:

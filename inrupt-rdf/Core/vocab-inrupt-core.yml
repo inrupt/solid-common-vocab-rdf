@@ -17,7 +17,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-core
-artifactGeneratorVersion: 1.0.4
+artifactGeneratorVersion: 2.0.0
 
 versioning:
   type: git
@@ -127,7 +127,7 @@ artifactToGenerate:
   # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.4"
+    artifactVersion: "1.0.5"
     artifactNamePrefix: ""
     artifactNameSuffix: ""
 
