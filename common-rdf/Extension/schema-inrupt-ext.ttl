@@ -596,11 +596,11 @@ schema:exifData
 
 schema:member
     rdfs:isDefinedBy schema_inrupt_ext: ;
-    schema:alternateName ""@en ;
-    schema:alternateName ""@fr ;
-    schema:alternateName ""@de ;
-    schema:alternateName ""@es ;
-    schema:alternateName ""@it ;
+    schema:alternateName "Member"@en ;
+    schema:alternateName "Membre"@fr ;
+    schema:alternateName "Mitglied"@de ;
+    schema:alternateName "Miembro"@es ;
+    schema:alternateName "Membro"@it ;
     rdfs:comment "Membre d'une organisation ou d'un programme. Les organisations peuvent être membres d'organisations ; L'adhésion au programme est généralement réservée aux particuliers."@fr ;
     rdfs:comment "Ein Mitglied einer Organisation oder einer Programmmitgliedschaft. Organisationen können Mitglieder von Organisationen sein; Die Programmmitgliedschaft ist in der Regel für Einzelpersonen."@de ;
     rdfs:comment "Un miembro de una Organización o una Membresía del Programa. Las organizaciones pueden ser miembros de organizaciones; La membresía del programa es típicamente para individuos."@es ;
