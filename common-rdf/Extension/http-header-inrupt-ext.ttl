@@ -37,10 +37,7 @@ httph_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension adding terms and multilingual meta-data for HTTP headers" ;
-    dcterms:description """Extension to th eHTTPH (HTTP Headers) vocabulary
- providing terms for more headers than the current (Aug 2019) namespace document,
- and multilingual alternative names and translations for comments (e.g., for use
- directly as labels or tool-tips in user interfaces or error messages)""" ;
+    dcterms:description "Inrupt extension to the HTTPH (HTTP Headers) vocabulary providing terms for more headers than the current (Aug 2019) vocab" ;
     vann:preferredNamespacePrefix "httph_inrupt_ext" ;
     vann:preferredNamespaceUri "https://www.w3.org/2007/ont/httph#" ;
     dcterms:license sm:MITLicense .
