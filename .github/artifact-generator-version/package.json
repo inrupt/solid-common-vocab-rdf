@@ -1,15 +1,15 @@
 {
   "name": "artifact-generator-version",
   "version": "0.1.0",
-  "description": "Retrieves the generator version from a YAML configuration file (see https://github.com/inrupt/solid-common-artifact-generator for details).",
+  "description": "Retrieves the Artifact Generator version from a YAML configuration file (see https://github.com/inrupt/solid-common-artifact-generator for details).",
   "main": "index.js",
   "author": {
     "name": "Inrupt, Inc."
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
-    "js-yaml": "^3.13.1"
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^5.0.3",
+    "js-yaml": "^4.1.0"
   }
 }
