@@ -7,7 +7,7 @@
 prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 prefix schema:   <http://schema.org/>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix httph: <http://www.w3.org/2007/ont/httph#>
+prefix httph:    <https://www.w3.org/2007/ont/httph#>
 
 prefix solid:    <http://www.w3.org/ns/solid/terms#>
 

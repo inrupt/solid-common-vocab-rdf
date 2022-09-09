@@ -18,6 +18,9 @@ configuration files contained in this repository.
   appears available in prefix.cc).
 - Updated SKOS-XL prefix to be just 'skosxl', that they use themselves.
 - Used archived VANN vocabulary resource (instead of local Turtle).
+- Updated HTTPH to use 'https:' scheme (needed 'cos it states a relative 
+  namespace IRI, and auto-redirects from 'http:' to 'https:').
+- Added ADMS.
 
 ## v1.0.3 2021-10-03
 
