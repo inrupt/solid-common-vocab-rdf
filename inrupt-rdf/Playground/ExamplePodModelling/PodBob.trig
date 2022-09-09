@@ -31,7 +31,7 @@ prefix vcard:      <http://www.w3.org/2006/vcard/ns#>
 prefix ws:         <http://www.w3.org/ns/pim/space#>
 prefix ldp:        <http://www.w3.org/ns/ldp#>
 prefix dbpedia:    <http://dbpedia.org/resource/>
-prefix httph:      <http://www.w3.org/2007/ont/httph#>
+prefix httph:      <https://www.w3.org/2007/ont/httph#>
 prefix schema:     <http://schema.org/>
 prefix odrl:       <http://www.w3.org/ns/odrl/2/>
 prefix dpv:        <http://www.w3.org/ns/dpv#>

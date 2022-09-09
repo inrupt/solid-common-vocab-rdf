@@ -10,8 +10,15 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
 
 
-prefix http: <https://www.w3.org/2007/ont/http#>
-prefix httph: <http://www.w3.org/2007/ont/httph#>
+prefix http: <http://www.w3.org/2007/ont/http#>
+
+# This vocab never provided an explicit vocab IRI (i.e., it defines it as a
+# relative IRI using `<> a owl:Ontology`), which was a bad idea, as it would
+# have originally been a `http://...` IRI, but subsequent automatic redirects
+# from `http:` to `https:` causes RDF parsers to now treat it as `https:`.
+# So for consistency going forward, we need to explicitly use the `https:`
+# scheme (which will break anyone using the original IRIs!).
+prefix httph: <https://www.w3.org/2007/ont/httph#>
 
 prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
 prefix httph_inrupt_ext: <https://inrupt.com/vocab/extension/httph#>
@@ -30,12 +37,12 @@ httph_inrupt_ext: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension adding terms and multilingual meta-data for HTTP headers" ;
-    dcterms:description """Extension to th HTTPH (HTTP Headers) vocabulary
- providing terms for more headers that the current (Aug 2019) namespace document,
+    dcterms:description """Extension to th eHTTPH (HTTP Headers) vocabulary
+ providing terms for more headers than the current (Aug 2019) namespace document,
  and multilingual alternative names and translations for comments (e.g., for use
  directly as labels or tool-tips in user interfaces or error messages)""" ;
     vann:preferredNamespacePrefix "httph_inrupt_ext" ;
-    vann:preferredNamespaceUri "http://www.w3.org/2007/ont/httph#" ;
+    vann:preferredNamespaceUri "https://www.w3.org/2007/ont/httph#" ;
     dcterms:license sm:MITLicense .
 
 httph:accept a rdf:Property ;

@@ -590,7 +590,14 @@ vocabList:
   - description: HTTPH Ontology - for describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019), so extended
     nameAndPrefixOverride: httph_inrupt
     inputResources:
-      - http://www.w3.org/2007/ont/httph#
+      # This vocab never provided an explicit vocab IRI (i.e., it defines it
+      # as a relative IRI using `<> a owl:Ontology`), which was a bad idea, as
+      # it would have originally been a `http://...` IRI, but subsequent
+      # automatic redirects from `http:` to `https:` causes RDF parsers to now
+      # treat it as `https:`. So for consistency going forward, we need to
+      # explicitly use the `https:` scheme (which will break anyone using the
+      # original IRIs!).
+      - https://www.w3.org/2007/ont/httph#
       - ./Extension/http-header-inrupt-ext.ttl
 
   - description: OLO (Ordered List Ontology) - for describing ordered lists
@@ -688,8 +695,8 @@ vocabList:
       # so we needed to pull from a local copy. But then (in early Nov 2021)
       # it came back online. So leaving this reference here in case it
       # re-occurs...
-#     - ./CopyOfVocab/inrupt-foaf.ttl
-      - http://xmlns.com/foaf/0.1/
+     - ./CopyOfVocab/inrupt-foaf.ttl
+#      - http://xmlns.com/foaf/0.1/
 
   - description: Shape Expressions (ShEx) - for validating RDF
     nameAndPrefixOverride: shex
@@ -948,3 +955,6 @@ vocabList:
   - description: Spec Terms provides classes and properties that can be used to describe any significant unit of information in technical reports.
     inputResources:
       - https://www.w3.org/ns/spec
+
+  - inputResources:
+      - http://www.w3.org/ns/adms#
