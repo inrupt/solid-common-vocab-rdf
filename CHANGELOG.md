@@ -21,6 +21,7 @@ configuration files contained in this repository.
 - Updated HTTPH to use 'https:' scheme (needed 'cos it states a relative 
   namespace IRI, and auto-redirects from 'http:' to 'https:').
 - Added ADMS.
+- Added SAREF to the Common RDF bundle.
 
 ## v1.0.3 2021-10-03
 
