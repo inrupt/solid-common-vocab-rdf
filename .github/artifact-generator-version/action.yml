@@ -8,5 +8,5 @@ outputs:
   vocab-generator-version:
     descriptionFallback: 'The required version'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
