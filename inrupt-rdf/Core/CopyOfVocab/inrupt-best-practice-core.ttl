@@ -1,0 +1,55 @@
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix sh:       <http://www.w3.org/ns/shacl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
+
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_bp_core: <https://w3id.org/inrupt/vocab/tool/bestPractice/core/>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+inrupt_bp_core:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/core/0.0.1> ;
+ 	dcterms:title "Inrupt Best Practice core"@en ;
+	dcterms:description "The Inrupt Best Practice core vocabulary defining terms to describe and report on general Best Practice guidelines."@en ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2022/12/02"^^xsd:date ;
+	dcterms:license dalicc:MIT ;
+    sh:declare inrupt_bp_core:_PrefixDeclaration .
+
+inrupt_bp_core:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "inrupt_bp_core" ;
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/core/" .
+
+#
+# Terms...
+#
+inrupt_bp_core:BestPractice a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_bp_core:_Ontology ;
+    rdfs:label "Best Practice"@en ;
+    rdfs:label "Mejores prácticas"@es ;
+    rdfs:comment """A Best Practice is a commercial or professional procedure that is accepted or prescribed as being correct or most effective."""@en ;
+    rdfs:comment """Una Buena Práctica es un procedimiento comercial o profesional que se acepta o prescribe como correcto o más efectivo."""@en .
+
+inrupt_bp_core:Detail a rdfs:Class ;
+    rdfs:isDefinedBy inrupt_bp_core:_Ontology ;
+    rdfs:label "Detail"@en ;
+    rdfs:comment """A Best Practice Detail adds further information in
+ relation to a Best Practice, but is not a Best Practice in and of itself.
+
+For example, a Best Practice might state that all vocabularies should provide
+ an explicitly preferred prefix, but a specific detail might describe the
+ actual mechanism used as being via a VANN triple, or a different detail might
+ say it was expressed with a SHACL:declare triple, or another detail might
+ stipulate that multiple different prefixes were provided.
+
+We stipulate details as individuals (as opposed to just properties on an
+ instance of a Best Practice) so that we can always uniquely identify details
+ on details on details of a particular Best Practice."""@en .

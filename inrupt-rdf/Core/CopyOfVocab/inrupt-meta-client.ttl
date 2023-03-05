@@ -8,16 +8,16 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen:         <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:         <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix inrupt_meta_client: <https://inrupt.com/vocab/meta/client#>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
 # suggested prefix, its license, etc.
 #
-inrupt_meta_client: a owl:Ontology, inrupt_gen:Ontology ;
+inrupt_meta_client: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/meta/client/0.0.1> ;
 	dcterms:title "Metadata Client Vocabulary"@en ;
@@ -26,7 +26,7 @@ inrupt_meta_client: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_meta_client" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/meta/client#" ;
-	dcterms:license sm:MITLicense .
+	dcterms:license dalicc:MIT .
 
 
 inrupt_meta_client:namedGraph a rdf:Property ;

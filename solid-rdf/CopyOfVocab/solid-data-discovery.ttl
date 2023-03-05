@@ -1,0 +1,147 @@
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix sh:       <http://www.w3.org/ns/shacl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
+
+#
+# Prefix for terms from Inrupt's Artifact Generator vocabulary - use is purely
+# optional, but by explicitly marking a vocabulary as being
+# 'Inrupt-Artifact-Generator-compliant' (i.e., by typing it as being of
+# RDF:type 'inrupt_gen:Ontology'), tools (like the Artifact Generator itself)
+# can enforce certain Best Practices (like those defined by Inrupt, which
+# basically follow the principles of FAIR, but are also extended to include
+# RDF-specific practices (like all terms telling us what vocabulary they are
+# defined by, or each term providing short and long descriptions, in at least
+# English, etc.).
+#
+prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+
+#
+# This vocab namespace IRI is intended to be renamed to something like this...
+#
+#    prefix solid_dd: <https://www.w3.org/ns/solid/data-discovery/>
+# ...once it begins its standardization journey through the W3C.
+#
+# In the meantime, to ensure the vocab can be served up publicly, we define
+# the vocab namespace IRI under an Inrupt-hosted IRI:
+#
+prefix solid_dd: <https://w3id.org/inrupt/namespace/vocab/3rd-party/solid/data-discovery/>
+#  NOTE: Just for information, but we (as of 2023/03) expect the above IRI to
+#  redirect to:
+# prefix solid_dd: <https://namespace.inrupt.com/vocab/3rd-party/solid/data-discovery/>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+# We can (if we like) explicitly type this vocab as being an Inrupt Artifact
+# Generator-compliant vocab (or 'Ontology') too, meaning we expect the
+# Artifact Generator to be able to enforce its set of RDF guidelines to help
+# ensure this vocab remains high-quality.
+#
+solid_dd:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI solid_dd:0.0.1 ;
+    dcterms:title
+        "The Solid Data Discovery vocabulary"@en ,
+        "El vocabulario de Solid Data Discovery"@es ;
+
+    dcterms:description
+        """The Solid Data Discovery vocabulary - Inrupt's recommendations for
+ declaring how applications model data, and where they write it in order to
+ aid short-term interoperability."""@en ,
+
+        """El vocabulario de Solid Data Discovery - las recomendaciones de
+ Inrupt para declarar cómo las aplicaciones modelan los datos y dónde los
+ escriben para ayudar a la interoperabilidad a corto plazo."""@es ;
+
+    dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
+    dcterms:issued "2001/01/01"^^xsd:date ;
+    dcterms:license dalicc:MIT ;
+    # This is an Inrupt internal document that provides background and context
+    # for this vocabulary.
+    rdfs:seeAlso "https://docs.google.com/document/d/1Q1ARtW76fTGMP7_8HS9_9e_rU4rUDuUHHccXdqCS3EA/edit#"^^xsd:anyURI ;
+    # Currently we use an Inrupt-hosted prefix declaration...
+    sh:declare solid_dd:_PrefixDeclaration_solid_dd_TEMP .
+
+#
+# We deliberately define this temporary prefix declaration (until this vocab
+# begins formal standardization at the W3C) ...
+#
+solid_dd:_PrefixDeclaration_solid_dd_TEMP a sh:PrefixDeclaration ;
+    sh:prefix "solid_dd" ;
+    #
+    # Unfortunately, the syntax of Turtle won't allow us to reuse our prefix
+    # defined above as a string - so we need to duplicate the value here...
+    #
+    sh:namespace "https://w3id.org/inrupt/namespace/vocab/3rd-party/solid/data-discovery/"^^xsd:anyURI .
+
+solid_dd:_PrefixDeclaration_solid_dd_INTENDED a sh:PrefixDeclaration ;
+    sh:prefix "solid_dd" ;
+    #
+    # Unfortunately, the syntax of Turtle won't allow us to reuse our prefix
+    # defined above as a string - so we need to duplicate the value here...
+    #
+    sh:namespace "https://www.w3.org/ns/solid/data-discovery/"^^xsd:anyURI .
+
+
+solid_dd:reads a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Reads"@en ;
+    rdfs:label "Lee"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:writes a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Writes"@en ;
+    rdfs:label "Escribe"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:storageDescription a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Storage description"@en ;
+    rdfs:label "Descripción de almacenamiento"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Allowed data model"@en ;
+    rdfs:label "Modelo de datos permitido"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:relativeStoragePath a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Relative storage path"@en ;
+    rdfs:label "Ruta de almacenamiento relativa"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:baseContainerPath a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Base container path"@en ;
+    rdfs:label "Ruta del contenedor base"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:authoredWith a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Authored with"@en ;
+    rdfs:label "Creado con"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .
+
+solid_dd:authoredBy a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Authored by"@en ;
+    rdfs:label "Escrito por"@es ;
+    rdfs:comment ""@en ;
+    rdfs:comment ""@es .

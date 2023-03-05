@@ -8,7 +8,7 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix solid_meta_acl: <https://inrupt.com/vocab/solid_meta_acl#>
 
@@ -23,7 +23,7 @@ solid_meta_acl: a owl:Ontology;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_meta_acl" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_meta_acl#" ;
-	dcterms:license sm:MITLicense .
+	dcterms:license dalicc:MIT .
 
 
   solid_meta_acl:subjectRoot a rdf:Property ;

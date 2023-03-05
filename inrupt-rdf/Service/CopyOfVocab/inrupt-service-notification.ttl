@@ -8,20 +8,20 @@ prefix ldp:      <http://www.w3.org/ns/ldp#>
 prefix schema:   <http://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix inrupt_notification: <https://inrupt.com/vocab/service/notification#>
 
 
-inrupt_notification: a owl:Ontology, inrupt_gen:Ontology ;
+inrupt_notification: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
 	owl:versionIRI <https://inrupt.com/vocab/service/notification/0.0.1> ;
  	dcterms:title "Inrupt notification vocabulary"@en ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
 	dcterms:issued "2019/11/08"^^xsd:date ;
-	dcterms:license sm:MITLicense ;
+	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/service/notification#" .
 

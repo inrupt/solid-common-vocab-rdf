@@ -1,0 +1,41 @@
+prefix fhir: <http://hl7.org/fhir/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<http://example.com/hospital_A> a fhir:Organization ;
+  fhir:identifier [
+    fhir:system <http://example.com/hospitalid> ;
+    fhir:value "78901"
+  ] ;
+  fhir:name "Memorial Hospital"@en ;
+  fhir:type [
+    fhir:text "Hospital"
+  ] ;
+  fhir:address [
+    fhir:text "1234 Main St" ;
+    fhir:city "Anytown" ;
+    fhir:state "CA" ;
+    fhir:postalCode "12345" ;
+    fhir:country "US"
+  ] ;
+  fhir:telecom [
+    fhir:system fhir:phone ;
+    fhir:value "555-555-1234"
+  ] ;
+  fhir:contact [
+    fhir:name [
+      fhir:use fhir:official ;
+      fhir:text "John Smith"@en
+    ] ;
+    fhir:telecom [
+      fhir:system fhir:phone ;
+      fhir:value "555-555-5678"
+    ]
+  ] ;
+  fhir:endpoint [
+    fhir:status "active" ;
+    fhir:connectionType [
+      fhir:system fhir:codesystem_restful_security_service ;
+      fhir:code "smart-on-fhir"
+    ] ;
+    fhir:url "https://example.com/hospital1/smart"
+  ] .
