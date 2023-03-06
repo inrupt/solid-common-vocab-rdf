@@ -537,7 +537,7 @@ vocabList:
 
   - nameAndPrefixOverride: schema_inrupt
     inputResources:
-      - https://schema.org/version/latest/schemaorg-current-http.ttl
+      - https://schema.org/version/latest/schemaorg-current-https.ttl
     termSelectionResource: ./Extension/schema-inrupt-ext.ttl
 
   - inputResources:
