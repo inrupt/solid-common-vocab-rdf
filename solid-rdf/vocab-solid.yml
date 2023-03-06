@@ -166,7 +166,7 @@ artifactToGenerate:
   # dependencies (e.g., whether it provides SolidCommonVocab constants or just string
   # literals, or whether it depends on RDF/JS or Jena or RDF Commons, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: ""
 
@@ -208,7 +208,7 @@ artifactToGenerate:
   # contain details of the underlying RDF library dependencies (e.g.,
   # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab
 
@@ -248,7 +248,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab-rdfdatafactory
 
@@ -288,7 +288,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -rdfdatafactory
 
@@ -328,7 +328,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -stringliteral
 
@@ -366,7 +366,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: JavaScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -rdflib
 
@@ -423,9 +423,9 @@ vocabList:
   - inputResources:
       - ./CopyOfVocab/solid-service-core.ttl
 
-  - description: Web Access Control Vocabulary
+  - descriptionFallback: Web Access Control Vocabulary
     nameAndPrefixOverride: acl
-    namespaceOverride: http://www.w3.org/ns/auth/acl#
+    vocabularyIriOverride: http://www.w3.org/ns/auth/acl#
     inputResources:
        - http://www.w3.org/ns/auth/acl
 
@@ -442,7 +442,7 @@ vocabList:
   - inputResources:
       - https://www.w3.org/ns/solid/oidc
 
-  - description: Workspace Ontology
+  - descriptionFallback: Workspace Ontology
     nameAndPrefixOverride: ws
     inputResources:
        - http://www.w3.org/ns/pim/space

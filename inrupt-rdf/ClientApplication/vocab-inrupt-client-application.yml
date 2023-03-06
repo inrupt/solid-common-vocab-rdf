@@ -71,7 +71,7 @@ artifactToGenerate:
   # contain details of the underlying RDF library dependencies (e.g.,
   # whether it depends on RDF/JS or a specific implementation, etc.).
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab
 
@@ -112,7 +112,7 @@ artifactToGenerate:
 
 
   - programmingLanguage: TypeScript
-    artifactVersion: "1.0.5"
+    artifactVersion: "2.0.0"
     artifactNamePrefix: ""
     artifactNameSuffix: -solidcommonvocab-rdfdatafactory
 
