@@ -12,7 +12,7 @@ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix vann: <http://purl.org/vocab/vann/>
 prefix jsonld: <http://www.w3.org/ns/json-ld#>
-prefix schema: <http://schema.org/>
+prefix schema: <https://schema.org/>
 
 prefix sec: <https://w3id.org/security#>
 prefix vc: <https://www.w3.org/2018/credentials#>
