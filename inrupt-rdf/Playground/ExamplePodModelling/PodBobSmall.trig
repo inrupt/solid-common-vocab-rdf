@@ -32,7 +32,7 @@ prefix ws:         <http://www.w3.org/ns/pim/space#>
 prefix ldp:        <http://www.w3.org/ns/ldp#>
 prefix dbpedia:    <http://dbpedia.org/resource/>
 prefix httph:      <https://www.w3.org/2007/ont/httph#>
-prefix schema:     <http://schema.org/>
+prefix schema:     <https://schema.org/>
 prefix odrl:       <http://www.w3.org/ns/odrl/2/>
 prefix dpv:        <http://www.w3.org/ns/dpv#>
 prefix gconsent:   <https://w3id.org/GConsent#>
@@ -462,7 +462,7 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # itself! No, that can't be true - intuitively if I add a Resource, the triples go into my Pod, and
 # so DELETEing the Resource should remove the original triples from my Pod. But should it just
 # remove the Subjects (and all triples)? Yes!
-# But what if another Resource also added an overlaping Subject (reference counting that Emmet
+# But what if another Resource also added an overlapping Subject (reference counting that Emmet
 # referred to!).
 
 # Resource A - contains Subjects X, Y, and Z.

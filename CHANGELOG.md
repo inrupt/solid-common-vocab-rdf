@@ -22,6 +22,23 @@ configuration files contained in this repository.
   namespace IRI, and auto-redirects from 'http:' to 'https:').
 - Added ADMS.
 - Added SAREF to the Common RDF bundle.
+- VC Security vocab now incorporates recovery terms (although all term IRIs now
+  have 'v1' in their local name!), so removing recovery-specific vocab.
+- Updated version of 'gist'.
+- Removed 'rdfs:isDefinedBy' triples for Inrupt extensions (should never have
+  been included, as Inrupt never 'defined' those terms, we just extended them
+  by adding more metadata).
+- **BREAKING CHANGE** Moved to new Artifact Generator parameter name of
+  'namespaceIriOverride' (from 'namespaceOverride').
+- **BREAKING CHANGE** Renamed the configuration parameter of 'description' to be
+  consistent with internal Artifact Generator code that uses
+  'descriptionFallback' (which better communicates its intent as a fallback in
+  case the vocab itself does not explicitly provide its own description).
+- **BREAKING CHANGE** Changed Inrupt Artifact Generator vocab namespace IRI to
+  use a trailing slash instead of a trailing hash.
+- Moved MIT license instance to DALICC instance (much better legal foundations).
+- Added draft Solid "Data Discovery" vocab.
+- Added Inrupt vocab template (as foundation for Inrupt Best Practices).
 
 ## v1.0.3 2021-10-03
 

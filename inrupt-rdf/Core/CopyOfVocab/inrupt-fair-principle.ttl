@@ -1,0 +1,66 @@
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix sh:       <http://www.w3.org/ns/shacl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
+
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_fair: <https://w3id.org/inrupt/vocab/tool/bestPractice/fair/>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+inrupt_fair:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/fair/0.0.1> ;
+ 	dcterms:title "FAIR principles"@en ;
+	dcterms:description "The FAIR principles, as published by Scientific Data in 2016."@en ;
+	rdfs:seeAlso "https://www.go-fair.org/fair-principles/"^^xsd:anyURI ;
+	rdfs:seeAlso "https://www.go-fair.org/go-fair-initiative/"^^xsd:anyURI ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2022/12/05"^^xsd:date ;
+	dcterms:license dalicc:MIT ;
+    sh:declare inrupt_fair:_PrefixDeclaration .
+
+inrupt_fair:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "inrupt_fair" ;
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/fair/" .
+
+#
+# Terms...
+#
+inrupt_fair:Findable a rdfs:Class, skos:Concept ;
+    rdfs:isDefinedBy inrupt_fair:_Ontology ;
+    rdfs:label "Findable"@en ;
+    rdfs:comment """Make the ontology findable on the Web."""@en .
+
+inrupt_fair:_F1_globallyUniquePersistentIdentifier a owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy inrupt_fair:_Ontology ;
+    rdfs:label "Globally unique and persistent identifier"@en ;
+    rdfs:comment """F1. (meta)data are assigned a globally unique and persistent identifier."""@en ;
+    skos:broader inrupt_fair:Findable .
+
+inrupt_fair:_F2_richMetadata a owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy inrupt_fair:_Ontology ;
+    rdfs:label "Rich metadata"@en ;
+    rdfs:comment """F2. data are described with rich metadata (defined by R1 'inrupt_fair:_R1_richAttributes')."""@en ;
+    rdfs:seeAlso inrupt_fair:_R1_richAttributes ;
+    skos:broader inrupt_fair:Findable .
+
+
+
+inrupt_fair:Reusable a rdfs:Class, skos:Concept ;
+    rdfs:isDefinedBy inrupt_fair:_Ontology ;
+    rdfs:label "Reusable"@en ;
+    rdfs:comment """To be Reusable."""@en .
+
+inrupt_fair:_R1_richAttributes a owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy inrupt_fair:_Ontology ;
+    rdfs:label "Rich attributes"@en ;
+    rdfs:comment """R1. meta(data) are richly described with a plurality of accurate and relevant attributes."""@en ;
+    rdfs:seeAlso inrupt_fair:_F2_richMetadata ;
+    skos:broader inrupt_fair:Reusable .

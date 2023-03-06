@@ -4,7 +4,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix cc: <http://creativecommons.org/ns#>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann: <http://purl.org/vocab/vann/>
 prefix vcard: <http://www.w3.org/2006/vcard/ns#>
 

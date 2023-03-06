@@ -1,5 +1,7 @@
 bin/
 
+# Running the Inrupt Artifact Generator locally can result in it creating it's
+# generated artifacts in this folder by default.
 Generated/
 
 # In case publishing script is run from within this repo, we ignore the default
