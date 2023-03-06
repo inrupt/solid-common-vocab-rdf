@@ -1,12 +1,12 @@
 name: 'Generator version retrieval'
-descriptionFallback: 'Retrieves the generator version from a YAML file.'
+description: 'Retrieves the generator version from a YAML file.'
 inputs:
   vocab-config-path:
-    descriptionFallback: 'The path to the YAML config'
+    description: 'The path to the YAML config'
     required: true
 outputs:
   vocab-generator-version:
-    descriptionFallback: 'The required version'
+    description: 'The required version'
 runs:
   using: 'node16'
   main: 'index.js'

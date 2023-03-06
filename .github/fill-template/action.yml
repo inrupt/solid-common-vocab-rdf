@@ -1,11 +1,11 @@
 name: 'Handlebars template filler'
-descriptionFallback: 'Fills a Handlebars template based on environment variables'
+description: 'Fills a Handlebars template based on environment variables'
 inputs:
   template-path:
-    descriptionFallback: 'Path to the Handlebars template file'
+    description: 'Path to the Handlebars template file'
     required: true
   output-path:
-    descriptionFallback: 'Path to the generated file'
+    description: 'Path to the generated file'
     required: true
 runs:
   using: 'node16'
