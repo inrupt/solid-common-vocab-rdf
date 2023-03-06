@@ -537,7 +537,7 @@ vocabList:
 
   - nameAndPrefixOverride: schema_inrupt
     inputResources:
-      - https://schema.org/version/latest/schemaorg-current-http.ttl
+      - https://schema.org/version/latest/schemaorg-current-https.ttl
     termSelectionResource: ./Extension/schema-inrupt-ext.ttl
 
   - inputResources:
@@ -795,8 +795,25 @@ vocabList:
     # In Oct-2022 it was noticed that this vocab seemed to change its
     # namespace to a trailing slash, so removing this override now.
 #    namespaceIriOverride: https://w3id.org/security#
+    #  As of March 2023, this vocab seems to have new bugs, with term IRIs
+    # missing slashes due to the vocabulary IRI itself lacking a trailing
+    # slash (or hash).
+    #
     # This vocab is defining terms from multiple namespaces (which is bad
     # form!), so ignore others.
+    ignoreNonVocabTerms: true
+    inputResources:
+      - https://w3id.org/security/
+
+  - descriptionFallback: Security vocabulary recovery terms
+    nameAndPrefixOverride: sec_recovery
+    # In mid-2021, new terms were added, but in the namespace
+    # 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#'.
+    # So here we process the Security vocab but only for terms from that
+    # namespace.
+    vocabularyIriOverride: https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#
+    # This vocab is also defined terms in multiple namespaces (which is also
+    # bad form!), so ignore others.
     ignoreNonVocabTerms: true
     inputResources:
       - https://w3id.org/security/

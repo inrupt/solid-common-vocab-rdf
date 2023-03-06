@@ -14,37 +14,6 @@ prefix dalicc: <http://dalicc.net/licenselibrary/>
 #
 prefix schema: <https://schema.org/>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
-prefix schema_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
-
-#
-# Extensions deliberately add to (i.e., extend) existing terms in existing
-# vocabularies, specifically to add extra features, such as multilingual
-# values for labels and comments.
-#
-# So we very deliberately re-use the underlying vocab's namespace, but use our
-# own prefix to try and differentiate.
-#
-schema_inrupt_ext: a inrupt_gen:OntologyExtension ;
-    owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/extension/schema/0.0.1> ;
-    dcterms:creator <https://inrupt.com/profile/card/#us> ;
-    dcterms:issued "2019/06/18"^^xsd:date ;
-    dcterms:title "Inrupt extension adding multilingual meta-data for Schema.org terms" ;
-    dcterms:description """Inrupt extension to Schema.org terms providing
- multilingual alternative names (i.e., labels) and translations for comments
- (e.g., for use directly as labels or tool-tips in user interfaces or error
- messages). This extension very deliberately cherry-picks the individual terms
- from Schema.org that Inrupt currently deem generally useful for Solid and Solid
- applications (meaning we can provide a much cleaner, less noisy and smaller
- bundle size when generating programming language artifacts that provide
- convenient constants for just these selected terms, rather than including the
- over 2,500 terms currently defined in Schema.org).""" ;
-    vann:preferredNamespacePrefix "schema_inrupt_ext" ;
-    vann:preferredNamespaceUri "https://schema.org/" ;
-    dcterms:license dalicc:MIT .
-
-
 #
 # We need this term internally when generating source-code artifacts from vocabularies.
 #
@@ -636,7 +605,7 @@ schema:dateModified
 # Template for pulling in new terms!
 #
 #schema:
-##    schema:alternateName ""@en ;
+#    schema:alternateName ""@en ;
 #    schema:alternateName ""@fr ;
 #    schema:alternateName ""@de ;
 #    schema:alternateName ""@es ;

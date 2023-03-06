@@ -408,48 +408,48 @@ artifactToGenerate:
             fileName: rollup.config.js
 
 vocabList:
-#  - inputResources:
-#      - ./CopyOfVocab/solid-meta-server-creational.ttl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-meta-server-runtime.ttl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-meta-client.ttl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-meta-acl.ttl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-service-core.ttl
-#
-#  - descriptionFallback: Web Access Control Vocabulary
-#    nameAndPrefixOverride: acl
-#    namespaceIriOverride: http://www.w3.org/ns/auth/acl#
-#    inputResources:
-#       - http://www.w3.org/ns/auth/acl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-acp.ttl
-#
-#  - nameAndPrefixOverride: solid
-#    # Note: Although we use the HTTPS form of this namespace, the BASE namespace
-#    # of the vocabulary itself uses HTTP!
-#    inputResources:
-#       - https://www.w3.org/ns/solid/terms
-#       - ./Extension/solid-inrupt-ext.ttl
-#
-#  - inputResources:
-#      - https://www.w3.org/ns/solid/oidc
-#
-#  - descriptionFallback: Workspace Ontology
-#    nameAndPrefixOverride: ws
-#    inputResources:
-#       - http://www.w3.org/ns/pim/space
-#       - ./Extension/workspace-inrupt-ext.ttl
-#
-#  - inputResources:
-#      - ./CopyOfVocab/solid-service-description.ttl
-#
+  - inputResources:
+      - ./CopyOfVocab/solid-meta-server-creational.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-meta-server-runtime.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-meta-client.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-meta-acl.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-service-core.ttl
+
+  - descriptionFallback: Web Access Control Vocabulary
+    nameAndPrefixOverride: acl
+    vocabularyIriOverride: http://www.w3.org/ns/auth/acl#
+    inputResources:
+       - http://www.w3.org/ns/auth/acl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-acp.ttl
+
+  - nameAndPrefixOverride: solid
+    # Note: Although we use the HTTPS form of this namespace, the BASE namespace
+    # of the vocabulary itself uses HTTP!
+    inputResources:
+       - https://www.w3.org/ns/solid/terms
+       - ./Extension/solid-inrupt-ext.ttl
+
+  - inputResources:
+      - https://www.w3.org/ns/solid/oidc
+
+  - descriptionFallback: Workspace Ontology
+    nameAndPrefixOverride: ws
+    inputResources:
+       - http://www.w3.org/ns/pim/space
+       - ./Extension/workspace-inrupt-ext.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/solid-service-description.ttl
+      
   - inputResources:
       - ./CopyOfVocab/solid-data-discovery.ttl

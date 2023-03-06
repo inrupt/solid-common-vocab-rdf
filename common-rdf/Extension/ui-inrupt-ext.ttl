@@ -11,32 +11,6 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix ui: <http://www.w3.org/ns/ui#>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
-prefix ui_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/ui#>
-
-#
-# Extensions deliberately add to (i.e., extend) existing terms in existing
-# vocabularies, specifically to add extra features, such as multilingual
-# values for labels and comments.
-#
-# So we very deliberately re-use the underlying vocab's namespace, but use our
-# own prefix to try and differentiate.
-#
-ui_inrupt_ext: a inrupt_gen:OntologyExtension ;
-    owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/extension/ui/0.0.1> ;
-    dcterms:creator <https://inrupt.com/profile/card/#us> ;
-    dcterms:issued "2020/04/26"^^xsd:date ;
-    dcterms:title "Inrupt extension for UI terms" ;
-    dcterms:description "Extension to UI terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)" ;
-    dcterms:license dalicc:MIT ;
-
-    # Note: We deliberately use the underlying namespace here, as we are adding
-    # missing terms to that underlying vocabulary.
-    vann:preferredNamespacePrefix "ui_inrupt_ext" ;
-    vann:preferredNamespaceUri "http://www.w3.org/ns/ui#" .
-
-
 #
 # Terms that seem to be missing from the original UI vocabulary.
 #

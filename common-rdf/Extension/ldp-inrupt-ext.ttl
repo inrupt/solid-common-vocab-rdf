@@ -5,30 +5,6 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix vann:     <http://purl.org/vocab/vann/>
-prefix dalicc:   <http://dalicc.net/licenselibrary/>
-
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
-prefix ldp_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/schema#>
-
-#
-# Extensions deliberately add to (i.e., extend) existing terms in existing
-# vocabularies, specifically to add extra features, such as multilingual
-# values for labels and comments.
-#
-# So we very deliberately re-use the underlying vocab's namespace, but use our
-# own prefix to try and differentiate.
-#
-ldp_inrupt_ext: a inrupt_gen:OntologyExtension ;
-    owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/extension/ldp/0.0.1> ;
-    dcterms:creator <https://inrupt.com/profile/card/#us> ;
-    dcterms:issued "2020/07/16"^^xsd:date ;
-    dcterms:title "Inrupt extension adding multilingual meta-data for LDP terms"@en ;
-    dcterms:description "Extension to LDP terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)"@en ;
-    vann:preferredNamespacePrefix "ldp_inrupt_ext" ;
-    vann:preferredNamespaceUri "http://www.w3.org/ns/ldp#" ;
-    dcterms:license dalicc:MIT .
 
 
 ldp:BasicContainer

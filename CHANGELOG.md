@@ -21,6 +21,8 @@ configuration files contained in this repository.
 - Updated HTTPH to use 'https:' scheme (needed 'cos it states a relative 
   namespace IRI, and auto-redirects from 'http:' to 'https:').
 - Added ADMS.
+- Updated Artifact Generator version, and made associated breaking updates (so
+  generated artifact versions bumped too (which should have been on release!)).
 - Added SAREF to the Common RDF bundle.
 - VC Security vocab now incorporates recovery terms (although all term IRIs now
   have 'v1' in their local name!), so removing recovery-specific vocab.
