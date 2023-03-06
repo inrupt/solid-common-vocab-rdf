@@ -877,6 +877,10 @@ vocabList:
       - http://www.w3.org/ns/ssn/
     ignoreNonVocabTerms: true
 
+  - inputResources:
+      - https://saref.etsi.org/core/
+    ignoreNonVocabTerms: true
+
   - descriptionFallback: Creative Commons (licensing vocabulary)
     inputResources:
       - http://creativecommons.org/ns#
