@@ -16,7 +16,7 @@ prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix void: <http://rdfs.org/ns/void#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-<http://vocab.deri.ie/void> a owl:Ontology, adms:SemanticAsset;
+<http://vocab.deri.ie/void> a owl:Ontology , adms:SemanticAsset;
     owl:versionInfo "1.0.0" ;
     owl:versionIRI <http://rdfs.org/ns/void/1.0.0> ;
     dcterms:title "Vocabulary of Interlinked Datasets (VoID)";

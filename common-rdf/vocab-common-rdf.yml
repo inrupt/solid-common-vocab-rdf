@@ -535,8 +535,7 @@ vocabList:
 #    inputResources:
 #      - https://schema.org/version/latest/schema.ttl
 
-  - descriptionFallback: Inrupt-determined cherry-picked Schema.org terms (that include label and comment translations)
-    nameAndPrefixOverride: schema_inrupt
+  - nameAndPrefixOverride: schema_inrupt
     inputResources:
       - https://schema.org/version/latest/schemaorg-current-http.ttl
     termSelectionResource: ./Extension/schema-inrupt-ext.ttl
@@ -545,18 +544,15 @@ vocabList:
       - http://www.w3.org/2006/vcard/ns#
     nameAndPrefixOverride: vcard
 
-  - descriptionFallback: vCard with selective terms having translations - for describing People and Organizations
-    nameAndPrefixOverride: vcard_inrupt
+  - nameAndPrefixOverride: vcard_inrupt
     inputResources:
       - http://www.w3.org/2006/vcard/ns#
     termSelectionResource: ./Extension/vcard-inrupt-ext.ttl
 
-  - nameAndPrefixOverride: rdf
-    inputResources:
+  - inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-  - descriptionFallback: RDF (Resource Description Framework) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: rdf_inrupt
+  - nameAndPrefixOverride: rdf_inrupt
     inputResources:
       - http://www.w3.org/1999/02/22-rdf-syntax-ns#
     termSelectionResource: ./Extension/rdf-inrupt-ext.ttl
@@ -564,31 +560,27 @@ vocabList:
   - inputResources:
       - http://www.w3.org/2000/01/rdf-schema#
 
-  - descriptionFallback: XSD (XML Schema Definition) - provides datatypes for string, integer, float, date, etc.
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-xml-schema.ttl
 
-  - descriptionFallback: OWL (Web Ontology Language) - a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things
-    inputResources:
+  - inputResources:
       - http://www.w3.org/2002/07/owl#
 
-  - descriptionFallback: LDP (Linked Data Platform) - defines a set of rules for HTTP operations on web resources, some based on RDF, to provide an architecture for read-write Linked Data on the web
-    inputResources:
+  - inputResources:
       - https://www.w3.org/ns/ldp#
 
-  - descriptionFallback: Inrupt LDP (Linked Data Platform) - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: ldp_inrupt
+  - nameAndPrefixOverride: ldp_inrupt
     inputResources:
       - https://www.w3.org/ns/ldp#
       - ./Extension/ldp-inrupt-ext.ttl
 
-  - descriptionFallback: HTTP Ontology - terms from the HTTP protocol
-    nameAndPrefixOverride: http
+  - nameAndPrefixOverride: http
     inputResources:
       - http://www.w3.org/2011/http#
 
   - descriptionFallback: HTTPH Ontology - for describing the common HTTP headers. Namespace document is extremely sparse (as of Aug 2019), so extended
     nameAndPrefixOverride: httph_inrupt
+    namespaceIriOverride: https://www.w3.org/2007/ont/httph#
     inputResources:
       # This vocab never provided an explicit vocab IRI (i.e., it defines it
       # as a relative IRI using `<> a owl:Ontology`), which was a bad idea, as
@@ -600,13 +592,11 @@ vocabList:
       - https://www.w3.org/2007/ont/httph#
       - ./Extension/http-header-inrupt-ext.ttl
 
-  - descriptionFallback: OLO (Ordered List Ontology) - for describing ordered lists
-    nameAndPrefixOverride: olo
+  - nameAndPrefixOverride: olo
     inputResources:
       - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
 
-  - descriptionFallback: Simple Knowledge Organisation System (SKOS)
-    nameAndPrefixOverride: skos
+  - nameAndPrefixOverride: skos
     inputResources:
 #      - ./CopyOfVocab/inrupt-skos.ttl
       # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
@@ -640,8 +630,7 @@ vocabList:
     inputResources:
       - http://www.w3.org/ns/ui#
 
-  - descriptionFallback: UI Ontology - with extensions (e.g., translations of labels or comments, etc.) from Inrupt
-    nameAndPrefixOverride: ui_inrupt
+  - nameAndPrefixOverride: ui_inrupt
     inputResources:
       - http://www.w3.org/ns/ui#
       - ./Extension/ui-inrupt-ext.ttl
@@ -649,10 +638,11 @@ vocabList:
   - inputResources:
       - https://www.w3.org/archive/purl.org/vocab/vann/
 
-  - descriptionFallback: Dublin Core Terms - for describing resources
-    nameAndPrefixOverride: dcterms
+  - nameAndPrefixOverride: dcterms
     inputResources:
-      - http://dublincore.org/2012/06/14/dcterms.ttl
+      - http://purl.org/dc/terms/
+      # Alternative URL for this vocab...
+#      - http://dublincore.org/2012/06/14/dcterms.ttl
 
   #
   # Activity Streams 2.0 seems a little bit strange - i.e., it's namespace IRI
@@ -660,8 +650,7 @@ vocabList:
   # can find!) of its terms refers to those terms using the 'http:' scheme
   # instead of the official 'https:' scheme (so we need to override that).
   #
-  - descriptionFallback: Activity Streams 2.0 - for representing potential and completed activities
-    nameAndPrefixOverride: as
+  - nameAndPrefixOverride: as
     inputResources:
       # For Activity Streams 2.0, dereferencing the namespace IRI
       # (https://www.w3.org/ns/activitystreams#) does not return definitions in
@@ -688,29 +677,34 @@ vocabList:
 #       - https://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog/rlog.owl
       - CopyOfVocab/inrupt-rlog.ttl
 
-  - descriptionFallback: Friend of a friend, v0.99
-    nameAndPrefixOverride: foaf
+  - nameAndPrefixOverride: foaf
     inputResources:
       # In Oct 2021, the FOAF namespace URI was consistently timing out,
       # so we needed to pull from a local copy. But then (in early Nov 2021)
-      # it came back online. So leaving this reference here in case it
-      # re-occurs...
+      # it came back online.
+      # It went offline again in mid-2022, before coming back again, and then
+      # disappearing yet agan (in early 2023).
+      # - http://xmlns.com/foaf/0.1/
+      #
+      # Using this local reference until availability issues seem to be
+      # resolved properly...
      - ./CopyOfVocab/inrupt-foaf.ttl
-#      - http://xmlns.com/foaf/0.1/
 
-  - descriptionFallback: Shape Expressions (ShEx) - for validating RDF
-    nameAndPrefixOverride: shex
+  - nameAndPrefixOverride: sh
+    inputResources:
+      - http://www.w3.org/ns/shacl#
+
+  - nameAndPrefixOverride: shex
     inputResources:
       - https://www.w3.org/ns/shex#
 
   - descriptionFallback: Web Access Control Vocabulary
     nameAndPrefixOverride: acl
-    vocabularyIriOverride: http://www.w3.org/ns/auth/acl#
+    namespaceIriOverride: http://www.w3.org/ns/auth/acl#
     inputResources:
       - http://www.w3.org/ns/auth/acl
 
-  - descriptionFallback: POSIX Vocabulary
-    inputResources:
+  - inputResources:
       - CopyOfVocab/inrupt-posix.ttl
 
   - descriptionFallback: iCal - a vocabulary for description of events and calendars
@@ -718,17 +712,22 @@ vocabList:
     inputResources:
       - https://www.w3.org/2002/12/cal/ical
 
-  - descriptionFallback: W3C Provenance Ontology (just the main prov-o terms)
-    nameAndPrefixOverride: prov_o
+  - nameAndPrefixOverride: prov_o
     inputResources:
       - http://www.w3.org/ns/prov-o#
-    # The PROV-O ontology is really a collection of ontologies (such as
+    # The PROV ontology is really a collection of ontologies (such as
     # http://www.w3.org/ns/prov-dictionary#, http://www.w3.org/ns/prov-links#,
     # http://www.w3.org/ns/prov-o-inverses#, etc.), but all their terms are
     # under the one namespace, which we provide here (otherwise the generator
     # will think there's a mismatch between the vocab URL and the namespace of
     # the terms the vocab contains).
-    vocabularyIriOverride: http://www.w3.org/ns/prov#
+    #  Even when pulling in just the PROV-O vocab, even it still defines two
+    # 'a owl:ontology' instances, and the one we want (i.e., this override
+    # one) doesn't provide a description, so we need to provide one above too.
+    vocabularyIriOverride: http://www.w3.org/ns/prov-o#
+    # All the terms in all the PROV vocabularies are defined within the same
+    # namespace, which we need to stipulate explicitly here.
+    namespaceIriOverride: http://www.w3.org/ns/prov#
 
   - descriptionFallback: W3C Content Negotiation by Profile
     nameAndPrefixOverride: altr
@@ -739,7 +738,7 @@ vocabList:
     inputResources:
       - https://w3c.github.io/dx-connegp/connegp/altr.ttl
     # Namespace IRI is missing trailing '#' - so provide it:
-    vocabularyIriOverride: http://www.w3.org/ns/dx/connegp/altp#
+    namespaceIriOverride: http://www.w3.org/ns/dx/connegp/altp#
     # This vocab defines terms that are not actually defined in the vocabulary
     # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
     # Core terms, to provide extra contextual information for the vocabulary
@@ -769,17 +768,15 @@ vocabList:
     inputResources:
       - https://www.w3.org/ns/sparql-service-description#
 
-  - descriptionFallback: The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets.
-    inputResources:
+  - inputResources:
       - ./CopyOfVocab/inrupt-void.ttl
 
-  - descriptionFallback: The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model.
-    nameAndPrefixOverride: odrl
-    # This vocab is interesting, in that it defines a lot of SKOS:Collection
-    # terms in the namespace 'http://www.w3.org/ns/odrl/2/#' (note the
-    # trailing slash). So without this namespace override our heuristics pick
-    # up that value as the namespace to use (which then appears empty, 'cos
-    # that namespace doesn't define any RDFS:Class or RDF:Property terms, only
+  - nameAndPrefixOverride: odrl
+    # This vocab is interesting in that it defines a lot of SKOS:Collection
+    # terms in the namespace 'http://www.w3.org/ns/odrl/2/#' (note the trailing
+    # slash). So without this namespace override our heuristics pick up that
+    # value as the namespace to use (which then appears empty, 'cos that
+    # namespace doesn't define any RDFS:Class or RDF:Property terms, only
     # SKOS:Collection terms).
     namespaceIriOverride: http://www.w3.org/ns/odrl/2/
     inputResources:
@@ -819,7 +816,24 @@ vocabList:
     # bad form!), so ignore others.
     ignoreNonVocabTerms: true
     inputResources:
-      - https://w3id.org/security#
+      - https://w3id.org/security/
+
+# In Oct-2022 it was noticed that all these vocab terms seemed to have been
+# moved into the W3C Security vocabulary (probably as a cleanup operation).
+# So this separate processing step isn't needed anymore.
+#
+#  - descriptionFallback: Security vocabulary recovery terms
+#    nameAndPrefixOverride: sec_recovery
+#    # In mid-2021, new terms were added, but in the namespace
+#    # 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#'.
+#    # So here we process the Security vocab but only for terms from that
+#    # namespace.
+#    namespaceIriOverride: https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#
+#    # This vocab is defining terms from multiple namespaces (which is bad
+#    # form!), so ignore others.
+#    ignoreNonVocabTerms: true
+#    inputResources:
+#      - https://w3id.org/security#
 
 
   - inputResources:
@@ -878,6 +892,10 @@ vocabList:
 
   - inputResources:
       - http://www.w3.org/ns/ssn/
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://saref.etsi.org/core/
     ignoreNonVocabTerms: true
 
   - descriptionFallback: Creative Commons (licensing vocabulary)

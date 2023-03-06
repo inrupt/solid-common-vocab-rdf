@@ -7,14 +7,14 @@ prefix dcterms: <http://purl.org/dc/terms/>
 prefix cc:      <http://creativecommons.org/ns#>
 prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#>
 
-prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix inrupt_glossary_release: <https://inrupt.com/inrupt/vocab/glossary/release#>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
 # suggested prefix, its license, etc.
 #
-inrupt_glossary_release: a owl:Ontology, inrupt_gen:Ontology  ;
+inrupt_glossary_release: a owl:Ontology , inrupt_gen:Ontology  ;
      owl:versionInfo "0.0.1" ;
      owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/release/0.0.1> ;
      dcterms:title "Inrupt release glossary vocabulary" ;

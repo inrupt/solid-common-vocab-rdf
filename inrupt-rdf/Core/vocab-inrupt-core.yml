@@ -370,3 +370,9 @@ vocabList:
 
   - inputResources:
       - ./CopyOfVocab/inrupt-metric.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/inrupt-best-practice-core.ttl
+
+  - inputResources:
+      - ./CopyOfVocab/inrupt-best-practice-vocab.ttl

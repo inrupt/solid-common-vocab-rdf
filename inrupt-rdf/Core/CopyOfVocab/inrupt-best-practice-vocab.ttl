@@ -1,0 +1,89 @@
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix sh:       <http://www.w3.org/ns/shacl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
+prefix gist:     <https://ontologies.semanticarts.com/gist/>
+
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_bp_core: <https://w3id.org/inrupt/vocab/tool/bestPractice/core/>
+prefix inrupt_bp_vocab: <https://w3id.org/inrupt/vocab/tool/bestPractice/vocab/>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+inrupt_bp_vocab:vocabulary a owl:Ontology , inrupt_gen:Ontology ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/vocab/0.0.1> ;
+ 	dcterms:title "Inrupt Best Practices for vocabularies"@en ;
+	dcterms:description "The Inrupt Best Practices for vocabularies. Defines and describes the individual Best Practices that Inrupt considers helpful to follow when creating vocabularies."@en ;
+	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:issued "2022/12/02"^^xsd:date ;
+	dcterms:license dalicc:MIT ;
+    sh:declare inrupt_bp_vocab:_PrefixDeclaration .
+
+inrupt_bp_vocab:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "inrupt_bp_vocab" ;
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/vocab/" .
+
+#
+# Categories of Best Practices...
+#
+inrupt_bp_vocab:_CategoryNamespace a owl:NamedIndividual, gist:Category ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    rdfs:label "Category of namespace"@en ;
+    rdfs:comment """The category of namespace Best Practices."""@en .
+
+inrupt_bp_vocab:_CategoryVocabMetadata a owl:NamedIndividual, gist:Category ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    rdfs:label "Category of vocabulary metadata"@en ;
+    rdfs:comment """The category of vocabulary metadata Best Practices."""@en .
+
+inrupt_bp_vocab:_CategoryVocabTermMetadata a owl:NamedIndividual, gist:Category ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    rdfs:label "Category of vocabulary term metadata"@en ;
+    rdfs:comment """The category of vocabulary term metadata Best Practices."""@en .
+
+#
+# Best Practice instances and details...
+#
+inrupt_bp_vocab:namespace_oneIriProvidedExplicitly a inrupt_bp_core:BestPractice, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace IRI provided explicitly"@en ;
+    skos:definition """A single vocabulary namespace IRI [{{0}}] was provided explicitly."""@en .
+
+inrupt_bp_vocab:namespace_oneIriProvidedExplicitly_viaShacl a inrupt_bp_core:Detail, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace IRI provided explicitly via a SHACL:declare triple (and then a SHACL:namespace triple)."@en ;
+    skos:definition """A single vocabulary namespace IRI [{{0}}] was provided explicitly via a SHACL:declare triple (and then a SHACL:namespace triple)."""@en .
+
+inrupt_bp_vocab:namespace_oneIriProvidedExplicitly_viaVann a inrupt_bp_core:Detail, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace IRI provided explicitly via a VANN:preferredNamespaceUri triple"@en ;
+    skos:definition """A single vocabulary namespace IRI [{{0}}] was provided explicitly via a VANN:preferredNamespaceUri triple."""@en .
+
+
+inrupt_bp_vocab:namespace_onePrefixProvidedExplicitly a inrupt_bp_core:BestPractice, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace Prefix provided explicitly"@en ;
+    skos:definition """A single vocabulary namespace prefix [{{0}}] was provided explicitly."""@en .
+
+inrupt_bp_vocab:namespace_onePrefixProvidedExplicitly_viaShacl a inrupt_bp_core:Detail, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace prefix provided explicitly via a SHACL:declare triple (and then a SHACL:prefix triple)."@en ;
+    skos:definition """A single vocabulary namespace prefix [{{0}}] was provided explicitly via a SHACL:declare triple (and then a SHACL:prefix triple)."""@en .
+
+inrupt_bp_vocab:namespace_onePrefixProvidedExplicitly_viaVann a inrupt_bp_core:Detail, rdfs:Literal ;
+    rdfs:isDefinedBy inrupt_bp_vocab:_Ontology ;
+    gist:isCategorizedBy inrupt_bp_vocab:_CategoryNamespace ;
+    rdfs:label "Namespace prefix provided explicitly via a VANN:preferredNamespaceUri triple"@en ;
+    skos:definition """A single vocabulary namespace prefix [{{0}}] was provided explicitly via a VANN:preferredNamespaceUri triple."""@en .

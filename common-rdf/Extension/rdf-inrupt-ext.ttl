@@ -5,9 +5,9 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 rdf:type
     rdfs:label 'Tipo'@es .

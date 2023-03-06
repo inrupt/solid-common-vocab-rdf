@@ -5,23 +5,24 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix ws:       <http://www.w3.org/ns/pim/space#>
 
 #
-# Extensions deliberately add (i.e., extend) existing terms in existing
+# Extensions deliberately add to (i.e., extend) existing terms in existing
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
 # So we very deliberately re-use the underlying vocab's namespace, but use our
 # own prefix to try and differentiate. 
 #
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix ws_solid_ext: <https://inrupt.com/vocab/extension/ws#>
 
-ws_solid_ext: a owl:Ontology;
+ws_solid_ext: a inrupt_gen:OntologyExtension ;
     owl:versionInfo "0.0.1" ;
     owl:versionIRI <http://www.w3.org/ns/pim/space/0.0.1> ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
@@ -30,7 +31,7 @@ ws_solid_ext: a owl:Ontology;
     dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;
     vann:preferredNamespacePrefix "ws_solid_ext" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/pim/space#" ;
-    dcterms:license sm:MITLicense .
+    dcterms:license dalicc:MIT .
 
 
 ws:ConfigurationFile a rdfs:Class ;

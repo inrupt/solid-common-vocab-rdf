@@ -1,0 +1,545 @@
+#
+# This file contains a simple list of vocabularies that we bundle together to
+# form the collective set of what we consider 'Common' RDF vocabularies.
+#
+# These are the vocabs that we feel will be the most commonly used across
+# general RDF development efforts, and so we list them here to allow our
+# artifact generators to create programming-language-specific bundles
+# providing convenient constants representing the terms from these
+# vocabularies.
+#
+# For example, for Java developers we can generate a single JAR, or for
+# JavaScript we can generate a single npm module, that developers can depend
+# on directly and easily get immediate access to source-code constants for all
+# the terms in all of these vocabularies.
+#
+# Local vocabularies can be provided relative to the location of this resource
+# list file.
+#
+
+artifactName: vocab-common-rdf
+artifactGeneratorVersion: 2.0.0
+
+versioning:
+  type: git
+  url: https://github.com/inrupt/solid-common-vocab-rdf.git
+  versioningTemplates:
+    - templateInternal: ".gitignore.hbs"
+      fileName: ".gitignore"
+
+license:
+  path: "../LICENSE"
+  fileName: "LICENSE"
+  header: "../LICENSE_HEADER.js"
+  name: "MIT"
+
+artifactToGenerate:
+  - programmingLanguage: Java
+    artifactVersion: 0.8.2-SNAPSHOT
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab-rdf4j
+
+    artifactDirectoryName: Java-SolidCommonVocab-RDF4J
+    sourceFileExtension: java
+    javaPackageName: com.inrupt.vocab.common.rdf.rdf4j
+
+    solidCommonVocabVersion: 0.0.3
+    rdf4jVersion: 3.4.2
+    templateInternal: solidCommonVocabDependent/java/rdf4j/vocab.hbs
+
+    # Currently we're just adding terms as they occur in vocabs, and not all possible keywords.
+    languageKeywordsToUnderscore:
+      - class     # Defined in VCard.
+    packaging:
+      - packagingTool: maven
+        groupId: com.inrupt
+        publish:
+          - key: "mavenLocal"
+            command: "mvn --version && mvn install"
+          - key: "mavenRemote"
+            command: "mvn deploy"
+          - key: "cloudsmith"
+            command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
+            fileName: pom.xml
+        repository:
+          - type: repository
+            id: cloudsmith-staging
+            url: https://maven.cloudsmith.io/inrupt/sdk-staging/
+          - type: snapshotRepository
+            id: cloudsmith-development
+            url: https://maven.cloudsmith.io/inrupt/sdk-development/
+
+
+  # This is the configuration of the DEFAULT SolidCommonVocab TypeScript
+  # artifact - i.e., where the name of the generated npm module does not
+  # contain details of the underlying RDF library dependencies (e.g.,
+  # whether it depends on RDF/JS or a specific implementation, etc.).
+  - programmingLanguage: TypeScript
+    artifactVersion: "1.0.5"
+    artifactNamePrefix: ""
+    artifactNameSuffix: -solidcommonvocab
+
+    artifactDirectoryName: TypeScript-SolidCommonVocab
+    sourceFileExtension: ts
+
+    solidCommonVocabVersion: "^1.0.0"
+    rdfjsTypesVersion: "^1.0.1"
+    rdfjsImplVersion: "^1.1.0"
+    templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
+
+    packaging:
+      - packagingTool: npm
+        npmModuleScope: "@inrupt/"
+        bundleName: "VocabCommon"
+
+        typescriptVersion: "^4.1.3"
+        rollupVersion: "^2.36.1"
+        rollupTypescriptPluginVersion: "^0.29.0"
+        rollupCommonjsPluginVersion: "^17.0.0"
+        rollupNodeResolveVersion: "^11.0.1"
+
+        publish:
+          - key: "npmLocal"
+            command: "npm unpublish --force --registry http://localhost:4873/ && npm install --registry http://localhost:4873/ && npm run build && npm publish --registry http://localhost:4873/"
+          # The following command should only run in CI.
+          - key: "npmPublic"
+            command: "npm install --registry https://registry.npmjs.org/ && npm run build && npm publish --registry https://registry.npmjs.org/ --access public"
+        packagingTemplates:
+          - templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/package.hbs
+            fileName: package.json
+          - templateInternal: generic/typescript/index.hbs
+            fileName: index.ts
+          - templateInternal: generic/typescript/tsconfig.hbs
+            fileName: tsconfig.json
+          - templateInternal: generic/typescript/rollup.config.hbs
+            fileName: rollup.config.js
+
+vocabList:
+  #
+  # Note: These are not 'common' vocabs per se, but provided here merely as
+  # informational for anyone who may be interested in Resumes (CVs), and as
+  # an example of vocabs that require an override to the Content-Type response
+  # header (since the server serving these vocabs returns 'text/plain' when
+  # the content is actually RDF/XML).
+  #
+  - descriptionFallback: Resume (CV) vocab
+    nameAndPrefixOverride: cv
+    inputResources:
+      - http://rdfs.org/resume-rdf/cv.rdfs#
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+  - descriptionFallback: Resume (CV) base vocab
+    nameAndPrefixOverride: cv_base
+    inputResources:
+      - http://rdfs.org/resume-rdf/base.rdfs#
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+
+  # Note: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
+  # (used in our Java artifact generator) will not follow the 301 redirect from
+  # 'http://', and so our RDF4J model will be empty and therefore so will our
+  # generated source.
+  #
+  # Note: With over 2,500 terms, Schema.org as a whole is very big, and the
+  # generated code can amount to over 700Kb. So instead we recommend using an
+  # extension vocabulary that selectively includes relevant terms (see below).
+#  - descriptionFallback: Schema.org (the full vocabulary)
+#    inputResources:
+#      - https://schema.org/version/latest/schema.ttl
+
+  - inputResources:
+      - http://www.w3.org/2006/vcard/ns#
+    nameAndPrefixOverride: vcard
+
+  - nameAndPrefixOverride: rdf
+    inputResources:
+      - http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+  - inputResources:
+      - http://www.w3.org/2000/01/rdf-schema#
+
+  - descriptionFallback: XSD (XML Schema Definition) - provides datatypes for string, integer, float, date, etc.
+    inputResources:
+      - ./CopyOfVocab/inrupt-xml-schema.ttl
+
+  - descriptionFallback: OWL (Web Ontology Language) - a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things
+    inputResources:
+      - http://www.w3.org/2002/07/owl#
+
+  - descriptionFallback: LDP (Linked Data Platform) - defines a set of rules for HTTP operations on web resources, some based on RDF, to provide an architecture for read-write Linked Data on the web
+    inputResources:
+      - https://www.w3.org/ns/ldp#
+
+  - descriptionFallback: HTTP Ontology - terms from the HTTP protocol
+    nameAndPrefixOverride: http
+    inputResources:
+      - http://www.w3.org/2011/http#
+
+  - descriptionFallback: OLO (Ordered List Ontology) - for describing ordered lists
+    nameAndPrefixOverride: olo
+    inputResources:
+      - http://svn.code.sf.net/p/smiy/code/orderedlistonto/trunk/rdf/orderedlistontology.n3
+
+  - descriptionFallback: Simple Knowledge Organisation System (SKOS)
+    nameAndPrefixOverride: skos
+    inputResources:
+#      - ./CopyOfVocab/inrupt-skos.ttl
+      # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
+      - http://www.w3.org/2004/02/skos/core#
+
+  - descriptionFallback: Simple Knowledge Organisation System (SKOS) eXtension for Labels
+    nameAndPrefixOverride: skosxl
+    inputResources:
+      # REMOVED TEMPORARILY DUE TO REPEATED "socket hang up" ERRORS RETRIEVING DURING CI...
+#      - ./CopyOfVocab/inrupt-skos-xl.ttl
+      - http://www.w3.org/2008/05/skos-xl#
+    # Unfortunately, the SKOS-XL vocab doesn't support content negotiation
+    # properly at all. It basically ignores all content types and just returns
+    # RDF/XML *unless* the content-type contains 'text/html' (regardless of
+    # any 'q' values provided at all), in which case it returns HTML
+    # containing two RDFa triples. So unfortunately we need to work around
+    # this exception, and make sure we don't request 'text/html' at all for
+    # just this vocab (and since it only returns RDF/XML otherwise, we might
+    # as well explicitly ask for that).
+    vocabAcceptHeaderOverride: application/rdf+xml
+
+  #
+  # Tim Berners-Lee's UI vocabulary.
+  #
+  # Note: Resolving the actual namespace for this vocabulary returns N3 by
+  # default. If you'd like to see the Turtle serialization of this vocabulary,
+  # use this URL: https://www.w3.org/ns/ui.ttl
+  #
+  - descriptionFallback: UI Ontology
+    nameAndPrefixOverride: ui
+    inputResources:
+      - http://www.w3.org/ns/ui#
+
+  - inputResources:
+      - https://www.w3.org/archive/purl.org/vocab/vann/
+
+  - nameAndPrefixOverride: dcterms
+    inputResources:
+      - http://purl.org/dc/terms/
+      # Alternative URL for this vocab...
+#      - http://dublincore.org/2012/06/14/dcterms.ttl
+
+  #
+  # Activity Streams 2.0 seems a little bit strange - i.e., it's namespace IRI
+  # does not resolve to RDF (see below), and the best RDF definition (that we
+  # can find!) of its terms refers to those terms using the 'http:' scheme
+  # instead of the official 'https:' scheme (so we need to override that).
+  #
+  - descriptionFallback: Activity Streams 2.0 - for representing potential and completed activities
+    nameAndPrefixOverride: as
+    inputResources:
+      # For Activity Streams 2.0, dereferencing the namespace IRI
+      # (https://www.w3.org/ns/activitystreams#) does not return definitions in
+      # RDF (it returns a JSON-LD context that maps the terms, but it provides
+      # no meta-data for the terms themselves). The reasons for this appear to
+      # be social as opposed to technical!
+#      - https://www.w3.org/ns/activitystreams#
+      # We therefore attempted to use this URL - but it has *NOT* been updated
+      # to reflect the updated AS namespace IRI switch from HTTP to HTTPS
+      # (which according to the spec (https://www.w3.org/ns/activitystreams)
+      # happened in version 1.4 back in 2017):
+#       - https://www.w3.org/ns/activitystreams-owl
+      # So to get the correct HTTPS term IRIs, Inrupt created a local copy of
+      # this vocab and manually searched-and-replaced all HTTP IRIs with HTTPS
+      # versions:
+      - CopyOfVocab/inrupt-as.ttl
+
+  - descriptionFallback: RLOG - RDF Logging Ontology
+    nameAndPrefixOverride: rlog
+    inputResources:
+      # Currently (April 2020) getting server 500 errors when trying to
+      # dereference this vocabulary. So for now we use a local copy of this
+      # vocabulary.
+#       - https://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog/rlog.owl
+      - CopyOfVocab/inrupt-rlog.ttl
+
+  - descriptionFallback: Friend of a friend, v0.99
+    nameAndPrefixOverride: foaf
+    inputResources:
+      # In Oct 2021, the FOAF namespace URI was consistently timing out,
+      # so we needed to pull from a local copy. But then (in early Nov 2021)
+      # it came back online.
+      # It went offline again in mid-2022, before coming back again.
+      # So leaving this reference here in case it re-occurs...
+     - ./CopyOfVocab/inrupt-foaf.ttl
+#      - http://xmlns.com/foaf/0.1/
+
+  - nameAndPrefixOverride: sh
+    inputResources:
+      - http://www.w3.org/ns/shacl#
+
+  - descriptionFallback: Shape Expressions (ShEx) - for validating RDF
+    nameAndPrefixOverride: shex
+    inputResources:
+      - https://www.w3.org/ns/shex#
+
+  - descriptionFallback: Web Access Control Vocabulary
+    nameAndPrefixOverride: acl
+    namespaceIriOverride: http://www.w3.org/ns/auth/acl#
+    inputResources:
+      - http://www.w3.org/ns/auth/acl
+
+  - descriptionFallback: POSIX Vocabulary
+    inputResources:
+      - CopyOfVocab/inrupt-posix.ttl
+
+  - descriptionFallback: iCal - a vocabulary for description of events and calendars
+    nameAndPrefixOverride: ical
+    inputResources:
+      - https://www.w3.org/2002/12/cal/ical
+
+  - descriptionFallback: W3C Provenance Ontology (just the main prov-o terms)
+    nameAndPrefixOverride: prov_o
+    inputResources:
+      - http://www.w3.org/ns/prov-o#
+    # The PROV ontology is really a collection of ontologies (such as
+    # http://www.w3.org/ns/prov-dictionary#, http://www.w3.org/ns/prov-links#,
+    # http://www.w3.org/ns/prov-o-inverses#, etc.), but all their terms are
+    # under the one namespace, which we provide here (otherwise the generator
+    # will think there's a mismatch between the vocab URL and the namespace of
+    # the terms the vocab contains).
+    #  Even when pulling in just the PROV-O vocab, even it still defines two
+    # 'a owl:ontology' instances, and the one we want (i.e., this override
+    # one) doesn't provide a description, so we need to provide one above too.
+    vocabularyIriOverride: http://www.w3.org/ns/prov-o#
+    # All the terms in all the PROV vocabularies are defined within the same
+    # namespace, which we need to stipulate explicitly here.
+    namespaceIriOverride: http://www.w3.org/ns/prov#
+
+  - descriptionFallback: W3C Content Negotiation by Profile
+    nameAndPrefixOverride: altr
+    # Perhaps because this is not a standard yet, nothing is returned from the
+    # current namespace IRI, so use this instead (as referenced in the
+    # '6. Abstract Model' section of the working draft here:
+    #   https://w3c.github.io/dx-connegp/connegp/#altr-owl).
+    inputResources:
+      - https://w3c.github.io/dx-connegp/connegp/altr.ttl
+    # Namespace IRI is missing trailing '#' - so provide it:
+    namespaceIriOverride: http://www.w3.org/ns/dx/connegp/altp#
+    # This vocab defines terms that are not actually defined in the vocabulary
+    # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
+    # Core terms, to provide extra contextual information for the vocabulary
+    # itself. Normally we'd throw an error on encountering such terms, as it can
+    # indicate a simple typo - but this can be overridden using this option if
+    # needed.
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      # On 2022-03-25, this URL was not resolving, but seems fine again as of
+      # 2022-06-12.
+      - http://www.w3.org/ns/hydra/core#
+#      - ./CopyOfVocab/inrupt-hydra.ttl
+
+  - inputResources:
+      - http://www.w3.org/ns/dcat#
+    nameAndPrefixOverride: dcat
+    ignoreNonVocabTerms: true
+
+  - descriptionFallback: W3C Bookmark vocabulary
+    nameAndPrefixOverride: bookmark
+    inputResources:
+      - http://www.w3.org/2002/01/bookmark#
+
+  - descriptionFallback: SPARQL Service Description vocabulary
+    nameAndPrefixOverride: sd
+    inputResources:
+      - https://www.w3.org/ns/sparql-service-description#
+
+  - descriptionFallback: The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets.
+    inputResources:
+      - ./CopyOfVocab/inrupt-void.ttl
+
+  - descriptionFallback: The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model.
+    nameAndPrefixOverride: odrl
+    # This vocab is interesting in that it defines a lot of SKOS:Collection
+    # terms in the namespace 'http://www.w3.org/ns/odrl/2/#' (note the trailing
+    # slash). So without this namespace override our heuristics pick up that
+    # value as the namespace to use (which then appears empty, 'cos that
+    # namespace doesn't define any RDFS:Class or RDF:Property terms, only
+    # SKOS:Collection terms).
+    namespaceIriOverride: http://www.w3.org/ns/odrl/2/
+    inputResources:
+      - http://www.w3.org/ns/odrl/2/
+    # This vocab also declares a number of annotation properties (for DCTERMS
+    # and SKOS terms) to keep the ontology within OWL DL, so we want to ignore
+    # those.
+    ignoreNonVocabTerms: true
+
+  - descriptionFallback: Security vocabulary
+    nameAndPrefixOverride: sec
+    # In mid-2021, the newly added term 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoverySignature2020'
+    # was causing our simple heuristic that guesses the namespace of a vocab
+    # that doesn't explicitly state its namespace (which is bad form!) to
+    # blow up - so we just provide the correct one manually here now instead.
+    #
+    # In Oct-2022 it was noticed that this vocab seemed to change its
+    # namespace to a trailing slash, so removing this override now.
+#    namespaceIriOverride: https://w3id.org/security#
+    # This vocab is defining terms from multiple namespaces (which is bad
+    # form!), so ignore others.
+    ignoreNonVocabTerms: true
+    inputResources:
+      - https://w3id.org/security/
+
+# In Oct-2022 it was noticed that all these vocab terms seemed to have been
+# moved into the W3C Security vocabulary (probably as a cleanup operation).
+# So this separate processing step isn't needed anymore.
+#
+#  - descriptionFallback: Security vocabulary recovery terms
+#    nameAndPrefixOverride: sec_recovery
+#    # In mid-2021, new terms were added, but in the namespace
+#    # 'https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#'.
+#    # So here we process the Security vocab but only for terms from that
+#    # namespace.
+#    namespaceIriOverride: https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#
+#    # This vocab is defining terms from multiple namespaces (which is bad
+#    # form!), so ignore others.
+#    ignoreNonVocabTerms: true
+#    inputResources:
+#      - https://w3id.org/security#
+
+
+  - inputResources:
+      - http://www.w3.org/ns/json-ld#
+    nameAndPrefixOverride: jsonld
+
+  - inputResources:
+      - http://www.w3.org/ns/earl#
+    nameAndPrefixOverride: earl
+
+  - inputResources:
+      - http://www.w3.org/2003/06/sw-vocab-status/ns#
+
+  - inputResources:
+      - http://usefulinc.com/ns/doap#
+    nameAndPrefixOverride: doap
+    # The server serving this vocabulary doesn't respond with a HTTP Content-Type header, so our
+    # code can't know which RDF parser to use. So we need to tell it explicitly what the content
+    # type returned actually is.
+    vocabContentTypeHeaderFallback: application/rdf+xml
+
+  - descriptionFallback: W3C Verifiable Credentials (VC) Data Model
+    inputResources:
+      - ./CopyOfVocab/inrupt-vc-data-model.ttl
+
+  - nameAndPrefixOverride: qb
+    inputResources:
+      - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/cube.ttl
+
+  - descriptionFallback: SDMX Dimension Vocabulary
+    nameAndPrefixOverride: sdmx-dimension
+    inputResources:
+      - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
+
+  - inputResources:
+      - http://rdfs.org/sioc/ns#
+    nameAndPrefixOverride: sioc
+    ignoreNonVocabTerms: true
+
+#
+# It 'seems' to be the case that 44 vocabs being retrieved asynchronously causes the generator to
+# blow up (with a 'readable-stream' error complaining about 'right-hand side of instanceof'). So
+# until looking at pooling the promises (in the function 'async generateVocabs() {}' of
+# ArtifactGenerator.js), just remove the more obscure vocabs to keep the upper limit 43!
+#
+  - inputResources:
+      - https://w3id.org/survey-ontology#
+    # The server serving this vocabulary doesn't honor the `q` parameter in Accept headers, so we
+    # need to explicitly ask for just Turtle.
+    vocabAcceptHeaderOverride: text/turtle
+    ignoreNonVocabTerms: true
+
+  - descriptionFallback: Time Ontology in OWL
+    nameAndPrefixOverride: time
+    inputResources:
+      - http://www.w3.org/2006/time#
+
+  - inputResources:
+      - http://www.w3.org/ns/locn#
+
+  - inputResources:
+      - http://www.w3.org/ns/sosa/
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - http://www.w3.org/ns/ssn/
+    ignoreNonVocabTerms: true
+
+  - descriptionFallback: Creative Commons (licensing vocabulary)
+    inputResources:
+      - http://creativecommons.org/ns#
+    nameAndPrefixOverride: cc
+
+  # GeoNames seems to still be serving the v3.1 version from their namespace
+  # URI, even though they've moved to v3.3 (although resolving their v3.3 vocab
+  # seems to still be returning the v3.2 vocab!).
+  # This means all the GeoNames terms have 'http://' namespaces instead of the
+  # updated (as of v3.2) namespace os 'https://'.
+  # So, as an experiment, I've overridden the prefix from 'gn' to include the
+  # version number.
+  - inputResources:
+      - https://www.geonames.org/ontology#
+    nameAndPrefixOverride: gn_v3_1
+    ignoreNonVocabTerms: true
+
+  # Here we try and provide the latest version of GeoNames (but although the
+  # URI states v3.3, it seems to still (as of April 2022) be serving v3.2).
+  - inputResources:
+      - https://www.geonames.org/ontology/ontology_v3.3.rdf
+    nameAndPrefixOverride: gn_v3_2
+    ignoreNonVocabTerms: true
+
+  # This NeoGeo vocab is pulled in by GeoNames via 'owl:import'.
+  - inputResources:
+      - http://geovocab.org/spatial
+    nameAndPrefixOverride: neogeo
+
+  - inputResources:
+      - http://qudt.org/schema/qudt/
+    nameAndPrefixOverride: qudt
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://w3id.org/dpv#
+
+  - inputResources:
+      - https://w3id.org/dpv/dpv-pd#
+
+  - inputResources:
+      - http://purl.org/ontology/bibo/
+    nameAndPrefixOverride: bibo
+    ignoreNonVocabTerms: true
+    vocabContentTypeHeaderOverride: "application/rdf+xml"
+
+  - inputResources:
+      - https://ontologies.semanticarts.com/o/gistCore11.1.0
+
+  - inputResources:
+      - https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/
+    nameAndPrefixOverride: auto_vc
+    vocabAcceptHeaderOverride: text/turtle
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/
+    nameAndPrefixOverride: auto_vs
+    vocabAcceptHeaderOverride: text/turtle
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - http://www.omg.org/techprocess/ab/SpecificationMetadata/
+    nameAndPrefixOverride: sm
+    ignoreNonVocabTerms: true
+
+  - inputResources:
+      - http://www.w3.org/ns/adms#
+
+  - inputResources:
+      - http://www.w3.org/ns/spec

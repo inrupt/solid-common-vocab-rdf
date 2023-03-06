@@ -6,12 +6,12 @@ prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix olo:      <http://purl.org/ontology/olo/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix gconsent:       <https://w3id.org/GConsent#>
-prefix inrupt_gen:     <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:     <https://inrupt.com/vocab/tool/artifact_generator/>
 
 prefix inrupt_consent: <https://inrupt.com/vocab/consent#>
 
@@ -27,7 +27,7 @@ prefix webid: <https://www.w3.org/ns/webid#>
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
 # suggested prefix, its license, etc.
 #
-inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
+inrupt_consent: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/consent/0.0.1> ;
 	dcterms:creator <https://inrupt.com/profile/card/#us> ;
@@ -36,7 +36,7 @@ inrupt_consent: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:description "Consent vocabulary defining Inrupt-specific terms, especially terms that provide context"@en ;
 	vann:preferredNamespacePrefix "inrupt_consent" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/consent#" ;
-	dcterms:license sm:MITLicense .
+	dcterms:license dalicc:MIT .
 
 
 inrupt_consent:defaultConsentExpiryMonths a rdf:Property ;

@@ -5,19 +5,19 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen:        <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:        <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix inrupt_meta_shacl: <https://inrupt.com/vocab/meta/shacl#>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
 # suggested prefix, its license, etc.
 #
-inrupt_meta_shacl: a owl:Ontology, inrupt_gen:Ontology ;
+inrupt_meta_shacl: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/meta/shacl/0.0.1> ;
  	dcterms:title "Metadata Client Vocabulary"@en ;
@@ -27,7 +27,7 @@ inrupt_meta_shacl: a owl:Ontology, inrupt_gen:Ontology ;
 	dcterms:issued "2019/10/21"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_meta_shacl" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/meta/shacl#" ;
-	dcterms:license sm:MITLicense .
+	dcterms:license dalicc:MIT .
 
 
   inrupt_meta_shacl:subjectRoot a rdf:Property ;

@@ -5,16 +5,16 @@ prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix ldp:      <http://www.w3.org/ns/ldp#>
-prefix schema:   <http://schema.org/>
+prefix schema:   <https://schema.org/>
 prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
-prefix sm:       <http://www.omg.org/techprocess/ab/SpecificationMetadata/>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
 
 
-solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
+solid_generator_ui: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionInfo "1.2.1" ;
     owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
     owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;
@@ -27,7 +27,7 @@ solid_generator_ui: a owl:Ontology, inrupt_gen:Ontology ;
     dcterms:creator <https://inrupt.com/profile/card/#us> ;
     dcterms:contributor "Developer SDK team"@en ;
     dcterms:issued "2019/07/21"^^xsd:date ;
-    dcterms:license sm:MITLicense .
+    dcterms:license dalicc:MIT .
 
 #
 # Generator UI messages...

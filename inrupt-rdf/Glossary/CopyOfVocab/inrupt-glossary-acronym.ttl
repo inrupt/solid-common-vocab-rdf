@@ -5,9 +5,10 @@ prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix vann: <http://purl.org/vocab/vann/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix cc: <http://creativecommons.org/ns#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>
 
-prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator#>
+prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator/>
 prefix inrupt_common:           <https://inrupt.com/inrupt/vocab/common#>
 prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#>
 
@@ -17,7 +18,7 @@ prefix inrupt_glossary_acronym: <https://inrupt.com/inrupt/vocab/glossary/acrony
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
 # suggested prefix, its license, etc.
 #
-inrupt_glossary_acronym: a owl:Ontology, inrupt_gen:Ontology  ;
+inrupt_glossary_acronym: a owl:Ontology , inrupt_gen:Ontology  ;
      owl:versionInfo "0.0.1" ;
      owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/acronym/0.0.1> ;
      dcterms:title "Inrupt's glossary of acronyms" ;
@@ -221,10 +222,18 @@ inrupt_glossary_acronym:SDK a skosxl:Label ;
      skosxl:literalForm "SDK"@en ;
      rdfs:comment "Software Development Kit"@en .
 
-inrupt_glossary_acronym:SOLID a skosxl:Label ;
+inrupt_glossary_acronym:SOLID a skosxl:Label, owl:DeprecatedProperty ;
      rdfs:isDefinedBy inrupt_glossary_acronym: ;
      skosxl:literalForm "SOLID"@en ;
-     rdfs:comment "Social Linked Data"@en .
+     rdfs:comment "Social Linked Data"@en ;
+     owl:deprecated true ;
+     skos:scopeNote """Solid was originally written SoLiD, which then evolved
+ into SOLID, but nowadays we simply write Solid And so we no longer intend
+ the term to be considered an acronym for anything (i.e., Solid can be used
+ for any kind of data, and not just 'social' data). Likewise, Solid can be
+ used for non-personal data, such as corporate data, or Internet-of-Things
+ data, and so referencing anything 'social' is now deemed far too
+ limiting."""@en .
 
 inrupt_glossary_acronym:SRS a skosxl:Label ;
      rdfs:isDefinedBy inrupt_glossary_acronym: ;

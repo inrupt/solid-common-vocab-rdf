@@ -450,3 +450,6 @@ vocabList:
 
   - inputResources:
       - ./CopyOfVocab/solid-service-description.ttl
+      
+  - inputResources:
+      - ./CopyOfVocab/solid-data-discovery.ttl

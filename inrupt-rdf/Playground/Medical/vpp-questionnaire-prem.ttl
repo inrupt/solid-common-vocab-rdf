@@ -1,0 +1,204 @@
+prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:        <http://www.w3.org/2001/XMLSchema#>
+prefix owl:        <http://www.w3.org/2002/07/owl#>
+prefix skos:       <http://www.w3.org/2004/02/skos/core#>
+prefix sh:         <http://www.w3.org/ns/shacl#>
+prefix dcterms:    <http://purl.org/dc/terms/>
+prefix dalicc:     <http://dalicc.net/licenselibrary/>
+prefix sur:        <https://w3id.org/survey-ontology#>
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+
+prefix vpp_qcommon: <https://data.vpp.com/vocab/questionnaire/common/>
+prefix vpp_prem:    <https://data.vpp.com/vocab/questionnaire/prem/>
+
+vpp_prem:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/core/0.0.1> ;
+ 	dcterms:title "VPP PREM questionnaire"@en ;
+	dcterms:description "A questionnaire for Patient Record Experience Measure (PREM)."@en ;
+	dcterms:creator <https://data.vpp.com/webid> ;
+	dcterms:issued "2023/16/02"^^xsd:date ;
+	dcterms:license dalicc:MIT ;
+    sh:declare vpp_prem:_PrefixDeclaration .
+
+vpp_prem:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "vpp_prem" ;
+    sh:namespace "https://data.vpp.com/vocab/questionnaire/prem/"^^xsd:anyURI .
+
+#
+# Section for nature of the hospital stay...
+#
+vpp_prem:_sectionNatureOfStay a owl:NamedIndividual, vpp_qcommon:Section ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Nature of stay"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Nature of the hospital stay (tick one of the options)."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+vpp_prem:_questionNatureOfStayPlanned a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Nature of stay planned"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Was your hospital stay planned?"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+vpp_prem:_answerStayPredetermined a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Stay predetermined"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Yes , the date was predetermined."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_prem:_answerStayNotPredetermined a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Stay not predetermined"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """No , the date was not predetermined."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Section for preparation for admission...
+#
+vpp_prem:_sectionNatureOfStay a owl:NamedIndividual, vpp_qcommon:Section ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Preparation for admission"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Preparation for admission (only complete these 3 questions if your admission was planned)."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+vpp_prem:_questionAdvanceInfoFromReferringPhysicanOnPreparation a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Advance info from referring physican on preparation"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """My referring physician gave me advance information on how to prepare for this hospital admission."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_prem:_questionAdvanceInfoOnPreparation a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Advance info on preparation"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """I received information in advance from the hospital staff about how to prepare for this admission to the hospital."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_prem:_questionAdvanceInfoOnCost a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Advance info on cost"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """I received information in advance about the costs of my hospitalization."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+
+vpp_prem:_question a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        ""@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+
+
+#
+# Section for information on patient's condition...
+#
+vpp_prem:_sectionInfoOnCondition a owl:NamedIndividual, vpp_qcommon:Section ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Staff informed causes of my condition"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Provision of information about the condition (to be completed by all patients from here).
+ Below are a number of questions about "the employees" . This refers to all employees in the hospital, not only the medical and nursing staff, but also the physiotherapists, social workers, cleaning service, secretariat, etc."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+vpp_prem:_questionStaffInformedCausesOfMyCondition a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Staff informed causes of my condition"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """The employees informed me about the causes of my condition."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_prem:_questionStaffInformedTreatmentOptions a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Staff informed treatment options"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """The staff informed me about the possible treatment options for my condition."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_prem:_questionStaffInformedConsequences a owl:NamedIndividual, sur:Question ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        "Staff informed consequences"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """The employees informed me about the consequences of my condition."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+vpp_prem: a rdf:Property ;
+    rdfs:isDefinedBy vpp_prem:_Ontology ;
+    rdfs:label
+        ""@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
