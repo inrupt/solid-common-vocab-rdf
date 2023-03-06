@@ -4,8 +4,6 @@ prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
 prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix sh:       <http://www.w3.org/ns/shacl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
-prefix skos:     <http://www.w3.org/2004/02/skos/core#>
-prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 #
@@ -60,8 +58,8 @@ solid_dd:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
  Inrupt para declarar cómo las aplicaciones modelan los datos y dónde los
  escriben para ayudar a la interoperabilidad a corto plazo."""@es ;
 
-    dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
-    dcterms:issued "2001/01/01"^^xsd:date ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
+    dcterms:issued "2023/03/05"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     # This is an Inrupt internal document that provides background and context
     # for this vocabulary.
