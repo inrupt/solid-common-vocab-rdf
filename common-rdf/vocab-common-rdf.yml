@@ -946,6 +946,11 @@ vocabList:
   - inputResources:
       - http://www.w3.org/ns/adms#
 
-  - inputResources:
-      - https://www.w3.org/ns/spec
-    namespaceIriOverride: http://www.w3.org/ns/spec
+  #
+  # This vocab still (2023-03) has the known bug that it uses relative IRIs
+  # which blows up because it's actual namespace IRI is HTTP-based, yet when
+  # dereferenced the server redirects all lookups to HTTPS IRIs...
+  #
+#  - inputResources:
+#      - https://www.w3.org/ns/spec
+#    namespaceIriOverride: http://www.w3.org/ns/spec
