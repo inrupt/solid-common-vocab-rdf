@@ -21,7 +21,7 @@ inrupt_test: a owl:Ontology , inrupt_gen:Ontology;
  	dcterms:title "Inrupt test vocabulary"@en ;
 	dcterms:description """The Inrupt test vocabulary - just commonly used terms
  across all Inrupt tests."""@en ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2020/07/05"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_test" ;

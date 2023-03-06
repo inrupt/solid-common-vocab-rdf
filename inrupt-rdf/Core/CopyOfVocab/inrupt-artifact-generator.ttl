@@ -21,7 +21,7 @@ inrupt_gen: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionIRI <https://inrupt.com/vocab/tool/artifact_generator/0.0.1> ;
  	dcterms:title "Artifact Generator vocabulary"@en ;
 	dcterms:description "The Artifact Generator vocabulary - part of the collection of utility libraries to ease the adoption of RDF for developers."@en ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_gen" ;

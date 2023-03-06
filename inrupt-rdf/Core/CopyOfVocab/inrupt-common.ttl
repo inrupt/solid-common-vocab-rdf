@@ -30,7 +30,7 @@ inrupt_common: a owl:Ontology , inrupt_gen:Ontology ;
     dcterms:title "Inrupt vocabulario común"@es ;
     dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
     dcterms:description "El Inrupt vocabulario común: términos de uso común en todos los productos y servicios de Inrupt."@es ;
-    dcterms:creator <https://inrupt.com/profile/card/#us> ;
+    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     vann:preferredNamespacePrefix "inrupt_common" ;

@@ -31,7 +31,7 @@ solid_sd: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionIRI <http://www.w3.org/ns/solid/service-description/0.0.1> ;
     dcterms:title "Solid Service Description vocabulary"@en ;
     dcterms:description "The Solid Service Description vocabulary describes the services provided by a Solid Server."@en ;
-    dcterms:creator <https://inrupt.com/profile/card/#us> ;
+    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     vann:preferredNamespacePrefix "solid_sd" ;

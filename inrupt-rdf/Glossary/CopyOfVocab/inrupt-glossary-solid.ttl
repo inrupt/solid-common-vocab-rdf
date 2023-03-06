@@ -40,7 +40,7 @@ inrupt_glossary_solid: a owl:Ontology , inrupt_gen:Ontology  ;
  For questions around the concepts and terminology specific to Solid, refer to
  https://solidproject.org/faqs."""@en ;
      rdfs:seeAlso <https://solidproject.org/faqs> ;
-     dcterms:creator <https://inrupt.com/profile/card/#us> ;
+     dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
      dcterms:issued "2021-08-23"^^xsd:date ;
      vann:preferredNamespacePrefix "inrupt_glossary_solid" ;
      vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/solid#" ;
