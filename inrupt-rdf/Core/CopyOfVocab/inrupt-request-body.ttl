@@ -24,7 +24,7 @@ inrupt_request_body: a owl:Ontology , inrupt_gen:Ontology ;
 	dcterms:description """The Solid vocabulary providing terms for a request body (in this case, we're really just
  providing the Named Graph details (e.g., the IRI for the named graph itself), since the contents of a request body are
  completely arbitrary."""@en ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_request_body" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/request_body#" ;

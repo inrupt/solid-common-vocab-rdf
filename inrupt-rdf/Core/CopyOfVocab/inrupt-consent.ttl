@@ -30,7 +30,7 @@ prefix webid: <https://www.w3.org/ns/webid#>
 inrupt_consent: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
     owl:versionIRI <https://inrupt.com/vocab/consent/0.0.1> ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;
  	dcterms:title "Inrupt Consent vocabulary"@en ;
 	dcterms:description "Consent vocabulary defining Inrupt-specific terms, especially terms that provide context"@en ;

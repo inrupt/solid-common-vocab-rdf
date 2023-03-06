@@ -28,7 +28,9 @@ prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
 # ...once it begins its standardization journey through the W3C.
 #
 # In the meantime, to ensure the vocab can be served up publicly, we define
-# the vocab namespace IRI under an Inrupt-hosted IRI:
+# the vocab namespace IRI under an Inrupt-hosted IRI, located in a directory
+# structure that tries to convey our intent that we (Inrupt) are providing
+# this vocab on behalf of a 3rd-party, in this case the Solid project:
 #
 prefix solid_dd: <https://w3id.org/inrupt/namespace/vocab/3rd-party/solid/data-discovery/>
 #  NOTE: Just for information, but we (as of 2023/03) expect the above IRI to
@@ -44,24 +46,24 @@ prefix solid_dd: <https://w3id.org/inrupt/namespace/vocab/3rd-party/solid/data-d
 # Artifact Generator to be able to enforce its set of RDF guidelines to help
 # ensure this vocab remains high-quality.
 #
-solid_dd:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+solid_dd:_Ontology a owl:Ontology , inrupt_gen:Ontology , owl:NamedIndividual ;
     owl:versionInfo "0.0.1" ;
     owl:versionIRI solid_dd:0.0.1 ;
     dcterms:title
         "The Solid Data Discovery vocabulary"@en ,
-        "El vocabulario de Solid Data Discovery"@es ;
+        "El vocabulario de descubrimiento de datos Solid"@es ;
 
     dcterms:description
         """The Solid Data Discovery vocabulary - Inrupt's recommendations for
  declaring how applications model data, and where they write it in order to
  aid short-term interoperability."""@en ,
 
-        """El vocabulario de Solid Data Discovery - las recomendaciones de
- Inrupt para declarar cómo las aplicaciones modelan los datos y dónde los
+        """El vocabulario de descubrimiento de datos de Solid: recomendaciones
+ de Inrupt para declarando cómo las aplicaciones modelan los datos y dónde los
  escriben para ayudar a la interoperabilidad a corto plazo."""@es ;
 
-    dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
-    dcterms:issued "2001/01/01"^^xsd:date ;
+    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:issued "2023/03/06"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     # This is an Inrupt internal document that provides background and context
     # for this vocabulary.

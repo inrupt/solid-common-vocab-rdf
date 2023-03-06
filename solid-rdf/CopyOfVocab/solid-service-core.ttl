@@ -20,7 +20,7 @@ solid_service_core: a owl:Ontology , inrupt_gen:Ontology ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g., classes, properties and text strings (e.g.
  informative labels or error messages) commonly used across Solid services."""@en ;
-	dcterms:creator <https://inrupt.com/profile/card/#us> ;
+	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_service_core" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_service_core#" ;

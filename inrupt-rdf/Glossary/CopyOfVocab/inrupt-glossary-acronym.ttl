@@ -24,7 +24,7 @@ inrupt_glossary_acronym: a owl:Ontology , inrupt_gen:Ontology  ;
      dcterms:title "Inrupt's glossary of acronyms" ;
      dcterms:description """A glossary of acronyms used across Inrupt, Solid, and the Semantic Web"""@en ;
      rdfs:seeAlso <https://acronymproject.org/faqs> ;
-     dcterms:creator <https://inrupt.com/profile/card/#us> ;
+     dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
      dcterms:issued "2021-08-23"^^xsd:date ;
      vann:preferredNamespacePrefix "inrupt_glossary_acronym" ;
      vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/acronym#" ;

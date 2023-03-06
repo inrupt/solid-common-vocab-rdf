@@ -41,6 +41,8 @@ configuration files contained in this repository.
 - Moved MIT license instance to DALICC instance (much better legal foundations).
 - Added draft Solid "Data Discovery" vocab.
 - Added Inrupt vocab template (as foundation for Inrupt Best Practices).
+- Updated Inrupt WebID used in all Inrupt-created vocabs (i.e., the value of the
+  `dcterms:creator` triple).
 
 ## v1.0.3 2021-10-03
 
