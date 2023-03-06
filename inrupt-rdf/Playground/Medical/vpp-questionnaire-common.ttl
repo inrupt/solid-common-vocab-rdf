@@ -1,0 +1,641 @@
+prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:        <http://www.w3.org/2001/XMLSchema#>
+prefix owl:        <http://www.w3.org/2002/07/owl#>
+prefix skos:       <http://www.w3.org/2004/02/skos/core#>
+prefix sh:         <http://www.w3.org/ns/shacl#>
+prefix dcterms:    <http://purl.org/dc/terms/>
+prefix dalicc:     <http://dalicc.net/licenselibrary/>
+prefix sur:        <https://w3id.org/survey-ontology#>
+prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+
+prefix vpp_qcommon: <https://data.vpp.com/vocab/questionnaire/common/>
+
+vpp_qcommon:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+	owl:versionInfo "0.0.1" ;
+    owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/core/0.0.1> ;
+ 	dcterms:title "VPP Stub"@en ;
+	dcterms:description "A vocab for questionnaire terms that are common across all questionnaires."@en ;
+	dcterms:creator <https://data.vpp.com/webid> ;
+	dcterms:issued "2023/16/02"^^xsd:date ;
+	dcterms:license dalicc:MIT ;
+    sh:declare vpp_qcommon:_PrefixDeclaration .
+
+vpp_qcommon:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "vpp_qcommon" ;
+    sh:namespace "https://data.vpp.com/vocab/questionnaire/common/"^^xsd:anyURI .
+
+#
+# Terms...
+#
+vpp_qcommon:Stub a rdfs:Class ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Stub"@en ,
+        ""@nl ;
+    rdfs:comment
+        """A stub provides basic identifying information that is common across all questionnaires."""@en ,
+        """"""@nl .
+
+vpp_qcommon:questionnaireCode a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Questionnaire code"@en ,
+        ""@nl ;
+    rdfs:comment
+        """A unique identifier for an instance of questionnaire (to which a hospital patient is invited to complete and submit)."""@en ,
+        """"""@nl .
+
+#
+# Bed types...
+#
+vpp_qcommon:hasBedType a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Bed type"@en ,
+        ""@nl ;
+    rdfs:comment
+        """The type of bed a patient has while staying in a hospital."""@en ,
+        """"""@nl .
+
+vpp_qcommon:_bed_C a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "C - Bed for ?????"@en ,
+        ""@nl ;
+    rdfs:comment
+        """Code C - a type of bed most suitable for ????? patients."""@en ,
+        """"""@nl .
+
+vpp_qcommon:_bedGeriatric a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "G - Bed for a geriatric"@en ,
+        ""@nl ;
+    rdfs:comment
+        """Code G - a type of bed most suitable for geriatric patients."""@en ,
+        """"""@nl .
+
+
+vpp_qcommon:_bed_Sp a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Sp - Bed for ?????"@en ,
+        ""@nl ;
+    rdfs:comment
+        """Code Sp - a type of bed most suitable for ????? patients."""@en ,
+        """"""@nl .
+
+vpp_qcommon:_bed_D a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "D - Bed for ?????"@en ,
+        ""@nl ;
+    rdfs:comment
+        """Code D - a type of bed most suitable for ????? patients."""@en ,
+        """"""@nl .
+
+vpp_qcommon:_bed_M a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "M - Bed for ?????"@en ,
+        ""@nl ;
+    rdfs:comment
+        """Code M - a type of bed most suitable for ????? patients."""@en ,
+        """"""@nl .
+
+#
+# Form of questionnaire...
+#
+vpp_qcommon:questionnaireOfForm a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Questionnaire is of form"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """The form a questionnaire takes, e.g., a paper form, or an electronic form."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_questionnaireFormPaper a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Paper"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Questionnaire was completed by patient using a paper form."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_questionnaireFormElectronic a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Electronic"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Questionnaire was completed by patient using an electronic form (e.g., on a tablet, laptop, or smart phone, or perhaps on a bedside monitor)."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Hospital department...
+#
+vpp_qcommon:hasHospitalDepartment a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Hospital department"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+vpp_qcommon: a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        ""@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Answers...
+#
+vpp_qcommon:_answerYes a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Yes"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Yes"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerNo a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "No"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """No"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerNever a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Never"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Never"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerSometimes a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Sometimes"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Sometimes"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerMostly a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Mostly"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Mostly"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAlways a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Always"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Always"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+vpp_qcommon:_answerAgeLessThan16 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "-16 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Less than 16 years old."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge16To24 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "16 - 24 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 16 - 24 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge25To34 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "25 - 34 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 25 - 34 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge35To44 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "35 - 44 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 35 - 44 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge45To54 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "45 - 54 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 45 - 54 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge55To64 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "55 - 64 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 55 - 64 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge65To74 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "65 - 74 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 65 - 74 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge75To84 a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "75 - 84 years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Between 75 - 84 years."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerAge85AndOver a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "85+ years"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """85 and over."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Living situation...
+#
+vpp_qcommon:_answerLivingAlone a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Living alone"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """I live alone."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerLivingNotAlone a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Living not alone"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """I live with my partner, family or friends."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerLivingServiced a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Living in serviced accommodation"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """I live in a service flat, assisted living, rest home, ..."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Education...
+#
+vpp_qcommon:_answerEducationPrimary a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Primary education"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Primary education."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerEducationSecondary a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Secondary education"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Secondary education."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerEducationNonUniversity a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Higher, non-university education"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Higher, non-university education."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon:_answerEducationUniversity a owl:NamedIndividual, sur:Answer ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "University education"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """University education."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+#
+# Questionnaire sections...
+#
+vpp_qcommon:Section a rdfs:Class ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        "Section"@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """Questionnaires generally have multiple sections, with each section containing multiple related questions."""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+#
+# Vocab term templates...
+#
+vpp_qcommon: a rdfs:Class ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        ""@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+vpp_qcommon: a rdf:Property ;
+    rdfs:isDefinedBy vpp_qcommon:_Ontology ;
+    rdfs:label
+        ""@en ,
+        ""@fr ,
+        ""@nl ;
+    rdfs:comment
+        """"""@en ,
+        """"""@fr ,
+        """"""@nl .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Resultset from backend:
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix acp: <http://www.w3.org/ns/solid/acp#>.
+@prefix cc: <http://creativecommons.org/ns#>.
+@prefix cert: <http://www.w3.org/ns/auth/cert#>.
+@prefix csvw: <http://www.w3.org/ns/csvw#>.
+@prefix current: <#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix dcam: <http://purl.org/dc/dcam/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dctype: <http://purl.org/dc/dcmitype/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ldp: <http://www.w3.org/ns/ldp#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix posixstat: <http://www.w3.org/ns/posix/stat#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <https://schema.org/>.
+@prefix shacl: <http://www.w3.org/ns/shacl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>.
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
+@prefix swapdoc: <http://www.w3.org/2000/10/swap/pim/doc#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix ws: <http://www.w3.org/ns/pim/space#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://solid.api.dev-vlaanderen.be/mock/v1/credentials/71b76170-940d-4875-8b2a-1901c740b49e> a <https://data.europa.eu/snb/model#EuropeanDigitalCredential>, <https://data.vlaanderen.be/ns/leercredential#Leercredential>, <https://www.w3.org/2018/credentials#VerifiableCredential>;
+    dc:title "Diploma Licentiaat Sociologie"@nl;
+    dc:type <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Bewijstype/Diploma>;
+    <https://www.w3.org/2018/credentials#credentialSchema> <https://solid.api.tni-vlaanderen.be/ns/Leercredential/schema.json>;
+    <https://www.w3.org/2018/credentials#credentialStatus> <https://solid.api.dev-vlaanderen.be/mock/v1/issuers/123/revocations/d4be0172-3722-4719-afc0-d4a15506ccb6#5327>;
+    <https://www.w3.org/2018/credentials#credentialSubject> <https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/cdafb346-4eaa-409e-8f9f-0143e866fa39>;
+    <https://www.w3.org/2018/credentials#expirationDate> "2025-01-26T08:01:34.169976637Z"^^xsd:dateTime;
+    <https://www.w3.org/2018/credentials#issuanceDate> "2023-01-27T08:01:34.169976637Z"^^xsd:dateTime;
+    <https://www.w3.org/2018/credentials#issuer> <https://solid.api.dev-vlaanderen.be/v1/webid#magda>;
+    <https://www.w3.org/2018/credentials#validFrom> "2023-01-27T08:01:34.169976637Z"^^xsd:dateTime;
+    <http://www.w3.org/ns/adms#identifier> _:b0_n3-36, _:b0_n3-48, _:b0_n3-60;
+    <https://w3id.org/security#proof> _:b0_n3-37, _:b0_n3-49, _:b0_n3-61.
+
+
+<https://solid.api.tni-vlaanderen.be/ns/Leercredential/schema.json> a <https://www.w3.org/2018/credentials#JsonSchemaValidator2018>.
+<https://solid.api.dev-vlaanderen.be/mock/v1/issuers/123/revocations/d4be0172-3722-4719-afc0-d4a15506ccb6#5327> a <https://w3id.org/vc-revocation-list-2020#RevocationList2020Status>;
+    <https://w3id.org/vc-revocation-list-2020#revocationListCredential> <https://solid.api.dev-vlaanderen.be/mock/v1/issuers/123/revocations/d4be0172-3722-4719-afc0-d4a15506ccb6>;
+    <https://w3id.org/vc-revocation-list-2020#revocationListIndex> 5327.
+<https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/cdafb346-4eaa-409e-8f9f-0143e866fa39> a <http://www.w3.org/ns/person#Person>, <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>;
+    <https://data.europa.eu/snb/model#hasClaim> <https://solid.api.dev-vlaanderen.be/mock/v1/credentials/claims/leerclaims/e6247988-c016-47e7-8826-c21c2e14556a>;
+    <https://data.europa.eu/snb/model#hasCredential> <https://solid.api.dev-vlaanderen.be/mock/v1/credentials/71b76170-940d-4875-8b2a-1901c740b49e>;
+    <https://data.vlaanderen.be/ns/persoon#registratie> _:b0_n3-38, _:b0_n3-50, _:b0_n3-62.
+_:b0_n3-36 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://solid.api.dev-vlaanderen.be/mock/v1/credentials/71b76170-940d-4875-8b2a-1901c740b49e"^^rdfs:Literal.
+_:b0_n3-48 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://solid.api.dev-vlaanderen.be/mock/v1/credentials/71b76170-940d-4875-8b2a-1901c740b49e"^^rdfs:Literal.
+_:b0_n3-60 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://solid.api.dev-vlaanderen.be/mock/v1/credentials/71b76170-940d-4875-8b2a-1901c740b49e"^^rdfs:Literal.
+<https://solid.api.dev-vlaanderen.be/mock/v1/credentials/claims/leerclaims/e6247988-c016-47e7-8826-c21c2e14556a> a <https://data.europa.eu/snb/model#Claim>, <https://data.europa.eu/snb/model#LearningAchievement>;
+    dc:title "Diploma Licentiaat Sociologie"@nl;
+    <http://www.w3.org/ns/adms#identifier> _:b0_n3-39, _:b0_n3-51, _:b0_n3-63;
+    <https://data.vlaanderen.be/ns/leercredential#authenticiteit> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Authenticiteit/Authentiek>;
+    <https://data.europa.eu/snb/model#awardedBy> _:b0_n3-40, _:b0_n3-52, _:b0_n3-64;
+    <https://data.europa.eu/snb/model#specifiedBy> _:b0_n3-45, _:b0_n3-57, _:b0_n3-69.
+_:b0_n3-38 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/cdafb346-4eaa-409e-8f9f-0143e866fa39"^^rdfs:Literal.
+_:b0_n3-50 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/cdafb346-4eaa-409e-8f9f-0143e866fa39"^^rdfs:Literal.
+_:b0_n3-62 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/cdafb346-4eaa-409e-8f9f-0143e866fa39"^^rdfs:Literal.
+_:b0_n3-39 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "e6247988-c016-47e7-8826-c21c2e14556a"^^rdfs:Literal.
+_:b0_n3-51 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "e6247988-c016-47e7-8826-c21c2e14556a"^^rdfs:Literal.
+_:b0_n3-63 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "e6247988-c016-47e7-8826-c21c2e14556a"^^rdfs:Literal.
+_:b0_n3-40 a <https://data.europa.eu/snb/model#AwardingProcess>;
+    <https://data.europa.eu/snb/model#awardingBody> _:b0_n3-41;
+    <https://data.europa.eu/snb/model#awardingDate> "1800-06-30T00:00:00.0Z"^^xsd:dateTime;
+    <https://data.europa.eu/snb/model#awards> <https://solid.api.dev-vlaanderen.be/mock/v1/credentials/claims/leerclaims/e6247988-c016-47e7-8826-c21c2e14556a>;
+    <https://data.europa.eu/snb/model#location> _:b0_n3-43.
+_:b0_n3-52 a <https://data.europa.eu/snb/model#AwardingProcess>;
+    <https://data.europa.eu/snb/model#awardingBody> _:b0_n3-53;
+    <https://data.europa.eu/snb/model#awardingDate> "1800-06-30T00:00:00.0Z"^^xsd:dateTime;
+    <https://data.europa.eu/snb/model#awards> <https://solid.api.dev-vlaanderen.be/mock/v1/credentials/claims/leerclaims/e6247988-c016-47e7-8826-c21c2e14556a>;
+    <https://data.europa.eu/snb/model#location> _:b0_n3-55.
+_:b0_n3-64 a <https://data.europa.eu/snb/model#AwardingProcess>;
+    <https://data.europa.eu/snb/model#awardingBody> _:b0_n3-65;
+    <https://data.europa.eu/snb/model#awardingDate> "1800-06-30T00:00:00.0Z"^^xsd:dateTime;
+    <https://data.europa.eu/snb/model#awards> <https://solid.api.dev-vlaanderen.be/mock/v1/credentials/claims/leerclaims/e6247988-c016-47e7-8826-c21c2e14556a>;
+    <https://data.europa.eu/snb/model#location> _:b0_n3-67.
+_:b0_n3-45 a <https://data.europa.eu/snb/model#Qualification>, <https://data.europa.eu/snb/model#LearningAchievementSpecification>;
+    dc:type <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwijsvorm/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Categorie/HogerOnderwijs>;
+    <https://data.europa.eu/snb/model#ISCEDFCode> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDStudiegebied/312>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwerp/312002>;
+    <https://data.europa.eu/snb/model#educationLevel> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauOnderwijskwalificatie/7>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDNiveau/5A>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauBeroepskwalificatie/Nbs>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Graad/Licentiaat>;
+    <https://data.europa.eu/snb/model#educationSubject> _:b0_n3-46;
+    <https://data.europa.eu/snb/model#influencedBy> _:b0_n3-47.
+_:b0_n3-57 a <https://data.europa.eu/snb/model#Qualification>, <https://data.europa.eu/snb/model#LearningAchievementSpecification>;
+    dc:type <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwijsvorm/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Categorie/HogerOnderwijs>;
+    <https://data.europa.eu/snb/model#ISCEDFCode> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDStudiegebied/312>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwerp/312002>;
+    <https://data.europa.eu/snb/model#educationLevel> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauOnderwijskwalificatie/7>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDNiveau/5A>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauBeroepskwalificatie/Nbs>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Graad/Licentiaat>;
+    <https://data.europa.eu/snb/model#educationSubject> _:b0_n3-58;
+    <https://data.europa.eu/snb/model#influencedBy> _:b0_n3-59.
+_:b0_n3-69 a <https://data.europa.eu/snb/model#Qualification>, <https://data.europa.eu/snb/model#LearningAchievementSpecification>;
+    dc:type <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwijsvorm/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Categorie/HogerOnderwijs>;
+    <https://data.europa.eu/snb/model#ISCEDFCode> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDStudiegebied/312>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Onderwerp/312002>;
+    <https://data.europa.eu/snb/model#educationLevel> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauOnderwijskwalificatie/7>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/ISCEDNiveau/5A>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/VKSNiveauBeroepskwalificatie/Nbs>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Graad/Licentiaat>;
+    <https://data.europa.eu/snb/model#educationSubject> _:b0_n3-70;
+    <https://data.europa.eu/snb/model#influencedBy> _:b0_n3-71.
+_:b0_n3-41 a <http://www.w3.org/ns/org#Organization>;
+    <http://www.w3.org/ns/adms#identifier> _:b0_n3-42;
+    skos:prefLabel "University of Melbourne";
+    <http://www.w3.org/ns/org#classification> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Schooltype/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Instantie/Universiteit>.
+_:b0_n3-43 a <http://www.w3.org/ns/prov#Location>;
+    <http://data.europa.eu/m8g/address> _:b0_n3-44.
+_:b0_n3-53 a <http://www.w3.org/ns/org#Organization>;
+    <http://www.w3.org/ns/adms#identifier> _:b0_n3-54;
+    skos:prefLabel "University of Melbourne";
+    <http://www.w3.org/ns/org#classification> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Schooltype/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Instantie/Universiteit>.
+_:b0_n3-55 a <http://www.w3.org/ns/prov#Location>;
+    <http://data.europa.eu/m8g/address> _:b0_n3-56.
+_:b0_n3-65 a <http://www.w3.org/ns/org#Organization>;
+    <http://www.w3.org/ns/adms#identifier> _:b0_n3-66;
+    skos:prefLabel "University of Melbourne";
+    <http://www.w3.org/ns/org#classification> <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Schooltype/NietVanToepassing>, <https://solid.api.vlaanderen.be/ns/Leercredential/concept/Instantie/Universiteit>.
+_:b0_n3-67 a <http://www.w3.org/ns/prov#Location>;
+    <http://data.europa.eu/m8g/address> _:b0_n3-68.
+_:b0_n3-46 a skos:Concept;
+    skos:notation "027034"@nl;
+    skos:prefLabel "Sociologie"@nl;
+    skos:inScheme <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>;
+    skos:topConceptOf <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>.
+_:b0_n3-47 a <https://data.europa.eu/snb/model#LearningActivitySpecification>;
+    dc:language "http://publications.europa.eu/resource/authority/language/ENG"^^rdfs:Literal.
+_:b0_n3-58 a skos:Concept;
+    skos:notation "027034"@nl;
+    skos:prefLabel "Sociologie"@nl;
+    skos:inScheme <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>;
+    skos:topConceptOf <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>.
+_:b0_n3-59 a <https://data.europa.eu/snb/model#LearningActivitySpecification>;
+    dc:language "http://publications.europa.eu/resource/authority/language/ENG"^^rdfs:Literal.
+_:b0_n3-70 a skos:Concept;
+    skos:notation "027034"@nl;
+    skos:prefLabel "Sociologie"@nl;
+    skos:inScheme <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>;
+    skos:topConceptOf <https://solid.api.vlaanderen.be/ns/Leercredential/conceptscheme/Studierichting>.
+_:b0_n3-71 a <https://data.europa.eu/snb/model#LearningActivitySpecification>;
+    dc:language "http://publications.europa.eu/resource/authority/language/ENG"^^rdfs:Literal.
+_:b0_n3-42 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "110131"^^rdfs:Literal.
+_:b0_n3-44 a <http://www.w3.org/ns/locn#Address>;
+    <https://data.vlaanderen.be/ns/adres#land> "http://publications.europa.eu/resource/authority/country/AUS".
+_:b0_n3-54 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "110131"^^rdfs:Literal.
+_:b0_n3-56 a <http://www.w3.org/ns/locn#Address>;
+    <https://data.vlaanderen.be/ns/adres#land> "http://publications.europa.eu/resource/authority/country/AUS".
+_:b0_n3-66 a <http://www.w3.org/ns/adms#Identifier>;
+    skos:notation "110131"^^rdfs:Literal.
+_:b0_n3-68 a <http://www.w3.org/ns/locn#Address>;
+    <https://data.vlaanderen.be/ns/adres#land> "http://publications.europa.eu/resource/authority/country/AUS".

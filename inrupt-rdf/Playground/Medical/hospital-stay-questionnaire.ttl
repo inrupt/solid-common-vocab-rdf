@@ -1,0 +1,58 @@
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix survey: <https://w3id.org/survey-ontology#>
+
+prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+
+prefix prem: <https://vpp.com/data/vocab/prem/>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+# We can (if we like) explicitly type this vocab as being an Inrupt Artifact
+# Generator-compliant vocab (or 'Ontology') too, meaning we expect the
+# Artifact Generator to be able to enforce its set of RDF guidelines to help
+# ensure this vocab remains high-quality.
+#
+prem:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI prem:0.0.1 ;
+    dcterms:title
+        "Short title for YOUR vocabulary (in English...)"@en ,
+        "Short title for YOUR vocabulary (in Spanish...)"@es ;
+    dcterms:description
+        "Description of YOUR vocabulary (in English...)."@en ,
+        "Description of YOUR vocabulary (in Spanish...)."@es ;
+    dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
+    dcterms:issued "2001/01/01"^^xsd:date ;
+    dcterms:license dalicc:MIT ;
+    sh:declare inrupt_bp_core:_PrefixDeclaration .
+
+your_vocab:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "prem" ;
+    sh:namespace "https://vpp.com/data/vocab/prem/"^^xsd:anyURI .
+
+prem: a survey:SurveyProcedure ;
+  rdfs:comment ""
+  survey:startsWith survey:takesHypertensiveMedication .
+
+prem:takesHypertensiveMedication a survey:ClosedQuestion ;
+  survey:hasText
+    "Neem je medicatie voor een te hoge bloeddruk?"@nl ,
+    "Do you take medication for high blood pressure?"@en ;
+  survey:leadsTo prem:hadCardiovascularDiseaseSelf .
+
+prem:hadCardiovascularDiseaseSelf a survey:ClosedQuestion ;
+  survey:hasText
+    "Heb je een hart- of vaatziekte (gehad)? (hartinfarct, beroerte, vaatvernauwing)"@nl ,
+    "Do you have (had) a cardiovascular disease? (heart attack, stroke, vasoconstriction)"@en .
+
+
+<http://localhost:3000/frederik#Collection1> a skos:Collection ;
+  rdfs:label
+    "Informatieverstrekking over de aandoening"@nl ,
+    "Information about the condition"@en ;
+  skos:member
+    survey:takesHypertensiveMedication ,
+    survey:hadCardiovascularDiseaseSelf .

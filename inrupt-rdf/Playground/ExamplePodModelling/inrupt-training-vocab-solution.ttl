@@ -1,0 +1,108 @@
+prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
+prefix owl:      <http://www.w3.org/2002/07/owl#>
+prefix sh:       <http://www.w3.org/ns/shacl#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+prefix skos:     <http://www.w3.org/2004/02/skos/core#>
+prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
+prefix dalicc:   <http://dalicc.net/licenselibrary/>
+
+#
+# Prefix for terms from Inrupt's Artifact Generator vocabulary - use is purely
+# optional, but by explicitly marking a vocabulary as being
+# 'Inrupt-Artifact-Generator-compliant' (i.e., by typing it as being of
+# RDF:type 'inrupt_gen:Ontology'), tools (like the Artifact Generator itself)
+# can enforce certain Best Practices (like those defined by Inrupt, which
+# basically follow the principles of FAIR, but are also extended to include
+# RDF-specific practices (like all terms telling us what vocabulary they are
+# defined by, or each term providing short and long descriptions, in at least
+# English, etc.).
+#
+prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+
+#
+# This prefix and the associated IRI are intended to be renamed to suit your
+# specific vocabulary (i.e., copy this template, and then search-and-replace
+# all occurrences of both the prefix and it's IRI value)...
+#
+prefix your_prefix: <https://namespace.your-domain.com/vocab/your_prefix>
+
+#
+# Describe our vocabulary - i.e., an English description, its version, who
+# created it, its suggested prefix, its license, etc.
+#
+# We can (if we like) explicitly type this vocab as being an Inrupt Artifact
+# Generator-compliant vocab (or 'Ontology') too, meaning we expect the
+# Artifact Generator to be able to enforce its set of RDF guidelines to help
+# ensure this vocab remains high-quality.
+#
+your_prefix:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    owl:versionIRI your_prefix:0.0.1 ;
+    dcterms:title
+        "Short title for YOUR vocabulary (in English...)"@en ,
+        "Short title for YOUR vocabulary (in Spanish...)"@es ;
+    dcterms:description
+        "Description of YOUR vocabulary (in English...)."@en ,
+        "Description of YOUR vocabulary (in Spanish...)."@es ;
+    dcterms:creator <https://your-domain.com/webid#me-or-my-org> ;
+    dcterms:issued "2001/01/01"^^xsd:date ;
+    dcterms:license dalicc:MIT ;
+    sh:declare your_prefix:_PrefixDeclaration_your_prefix .
+
+your_prefix:_PrefixDeclaration_your_prefix a sh:PrefixDeclaration ;
+    sh:prefix "your_prefix" ;
+    #
+    # Unfortunately, the syntax of Turtle won't allow us to reuse our prefix
+    # defined above as a string - so we need to duplicate the value here...
+    #
+    sh:namespace "https://namespace.your-domain.com/vocab/your_prefix"^^xsd:anyURI .
+
+#
+# The exercise here is to translate these triples from N-Triples format to be
+# as compact as possible in Turtle...
+#
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://your-domain.com/vocab/> .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#label> "Solution Class"@en .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#label> "Clase de solución"@es .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#comment> "This class should a working solution for introducing a Class term to [your_prefix]."@en .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Esta clase debería ser una solución funcional para introducir un término de clase en [your_prefix]."@es .
+<https://your-domain.com/vocab/SolutionClass> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.wikidata.org/wiki/Q1> .
+<https://your-domain.com/vocab/SolutionClass> <http://purl.org/dc/terms/issued> "2011/12/12"^^<http://www.w3.org/2001/XMLSchema#date> .
+
+#
+# Here's my solution to the SolutionClass:
+#
+#your_prefix:SolutionClass a rdfs:Class, owl:Class ;
+#    rdfs:isDefinedBy your_prefix:_Ontology ;
+#    rdfs:label "Solution Class"@en ;
+#    rdfs:label "Clase de solución"@es ;
+#    rdfs:comment "This class should a working solution for introducing a Class term to [your_prefix]."@en ;
+#    rdfs:comment "Esta clase debería ser una solución funcional para introducir un término de clase en [your_prefix]."@es ;
+#    rdfs:seeAlso <https://www.wikidata.org/wiki/Q1> ;
+#    dcterms:issued "2011/12/12"^^xsd:date .
+#
+
+#
+# Vocabs generally consist of Classes and Properties, will typically the same
+# kinda of metadata for each - so we provide simple templates here that may be
+# useful to cut-and-paste fr new terms...
+#
+
+#
+#your_prefix:YOUR_CLASS a rdfs:Class, owl:Class ;
+#    rdfs:isDefinedBy your_prefix:_Ontology ;
+#    rdfs:label ""@en ;
+#    rdfs:label ""@es ;
+#    rdfs:comment ""@en ;
+#    rdfs:comment ""@es .
+
+#
+#your_prefix:YOUR_PROPERTY a rdf:Property, owl:ObjectProperty ;
+#    rdfs:isDefinedBy your_prefix:_Ontology ;
+#    rdfs:label ""@en ;
+#    rdfs:label ""@es ;
+#    rdfs:comment ""@en ;
+#    rdfs:comment ""@es .

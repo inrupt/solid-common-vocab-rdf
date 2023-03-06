@@ -8,5 +8,5 @@ inputs:
     description: 'Path to the generated file'
     required: true
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'

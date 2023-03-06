@@ -31,13 +31,13 @@ multiple programming languages.
 
 ## Published vocabulary bundles
 
-This repository contains Artifact Generator configuration files for many
-bundles of related vocabularies (each configured in its own sub-directory from
-the root of this repository).
+This repository contains Artifact Generator configuration files for bundles of
+related vocabularies (each configured in its own sub-directory from the root of
+this repository).
 
 **Note:** Below we provide links to the default TypeScript artifacts that Inrupt
 publishes to `npmjs.org` (which define individual vocabulary terms using String
-literals). In fact we also publish many more artifacts that are more
+literals). In fact, we also publish many more artifacts that are more
 specialized for working with RDF too (e.g., we publish artifacts where the
 vocabulary terms are typed as `IRI` from your favorite RDF library, such as in
 Java from [RDF4J](https://rdf4j.org/javadoc/latest/index.html?org/eclipse/rdf4j/model/IRI.html),
@@ -80,15 +80,15 @@ The general directory structure we use for each vocabulary bundle is as
 follows:
 
 * In the root directory we generally provide an Artifact Generator
-  configuration file that configured which vocabularies we wish to bundle
+  configuration file that configures which vocabularies we wish to bundle
   together, and how to package and publish multiple artifacts (e.g., multiple
   `npm` modules, or multiple Java JARs, etc.).
 
-* A 'CopyOfVocab' directory that stores local vocabulary files (typically in
+* A `/CopyOfVocab` directory that stores local vocabulary files (typically in
   Turtle), such as copies of online vocabularies (e.g., if we can't easily
   access online versions in RDF, or if the hosting server is unreliable).
 
-* An 'Extension' directory that stores extension vocabularies that, for
+* An `/Extension` directory that stores extension vocabularies that, for
   example, may provide translations of labels or comments for terms from other
   vocabularies, or that select subsets of terms from other large vocabularies.
 
@@ -134,13 +134,32 @@ library that is designed to pull in meta-data defined in the original RDF
 vocabulary, and that exposes that meta-data (like `rdfs:label`, `rdfs:comment`,
 `rdfs:seeAlso`, `rdfs:isDefinedBy`, etc.) via simple JavaScript methods.
 
-For example, to access the comment associated with the FOAF term 'Agent', do
-the following:
+For example, to access the `rdfs:comment` metadata associated with the FOAF term
+'Agent', simply try the following:
+
+```bash
+mkdir tmp && cd tmp
+npm init -y
+npm i @inrupt/vocab-common-rdf-solidcommonvocab
+```
+
+Then create a simple `index.js` file containing these two lines of code:
 
 ```javascript
-const { FOAF } = require("@inrupt/vocab-common-rdf-with-metadata");
+const { FOAF } = require("@inrupt/vocab-common-rdf-solidcommonvocab");
 
-console.log(`The comment associated with Agent: [${FOAF.Agent.comment}]`);
+console.log(`The comment associated with the term 'foaf:Agent' is: [${FOAF.Agent.comment}]`);
+```
+
+...and run it from the command line:
+
+```bash
+node index
+```
+
+...and you should see this output:
+```bash
+The comment associated with the term 'foaf:Agent' is: [An agent (eg. person, group, software or physical artifact).]
 ```
 
 ## Try it out yourself - on CodeSandbox
