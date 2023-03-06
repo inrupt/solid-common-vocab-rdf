@@ -16,12 +16,12 @@ jobs:
         steps:
         # Setup.
         - name: Checkout repo
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
         # Initializes node for the runner.
         - name: Node setup
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@v3
           with:
-            node-version: '12.12.0'
+            node-version: '16.16.0'
             registry-url: https://registry.npmjs.com/
             scope: '@inrupt'
         # The following step sets up Maven.
