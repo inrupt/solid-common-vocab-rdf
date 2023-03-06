@@ -4,8 +4,6 @@ prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
 prefix owl:      <http://www.w3.org/2002/07/owl#>
 prefix sh:       <http://www.w3.org/ns/shacl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
-prefix skos:     <http://www.w3.org/2004/02/skos/core#>
-prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 #
