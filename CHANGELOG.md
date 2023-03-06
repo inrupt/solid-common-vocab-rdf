@@ -21,6 +21,8 @@ configuration files contained in this repository.
 - Updated HTTPH to use 'https:' scheme (needed 'cos it states a relative 
   namespace IRI, and auto-redirects from 'http:' to 'https:').
 - Added ADMS.
+- Updated Artifact Generator version, and made associated breaking updates (so
+  generated artifact versions bumped too (which should have been on release!)).
 
 ## v1.0.3 2021-10-03
 
