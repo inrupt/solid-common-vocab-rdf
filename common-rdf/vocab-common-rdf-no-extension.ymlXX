@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 2.0.0
+artifactGeneratorVersion: 3.0.0
 
 versioning:
   type: git
