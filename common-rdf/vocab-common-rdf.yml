@@ -977,6 +977,10 @@ vocabList:
 
   - inputResources:
       - http://www.w3.org/ns/adms#
+    # Changes noticed in May 2023 where the VANN triples were removed for some
+    # reason - meaning we now need to provide a preferred prefix for this
+    # vocab (which is a shame!).
+    nameAndPrefixOverride: adms
 
   - inputResources:
       - http://www.openarchives.org/ore/terms/
