@@ -2,7 +2,7 @@ prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd:      <http://www.w3.org/2001/XMLSchema#>
 prefix owl:      <http://www.w3.org/2002/07/owl#>
-prefix vann:     <http://purl.org/vocab/vann/>
+prefix sh:       <http://www.w3.org/ns/shacl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix skos:     <http://www.w3.org/2004/02/skos/core#>
 prefix skosxl:   <http://www.w3.org/2008/05/skos-xl#>
@@ -17,7 +17,7 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 prefix vs:       <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 
 prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
-prefix inrupt_common: <https://inrupt.com/vocab/common#>
+prefix inrupt_common: <https://namespace.inrupt.com/vocab/common/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -25,7 +25,7 @@ prefix inrupt_common: <https://inrupt.com/vocab/common#>
 #
 inrupt_common: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/common/0.0.1> ;
+    owl:versionIRI <https://namespace.inrupt.com/vocab/common/0.0.1> ;
     dcterms:title "Inrupt common vocabulary"@en ;
     dcterms:title "Inrupt vocabulario común"@es ;
     dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
@@ -33,8 +33,11 @@ inrupt_common: a owl:Ontology , inrupt_gen:Ontology ;
     dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license dalicc:MIT ;
-    vann:preferredNamespacePrefix "inrupt_common" ;
-    vann:preferredNamespaceUri "https://inrupt.com/vocab/common#" .
+    sh:declare inrupt_common:_PrefixDeclaration .
+
+inrupt_common:_PrefixDeclaration a sh:PrefixDeclaration ;
+    sh:prefix "inrupt_common" ;
+    sh:namespace "https://namespace.inrupt.com/vocab/common/"^^xsd:anyURI .
 
 #
 # We did have terms to represent the very generic concept of a 'device'
@@ -102,14 +105,42 @@ inrupt_common:CustomerId a rdfs:Class ;
  legacy sistemas o sistemas de terceros, o sistemas internos separados, etc.)."""@es .
 
 
-inrupt_common:customerId a rdf:Property ;
+inrupt_common:partialIdHint a rdf:Property ;
     rdfs:isDefinedBy inrupt_common: ;
-    rdfs:label "Customer identifier"@en ;
-    rdfs:label "Identificador de cliente"@es ;
-    rdfs:comment """A generic customer identifier (e.g., an identifier for a customer from a legacy
- system, or a 3rd-party system, or a separate internal system, etc.)."""@en ;
-    rdfs:comment """Un identificador de cliente genérico (por ejemplo, un identificador de un
- cliente de un sistema heredado, un sistema de terceros o un sistema interno separado, etc.)."""@es .
+    rdfs:label "Partial ID hint"@en ;
+    rdfs:label "Sugerencia de ID parcial"@es ;
+    rdfs:comment """A partial identifier (useful as a 'hint'), but not a full
+ IRI. This ID can be useful as a form of helpful 'correlation ID' - for
+ instance, when a complex process has many constituent resources (e.g., an
+ overall questionnaire process may aggregate resources for participant
+ invitation; the questions being asked; the answers given; the sharing of
+ those answers; the anonymization of those answers; the aggregation of those
+ answers into an overall dataset; the geneation of an analysis report; etc.).
+  For helpful tracking of all these resources, we may choose to use a
+ consistent ID as part of the IRI of each constituent resource, but where each
+ resource is hosted in a Pod related to that process stakeholder, and
+ therefore the IRI for each resource (that is effectively 'aggregated'
+ together to form the entire overall process) can be completely independent
+ and different - so it's really important to remember that the use of this ID
+ should always be purely optional (as the IRIs themselves should always be
+ considered as being completely opaque, and should never encode  meaningful
+ semantics in the 'parts' of their IRIs!)."""@en ;
+    rdfs:comment """Un identificador parcial (útil como 'pista'), pero no un identificador completo
+ IRI. Esta identificación puede ser útil como una forma de 'identificación de correlación' útil, por
+ ejemplo, cuando un proceso complejo tiene muchos recursos constituyentes (por ejemplo, un
+ el proceso general del cuestionario puede agregar recursos para los participantes
+ invitación; las preguntas que se hacen; las respuestas dadas; el compartir de
+ esas respuestas; la anonimización de esas respuestas; la suma de esos
+ respuestas en un conjunto de datos general; la generación de un informe de análisis; etc.).
+  Para un seguimiento útil de todos estos recursos, podemos optar por utilizar un
+ ID consistente como parte del IRI de cada recurso constituyente, pero donde cada
+ el recurso está alojado en un Pod relacionado con esa parte interesada del proceso, y
+ por lo tanto, el IRI para cada recurso (que es efectivamente 'agregado'
+ juntos para formar todo el proceso general) pueden ser completamente independientes
+ y diferente, por lo que es muy importante recordar que el uso de esta identificación
+ siempre debe ser puramente opcional (ya que los IRI mismos siempre deben ser
+ considerado como completamente opaco, y nunca debe codificar significativo
+ semántica en las 'partes' de sus IRI!)."""@es .
 
 #
 # Authentication.

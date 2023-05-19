@@ -524,16 +524,18 @@ vocabList:
 
 
   # Note: We *MUST* use the 'https://' URI for Schema.org, since the RIO parser
-  # (used in our Java artifact generator) will not follow the 301 redirect from
+  # (used in our Java Artifact Generator) will not follow the 301 redirect from
   # 'http://', and so our RDF4J model will be empty and therefore so will our
   # generated source.
   #
   # Note: With over 2,500 terms, Schema.org as a whole is very big, and the
   # generated code can amount to over 700Kb. So instead we recommend using an
   # extension vocabulary that selectively includes relevant terms (see below).
+  # But we leave this configuration here simply to show anyone who wishes to
+  # generate from the full vocabulary how to do so easily.
 #  - descriptionFallback: Schema.org (the full vocabulary)
 #    inputResources:
-#      - https://schema.org/version/latest/schema.ttl
+#      - https://schema.org/version/latest/schemaorg-current-https.ttl
 
   - nameAndPrefixOverride: schema_inrupt
     inputResources:
@@ -729,6 +731,12 @@ vocabList:
     # namespace, which we need to stipulate explicitly here.
     namespaceIriOverride: http://www.w3.org/ns/prov#
 
+  - descriptionFallback: Workspace Ontology
+    nameAndPrefixOverride: ws
+    inputResources:
+      - http://www.w3.org/ns/pim/space
+
+
   - descriptionFallback: W3C Content Negotiation by Profile
     nameAndPrefixOverride: altr
     # Perhaps because this is not a standard yet, nothing is returned from the
@@ -812,8 +820,8 @@ vocabList:
     # So here we process the Security vocab but only for terms from that
     # namespace.
     vocabularyIriOverride: https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#
-    # This vocab is also defined terms in multiple namespaces (which is also
-    # bad form!), so ignore others.
+    # This vocab is also defining terms in multiple namespaces (which is bad
+    # form!), so ignore others.
     ignoreNonVocabTerms: true
     inputResources:
       - https://w3id.org/security/
@@ -848,12 +856,15 @@ vocabList:
       - http://www.w3.org/2003/06/sw-vocab-status/ns#
 
   - inputResources:
-      - http://usefulinc.com/ns/doap#
+      # As of April 2023, this server seems to be down.
+      # - http://usefulinc.com/ns/doap#
+      - https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf
     nameAndPrefixOverride: doap
-    # The server serving this vocabulary doesn't respond with a HTTP Content-Type header, so our
-    # code can't know which RDF parser to use. So we need to tell it explicitly what the content
-    # type returned actually is.
-    vocabContentTypeHeaderFallback: application/rdf+xml
+    # The server serving this vocabulary doesn't respond with a HTTP
+    # Content-Type header, so our code can't know which RDF parser to use. So
+    # we need to tell it explicitly what the content type returned actually
+    # is.
+    vocabContentTypeHeaderOverride: application/rdf+xml
 
   - inputResources:
       - ./CopyOfVocab/inrupt-vc-data-model.ttl
@@ -967,10 +978,36 @@ vocabList:
   - inputResources:
       - http://www.w3.org/ns/adms#
 
+  - inputResources:
+      - http://www.openarchives.org/ore/terms/
+    nameAndPrefixOverride: ore
+
+  - inputResources:
+      - http://purl.org/wf4ever/wfprov#
+    nameAndPrefixOverride: wfprov
+
+  - inputResources:
+      - http://purl.org/wf4ever/wfdesc#
+    nameAndPrefixOverride: wfdesc
+
+  - inputResources:
+      - http://purl.org/wf4ever/ro#
+    nameAndPrefixOverride: ro
+
   #
-  # This vocab still (2023-03) has the known bug that it uses relative IRIs
-  # which blows up because it's actual namespace IRI is HTTP-based, yet when
+  #  This vocab still (2023-04) has the known bug that it uses relative IRIs,
+  # which blows up because its actual namespace IRI is HTTP-based, yet when
   # dereferenced the server redirects all lookups to HTTPS IRIs...
+  #  But the real problem is actually in the version of 'fetch-lite' (v2.1.2)
+  # the Artifact Generator currently uses, specifically the code here:
+  #   @rdfjs/fetch-lite/lib/attachQuadStream.js
+  # ...in the function 'attachQuadStream()'. This code is using the response
+  # URL instead of checking if the parser provides a 'baseIRI' (which our
+  # parser instance does):
+  #   return parsers.import(contentType, res.body, {
+  #     baseIRI: res.url,  // HERE'S THE PROBLEM - NOT USING PARSER 'baseIRI'.
+  #     context: jsonldContext
+  #   })
   #
 #  - inputResources:
 #      - https://www.w3.org/ns/spec
