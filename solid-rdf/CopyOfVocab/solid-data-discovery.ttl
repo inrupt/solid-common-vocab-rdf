@@ -111,24 +111,24 @@ solid_dd:storageDescription a rdf:Property, owl:ObjectProperty ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
 
-solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
+solid_dd:storagePathRelative a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Allowed data model"@en ;
-    rdfs:label "Modelo de datos permitido"@es ;
+    rdfs:label "Storage path (relative to...something)"@en ;
+    rdfs:label "Ruta de almacenamiento (relativa a... algo)"@es ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
 
-solid_dd:relativeStoragePath a rdf:Property, owl:ObjectProperty ;
+solid_dd:containerPathBase a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Relative storage path"@en ;
-    rdfs:label "Ruta de almacenamiento relativa"@es ;
+    rdfs:label "Container path (base)"@en ;
+    rdfs:label "Ruta del contenedor (base)"@es ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
 
-solid_dd:baseContainerPath a rdf:Property, owl:ObjectProperty ;
+solid_dd:authoredBy a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Base container path"@en ;
-    rdfs:label "Ruta del contenedor base"@es ;
+    rdfs:label "Authored by"@en ;
+    rdfs:label "Escrito por"@es ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
 
@@ -139,9 +139,9 @@ solid_dd:authoredWith a rdf:Property, owl:ObjectProperty ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
 
-solid_dd:authoredBy a rdf:Property, owl:ObjectProperty ;
+solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Authored by"@en ;
-    rdfs:label "Escrito por"@es ;
+    rdfs:label "Allowed data model"@en ;
+    rdfs:label "Modelo de datos permitido"@es ;
     rdfs:comment ""@en ;
     rdfs:comment ""@es .
