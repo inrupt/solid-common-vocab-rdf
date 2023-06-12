@@ -136,5 +136,5 @@ solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Allowed data model"@en ;
     rdfs:label "Modelo de datos permitido"@es ;
-    rdfs:comment "The shape, or non-RDF data model expected by the storageDescription"@en ;
+    rdfs:comment "The shape or non-RDF data model expected by the storage description"@en ;
     rdfs:comment "La forma, o modelo de datos no-RDF esperado por la descripción de almacenamiento"@es .
