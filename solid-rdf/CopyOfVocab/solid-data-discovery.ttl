@@ -122,7 +122,7 @@ solid_dd:containerPathBase a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Container path (base)"@en ;
     rdfs:label "Ruta del contenedor (base)"@es ;
-    rdfs:comment "The (user provided) base container path that apps should use when resolving a relative storage path"@en ;
+    rdfs:comment "The base container path, as specified in a user's profile, that apps should use when resolving a relative storage path"@en ;
     rdfs:comment "La ruta de acceso al contenedor base (proporcionada por el usuario) que la aplicación debe usar al resolver una ruta de almacenamiento relativa"@es .
 
 solid_dd:authoredWith a rdf:Property, owl:ObjectProperty ;
