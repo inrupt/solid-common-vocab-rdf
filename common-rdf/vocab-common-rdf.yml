@@ -896,6 +896,9 @@ vocabList:
 
   - inputResources:
       - http://www.w3.org/ns/locn#
+    # It seems this server is no longer handling 'q' values for media types
+    # properly, so just explicitly ask for only Turtle.
+    vocabAcceptHeaderOverride: "text/turtle"
 
   - inputResources:
       - http://www.w3.org/ns/sosa/
