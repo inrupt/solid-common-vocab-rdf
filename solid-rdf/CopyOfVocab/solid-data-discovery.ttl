@@ -111,19 +111,19 @@ solid_dd:storageDescription a rdf:Property, owl:ObjectProperty ;
     rdfs:comment "A description of which relative locations applications use to write a given data model"@en ;
     rdfs:comment "Una descripción de qué ubicaciones relativas utilizan las aplicaciones para escribir un modelo de datos dado"@es .
 
+solid_dd:storagePathBase a rdf:Property, owl:ObjectProperty ;
+    rdfs:isDefinedBy solid_dd:_Ontology ;
+    rdfs:label "Storage path (base)"@en ;
+    rdfs:label "Ruta de almacenamiento (base)"@es ;
+    rdfs:comment "The base path to storage, as specified in a user's profile, that apps should use when resolving a relative storage path"@en ;
+    rdfs:comment "La ruta base al almacenamiento, como se especifica en el perfil de un usuario, que las aplicaciones deben usar al resolver una ruta de almacenamiento relativa"@es .
+
 solid_dd:storagePathRelative a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Storage path (relative)"@en ;
     rdfs:label "Ruta de almacenamiento (relativa)"@es ;
     rdfs:comment "Storage path relative to the base container path"@en ;
     rdfs:comment "Ruta de almacenamiento relativa a la base del contenedor"@es .
-
-solid_dd:containerPathBase a rdf:Property, owl:ObjectProperty ;
-    rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Container path (base)"@en ;
-    rdfs:label "Ruta del contenedor (base)"@es ;
-    rdfs:comment "The base container path, as specified in a user's profile, that apps should use when resolving a relative storage path"@en ;
-    rdfs:comment "La ruta de acceso al contenedor base (proporcionada por el usuario) que la aplicación debe usar al resolver una ruta de almacenamiento relativa"@es .
 
 solid_dd:authoredWith a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
