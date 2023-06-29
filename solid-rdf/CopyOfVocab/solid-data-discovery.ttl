@@ -94,54 +94,47 @@ solid_dd:reads a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Reads"@en ;
     rdfs:label "Lee"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:comment "A data model that the application reads"@en ;
+    rdfs:comment "Un modelo de datos que la aplicación lee"@es .
 
 solid_dd:writes a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Writes"@en ;
     rdfs:label "Escribe"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:comment "A data model that the application writes"@en ;
+    rdfs:comment "Un modelo de datos que la aplicación escribe"@es .
 
 solid_dd:storageDescription a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Storage description"@en ;
     rdfs:label "Descripción de almacenamiento"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:comment "A description of which relative locations applications use to write a given data model"@en ;
+    rdfs:comment "Una descripción de qué ubicaciones relativas utilizan las aplicaciones para escribir un modelo de datos dado"@es .
 
-solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
+solid_dd:storagePathBase a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Allowed data model"@en ;
-    rdfs:label "Modelo de datos permitido"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:label "Storage path (base)"@en ;
+    rdfs:label "Ruta de almacenamiento (base)"@es ;
+    rdfs:comment "The base path to storage, as specified in a user's profile, that apps should use when resolving a relative storage path"@en ;
+    rdfs:comment "La ruta base al almacenamiento, como se especifica en el perfil de un usuario, que las aplicaciones deben usar al resolver una ruta de almacenamiento relativa"@es .
 
-solid_dd:relativeStoragePath a rdf:Property, owl:ObjectProperty ;
+solid_dd:storagePathRelative a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Relative storage path"@en ;
-    rdfs:label "Ruta de almacenamiento relativa"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
-
-solid_dd:baseContainerPath a rdf:Property, owl:ObjectProperty ;
-    rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Base container path"@en ;
-    rdfs:label "Ruta del contenedor base"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:label "Storage path (relative)"@en ;
+    rdfs:label "Ruta de almacenamiento (relativa)"@es ;
+    rdfs:comment "Storage path relative to the base container path"@en ;
+    rdfs:comment "Ruta de almacenamiento relativa a la base del contenedor"@es .
 
 solid_dd:authoredWith a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
     rdfs:label "Authored with"@en ;
     rdfs:label "Creado con"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:comment "An application that was used to author the resource"@en ;
+    rdfs:comment "Una aplicación que se utilizó para crear el recurso"@es .
 
-solid_dd:authoredBy a rdf:Property, owl:ObjectProperty ;
+solid_dd:allowedDataModel a rdf:Property, owl:ObjectProperty ;
     rdfs:isDefinedBy solid_dd:_Ontology ;
-    rdfs:label "Authored by"@en ;
-    rdfs:label "Escrito por"@es ;
-    rdfs:comment ""@en ;
-    rdfs:comment ""@es .
+    rdfs:label "Allowed data model"@en ;
+    rdfs:label "Modelo de datos permitido"@es ;
+    rdfs:comment "The shape or non-RDF data model expected by the storage description"@en ;
+    rdfs:comment "La forma, o modelo de datos no-RDF esperado por la descripción de almacenamiento"@es .
