@@ -7,7 +7,7 @@ prefix sh:       <http://www.w3.org/ns/shacl#>
 prefix dcterms:  <http://purl.org/dc/terms/>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen: <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 prefix inrupt_bp_core: <https://w3id.org/inrupt/vocab/tool/bestPractice/core/>
 
 #

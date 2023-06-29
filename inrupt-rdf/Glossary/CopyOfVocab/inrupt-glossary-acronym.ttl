@@ -8,7 +8,7 @@ prefix cc: <http://creativecommons.org/ns#>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix skosxl: <http://www.w3.org/2008/05/skos-xl#>
 
-prefix inrupt_gen:              <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:              <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 prefix inrupt_common:           <https://inrupt.com/inrupt/vocab/common#>
 prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#>
 

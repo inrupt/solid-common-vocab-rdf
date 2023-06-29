@@ -10,7 +10,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix inrupt_gen:                    <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:                    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 prefix inrupt_meta_server_creational: <https://inrupt.com/vocab/meta/server_creational#>
 
 #

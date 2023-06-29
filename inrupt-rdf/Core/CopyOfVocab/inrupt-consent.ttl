@@ -11,7 +11,7 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix gconsent:       <https://w3id.org/GConsent#>
-prefix inrupt_gen:     <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:     <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
 prefix inrupt_consent: <https://inrupt.com/vocab/consent#>
 
