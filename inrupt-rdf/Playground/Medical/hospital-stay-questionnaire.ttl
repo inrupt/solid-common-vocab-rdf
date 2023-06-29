@@ -2,7 +2,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix survey: <https://w3id.org/survey-ontology#>
 
-prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
 prefix prem: <https://vpp.com/data/vocab/prem/>
 

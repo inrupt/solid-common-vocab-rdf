@@ -16,8 +16,8 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 # Suggests the need for the creation of a more 'modern' vocab perhaps...
 prefix vs:       <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 
-prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
-prefix inrupt_common: <https://namespace.inrupt.com/vocab/common/>
+prefix inrupt_gen:    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
+prefix inrupt_common: <https://w3id.org/inrupt/namespace/vocab/common/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -25,7 +25,7 @@ prefix inrupt_common: <https://namespace.inrupt.com/vocab/common/>
 #
 inrupt_common: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://namespace.inrupt.com/vocab/common/0.0.1> ;
+    owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/common/0.0.1> ;
     dcterms:title "Inrupt common vocabulary"@en ;
     dcterms:title "Inrupt vocabulario común"@es ;
     dcterms:description "The Inrupt common vocabulary - just commonly used terms across all Inrupt products and services."@en ;
@@ -37,7 +37,7 @@ inrupt_common: a owl:Ontology , inrupt_gen:Ontology ;
 
 inrupt_common:_PrefixDeclaration a sh:PrefixDeclaration ;
     sh:prefix "inrupt_common" ;
-    sh:namespace "https://namespace.inrupt.com/vocab/common/"^^xsd:anyURI .
+    sh:namespace "https://w3id.org/inrupt/namespace/vocab/common/"^^xsd:anyURI .
 
 #
 # We did have terms to represent the very generic concept of a 'device'

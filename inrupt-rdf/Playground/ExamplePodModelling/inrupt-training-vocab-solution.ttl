@@ -19,7 +19,7 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 # defined by, or each term providing short and long descriptions, in at least
 # English, etc.).
 #
-prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
 #
 # This prefix and the associated IRI are intended to be renamed to suit your

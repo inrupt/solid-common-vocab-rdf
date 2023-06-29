@@ -17,11 +17,10 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 # defined by, or each term providing short and long descriptions, in at least
 # English, etc.).
 #
-prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
+prefix inrupt_gen:    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
 #
 # This vocab namespace IRI is intended to be renamed to something like this...
-#
 #    prefix solid_dd: <https://www.w3.org/ns/solid/data-discovery/>
 # ...once it begins its standardization journey through the W3C.
 #
@@ -31,9 +30,6 @@ prefix inrupt_gen:    <https://inrupt.com/vocab/tool/artifact_generator/>
 # this vocab on behalf of a 3rd-party, in this case the Solid project:
 #
 prefix solid_dd: <https://w3id.org/inrupt/namespace/vocab/3rd-party/solid/data-discovery/>
-#  NOTE: Just for information, but we (as of 2023/03) expect the above IRI to
-#  redirect to:
-# prefix solid_dd: <https://namespace.inrupt.com/vocab/3rd-party/solid/data-discovery/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who
