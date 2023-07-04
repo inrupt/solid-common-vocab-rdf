@@ -19,7 +19,7 @@ inrupt_glossary_ess: a owl:Ontology , inrupt_gen:Ontology  ;
     owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/ess/0.0.1> ;
     dcterms:title "Inrupt ESS glossary vocabulary" ;
     dcterms:description "The Enterprise Solid Server (ESS) glossary vocabulary describes the terms commonly used across the entire Inrupt ESS system. This includes all of the services, infrastructure, storage technologies, etc."@en ;
-    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2021-08-23"^^xsd:date ;
     vann:preferredNamespacePrefix "inrupt_glossary_ess" ;
     vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/ess#" ;

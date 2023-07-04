@@ -21,7 +21,7 @@ inrupt_fair:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
 	dcterms:description "The FAIR principles, as published by Scientific Data in 2016."@en ;
 	rdfs:seeAlso "https://www.go-fair.org/fair-principles/"^^xsd:anyURI ;
 	rdfs:seeAlso "https://www.go-fair.org/go-fair-initiative/"^^xsd:anyURI ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2022/12/05"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
     sh:declare inrupt_fair:_PrefixDeclaration .

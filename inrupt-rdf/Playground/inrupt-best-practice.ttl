@@ -19,7 +19,7 @@ inrupt_bp_core:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionIRI <https://w3id.org/inrupt/vocab/tool/bestPractice/core/0.0.1> ;
  	dcterms:title "Inrupt Best Practice core"@en ;
 	dcterms:description "The Inrupt Best Practice core vocabulary defining terms to describe and report on general Best Practice guidelines."@en ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2022/12/02"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
     sh:declare inrupt_bp_core:_PrefixDeclaration .

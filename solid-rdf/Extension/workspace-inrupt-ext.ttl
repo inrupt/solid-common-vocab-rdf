@@ -25,7 +25,7 @@ prefix ws_solid_ext: <https://inrupt.com/vocab/extension/ws#>
 ws_solid_ext: a inrupt_gen:OntologyExtension ;
     owl:versionInfo "0.0.1" ;
     owl:versionIRI <http://www.w3.org/ns/pim/space/0.0.1> ;
-    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/07/28"^^xsd:date ;
     dcterms:title "Inrupt extension to the Workspace Ontology"@en ;
     dcterms:description "This extension adds predicates making explicit some implicit knowledge in the Workspace ontology."@en ;

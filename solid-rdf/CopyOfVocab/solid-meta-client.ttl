@@ -19,7 +19,7 @@ solid_meta_client: a owl:Ontology;
 	dcterms:title "Solid Metadata Server runtime Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g., classes, properties and text strings (e.g.
 	informative labels or error messages) used by Solid clients."""@en ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_meta_client" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_meta_client#" ;

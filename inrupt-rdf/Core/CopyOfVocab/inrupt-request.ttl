@@ -24,7 +24,7 @@ inrupt_request: a owl:Ontology , inrupt_gen:Ontology ;
 	dcterms:description """The Solid vocabulary providing terms for a various
  Named Graphs that make up a request. For example; Headers, Body, Metadata,
  ACL, etc."""@en ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2020/05/15"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_request" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/request#" ;

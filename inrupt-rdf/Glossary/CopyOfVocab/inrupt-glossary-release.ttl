@@ -19,7 +19,7 @@ inrupt_glossary_release: a owl:Ontology , inrupt_gen:Ontology  ;
      owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/release/0.0.1> ;
      dcterms:title "Inrupt release glossary vocabulary" ;
      dcterms:description "The Inrupt release glossary vocabulary describes the terms used within Inrupt to describe the various stages of product releases."@en ;
-     dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+     dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
      dcterms:issued "2021-08-23"^^xsd:date ;
      vann:preferredNamespacePrefix "inrupt_glossary_release" ;
      vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/release#" ;
