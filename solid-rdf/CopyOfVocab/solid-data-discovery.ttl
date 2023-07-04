@@ -56,7 +56,7 @@ solid_dd:_Ontology a owl:Ontology , inrupt_gen:Ontology , owl:NamedIndividual ;
  de Inrupt para declarando cómo las aplicaciones modelan los datos y dónde los
  escriben para ayudar a la interoperabilidad a corto plazo."""@es ;
 
-    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2023/03/06"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     # This is an Inrupt internal document that provides background and context

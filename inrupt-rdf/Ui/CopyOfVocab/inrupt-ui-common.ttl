@@ -17,7 +17,7 @@ inrupt_ui_common: a owl:Ontology , inrupt_gen:Ontology ;
     dcterms:title "Inrupt UI common vocabulary"@en ;
     dcterms:description """The Inrupt User Interface (UI) common vocabulary -
  commonly used terms across all Inrupt UI components."""@en ;
-    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     vann:preferredNamespacePrefix "inrupt_ui_common" ;

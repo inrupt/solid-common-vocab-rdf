@@ -16,7 +16,7 @@ acp: a owl:Ontology ;
     owl:versionIRI <http://www.w3.org/ns/solid/acp/0.0.1> ;
     dcterms:title "Solid Access Control Policy Vocabulary"@en ;
     dcterms:description "A vocabulary to structure policy-based access controls for the Solid ecosystem."@en ;
-    dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+    dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2020-09-15"^^xsd:date ;
     vann:preferredNamespacePrefix "acp" ;
     vann:preferredNamespaceUri "http://www.w3.org/ns/solid/acp#" ;

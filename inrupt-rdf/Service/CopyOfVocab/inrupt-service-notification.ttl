@@ -19,7 +19,7 @@ inrupt_notification: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionIRI <https://inrupt.com/vocab/service/notification/0.0.1> ;
  	dcterms:title "Inrupt notification vocabulary"@en ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/11/08"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;

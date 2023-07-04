@@ -23,7 +23,7 @@ inrupt_meta_shacl: a owl:Ontology , inrupt_gen:Ontology ;
  	dcterms:title "Metadata Client Vocabulary"@en ;
 	dcterms:description """A vocabulary providing terms (e.g., classes, properties and text
 	strings (e.g. informative labels or error messages) usable by SHACL validation engines at runtime."""@en ;
-	dcterms:creator <https://w3id.com/inrupt/namespace/webid/inrupt> ;
+	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/10/21"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_meta_shacl" ;
 	vann:preferredNamespaceUri "https://inrupt.com/vocab/meta/shacl#" ;
