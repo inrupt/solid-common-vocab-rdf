@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Inrupt, Inc.",
   "license": "MIT",
+  "scripts": {
+    "build": "npx @vercel/ncc build -o dist/index.js index.js"
+  },
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
