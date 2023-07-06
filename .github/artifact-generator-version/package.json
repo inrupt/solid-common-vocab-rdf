@@ -6,6 +6,9 @@
   "author": {
     "name": "Inrupt, Inc."
   },
+  "scripts": {
+    "build": "npx @vercel/ncc build -o dist index.js"
+  },
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
