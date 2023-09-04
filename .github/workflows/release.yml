@@ -21,7 +21,7 @@ jobs:
     steps:
      # Makes the current repository available to the workflow.
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     # Initializes Node and npm to install the Artifact Generator from GitHub
     # packages.
     - name: Node setup

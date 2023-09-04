@@ -19,7 +19,7 @@ jobs:
         steps:
         # Setup.
         - name: Checkout repo
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
         # Initializes node for the runner.
         - name: Node setup
           uses: actions/setup-node@v3
