@@ -13,9 +13,9 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 prefix gconsent:       <https://w3id.org/GConsent#>
 prefix inrupt_gen:     <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
-prefix inrupt_consent: <https://inrupt.com/vocab/consent#>
+prefix inrupt_consent: <https://w3id.org/inrupt/namespace/vocab/consent/>
 
-prefix project:        <https://data.company.com/vocab/apps/project#>
+prefix project:        <https://data.company.com/vocab/apps/project/>
 
 #
 # This vocab doesn't exist yet, but I've requested an update to the WebID draft spec (from Henry Story on the Solid
@@ -29,13 +29,13 @@ prefix webid: <https://www.w3.org/ns/webid#>
 #
 inrupt_consent: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/consent/0.0.1> ;
+    owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/consent/0.0.1> ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/01/01"^^xsd:date ;
  	dcterms:title "Inrupt Consent vocabulary"@en ;
 	dcterms:description "Consent vocabulary defining Inrupt-specific terms, especially terms that provide context"@en ;
 	vann:preferredNamespacePrefix "inrupt_consent" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/consent#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/consent/" ;
 	dcterms:license dalicc:MIT .
 
 

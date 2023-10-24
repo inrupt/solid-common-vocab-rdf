@@ -8,19 +8,19 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_ui_comp_welcome: <https://inrupt.com/vocab/ui/component/welcome#>
+prefix inrupt_ui_comp_welcome: <https://w3id.org/inrupt/namespace/vocab/ui/component/welcome/>
 
 
 inrupt_ui_comp_welcome: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/ui/component/welcome/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocabui/component/welcome/0.0.1> ;
  	dcterms:title "Inrupt Welcome Page vocabulary"@en ;
 	dcterms:description """The Inrupt Welcome Page vocabulary."""@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2020/05/06"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_ui_comp_welcome" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/ui/component/welcome#" .
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/ui/component/welcome/" .
 
 inrupt_ui_comp_welcome:msgWelcome a rdfs:Literal ;
     skos:definition "Welcome"@en ;

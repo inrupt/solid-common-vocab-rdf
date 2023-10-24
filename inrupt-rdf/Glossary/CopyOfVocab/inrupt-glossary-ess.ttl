@@ -8,7 +8,7 @@ prefix cc:      <http://creativecommons.org/ns#>
 prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#>
 
 prefix inrupt_gen:          <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_glossary_ess: <https://inrupt.com/inrupt/vocab/glossary/ess#>
+prefix inrupt_glossary_ess: <https://w3id.org/inrupt/namespace/vocab/glossary/ess#>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -16,13 +16,13 @@ prefix inrupt_glossary_ess: <https://inrupt.com/inrupt/vocab/glossary/ess#>
 #
 inrupt_glossary_ess: a owl:Ontology , inrupt_gen:Ontology  ;
     owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/ess/0.0.1> ;
+    owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/glossary/ess/0.0.1> ;
     dcterms:title "Inrupt ESS glossary vocabulary" ;
     dcterms:description "The Enterprise Solid Server (ESS) glossary vocabulary describes the terms commonly used across the entire Inrupt ESS system. This includes all of the services, infrastructure, storage technologies, etc."@en ;
     dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2021-08-23"^^xsd:date ;
     vann:preferredNamespacePrefix "inrupt_glossary_ess" ;
-    vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/ess#" ;
+    vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/glossary/ess#" ;
     cc:attributionURL inrupt_glossary_ess: ;
     cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
 

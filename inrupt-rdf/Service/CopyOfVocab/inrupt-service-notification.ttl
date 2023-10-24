@@ -11,19 +11,19 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_notification: <https://inrupt.com/vocab/service/notification#>
+prefix inrupt_notification: <https://w3id.org/inrupt/namespace/vocabservice/notification#>
 
 
 inrupt_notification: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/service/notification/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocabservice/notification/0.0.1> ;
  	dcterms:title "Inrupt notification vocabulary"@en ;
 	dcterms:description """The Inrupt notification vocabulary."""@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/11/08"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_notification" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/service/notification#" .
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocabservice/notification#" .
 
 inrupt_notification:msgEventValidated a rdfs:Literal ;
 	skos:definition "Successfully validated event - from actor [{{0}}]"@en ;

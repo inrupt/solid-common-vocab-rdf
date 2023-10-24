@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 3.0.0
+artifactGeneratorVersion: 3.1.1
 
 versioning:
   type: git
@@ -307,7 +307,7 @@ artifactToGenerate:
     artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
 
-    solidCommonVocabVersion: "^1.0.0"
+    solidCommonVocabVersion: "^1.4.0"
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -348,7 +348,7 @@ artifactToGenerate:
     artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
 
-    solidCommonVocabVersion: "^1.0.0"
+    solidCommonVocabVersion: "^1.4.0"
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -646,6 +646,10 @@ vocabList:
       # Alternative URL for this vocab...
 #      - http://dublincore.org/2012/06/14/dcterms.ttl
 
+  - nameAndPrefixOverride: dcam
+    inputResources:
+      - http://purl.org/dc/dcam/
+
   #
   # Activity Streams 2.0 seems a little bit strange - i.e., it's namespace IRI
   # does not resolve to RDF (see below), and the best RDF definition (that we
@@ -844,13 +848,13 @@ vocabList:
 #      - https://w3id.org/security#
 
 
-  - inputResources:
+  - nameAndPrefixOverride: jsonld
+    inputResources:
       - http://www.w3.org/ns/json-ld#
-    nameAndPrefixOverride: jsonld
 
-  - inputResources:
+  - nameAndPrefixOverride: earl
+    inputResources:
       - http://www.w3.org/ns/earl#
-    nameAndPrefixOverride: earl
 
   - inputResources:
       - http://www.w3.org/2003/06/sw-vocab-status/ns#
@@ -878,9 +882,9 @@ vocabList:
     inputResources:
       - https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-dimension.ttl
 
-  - inputResources:
+  - nameAndPrefixOverride: sioc
+    inputResources:
       - http://rdfs.org/sioc/ns#
-    nameAndPrefixOverride: sioc
     ignoreNonVocabTerms: true
 
   - inputResources:
@@ -890,9 +894,9 @@ vocabList:
     vocabAcceptHeaderOverride: text/turtle
     ignoreNonVocabTerms: true
 
-  - nameAndPrefixOverride: time
-    inputResources:
+  - inputResources:
       - http://www.w3.org/2006/time#
+    nameAndPrefixOverride: time
 
   - inputResources:
       - http://www.w3.org/ns/locn#
@@ -913,9 +917,9 @@ vocabList:
     ignoreNonVocabTerms: true
 
   - descriptionFallback: Creative Commons (licensing vocabulary)
+    nameAndPrefixOverride: cc
     inputResources:
       - http://creativecommons.org/ns#
-    nameAndPrefixOverride: cc
 
   # GeoNames seems to still be serving the v3.1 version from their namespace
   # URI, even though they've moved to v3.3 (although resolving their v3.3 vocab
@@ -924,26 +928,26 @@ vocabList:
   # updated (as of v3.2) namespace os 'https://'.
   # So, as an experiment, I've overridden the prefix from 'gn' to include the
   # version number.
-  - inputResources:
+  - nameAndPrefixOverride: gn_v3_1
+    inputResources:
       - https://www.geonames.org/ontology#
-    nameAndPrefixOverride: gn_v3_1
     ignoreNonVocabTerms: true
 
   # Here we try and provide the latest version of GeoNames (but although the
   # URI states v3.3, it seems to still (as of April 2022) be serving v3.2).
-  - inputResources:
+  - nameAndPrefixOverride: gn_v3_2
+    inputResources:
       - https://www.geonames.org/ontology/ontology_v3.3.rdf
-    nameAndPrefixOverride: gn_v3_2
     ignoreNonVocabTerms: true
 
   # This NeoGeo vocab is pulled in by GeoNames via 'owl:import'.
-  - inputResources:
+  - nameAndPrefixOverride: neogeo
+    inputResources:
       - http://geovocab.org/spatial
-    nameAndPrefixOverride: neogeo
 
-  - inputResources:
+  - nameAndPrefixOverride: qudt
+    inputResources:
       - http://qudt.org/schema/qudt/
-    nameAndPrefixOverride: qudt
     ignoreNonVocabTerms: true
 
   - inputResources:
@@ -953,58 +957,70 @@ vocabList:
       - https://w3id.org/dpv/dpv-pd#
 
   - inputResources:
+      - https://w3id.org/dpv/dpv-tech#
+
+  - inputResources:
+      - https://w3id.org/oac#
+
+  - inputResources:
+      - https://w3id.org/plasma#
+
+  - nameAndPrefixOverride: bibo
+    inputResources:
       - http://purl.org/ontology/bibo/
-    nameAndPrefixOverride: bibo
     ignoreNonVocabTerms: true
     vocabContentTypeHeaderOverride: "application/rdf+xml"
 
   - inputResources:
-      - https://ontologies.semanticarts.com/o/gistCore11.1.0
+      - https://w3id.org/semanticarts/ontology/gistCore
 
-  - inputResources:
+  - nameAndPrefixOverride: auto_vc
+    inputResources:
       - https://spec.edmcouncil.org/auto/ontology/VC/VehicleCore/
-    nameAndPrefixOverride: auto_vc
     vocabAcceptHeaderOverride: text/turtle
     ignoreNonVocabTerms: true
 
-  - inputResources:
+  - nameAndPrefixOverride: auto_vs
+    inputResources:
       - https://spec.edmcouncil.org/auto/ontology/VS/VehicleSignals/
-    nameAndPrefixOverride: auto_vs
     vocabAcceptHeaderOverride: text/turtle
     ignoreNonVocabTerms: true
 
-  - inputResources:
+  - nameAndPrefixOverride: sm
+    inputResources:
       - http://www.omg.org/techprocess/ab/SpecificationMetadata/
-    nameAndPrefixOverride: sm
     ignoreNonVocabTerms: true
 
-  - inputResources:
-      - http://www.w3.org/ns/adms#
     # Changes noticed in May 2023 where the VANN triples were removed for some
     # reason - meaning we now need to provide a preferred prefix for this
     # vocab (which is a shame!).
-    nameAndPrefixOverride: adms
+  - nameAndPrefixOverride: adms
+    inputResources:
+      - http://www.w3.org/ns/adms#
 
-  - inputResources:
+  - nameAndPrefixOverride: ore
+    inputResources:
       - http://www.openarchives.org/ore/terms/
-    nameAndPrefixOverride: ore
 
-  - inputResources:
+  - nameAndPrefixOverride: wfprov
+    inputResources:
       - http://purl.org/wf4ever/wfprov#
-    nameAndPrefixOverride: wfprov
 
-  - inputResources:
+
+  - nameAndPrefixOverride: wfdesc
+    inputResources:
       - http://purl.org/wf4ever/wfdesc#
-    nameAndPrefixOverride: wfdesc
 
-  - inputResources:
+
+  - nameAndPrefixOverride: ro
+    inputResources:
       - http://purl.org/wf4ever/ro#
-    nameAndPrefixOverride: ro
+
 
   #
   #  This vocab still (2023-04) has the known bug that it uses relative IRIs,
   # which blows up because its actual namespace IRI is HTTP-based, yet when
-  # dereferenced the server redirects all lookups to HTTPS IRIs...
+  # de-referenced the server redirects all lookups to HTTPS IRIs...
   #  But the real problem is actually in the version of 'fetch-lite' (v2.1.2)
   # the Artifact Generator currently uses, specifically the code here:
   #   @rdfjs/fetch-lite/lib/attachQuadStream.js
@@ -1019,3 +1035,15 @@ vocabList:
 #  - inputResources:
 #      - https://www.w3.org/ns/spec
 #    namespaceIriOverride: http://www.w3.org/ns/spec
+
+  - inputResources:
+      - http://rdf-vocabulary.ddialliance.org/xkos#
+
+  #
+  # The Profiles Vocabulary namespace 'http://www.w3.org/ns/dx/prof/' only
+  # resolves to an HTML page (which points to the Turtle).
+  #
+  - nameAndPrefixOverride: prof
+    inputResources:
+      - https://www.w3.org/TR/dx-prof/rdf/prof.ttl
+    ignoreNonVocabTerms: true

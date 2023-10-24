@@ -11,7 +11,7 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen:          <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_request_body: <https://inrupt.com/vocab/request_body#>
+prefix inrupt_request_body: <https://w3id.org/inrupt/namespace/vocab/request_body/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -19,7 +19,7 @@ prefix inrupt_request_body: <https://inrupt.com/vocab/request_body#>
 #
 inrupt_request_body: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/request_body/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/request_body/0.0.1> ;
  	dcterms:title "Solid Request body Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms for a request body (in this case, we're really just
  providing the Named Graph details (e.g., the IRI for the named graph itself), since the contents of a request body are
@@ -27,7 +27,7 @@ inrupt_request_body: a owl:Ontology , inrupt_gen:Ontology ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_request_body" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/request_body#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/request_body/" ;
 	dcterms:license dalicc:MIT .
 
 

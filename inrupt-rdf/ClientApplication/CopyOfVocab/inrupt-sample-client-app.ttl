@@ -9,7 +9,7 @@ prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 
-prefix inrupt_client_app: <https://inrupt.com/vocab/sample/client-app#>
+prefix inrupt_client_app: <https://w3id.org/inrupt/namespace/vocab/sample/client-app/>
 
 #
 # By marking our vocabulary as an Inrupt Artifact Generator ontology (i.e., inrupt_gen:Ontology)
@@ -18,14 +18,14 @@ prefix inrupt_client_app: <https://inrupt.com/vocab/sample/client-app#>
 #
 inrupt_client_app: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionInfo "0.0.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/sample/client-app/0.0.1> ;
+    owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/sample/client-app/0.0.1> ;
     dcterms:title "Sample Inrupt client application vocabulary"@en ;
     dcterms:description "Just a sample of what a client application vocabulary might look like."@en ;
     dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
     dcterms:issued "2019/11/08"^^xsd:date ;
     dcterms:license dalicc:MIT ;
     vann:preferredNamespacePrefix "inrupt_client_app" ;
-    vann:preferredNamespaceUri "https://inrupt.com/vocab/sample/client-app#" .
+    vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/sample/client-app/" .
 
 
 inrupt_client_app:sampleProperty a rdf:Property ;

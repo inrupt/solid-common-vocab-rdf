@@ -9,7 +9,7 @@ prefix status:   <http://www.w3.org/2003/06/sw-vocab-status/ns#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_test: <https://inrupt.com/vocab/test#>
+prefix inrupt_test: <https://w3id.org/inrupt/namespace/vocab/test/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -17,7 +17,7 @@ prefix inrupt_test: <https://inrupt.com/vocab/test#>
 #
 inrupt_test: a owl:Ontology , inrupt_gen:Ontology;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/test/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/test/0.0.1> ;
  	dcterms:title "Inrupt test vocabulary"@en ;
 	dcterms:description """The Inrupt test vocabulary - just commonly used terms
  across all Inrupt tests."""@en ;
@@ -25,7 +25,7 @@ inrupt_test: a owl:Ontology , inrupt_gen:Ontology;
 	dcterms:issued "2020/07/05"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_test" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/test#" .
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/test/" .
 
 
 inrupt_test:somePodRoot a inrupt_gen:ConstantIri ;

@@ -63,7 +63,7 @@ bob-storage: {
     foaf:name "Bobby the dog"@en, "Bob Óg an madra"@ga ;
   # solid:account bob-storage: ; # NSS might do it, but we have no need for 2 references to storage!
     ws:storage bob-storage: ;
-    solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+    solid:oidcIssuer  <https://login.inrupt.com/> ;
     solid:account  bob-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
@@ -324,7 +324,7 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
   viz:nodeSize 0.55 .
 
 <public/photos/2021/06/01/evo-on-sally-gap.jpeg> a schema:Image ;
-  ex:binaryFile <https://pod.inrupt.com/binary/resource/image-GUID> ;
+  ex:binaryFile <https://pod.provider.example.com/binary/resource/image-GUID> ;
   ex:gpsLat "20.423" ;
   ex:gpsLong "20.423" ;
   ex:apeture "??" .
@@ -434,28 +434,28 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # What does DELETE Resource B mean?
 
 
-# POST https://pod.inrupt.com/bob/resourceA
+# POST https://pod.provider.example.com/bob/resourceA
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/resourceA> {
-#   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
+# <https://pod.provider.example.com/bob/resourceA> {
+#   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 # }
 
-# POST https://pod.inrupt.com/bob/resourceB
+# POST https://pod.provider.example.com/bob/resourceB
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/resourceB> {
-#   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
+# <https://pod.provider.example.com/bob/resourceB> {
+#   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
 # }
 
 
 # What does GET /resourceA return?
 
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
+# <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 
 # ...or...
 
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .
+# <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .
 
 
 #
@@ -463,22 +463,22 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # You'll just get back multiple values for that Subject+Predicate.
 #
  INSERT DATA {
-   <https://pod.inrupt.com/bob/resourceA> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
+   <https://pod.provider.example.com/bob/resourceA> {
+     <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
    }
-   <https://pod.inrupt.com/bob/resourceB> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
+   <https://pod.provider.example.com/bob/resourceB> {
+     <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
    }
-   <https://pod.inrupt.com/bob/EntirePod> {
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
-     <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
+   <https://pod.provider.example.com/bob/EntirePod> {
+     <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "I say po-tay-toe"@en .
+     <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "You say po-ta-toe"@en .
    }
  }
 
 
 
-# What do I get back if I query my entire Pod for <https://pod.inrupt.com/bob/public/subject1> ?
-# SELECT * WHERE { <https://pod.inrupt.com/bob/public/subject1> ?p ?o }
+# What do I get back if I query my entire Pod for <https://pod.provider.example.com/bob/public/subject1> ?
+# SELECT * WHERE { <https://pod.provider.example.com/bob/public/subject1> ?p ?o }
 
 # Seems like Resource POST/PUT requests can't contain quads (since a Solid Resourced needs to go
 # into it's own Named Graph if it's to be retrievable as a 'unit').
@@ -495,25 +495,25 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 
  prefix bob-storage: <https://bob.best-pod-provider.com/storage/>
 
- <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- {| ex:provenance <https://pod.inrupt.com/bob/resourceA> |}
+ <https://pod.provider.example.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
+ {| ex:provenance <https://pod.provider.example.com/bob/resourceA> |}
 
- <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
- {| ex:provenance <https://pod.inrupt.com/bob/resourceB> |}
+ <https://pod.provider.example.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
+ {| ex:provenance <https://pod.provider.example.com/bob/resourceB> |}
 
 
  # POST request, but no need for creation of dedicated Resource Named Graph (but could duplicate
  # data in Resource Named Graphs *if* Resource-centric performance was shown to be too slow).
- <https://pod.inrupt.com/bob/resourceA> {
-   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
-   <https://pod.inrupt.com/bob/public/subject2> ex:salary "$1 million" .
-   <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
+ <https://pod.provider.example.com/bob/resourceA> {
+   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
+   <https://pod.provider.example.com/bob/public/subject2> ex:salary "$1 million" .
+   <https://pod.provider.example.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
  }
 
- <https://pod.inrupt.com/bob/resourceB> {
-   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
-   <https://pod.inrupt.com/bob/public/subject2> ex:salary "$100 million" .
-   <https://pod.inrupt.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
+ <https://pod.provider.example.com/bob/resourceB> {
+   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
+   <https://pod.provider.example.com/bob/public/subject2> ex:salary "$100 million" .
+   <https://pod.provider.example.com/bob/public/subject3> ex:occupation "Lion tamer"@en .
  }
 #
 #  What happens to the </subject3> triple in </EntirePod> Named Graph if I DELETE </resourceB>...?
@@ -528,28 +528,28 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # ************************************
 #
 
- <https://pod.inrupt.com/bob/EntirePod> {
-   << <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en >>
-     prov:qualifiedGeneration <https://pod.inrupt.com/bob/resourceA/GUID> .
-   << <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr >>
-     prov:qualifiedGeneration <https://pod.inrupt.com/bob/resourceB/GUID> .
+ <https://pod.provider.example.com/bob/EntirePod> {
+   << <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en >>
+     prov:qualifiedGeneration <https://pod.provider.example.com/bob/resourceA/GUID> .
+   << <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr >>
+     prov:qualifiedGeneration <https://pod.provider.example.com/bob/resourceB/GUID> .
 
-   << <https://pod.inrupt.com/bob/public/subject2> ex:salary "$1 million" >>
-     solid-ext:assertedBy <https://pod.inrupt.com/bob/resourceA> .
-   << <https://pod.inrupt.com/bob/public/subject2> ex:salary "$100 million" >>
-     solid-ext:assertedBy <https://pod.inrupt.com/bob/resourceB> .
+   << <https://pod.provider.example.com/bob/public/subject2> ex:salary "$1 million" >>
+     solid-ext:assertedBy <https://pod.provider.example.com/bob/resourceA> .
+   << <https://pod.provider.example.com/bob/public/subject2> ex:salary "$100 million" >>
+     solid-ext:assertedBy <https://pod.provider.example.com/bob/resourceB> .
 
-   << <https://pod.inrupt.com/bob/public/subject3>  ex:occupation "Lion tamer"@en >>
+   << <https://pod.provider.example.com/bob/public/subject3>  ex:occupation "Lion tamer"@en >>
      solid-ext:assertedBy
-       <https://pod.inrupt.com/bob/resourceA> ,
-       <https://pod.inrupt.com/bob/resourceB> .
+       <https://pod.provider.example.com/bob/resourceA> ,
+       <https://pod.provider.example.com/bob/resourceB> .
 
-   <https://pod.inrupt.com/bob/resourceA> a solid-ext:SolidResource , ldp:NonRDFSource ;
+   <https://pod.provider.example.com/bob/resourceA> a solid-ext:SolidResource , ldp:NonRDFSource ;
      schema:dateCreated "2021/01/10" ;
      solid:nonBinaryId <https://amazon.com/s3/GUID-9999> .
 
-   <https://pod.inrupt.com/bob/resourceA/GUID> a prov:Generation ;
-     prov:collection <https://pod.inrupt.com/bob/resourceA> .
+   <https://pod.provider.example.com/bob/resourceA/GUID> a prov:Generation ;
+     prov:collection <https://pod.provider.example.com/bob/resourceA> .
  }
 
 
@@ -557,33 +557,33 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
    # we could choose to apply these policies even when returning Resources (to filter out Subjects).
    # Could be very expensive (i.e., for every Subject in a Resource, check it's ACP)!
    # But could be run for TPF, and possibly for CONSTRUCT queries (to filter on ?s).
-   <https://pod.inrupt.com/bob/public/subject1> acp:accessControl <https://pod.inrupt.com/bob/public/subject1?ext=acr> .
-   <https://pod.inrupt.com/bob/public/subject1?ext=acr>  a acp:AccessControlResource ;
+   <https://pod.provider.example.com/bob/public/subject1> acp:accessControl <https://pod.provider.example.com/bob/public/subject1?ext=acr> .
+   <https://pod.provider.example.com/bob/public/subject1?ext=acr>  a acp:AccessControlResource ;
      acp:apply bob-storage:policyFriendNotNeighbour .
 
 
-   <https://pod.inrupt.com/bob/resourceA> acp:accessControl <https://pod.inrupt.com/bob/resourceA?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceA?ext=acr> a acp:AccessControlResource ;
-     acp:apply <https://pod.inrupt.com/bob/policy/policy-GUID-1> .
-   <https://pod.inrupt.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
+   <https://pod.provider.example.com/bob/resourceA> acp:accessControl <https://pod.provider.example.com/bob/resourceA?ext=acr> .
+   <https://pod.provider.example.com/bob/resourceA?ext=acr> a acp:AccessControlResource ;
+     acp:apply <https://pod.provider.example.com/bob/policy/policy-GUID-1> .
+   <https://pod.provider.example.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
      acp:allow acp:Read, acp:Write, acp:Append ;
      acp:anyOf bob-storage:myMatcherFriendCollege, bob-storage:myMatcherFriendWork .
  }
 
- <https://pod.inrupt.com/bob/resourceA?ext=acp> {
-   <https://pod.inrupt.com/bob/resourceA> acp:accessControl <https://pod.inrupt.com/bob/resourceA?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceA?ext=acr> acp:apply <https://pod.inrupt.com/bob/policy/policy-GUID-1> .
+ <https://pod.provider.example.com/bob/resourceA?ext=acp> {
+   <https://pod.provider.example.com/bob/resourceA> acp:accessControl <https://pod.provider.example.com/bob/resourceA?ext=acr> .
+   <https://pod.provider.example.com/bob/resourceA?ext=acr> acp:apply <https://pod.provider.example.com/bob/policy/policy-GUID-1> .
  }
 
- <https://pod.inrupt.com/bob/policy/policy-GUID-1> {
-   <https://pod.inrupt.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
+ <https://pod.provider.example.com/bob/policy/policy-GUID-1> {
+   <https://pod.provider.example.com/bob/policy/policy-GUID-1> a acp:AccessControlPolicy ;
      acp:allow acp:Read, acp:Write, acp:Append ;
      acp:anyOf bob-storage:myMatcherFriendCollege, bob-storage:myMatcherFriendWork .
  }
 
- <https://pod.inrupt.com/bob/resourceB?ext=acp> {
-   <https://pod.inrupt.com/bob/resourceB> acp:accessControl <https://pod.inrupt.com/bob/resourceB?ext=acr> .
-   <https://pod.inrupt.com/bob/resourceB?ext=acr> acp:apply bob-storage:policyFriendNotNeighbour .
+ <https://pod.provider.example.com/bob/resourceB?ext=acp> {
+   <https://pod.provider.example.com/bob/resourceB> acp:accessControl <https://pod.provider.example.com/bob/resourceB?ext=acr> .
+   <https://pod.provider.example.com/bob/resourceB?ext=acr> acp:apply bob-storage:policyFriendNotNeighbour .
  }
 
 

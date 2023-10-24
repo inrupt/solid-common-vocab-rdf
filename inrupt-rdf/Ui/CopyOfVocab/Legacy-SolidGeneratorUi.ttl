@@ -11,14 +11,14 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix solid_generator_ui: <https://inrupt.com/vocab/solid-generator-ui#>
+prefix solid_generator_ui: <https://w3id.org/inrupt/namespace/vocab/solid-generator-ui/>
 
 
 solid_generator_ui: a owl:Ontology , inrupt_gen:Ontology ;
     owl:versionInfo "1.2.1" ;
-    owl:versionIRI <https://inrupt.com/vocab/solid-generator-ui/1.2.1> ;
-    owl:priorVersion <https://inrupt.com/vocab/solid-generator-ui/1.2.0> ;
-    vann:preferredNamespaceUri "https://inrupt.com/vocab/solid-generator-ui#" ;
+    owl:versionIRI <https://w3id.org/inrupt/namespace/vocabsolid-generator-ui/1.2.1> ;
+    owl:priorVersion <https://w3id.org/inrupt/namespace/vocabsolid-generator-ui/1.2.0> ;
+    vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/solid-generator-ui/" ;
     vann:preferredNamespacePrefix "solid_generator_ui" ;
     dcterms:title "Solid Generator UI"@en ;
     dcterms:description """The Solid Generator UI Vocabulary. The Solid Generator bootstraps Solid applications, and this

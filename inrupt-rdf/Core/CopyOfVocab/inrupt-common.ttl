@@ -70,7 +70,7 @@ inrupt_common:acronym rdfs:subPropertyOf skosxl:labelRelation ;
     schema:domainIncludes skosxl:Label ;
     schema:rangeIncludes skosxl:Label .
 
-inrupt_common:acronymExpandedForm a rdfs:Property ;
+inrupt_common:acronymExpandedForm a rdf:Property ;
     rdfs:isDefinedBy inrupt_common: ;
     rdfs:label "Acronym expanded form"@en ;
     rdfs:label "Forma expandida de siglas"@es ;

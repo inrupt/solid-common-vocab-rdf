@@ -65,7 +65,7 @@ my_storage: {
     vcard:fn "Pat McB"@en, "Padraig MacB"@ga ;
     schema:name "Pat McB"@en, "Padraig MacB"@ga ;
     foaf:name "Pat McB"@en, "Padraig MacB"@ga ;
-    solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+    solid:oidcIssuer  <https://login.inrupt.com/> ;
   # solid:account my_storage: ; # NSS might do it, but we have no need for 2 references to storage!
   # solid:account  my_storage: ;    # Or is this really the root, i.e., just up to the domain?
     ws:storage my_storage: ;

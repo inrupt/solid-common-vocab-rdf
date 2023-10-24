@@ -11,7 +11,7 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen:         <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_meta_client: <https://inrupt.com/vocab/meta/client#>
+prefix inrupt_meta_client: <https://w3id.org/inrupt/namespace/vocab/meta/client/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -19,13 +19,13 @@ prefix inrupt_meta_client: <https://inrupt.com/vocab/meta/client#>
 #
 inrupt_meta_client: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/meta/client/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/meta/client/0.0.1> ;
 	dcterms:title "Metadata Client Vocabulary"@en ;
 	dcterms:description "This vocabulary provides client metadata terms (e.g., classes, properties and text strings (e.g., informative labels or error messages)) used by clients at runtime."@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_meta_client" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/meta/client#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/meta/client/" ;
 	dcterms:license dalicc:MIT .
 
 

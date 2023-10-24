@@ -28,7 +28,7 @@ inrupt_fair:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
 
 inrupt_fair:_PrefixDeclaration a sh:PrefixDeclaration ;
     sh:prefix "inrupt_fair" ;
-    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/fair/" .
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/fair/"^^xsd:anyURI .
 
 #
 # Terms...

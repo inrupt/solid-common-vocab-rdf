@@ -8,9 +8,9 @@ prefix cc:      <http://creativecommons.org/ns#>
 prefix skosxl:  <http://www.w3.org/2008/05/skos-xl#>
 
 prefix inrupt_gen:              <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_common:           <https://inrupt.com/inrupt/vocab/common#>
-prefix inrupt_glossary_acronym: <https://inrupt.com/inrupt/vocab/glossary/acronym#>
-prefix inrupt_glossary_solid:   <https://inrupt.com/inrupt/vocab/glossary/solid#>
+prefix inrupt_common:           <https://w3id.org/inrupt/namespace/vocab/common#>
+prefix inrupt_glossary_acronym: <https://w3id.org/inrupt/namespace/vocab/glossary/acronym#>
+prefix inrupt_glossary_solid:   <https://w3id.org/inrupt/namespace/vocab/glossary/solid#>
 
 
 # Just for illustration purposes in Widoco, we type 'skosxl:Label' as an 'owl:NamedIndividual'
@@ -34,7 +34,7 @@ inrupt_glossary_solid:FallbackACL rdfs:subClassOf inrupt_glossary_solid:AccessCo
 #
 inrupt_glossary_solid: a owl:Ontology , inrupt_gen:Ontology  ;
      owl:versionInfo "0.0.1" ;
-     owl:versionIRI <https://inrupt.com/inrupt/vocab/glossary/solid/0.0.1> ;
+     owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/glossary/solid/0.0.1> ;
      dcterms:title "Inrupt's Solid glossary" ;
      dcterms:description """Solid glossary describing terms and concepts used across the entire Solid eco-system.
  For questions around the concepts and terminology specific to Solid, refer to
@@ -43,7 +43,7 @@ inrupt_glossary_solid: a owl:Ontology , inrupt_gen:Ontology  ;
      dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
      dcterms:issued "2021-08-23"^^xsd:date ;
      vann:preferredNamespacePrefix "inrupt_glossary_solid" ;
-     vann:preferredNamespaceUri "https://inrupt.com/inrupt/vocab/glossary/solid#" ;
+     vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/glossary/solid#" ;
      cc:attributionURL inrupt_glossary_solid: ;
      cc:license <https://creativecommons.org/publicdomain/zero/1.0/> .
 

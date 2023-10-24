@@ -26,7 +26,7 @@ inrupt_bp_core:_Ontology a owl:Ontology , inrupt_gen:Ontology ;
 
 inrupt_bp_core:_PrefixDeclaration a sh:PrefixDeclaration ;
     sh:prefix "inrupt_bp_core" ;
-    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/core/" .
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/core/"^^xsd:anyURI .
 
 #
 # Terms...

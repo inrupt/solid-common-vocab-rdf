@@ -11,7 +11,7 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen:    <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_metric: <https://inrupt.com/vocab/metric#>
+prefix inrupt_metric: <https://w3id.org/inrupt/namespace/vocab/metric/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -19,14 +19,14 @@ prefix inrupt_metric: <https://inrupt.com/vocab/metric#>
 #
 inrupt_metric: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/metric/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/metric/0.0.1> ;
  	dcterms:title "Inrupt Metric Ontology"@en ;
 	dcterms:description "The Inrupt Metric Ontology contains vocab terms to represent metric statistics"@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/10"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_metric" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/metric#" .
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/metric/" .
 
 inrupt_metric:subject a rdf:Property ;
 	rdfs:isDefinedBy inrupt_metric: ;

@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid
-artifactGeneratorVersion: 3.0.0
+artifactGeneratorVersion: 3.1.1
 
 versioning:
   type: git
@@ -215,7 +215,7 @@ artifactToGenerate:
     artifactDirectoryName: TypeScript-SolidCommonVocab
     sourceFileExtension: ts
 
-    solidCommonVocabVersion: "^1.0.0"
+    solidCommonVocabVersion: "^1.4.0"
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
@@ -255,7 +255,7 @@ artifactToGenerate:
     artifactDirectoryName: TypeScript-SolidCommonVocab-RdfDataFactory
     sourceFileExtension: ts
 
-    solidCommonVocabVersion: "^1.0.0"
+    solidCommonVocabVersion: "^1.4.0"
     rdfjsTypesVersion: "^1.0.1"
     rdfjsImplVersion: "^1.1.0"
     templateInternal: solidCommonVocabDependent/typescript/rdfjsRdfDataFactory/vocab.hbs
