@@ -11,19 +11,19 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix solid_service_core: <https://inrupt.com/vocab/solid_service_core#>
+prefix solid_service_core: <https://w3id.org/inrupt/namespace/vocabsolid_service_core#>
 
 
 solid_service_core: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/solid_service_core/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocabsolid_service_core/0.0.1> ;
  	dcterms:title "Solid Metadata Server Creational Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g., classes, properties and text strings (e.g.
  informative labels or error messages) commonly used across Solid services."""@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_service_core" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_service_core#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocabsolid_service_core#" ;
 	dcterms:license dalicc:MIT .
 
 

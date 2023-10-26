@@ -20,7 +20,7 @@ prefix ws:       <http://www.w3.org/ns/pim/space#>
 # own prefix to try and differentiate. 
 #
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix ws_solid_ext: <https://inrupt.com/vocab/extension/ws#>
+prefix ws_solid_ext: <https://w3id.org/inrupt/namespace/vocabextension/ws#>
 
 ws_solid_ext: a inrupt_gen:OntologyExtension ;
     owl:versionInfo "0.0.1" ;

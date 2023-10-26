@@ -8,19 +8,19 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_ui_comp_tictactoe: <https://inrupt.com/vocab/ui/component/tictactoe#>
+prefix inrupt_ui_comp_tictactoe: <https://w3id.org/inrupt/namespace/vocab/ui/component/tictactoe/>
 
 
 inrupt_ui_comp_tictactoe: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/ui/component/tictactoe/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocabui/component/tictactoe/0.0.1> ;
  	dcterms:title "Inrupt Tic-Tac-Toe game vocabulary"@en ;
 	dcterms:description """The Inrupt Tic-Tac-Toe game vocabulary."""@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2020/05/06"^^xsd:date ;
 	dcterms:license dalicc:MIT ;
 	vann:preferredNamespacePrefix "inrupt_ui_comp_tictactoe" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/ui/component/tictactoe#" .
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/ui/component/tictactoe/" .
 
 inrupt_ui_comp_tictactoe:msgCreateGameSuccess a rdfs:Literal ;
 	skos:definition "Game created successfully"@en ;

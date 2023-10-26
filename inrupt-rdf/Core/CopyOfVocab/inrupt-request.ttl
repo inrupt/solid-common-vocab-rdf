@@ -11,7 +11,7 @@ prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
 prefix inrupt_gen:     <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
-prefix inrupt_request: <https://inrupt.com/vocab/request#>
+prefix inrupt_request: <https://w3id.org/inrupt/namespace/vocab/request/>
 
 #
 # Describe our vocabulary - i.e., an English description, its version, who created it, its
@@ -19,7 +19,7 @@ prefix inrupt_request: <https://inrupt.com/vocab/request#>
 #
 inrupt_request: a owl:Ontology , inrupt_gen:Ontology ;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/request/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocab/request/0.0.1> ;
  	dcterms:title "Solid Request Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms for a various
  Named Graphs that make up a request. For example; Headers, Body, Metadata,
@@ -27,7 +27,7 @@ inrupt_request: a owl:Ontology , inrupt_gen:Ontology ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2020/05/15"^^xsd:date ;
 	vann:preferredNamespacePrefix "inrupt_request" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/request#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocab/request/" ;
 	dcterms:license dalicc:MIT .
 
 

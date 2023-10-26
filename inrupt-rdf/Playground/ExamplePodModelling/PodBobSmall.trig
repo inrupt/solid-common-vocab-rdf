@@ -65,7 +65,7 @@ bob-storage: {
     foaf:name "Bobby the dog"@en, "Bob Óg an madra"@ga ;
   # solid:account bob-storage: ; # NSS might do it, but we have no need for 2 references to storage!
     ws:storage bob-storage: ;
-    solid:oidcIssuer  <https://broker.pod.inrupt.com/> ;
+    solid:oidcIssuer  <https://login.inrupt.com/> ;
     solid:account  bob-storage: ;    # Or is this really the root, i.e., just up to the domain?
     viz:nodeSize 0.85 .
 
@@ -362,7 +362,7 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
   viz:nodeSize 0.55 .
 
 <public/photos/2021/06/01/evo-on-sally-gap.jpeg> a schema:Image ;
-  ex:binaryFile <https://pod.inrupt.com/binary/resource/image-GUID> ;
+  ex:binaryFile <https://pod.provider.example.com/binary/resource/image-GUID> ;
   ex:gpsLat "20.423" ;
   ex:gpsLong "20.423" ;
   ex:apeture "??" .
@@ -472,25 +472,25 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
 # What does DELETE Resource B mean?
 
 
-# POST https://pod.inrupt.com/bob/resourceA
+# POST https://pod.provider.example.com/bob/resourceA
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/resourceA> {
-#   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
+# <https://pod.provider.example.com/bob/resourceA> {
+#   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 # }
 
-# POST https://pod.inrupt.com/bob/resourceB
+# POST https://pod.provider.example.com/bob/resourceB
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/resourceB> {
-#   <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
+# <https://pod.provider.example.com/bob/resourceB> {
+#   <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Sujet numéro un"@fr .
 # }
 
 
 # What does GET /resourceA return?
 
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
+# <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en .
 
 # ...or...
 
 # prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-# <https://pod.inrupt.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .
+# <https://pod.provider.example.com/bob/public/subject1> rdfs:comment "Subject number one"@en , "Sujet numéro un"@fr .

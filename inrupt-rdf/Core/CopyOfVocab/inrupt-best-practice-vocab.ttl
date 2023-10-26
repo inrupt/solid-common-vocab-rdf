@@ -28,7 +28,7 @@ inrupt_bp_vocab:vocabulary a owl:Ontology , inrupt_gen:Ontology ;
 
 inrupt_bp_vocab:_PrefixDeclaration a sh:PrefixDeclaration ;
     sh:prefix "inrupt_bp_vocab" ;
-    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/vocab/" .
+    sh:namespace "https://w3id.org/inrupt/vocab/tool/bestPractice/vocab/"^^xsd:anyURI .
 
 #
 # Categories of Best Practices...

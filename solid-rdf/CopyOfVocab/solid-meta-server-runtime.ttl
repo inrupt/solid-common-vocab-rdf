@@ -10,19 +10,19 @@ prefix vann:     <http://purl.org/vocab/vann/>
 prefix prov:     <http://www.w3.org/ns/prov#>
 prefix dalicc:   <http://dalicc.net/licenselibrary/>
 
-prefix solid_meta_server_runtime: <https://inrupt.com/vocab/solid_meta_server_runtime#>
+prefix solid_meta_server_runtime: <https://w3id.org/inrupt/namespace/vocabsolid_meta_server_runtime#>
 
 
 solid_meta_server_runtime: a owl:Ontology;
 	owl:versionInfo "0.0.1" ;
-	owl:versionIRI <https://inrupt.com/vocab/solid_meta_server_runtime/0.0.1> ;
+	owl:versionIRI <https://w3id.org/inrupt/namespace/vocabsolid_meta_server_runtime/0.0.1> ;
  	dcterms:title "Solid Metadata Server runtime Vocabulary"@en ;
 	dcterms:description """The Solid vocabulary providing terms (e.g., classes, properties and text strings (e.g.
  informative labels or error messages) used by Solid servers at server creation time."""@en ;
 	dcterms:creator <https://w3id.org/inrupt/namespace/webid/inrupt> ;
 	dcterms:issued "2019/08/19"^^xsd:date ;
 	vann:preferredNamespacePrefix "solid_meta_server_runtime" ;
-	vann:preferredNamespaceUri "https://inrupt.com/vocab/solid_meta_server_runtime#" ;
+	vann:preferredNamespaceUri "https://w3id.org/inrupt/namespace/vocabsolid_meta_server_runtime#" ;
 	dcterms:license dalicc:MIT .
 
 

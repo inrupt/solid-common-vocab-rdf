@@ -1,7 +1,7 @@
-base <https://pod.inrupt.com/>
+base <https://pod.provider.example.com/>
 # BaseIRI determines if this document is Server-wide description,
 # or only applies to a specific Pod.
-#base <https://pod.inrupt.com/{username}/>
+#base <https://pod.provider.example.com/{username}/>
 
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
