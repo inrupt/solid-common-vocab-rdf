@@ -63,7 +63,7 @@ jobs:
         - name: Upload log for debug
           # Only upload if the previous step failed.
           if: failure()
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             path: mvn-deploy.log
             name: mvn-deploy
