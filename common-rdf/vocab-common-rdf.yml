@@ -1055,3 +1055,7 @@ vocabList:
     inputResources:
       - https://www.w3.org/TR/dx-prof/rdf/prof.ttl
     ignoreNonVocabTerms: true
+
+  - inputResources:
+      - https://w3id.org/GConsent#
+    ignoreNonVocabTerms: true
