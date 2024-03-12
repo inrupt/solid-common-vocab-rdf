@@ -56,10 +56,14 @@ jobs:
           id: generator-version-common
           with:
             vocab-config-path: ${{ matrix.vocab }}
+
         # Note: This only pushes to Cloudsmith (not npm), because it does not
         # increment the version number, which is fine for Maven SNAPSHOT
         # versions.
-        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noPrompt -p cloudsmith
+#        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noPrompt -p cloudsmith
+        # This command generates, but does NOT publish to Cloudsmith.
+        - run: npx @inrupt/artifact-generator@${{steps.generator-version-common.outputs.vocab-generator-version}} generate -l ${{ matrix.vocab }} --noPrompt
+
         - name: Upload log for debug
           # Only upload if the previous step failed.
           if: failure()

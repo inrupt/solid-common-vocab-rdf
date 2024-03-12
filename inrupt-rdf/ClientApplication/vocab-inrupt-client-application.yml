@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-client-application
-artifactGeneratorVersion: 3.1.1
+artifactGeneratorVersion: 4.0.0
 
 versioning:
   type: git

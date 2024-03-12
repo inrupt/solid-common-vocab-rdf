@@ -5,6 +5,8 @@ configuration files contained in this repository.
 
 ## Unreleased
 
+## v2.0.0 2024-03-12
+
 - Added SOSA and SSN to the Common RDF bundle.
 - Added glossary term for 'Linked Data', that explains that we capitalize the
   letters, and provides a `rdfs:seeAlso` to Richard's reasons for why that's
@@ -43,6 +45,10 @@ configuration files contained in this repository.
 - Added Inrupt vocab template (as foundation for Inrupt Best Practices).
 - Updated Inrupt WebID used in all Inrupt-created vocabs (i.e., the value of the
   `dcterms:creator` triple).
+- Updated DPV-related vocab URLs (PD and Tech).
+- **BREAKING CHANGE** no longer publish Java artifacts to Cloudsmith (in 
+  GitHub CD workflow).
+- Updated YAML's to version 4.0.0 of Artifact Generator.
 
 ## v1.0.3 2021-10-03
 

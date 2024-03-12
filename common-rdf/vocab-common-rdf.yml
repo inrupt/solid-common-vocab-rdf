@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 3.1.1
+artifactGeneratorVersion: 4.0.0
 
 versioning:
   type: git
@@ -749,10 +749,8 @@ vocabList:
     #   https://w3c.github.io/dx-connegp/connegp/#altr-owl).
     inputResources:
       - https://w3c.github.io/dx-connegp/connegp/altr.ttl
-    # Namespace IRI is missing trailing '#' - so provide it:
-    namespaceIriOverride: http://www.w3.org/ns/dx/connegp/altp#
     # This vocab defines terms that are not actually defined in the vocabulary
-    # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
+    # itself. For instance, it defines 'rdf:Resource', and a couple of Dublin
     # Core terms, to provide extra contextual information for the vocabulary
     # itself. Normally we'd throw an error on encountering such terms, as it can
     # indicate a simple typo - but this can be overridden using this option if
@@ -952,12 +950,19 @@ vocabList:
 
   - inputResources:
       - https://w3id.org/dpv#
+    ignoreNonVocabTerms: true
 
-  - inputResources:
-      - https://w3id.org/dpv/dpv-pd#
+  - nameAndPrefixOverride: dpv-pd
+    inputResources:
+      # DPV namespaces going through some changes right now (March 2024)...
+      -  https://w3c.github.io/dpv/pd/pd.ttl
+#      - https://w3id.org/dpv/dpv-pd#
 
-  - inputResources:
-      - https://w3id.org/dpv/dpv-tech#
+  - nameAndPrefixOverride: dpv-tech
+    inputResources:
+      # DPV namespaces going through some changes right now (March 2024)...
+      - https://w3c.github.io/dpv/tech/tech.ttl
+#      - https://w3id.org/dpv/dpv-tech#
 
   - inputResources:
       - https://w3id.org/oac#
@@ -973,6 +978,9 @@ vocabList:
 
   - inputResources:
       - https://w3id.org/semanticarts/ontology/gistCore
+    # In March 2024, noticed that Gist no longer defines a preferred prefix.
+    nameAndPrefixOverride: gist
+    ignoreNonVocabTerms: true
 
   - nameAndPrefixOverride: auto_vc
     inputResources:
