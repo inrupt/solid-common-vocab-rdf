@@ -49,6 +49,7 @@ configuration files contained in this repository.
 - **BREAKING CHANGE** no longer publish Java artifacts to Cloudsmith (in 
   GitHub CD workflow).
 - Updated YAML's to version 4.0.0 of Artifact Generator.
+- Add GConsent vocab.
 
 ## v1.0.3 2021-10-03
 

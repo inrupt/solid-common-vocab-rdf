@@ -1058,4 +1058,6 @@ vocabList:
 
   - inputResources:
       - https://w3id.org/GConsent#
+    # Namespace declaration in vocab is missing trailing hash '#'!
+    namespaceIriOverride: https://w3id.org/GConsent#
     ignoreNonVocabTerms: true
