@@ -19,7 +19,7 @@ prefix solid_oidc_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid_oid
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
-# So we very deliberately re-use the underlying vocab's namespace, but use our
+# So we very deliberately reuse the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
 solid_oidc_inrupt_ext: a inrupt_gen:OntologyExtension ;

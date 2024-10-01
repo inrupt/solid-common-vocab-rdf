@@ -177,7 +177,7 @@ void:class a rdf:Property, owl:FunctionalProperty;
 
 void:classes a rdf:Property, owl:DatatypeProperty;
     rdfs:label "classes";
-    rdfs:comment "The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occuring as objects of rdf:type triples in the dataset.";
+    rdfs:comment "The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occurring as objects of rdf:type triples in the dataset.";
     rdfs:domain void:Dataset;
     rdfs:range xsd:integer .
 

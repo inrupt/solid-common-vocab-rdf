@@ -163,7 +163,7 @@ Note: We may only wish to remove 'some' cookies, and not all - for instance if a
   inrupt_gen:hasSessionInfo a rdf:Property ;
     rdfs:isDefinedBy inrupt_gen: ;
     rdfs:label "Has Session Info"@en ;
-    rdfs:comment """Link to a collection of session informatoin values, intended to be treated as cookie values (i.e.
+    rdfs:comment """Link to a collection of session information values, intended to be treated as cookie values (i.e.
  if set as a property on a ResponseData object returned from a server-side operation, then our Express handler will
  attempt to set cookies for each property contained within the referenced entity."""@en .
 
