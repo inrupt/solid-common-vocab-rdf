@@ -158,7 +158,7 @@ inrupt_gen:subjectRoot a rdf:Property ;
 Note: We may only wish to remove 'some' cookies, and not all - for instance if an Admin user is logged into a
  registration app, and uses their app to log in a beneficiary, then logging out that beneficiary would require removing
  just that beneficies cookie data, but not the Admin user's cookie data, since they may continue using the app to login
- the next beneficary. Therefore this class can contain just the session info we wish to remove."""@en .
+ the next beneficiary. Therefore this class can contain just the session info we wish to remove."""@en .
 
   inrupt_gen:hasSessionInfo a rdf:Property ;
     rdfs:isDefinedBy inrupt_gen: ;

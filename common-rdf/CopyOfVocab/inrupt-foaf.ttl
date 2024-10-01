@@ -64,7 +64,7 @@ foaf:Image a owl:Class, rdfs:Class;
     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing";
     rdfs:subClassOf foaf:Document.
 foaf:LabelProperty a owl:Class, rdfs:Class;
-    rdfs:comment "A foaf:LabelProperty is any RDF property with texual values that serve as labels.";
+    rdfs:comment "A foaf:LabelProperty is any RDF property with textual values that serve as labels.";
     rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
     rdfs:label "Label Property";
     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable".
