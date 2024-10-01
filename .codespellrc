@@ -2,5 +2,6 @@
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
 skip = .git*,package-lock.json,.codespellrc
 check-hidden = true
-# ignore-regex = 
+# ignore non-english localizations, or symbols with umlauts etc, parts of URLs
+ignore-regex = .*"@\S+(?<!@en)|.*([úáüé]|Dienstleistungen|Seriennummer|Haarschnitt|puramente|en (una|tus)| de los |ser completamente|Par exemple).*|https?://\S+|DELETEing|nameAndPrefixOverride: ore
 # ignore-words-list =
