@@ -172,7 +172,7 @@ inrupt_common:authenticationTokenAsJwt a rdf:Property ;
     rdfs:comment """An authentication token encoded as a JSON Web Token (JWT). This JWT may
  contain not just an access code, but also user account IDs or other information."""@en ;
     rdfs:comment """Un token de autenticación codificado como JSON Web Token (JWT). Este JWT puede
- contener no solo un código de acceso, sino también ID de cuenta de usuario u otra información."""@es .
+ container no solo un código de acceso, sino también ID de cuenta de usuario u otra información."""@es .
 
 inrupt_common:accessTokenAsString a rdf:Property ;
     rdfs:isDefinedBy inrupt_common: ;
