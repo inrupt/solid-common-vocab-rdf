@@ -16,8 +16,8 @@ prefix ws:       <http://www.w3.org/ns/pim/space#>
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
-# So we very deliberately re-use the underlying vocab's namespace, but use our
-# own prefix to try and differentiate. 
+# So we very deliberately reuse the underlying vocab's namespace, but use our
+# own prefix to try and differentiate.
 #
 prefix inrupt_gen: <https://w3id.org/inrupt/namespace/vocab/tool/artifact_generator/>
 prefix ws_solid_ext: <https://w3id.org/inrupt/namespace/vocabextension/ws#>

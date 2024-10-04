@@ -100,7 +100,7 @@ inrupt_consent:latestConsentInstance a rdf:Property ;
 inrupt_consent:ConsentContainer a rdfs:Class ;
     rdfs:isDefinedBy inrupt_consent: ;
     rdfs:label "Consent Container"@en ;
-    rdfs:comment """Consent container (which is a collection of Consent occurances)."""@en .
+    rdfs:comment """Consent container (which is a collection of Consent occurrences)."""@en .
 
 inrupt_consent:hasConsentContainer a rdf:Property ;
     rdfs:isDefinedBy inrupt_consent: ;

@@ -19,7 +19,7 @@ prefix solid_oidc_inrupt_ext: <https://w3id.org/inrupt/vocab/extension/solid_oid
 # vocabularies, specifically to add extra features, such as multilingual
 # values for labels and comments.
 #
-# So we very deliberately re-use the underlying vocab's namespace, but use our
+# So we very deliberately reuse the underlying vocab's namespace, but use our
 # own prefix to try and differentiate.
 #
 solid_oidc_inrupt_ext: a inrupt_gen:OntologyExtension ;
@@ -35,7 +35,7 @@ solid_oidc_inrupt_ext: a inrupt_gen:OntologyExtension ;
 
 
 solid:WebId a rdfs:Class ;
-    rdfs:isDefinedBy solid_oidc_inrupt_ext: .
+    rdfs:isDefinedBy solid_oidc_inrupt_ext: ;
     rdfs:label "Class of WebID"@en ;
     rdfs:comment "The class of WebIDs - where a WebID is an HTTP URI which refers to an Agent (Person, Organization, Device, etc.)."@en .
 

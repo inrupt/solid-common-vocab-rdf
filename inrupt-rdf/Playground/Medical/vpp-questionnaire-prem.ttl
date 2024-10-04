@@ -93,7 +93,7 @@ vpp_prem:_sectionNatureOfStay a owl:NamedIndividual, vpp_qcommon:Section ;
 vpp_prem:_questionAdvanceInfoFromReferringPhysicanOnPreparation a owl:NamedIndividual, sur:Question ;
     rdfs:isDefinedBy vpp_prem:_Ontology ;
     rdfs:label
-        "Advance info from referring physican on preparation"@en ,
+        "Advance info from referring physician on preparation"@en ,
         ""@fr ,
         ""@nl ;
     rdfs:comment

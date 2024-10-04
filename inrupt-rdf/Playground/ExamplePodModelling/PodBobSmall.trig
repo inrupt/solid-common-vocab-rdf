@@ -365,7 +365,7 @@ bob-storage: {  # If a quad serialization was asked for in the 'Accept:' header.
   ex:binaryFile <https://pod.provider.example.com/binary/resource/image-GUID> ;
   ex:gpsLat "20.423" ;
   ex:gpsLong "20.423" ;
-  ex:apeture "??" .
+  ex:aperture "??" .
 
 # GET /public/blog/entry-1
 # ...ALL OF THE ABOVE (plus LDP triples for 'ldp:RDFSource')
