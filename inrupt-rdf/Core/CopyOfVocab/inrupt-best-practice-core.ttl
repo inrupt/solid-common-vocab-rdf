@@ -36,7 +36,7 @@ inrupt_bp_core:BestPractice a rdfs:Class ;
     rdfs:label "Best Practice"@en ;
     rdfs:label "Mejores prácticas"@es ;
     rdfs:comment """A Best Practice is a commercial or professional procedure that is accepted or prescribed as being correct or most effective."""@en ;
-    rdfs:comment """Una Buena Práctica es un procedimiento commercial o profesional que se acepta o prescribe como correcto o más efectivo."""@en .
+    rdfs:comment """Una Buena Práctica es un procedimiento comercial o profesional que se acepta o prescribe como correcto o más efectivo."""@es .
 
 inrupt_bp_core:Detail a rdfs:Class ;
     rdfs:isDefinedBy inrupt_bp_core:_Ontology ;
