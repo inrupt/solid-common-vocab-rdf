@@ -11,7 +11,7 @@
 # list file.
 #
 artifactName: vocab-inrupt-test
-artifactGeneratorVersion: 3.1.1
+artifactGeneratorVersion: 4.0.0
 
 versioning:
   type: git
@@ -59,7 +59,7 @@ artifactToGenerate:
         command: "mvn deploy"
       - key: "cloudsmith"
         command: "mvn -s /home/runner/work/solid-common-vocab-rdf/solid-common-vocab-rdf/settings.xml deploy --log-file ../../../mvn-deploy.log"
-      packagingTemplates: 
+      packagingTemplates:
       - templateInternal: solidCommonVocabDependent/java/rdf4j/pom.hbs
         fileName: pom.xml
       repository:
