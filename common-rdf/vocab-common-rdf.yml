@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-common-rdf
-artifactGeneratorVersion: 3.1.1
+artifactGeneratorVersion: 4.0.0
 
 versioning:
   type: git
@@ -750,7 +750,7 @@ vocabList:
     inputResources:
       - https://w3c.github.io/dx-connegp/connegp/altr.ttl
     # Namespace IRI is missing trailing '#' - so provide it:
-    namespaceIriOverride: http://www.w3.org/ns/dx/connegp/altp#
+    namespaceIriOverride: http://www.w3.org/ns/dx/connegp/altr#
     # This vocab defines terms that are not actually defined in the vocabulary
     # itself. For instance it defines 'rdf:Resource', and a couple of Dublin
     # Core terms, to provide extra contextual information for the vocabulary
@@ -941,9 +941,10 @@ vocabList:
     ignoreNonVocabTerms: true
 
   # This NeoGeo vocab is pulled in by GeoNames via 'owl:import'.
-  - nameAndPrefixOverride: neogeo
-    inputResources:
-      - http://geovocab.org/spatial
+  # 2024-10-04 The vocab is no longer accessible as the domain registration has expired.
+  #  - nameAndPrefixOverride: neogeo
+  #    inputResources:
+  #      - http://geovocab.org/spatial
 
   - nameAndPrefixOverride: qudt
     inputResources:
@@ -952,6 +953,7 @@ vocabList:
 
   - inputResources:
       - https://w3id.org/dpv#
+    ignoreNonVocabTerms: true
 
   - inputResources:
       - https://w3id.org/dpv/dpv-pd#
@@ -969,10 +971,11 @@ vocabList:
     inputResources:
       - http://purl.org/ontology/bibo/
     ignoreNonVocabTerms: true
-    vocabContentTypeHeaderOverride: "application/rdf+xml"
 
   - inputResources:
       - https://w3id.org/semanticarts/ontology/gistCore
+    nameAndPrefixOverride: gist
+    ignoreNonVocabTerms: true
 
   - nameAndPrefixOverride: auto_vc
     inputResources:
@@ -1037,7 +1040,8 @@ vocabList:
 #    namespaceIriOverride: http://www.w3.org/ns/spec
 
   - inputResources:
-      - http://rdf-vocabulary.ddialliance.org/xkos#
+      - http://rdf-vocabulary.ddialliance.org/xkos.ttl
+    vocabContentTypeHeaderOverride: text/turtle
 
   #
   # The Profiles Vocabulary namespace 'http://www.w3.org/ns/dx/prof/' only

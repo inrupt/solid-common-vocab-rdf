@@ -18,7 +18,7 @@
 #
 
 artifactName: vocab-solid
-artifactGeneratorVersion: 3.1.1
+artifactGeneratorVersion: 4.0.0
 
 versioning:
   type: git
@@ -450,6 +450,6 @@ vocabList:
 
   - inputResources:
       - ./CopyOfVocab/solid-service-description.ttl
-      
+
   - inputResources:
       - ./CopyOfVocab/solid-data-discovery.ttl
