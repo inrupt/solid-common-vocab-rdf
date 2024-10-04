@@ -46,7 +46,7 @@ inrupt_common:_PrefixDeclaration a sh:PrefixDeclaration ;
 # existing vocabs such as SOSA (http://www.w3.org/ns/sosa), SSN
 # (http://www.w3.org/ns/ssn), or SAREF.
 #
-# Note: Schema.org has a 'device' term, but apparently it's been superceded by
+# Note: Schema.org has a 'device' term, but apparently it's been superseded by
 # 'https://schema.org/availableOnDevice' (according to
 # 'https://schema.org/SoftwareApplication').
 #
@@ -115,7 +115,7 @@ inrupt_common:partialIdHint a rdf:Property ;
  overall questionnaire process may aggregate resources for participant
  invitation; the questions being asked; the answers given; the sharing of
  those answers; the anonymization of those answers; the aggregation of those
- answers into an overall dataset; the geneation of an analysis report; etc.).
+ answers into an overall dataset; the generation of an analysis report; etc.).
   For helpful tracking of all these resources, we may choose to use a
  consistent ID as part of the IRI of each constituent resource, but where each
  resource is hosted in a Pod related to that process stakeholder, and
